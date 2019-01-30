@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>NostrumBioDiscover Cluster - DOCUMENTATION &mdash; NBD Cluster Documentation 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="PELE" href="pele_documentation.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> NBD Cluster Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="pele_documentation.html">PELE</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="md_documentation.html">MD</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">NBD Cluster Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>NostrumBioDiscover Cluster -  DOCUMENTATION</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nostrumbiodiscover-cluster-documentation">
+<h1>NostrumBioDiscover Cluster -  DOCUMENTATION<a class="headerlink" href="#nostrumbiodiscover-cluster-documentation" title="Permalink to this headline">¶</a></h1>
+<p>The NBD Linux Cluster consists of 5 computing nodes  with 2 GPUS NVIDIA GeForceTM GTX 1080 and 1 xeon Gold Processors, for a total of 306 cores (384 HT threads).  It is configured with 576 Gb of total memory and 6 TB of NFS disk space, although more storage can be transparently added. The cluster has a theoretical peak performance of 12.6TFlops and 57.5 TFlops including the GPUs.  All NBD nodes run Linux Centos 7.4 and support queue system through slurm workload manager. User data space is supported by 2xHD 1TB, 6 Gb/s 7.200 r.p.m 3,5 64MB Nearline Enterprise Storage controlled over a login node at 10GbE.</p>
+<p>This infrastructure is dedicated to:</p>
+<ul class="simple">
+<li>PELE++ ( <a class="reference external" href="PELE/index.html">PELE docs</a> )</li>
+<li>Adaptive PELE Simulation (<a class="reference external" href="https://adaptivepele.github.io/AdaptivePELE/">Adaptive docs</a>)</li>
+<li>NAMD Molecular Dynamics (<a class="reference external" href="http://www.ks.uiuc.edu/Research/namd/">NAMD docs</a>)</li>
+</ul>
+</div>
+<div class="section" id="pele-tutorial">
+<h1>PELE Tutorial<a class="headerlink" href="#pele-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pele_documentation.html">PELE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pele_documentation.html#pele-tutorial">PELE Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pele_documentation.html#templates-for-launching-pele">Templates for launching PELE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pele_documentation.html#adaptive-tutorial">Adaptive Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pele_documentation.html#templates-for-launching-adaptivepele">Templates for launching AdaptivePELE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pele_documentation.html#templates-for-analysing-pele-adaptivepele">Templates for Analysing PELE&amp;AdaptivePELE:</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="md-documentation">
+<h1>MD Documentation<a class="headerlink" href="#md-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="md_documentation.html">MD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="md_documentation.html#md-tutorial">MD Tutorial:</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pele_documentation.html" class="btn btn-neutral float-right" title="PELE" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Daniel Soler Viladrich
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
