@@ -28,4 +28,15 @@ xeon Gold Processors, for a total of 192 cores (384 HT threads). Includes 4 GPUs
 
 PRIVATE STORAGE SERVER
 =======================
-Unimplemented 
+The NBD Server contains 7T of personal storage
+and 7 more for daily back ups of all other machines
+
+.. toctree::
+   NBD_SERVER/index.rst
+
+RES
+=======================
+The RES server is meant to run ModTox project
+
+.. toctree::
+   RES/index.rst
