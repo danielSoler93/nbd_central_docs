@@ -1,0 +1,27 @@
+.. NBD documentation master file, created by
+   sphinx-quickstart on Mon Dec  4 11:58:09 2017.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Data
+=============
+
+Data is meant as a storing folders
+for drug discovery libraries and analisis scripts
+
+The current space is:
+
+    - Capacity: 2.5T
+    - Occupied : 1.8T  
+    - Available: 781GB 
+    - Usage : 70%
+
+.. toctree::
+   modtox
+
+.. toctree::
+   libraries
+
+.. toctree::
+   utilities
+

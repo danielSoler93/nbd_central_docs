@@ -3,31 +3,29 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-NostrumBioDiscover Cluster -  DOCUMENTATION
+NostrumBioDiscovery
 ===========================================
 
-The NBD Linux Cluster consists of 5 computing nodes  with 2 GPUS NVIDIA GeForceTM GTX 1080 and 1 xeon Gold Processors, for a total of 306 cores (384 HT threads).  It is configured with 576 Gb of total memory and 6 TB of NFS disk space, although more storage can be transparently added. The cluster has a theoretical peak performance of 12.6TFlops and 57.5 TFlops including the GPUs.  All NBD nodes run Linux Centos 7.4 and support queue system through slurm workload manager. User data space is supported by 2xHD 1TB, 6 Gb/s 7.200 r.p.m 3,5 64MB Nearline Enterprise Storage controlled over a login node at 10GbE.
+NBD combines powerful in-house innovative technologies with deep industrial expertise in biomolecular modelling, and leads several successful exploratory discovery projects in partnership with academia. NBD provides tailored, flexible services to help its pharma and biotech clients overcome their early discovery bottlenecks. Dedication and ethics are also key values of our company.
 
-This infrastructure is dedicated to:
+`Nostrum BioDiscovery website <http://nostrumbiodiscovery.com/>`_
 
-- PELE++ ( `PELE docs <PELE/index.html>`_ )
+Private Cluster
+===================
+The NBD Linux Cluster consists of 6 computing nodes with 4 GPUS NVIDIA GeForceTM GTX 1080 and 1
+xeon Gold Processors, for a total of 192 cores (384 HT threads). Includes 4 GPUs for offloading calculations.
 
-- Adaptive PELE Simulation (`Adaptive docs <https://adaptivepele.github.io/AdaptivePELE/>`_)
-
-- NAMD Molecular Dynamics (`NAMD docs <http://www.ks.uiuc.edu/Research/namd/>`_)
-
-
-PELE
-=====
 .. toctree::
-   pele_documentation
+   NBD_CLUSTER/index.rst
 
-AdaptivePELE
-=============
+Private OfficeGPU AK40
+=========================
+The NBD Linux Cluster consists of 6 computing nodes with 4 GPUS NVIDIA GeForceTM GTX 1080 and 1
+xeon Gold Processors, for a total of 192 cores (384 HT threads). Includes 4 GPUs for offloading calculations.
+
 .. toctree::
-   adaptive_documentation
-  
-MD
-===
-.. toctree::
-   md_documentation
+   NBDCALC/index.rst
+
+PRIVATE STORAGE SERVER
+=======================
+Unimplemented 

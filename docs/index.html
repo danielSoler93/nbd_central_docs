@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>NostrumBioDiscover Cluster - DOCUMENTATION &mdash; NBD Docs 1.0.0 documentation</title>
+  <title>NostrumBioDiscovery &mdash; NBD Docs 1.0.0 documentation</title>
   
 
   
@@ -17,33 +17,35 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="PELE" href="pele_documentation.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+    <link rel="next" title="Main Cluster" href="NBD_CLUSTER/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -82,13 +84,10 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="pele_documentation.html">PELE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NBD_CLUSTER/index.html">Main Cluster</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="adaptive_documentation.html">AdaptivePELE</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="md_documentation.html">MD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NBDCALC/index.html">NbdCalc01</a></li>
 </ul>
 
             
@@ -134,7 +133,7 @@
     
       <li><a href="#">Docs</a> &raquo;</li>
         
-      <li>NostrumBioDiscover Cluster -  DOCUMENTATION</li>
+      <li>NostrumBioDiscovery</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -153,52 +152,83 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="nostrumbiodiscover-cluster-documentation">
-<h1>NostrumBioDiscover Cluster -  DOCUMENTATION<a class="headerlink" href="#nostrumbiodiscover-cluster-documentation" title="Permalink to this headline">¶</a></h1>
-<p>The NBD Linux Cluster consists of 5 computing nodes  with 2 GPUS NVIDIA GeForceTM GTX 1080 and 1 xeon Gold Processors, for a total of 306 cores (384 HT threads).  It is configured with 576 Gb of total memory and 6 TB of NFS disk space, although more storage can be transparently added. The cluster has a theoretical peak performance of 12.6TFlops and 57.5 TFlops including the GPUs.  All NBD nodes run Linux Centos 7.4 and support queue system through slurm workload manager. User data space is supported by 2xHD 1TB, 6 Gb/s 7.200 r.p.m 3,5 64MB Nearline Enterprise Storage controlled over a login node at 10GbE.</p>
-<p>This infrastructure is dedicated to:</p>
-<ul class="simple">
-<li>PELE++ ( <a class="reference external" href="PELE/index.html">PELE docs</a> )</li>
-<li>Adaptive PELE Simulation (<a class="reference external" href="https://adaptivepele.github.io/AdaptivePELE/">Adaptive docs</a>)</li>
-<li>NAMD Molecular Dynamics (<a class="reference external" href="http://www.ks.uiuc.edu/Research/namd/">NAMD docs</a>)</li>
-</ul>
+  <div class="section" id="nostrumbiodiscovery">
+<h1>NostrumBioDiscovery<a class="headerlink" href="#nostrumbiodiscovery" title="Permalink to this headline">¶</a></h1>
+<p>NBD combines powerful in-house innovative technologies with deep industrial expertise in biomolecular modelling, and leads several successful exploratory discovery projects in partnership with academia. NBD provides tailored, flexible services to help its pharma and biotech clients overcome their early discovery bottlenecks. Dedication and ethics are also key values of our company.</p>
+<p><a class="reference external" href="http://nostrumbiodiscovery.com/">Nostrum BioDiscovery website</a></p>
 </div>
-<div class="section" id="pele">
-<h1>PELE<a class="headerlink" href="#pele" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="private-cluster">
+<h1>Private Cluster<a class="headerlink" href="#private-cluster" title="Permalink to this headline">¶</a></h1>
+<p>The NBD Linux Cluster consists of 6 computing nodes with 4 GPUS NVIDIA GeForceTM GTX 1080 and 1
+xeon Gold Processors, for a total of 192 cores (384 HT threads). Includes 4 GPUs for offloading calculations.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="pele_documentation.html">PELE</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pele_documentation.html#tutorial">Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pele_documentation.html#templates-for-launching">Templates for launching</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pele_documentation.html#templates-for-analysis">Templates for analysis:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NBD_CLUSTER/index.html">Main Cluster</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="NBD_CLUSTER/software.html">SOFTWARE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="NBD_CLUSTER/pele_documentation.html">PELE</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="NBD_CLUSTER/pele_documentation.html#compilation">Compilation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="NBD_CLUSTER/pele_documentation.html#tutorial">Tutorial</a></li>
+<li class="toctree-l4"><a class="reference internal" href="NBD_CLUSTER/pele_documentation.html#templates-for-launching">Templates for launching</a></li>
+<li class="toctree-l4"><a class="reference internal" href="NBD_CLUSTER/pele_documentation.html#templates-for-analysis">Templates for analysis:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="NBD_CLUSTER/adaptive_documentation.html">AdaptivePELE</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="NBD_CLUSTER/adaptive_documentation.html#tutorial">Tutorial</a></li>
+<li class="toctree-l4"><a class="reference internal" href="NBD_CLUSTER/adaptive_documentation.html#templates-for-launching">Templates for launching</a></li>
+<li class="toctree-l4"><a class="reference internal" href="NBD_CLUSTER/adaptive_documentation.html#templates-for-analysis">Templates for analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="NBD_CLUSTER/md_documentation.html">MD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="NBD_CLUSTER/md_documentation.html#md-tutorial">MD Tutorial:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="NBD_CLUSTER/storage.html">STORAGE &amp; FOLDERS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="NBD_CLUSTER/scratch.html">Scratch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NBD_CLUSTER/work.html">Work</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="NBD_CLUSTER/utilities.html">NBD Utilities</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="NBD_CLUSTER/home.html">Home</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div class="section" id="adaptivepele">
-<h1>AdaptivePELE<a class="headerlink" href="#adaptivepele" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="private-officegpu-ak40">
+<h1>Private OfficeGPU AK40<a class="headerlink" href="#private-officegpu-ak40" title="Permalink to this headline">¶</a></h1>
+<p>The NBD Linux Cluster consists of 6 computing nodes with 4 GPUS NVIDIA GeForceTM GTX 1080 and 1
+xeon Gold Processors, for a total of 192 cores (384 HT threads). Includes 4 GPUs for offloading calculations.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="adaptive_documentation.html">AdaptivePELE</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="adaptive_documentation.html#tutorial">Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adaptive_documentation.html#templates-for-launching">Templates for launching</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adaptive_documentation.html#templates-for-analysis">Templates for analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NBDCALC/index.html">NbdCalc01</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="NBDCALC/software.html">SOFTWARE</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="NBDCALC/storage.html">STORAGE &amp; FOLDERS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="NBDCALC/scratch.html">Scratch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NBDCALC/data.html">Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="NBDCALC/utilities.html">NBD Utilities</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="NBDCALC/home.html">Home</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div class="section" id="md">
-<h1>MD<a class="headerlink" href="#md" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="md_documentation.html">MD</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="md_documentation.html#md-tutorial">MD Tutorial:</a></li>
-</ul>
-</li>
-</ul>
-</div>
+<div class="section" id="private-storage-server">
+<h1>PRIVATE STORAGE SERVER<a class="headerlink" href="#private-storage-server" title="Permalink to this headline">¶</a></h1>
+<p>Unimplemented</p>
 </div>
 
 
@@ -209,7 +239,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="pele_documentation.html" class="btn btn-neutral float-right" title="PELE" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="NBD_CLUSTER/index.html" class="btn btn-neutral float-right" title="Main Cluster" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -236,26 +266,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

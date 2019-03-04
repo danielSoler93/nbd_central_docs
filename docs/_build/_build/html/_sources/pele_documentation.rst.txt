@@ -5,6 +5,10 @@ PELE
 .. toctree::
    :maxdepth: 2
 
+Compilation
+--------------
+
+You can find a README file explaining how to compile PELE on NBD cluster under **/work/NBD_Utilities/PELE/PELE_Compilation/intel**
 
 Tutorial
 --------------
