@@ -8,15 +8,20 @@ SOFTWARE
 
 The NBD cluster infrastructure is mainly dedicated to:
 
+- Python Scripts (`All packages in  <https://anaconda.org/nostrumbiodiscovery/repo?type=conda&label=main>`_)
+
 - GLIDE ( `Schrodinger Docs  <https://www.schrodinger.com/>`_ )
 
 - CPPTRAJ (`CppTraj tutorials <http://ambermd.org/tutorials/analysis/>`_)
 
 
 .. toctree::
-   glide
+   python/packages
+
+.. toctree::
+   glide/scripts
 
 
 .. toctree::
-   cpptraj
+   cpptraj/scripts
 

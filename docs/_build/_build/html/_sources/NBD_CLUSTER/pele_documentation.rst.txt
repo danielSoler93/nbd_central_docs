@@ -25,6 +25,8 @@ You can find PELE tutorial under the folder **/work/NBD_Utilities/PELE/PELE_Tuto
 
     - PELE_PCA: Tutorial on how to produce a PCA from several X-rays and plug that one into PELE
 
+    - PELE_PLATFORM: Tutorial on how to launch pele from NBDServer using PELE's Platform
+
 
 Templates for launching
 -----------------------------

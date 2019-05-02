@@ -10,8 +10,8 @@ The NBD Linux Cluster consists of 5 computing nodes  with 2 GPUS NVIDIA GeForceT
 
 
 .. toctree::
-   software
+   software/software
 
 
 .. toctree::
-   storage
+   storage/storage

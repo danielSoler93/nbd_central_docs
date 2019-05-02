@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-NbdCalc01 
+Nbdcalc01 
 ===========================================
 
 OfficeGPU AK40: The NBD GPU Linux Server consists of 28-core processors and 1 GPU AK40 of 11GB. It is
@@ -14,8 +14,8 @@ This infrastructure is dedicated to Glide, SiteMap, Jaguar and all types of schr
 
 
 .. toctree::
-   software
+   software/software
 
 
 .. toctree::
-   storage
+   storage/storage
