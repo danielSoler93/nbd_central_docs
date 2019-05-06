@@ -5,6 +5,16 @@ AdaptivePELE
 .. toctree::
    :maxdepth: 2
 
+.. figure:: adaptive.png
+    :scale: 40%
+    :align: center
+
+
+Full documentation
+------------------------
+
+`Adaptive docs <https://adaptivepele.github.io/AdaptivePELE/>`_
+
 
 Tutorial
 --------

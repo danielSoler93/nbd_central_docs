@@ -5,6 +5,17 @@ PELE
 .. toctree::
    :maxdepth: 2
 
+
+
+.. figure:: pele_workflow.png
+    :scale: 40%
+    :align: center
+
+Full documentation
+--------------------
+
+`PELE docs <../../../PELE/index.html>`_
+
 Compilation
 --------------
 
@@ -37,7 +48,7 @@ You can find a PELE input (.conf) and a launching file (.sl) for the NBD cluster
 
 
 
-Templates for analysis:
+Templates for analysis
 -------------------------
 
 You can find an analysis file with everything explain inside under:

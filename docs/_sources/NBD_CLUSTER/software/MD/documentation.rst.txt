@@ -5,6 +5,14 @@ MD
 .. toctree::
    :maxdepth: 2
 
+.. figure:: md.gif
+    :scale: 100%
+    :align: center
+
+Full documentation
+------------------------
+
+`NAMD docs <http://www.ks.uiuc.edu/Research/namd/>`_
 
 MD Tutorial:
 --------------
