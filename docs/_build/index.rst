@@ -14,32 +14,21 @@ NBD combines powerful in-house innovative technologies with deep industrial expe
 
 .. centered:: `Nostrum BioDiscovery website <http://nostrumbiodiscovery.com/>`_
 
-Private Cluster
+Technologies
+===============
+Our competitive advantage relies on combining supercomputing with both proprietary and best-of-market software technologies, which we have optimized for industrial needs in biomolecular modelling.
+
+.. toctree::
+   software/index.rst
+
+
+Compute Power
 ===================
-The NBD Linux Cluster consists of 6 computing nodes with 4 GPUS NVIDIA GeForceTM GTX 1080 and 1
-xeon Gold Processors, for a total of 192 cores (384 HT threads). Includes 4 GPUs for offloading calculations.
+The NBD infrastructure consists of 1 private cluster 1 officeGPU computer
+a private storage server and a backup machine. Also, thanks to Spanish social net
+grant we use the Marenostrum4 to run molecular dynamics for our inside modtox
+project
 
 .. toctree::
-   NBD_CLUSTER/index.rst
+   compute_power/index.rst
 
-Private OfficeGPU AK40
-=========================
-The NBD OfficeGPU consists of 28 nodes for schrodinger calculations as well as general analysis tools.
-
-.. toctree::
-   NBDCALC/index.rst
-
-PRIVATE STORAGE SERVER
-=======================
-The NBD Server contains 7T of personal storage
-and 7 more for daily back ups of all other machines
-
-.. toctree::
-   NBD_SERVER/index.rst
-
-RES
-=======================
-The RES server is meant to run ModTox project
-
-.. toctree::
-   RES/index.rst
