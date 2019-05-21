@@ -8,7 +8,7 @@ Software
 
 The NBD's main technologies are:
 
-- PELE++ ( `PELE docs <PELE/index.html>`_ )
+- PELE++ ( `PELE docs <../PELE/index.html>`_ )
 
 - Adaptive PELE Simulation (`Adaptive PELE docs <https://adaptivepele.github.io/AdaptivePELE/>`_)
 
