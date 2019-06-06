@@ -38,4 +38,13 @@ The NBD's main technologies are:
 .. toctree::
    python/packages
 
+Tests
+==========
+
+Here you will find information of the automatic tests
+run on nbdcalc01 computer
+
+
+.. toctree::
+   tests/index
 
