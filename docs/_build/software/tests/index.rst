@@ -32,12 +32,12 @@ Every day the deployment (installation & tests) of the next packages will be tes
 
 1) 1:00 am --> python packages (analgos_finder, modtox & miscellaneous packages)
 
-2) 1:30 am --> frag_pele
+2) 2:00 am --> frag_pele
 
-3) 2:00 am --> adaptive_pele
+3) 2:30 am --> adaptive_pele
 
-4) 2:30 am --> msm_pele
+4) 3:00 am --> msm_pele
 
-3) 3:00 am --> PELE
+3) 3:30 am --> PELE
 
 
