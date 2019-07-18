@@ -1,0 +1,79 @@
+############################
+Preparation of the System
+############################
+
+The preparation of the system is a key point in PELE simulations, since most of the errors arise due to problems in this step. 
+
+***********************
+Receptor Preparation
+***********************
+
+Prepare the receptor by removing non important water molecules, alternate locations, adding hydrogens, etc...
+
+==========
+Maestro
+==========
+
+Download (or load) the target PDB file in the maestro suite. Proteins obtained directly from the PDB could have several problems:
+
+- No hydrogens molecules
+- Missing side chains
+- Unnecessary water molecules
+- No coordination bonds
+
+Run Protein Preparation Wizard will solve almost all of this problems or it will call the necessary plugins to solve them (Prime for missing side chains for example). Then using the Refine option the pH of the system could be set up towards the project needs. 
+
+Finally, the protein has to be merge with the ligand molecule in a single PDB  file.  
+
+====
+PPP
+====
+
+Run the experimental PPP module to make sure all terminal
+atoms are properly name and to change water atom naming.
+
+Report any know issue to: daniel.soler@nostrumbiodiscovery.com
+
+
+
+*************************
+Ligand Preparation
+*************************
+
+To prepare the ligand you must create a DataLocal folder
+placing the template "resz" at :file:`DataLocal/Templates/<forcefield>/HeteroAtoms/`
+and the romater file "RES.ROT.ASSIGN" at :file:`DataLocal/RotamerLibs/`
+as explain in the section `DataLocal Folder <../../molecularParameters.html>`__
+
+===========================================
+Ligand Parameters with OPLS2005 charges
+===========================================
+
+    1. Prepare ligand molecule using LigPrep module in Schrodinger Program Suite to assign protonation state at pH 7.4 ± 0.5 and tautomerization of the molecule.
+
+
+    2. The output maestro file (“file.01.mae”) will be used to generate the ligand parameter file using this command: 
+    
+        - python /path/to/schordinger/python PlopRotTemp_S_2017/main.py  file.01.mae
+
+
+    3. Copy the template ligz and the rotamer files LIG.ROT.ASSIGN to DataLocal as explained above
+
+    
+    PlopRotTemp can be downloaded from: https://github.com/danielSoler93/PlopRotTemp_S_2017.git
+
+===========================================
+Ligand Parameters with Jaguar ESP charges
+===========================================
+
+    
+    The electrostatic potential (ESP) fitted charge to ligand can be assigned to Ligand Parameter´s file by performing following step:
+    
+
+    1. Prepare ligand molecule using LigPrep module in Schrodinger Program Suite to assign protonation state at pH 7.4 ± 0.5 and tautomerization of the molecule.
+
+    2. Prepare the QM Jaguar input file to run short optimization (5 steps) only to minimize the structural parameters while keeping the bound conformation. Using Jaguar software at M06/6-31G** level of theory.
+
+    3. Prepare the QM Jaguar input file to run a single-point calculation at M06/6-31G** level of theory by specific writing output of ESP charges.
+
+    4. Run PlopRotTemp as explained above.

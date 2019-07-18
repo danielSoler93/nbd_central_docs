@@ -1,0 +1,200 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Preparation of the System &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
+    <link rel="stylesheet" href="../../_static/naturemodified.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.5.${BUILD_TAG}',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Basic Analysis" href="../GeneralAnalysis/GeneralAnalysis.html" />
+    <link rel="prev" title="Introduction" href="../intro.html" /> 
+    <script type="text/javascript" >
+    MathJax.Hub.Config({
+        TeX: { 
+	  Macros: {
+	    AA: '{\\unicode{xC5}}'
+	  }
+	}
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../GeneralAnalysis/GeneralAnalysis.html" title="Basic Analysis"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../intro.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../intro.html" accesskey="U">Introduction</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="preparation-of-the-system">
+<h1>Preparation of the System<a class="headerlink" href="#preparation-of-the-system" title="Permalink to this headline">¶</a></h1>
+<p>The preparation of the system is a key point in PELE simulations, since most of the errors arise due to problems in this step.</p>
+<div class="section" id="receptor-preparation">
+<h2>Receptor Preparation<a class="headerlink" href="#receptor-preparation" title="Permalink to this headline">¶</a></h2>
+<p>Prepare the receptor by removing non important water molecules, alternate locations, adding hydrogens, etc…</p>
+<div class="section" id="maestro">
+<h3>Maestro<a class="headerlink" href="#maestro" title="Permalink to this headline">¶</a></h3>
+<p>Download (or load) the target PDB file in the maestro suite. Proteins obtained directly from the PDB could have several problems:</p>
+<ul class="simple">
+<li>No hydrogens molecules</li>
+<li>Missing side chains</li>
+<li>Unnecessary water molecules</li>
+<li>No coordination bonds</li>
+</ul>
+<p>Run Protein Preparation Wizard will solve almost all of this problems or it will call the necessary plugins to solve them (Prime for missing side chains for example). Then using the Refine option the pH of the system could be set up towards the project needs.</p>
+<p>Finally, the protein has to be merge with the ligand molecule in a single PDB  file.</p>
+</div>
+<div class="section" id="ppp">
+<h3>PPP<a class="headerlink" href="#ppp" title="Permalink to this headline">¶</a></h3>
+<p>Run the experimental PPP module to make sure all terminal
+atoms are properly name and to change water atom naming.</p>
+<p>Report any know issue to: <a class="reference external" href="mailto:daniel&#46;soler&#37;&#52;&#48;nostrumbiodiscovery&#46;com">daniel<span>&#46;</span>soler<span>&#64;</span>nostrumbiodiscovery<span>&#46;</span>com</a></p>
+</div>
+</div>
+<div class="section" id="ligand-preparation">
+<h2>Ligand Preparation<a class="headerlink" href="#ligand-preparation" title="Permalink to this headline">¶</a></h2>
+<p>To prepare the ligand you must create a DataLocal folder
+placing the template “resz” at <code class="file docutils literal"><span class="pre">DataLocal/Templates/&lt;forcefield&gt;/HeteroAtoms/</span></code>
+and the romater file “RES.ROT.ASSIGN” at <code class="file docutils literal"><span class="pre">DataLocal/RotamerLibs/</span></code>
+as explain in the section <a class="reference external" href="../../molecularParameters.html">DataLocal Folder</a></p>
+<div class="section" id="ligand-parameters-with-opls2005-charges">
+<h3>Ligand Parameters with OPLS2005 charges<a class="headerlink" href="#ligand-parameters-with-opls2005-charges" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Prepare ligand molecule using LigPrep module in Schrodinger Program Suite to assign protonation state at pH 7.4 ± 0.5 and tautomerization of the molecule.</p>
+</li>
+<li><p class="first">The output maestro file (“file.01.mae”) will be used to generate the ligand parameter file using this command:</p>
+<blockquote>
+<div><ul class="simple">
+<li>python /path/to/schordinger/python PlopRotTemp_S_2017/main.py  file.01.mae</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Copy the template ligz and the rotamer files LIG.ROT.ASSIGN to DataLocal as explained above</p>
+</li>
+</ol>
+<p>PlopRotTemp can be downloaded from: <a class="reference external" href="https://github.com/danielSoler93/PlopRotTemp_S_2017.git">https://github.com/danielSoler93/PlopRotTemp_S_2017.git</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="ligand-parameters-with-jaguar-esp-charges">
+<h3>Ligand Parameters with Jaguar ESP charges<a class="headerlink" href="#ligand-parameters-with-jaguar-esp-charges" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The electrostatic potential (ESP) fitted charge to ligand can be assigned to Ligand Parameter´s file by performing following step:</p>
+<ol class="arabic simple">
+<li>Prepare ligand molecule using LigPrep module in Schrodinger Program Suite to assign protonation state at pH 7.4 ± 0.5 and tautomerization of the molecule.</li>
+<li>Prepare the QM Jaguar input file to run short optimization (5 steps) only to minimize the structural parameters while keeping the bound conformation. Using Jaguar software at M06/6-31G** level of theory.</li>
+<li>Prepare the QM Jaguar input file to run a single-point calculation at M06/6-31G** level of theory by specific writing output of ESP charges.</li>
+<li>Run PlopRotTemp as explained above.</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Preparation of the System</a><ul>
+<li><a class="reference internal" href="#receptor-preparation">Receptor Preparation</a><ul>
+<li><a class="reference internal" href="#maestro">Maestro</a></li>
+<li><a class="reference internal" href="#ppp">PPP</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ligand-preparation">Ligand Preparation</a><ul>
+<li><a class="reference internal" href="#ligand-parameters-with-opls2005-charges">Ligand Parameters with OPLS2005 charges</a></li>
+<li><a class="reference internal" href="#ligand-parameters-with-jaguar-esp-charges">Ligand Parameters with Jaguar ESP charges</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../intro.html"
+                        title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../GeneralAnalysis/GeneralAnalysis.html"
+                        title="next chapter">Basic Analysis</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/intro/SystemPreparation/SystemPreparation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../GeneralAnalysis/GeneralAnalysis.html" title="Basic Analysis"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../intro.html" title="Introduction"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../intro.html" >Introduction</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+    <a href="../../index.html#license">License</a>.
+    </div>
+  </body>
+</html>

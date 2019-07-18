@@ -1,0 +1,365 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Simulation &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
+    <link rel="stylesheet" href="../../_static/naturemodified.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.5.${BUILD_TAG}',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Basic Analysis" href="../GeneralAnalysis/GeneralAnalysis.html" />
+    <link rel="prev" title="Preparation of the System" href="../SystemPreparation/SystemPreparation.html" /> 
+    <script type="text/javascript" >
+    MathJax.Hub.Config({
+        TeX: { 
+	  Macros: {
+	    AA: '{\\unicode{xC5}}'
+	  }
+	}
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../GeneralAnalysis/GeneralAnalysis.html" title="Basic Analysis"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../SystemPreparation/SystemPreparation.html" title="Preparation of the System"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../intro.html" accesskey="U">Introduction</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="simulation">
+<h1>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h1>
+<p>In this stage the PELE input is built
+and the simulation is launched</p>
+<div class="section" id="input">
+<h2>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h2>
+<p>The input of PELE is called controlFile and you can
+learn more about it in the <a class="reference external" href="../../GeneralStructure/GeneralStructure.html">controlFile section</a>.</p>
+<p>To have an idea of the main sections of the input, next we retireve a brief summary:</p>
+<ul class="simple">
+<li>General Params: These section specifies the location of the licenses. And the name of the log files (important when debugging). To read more, check the <a class="reference external" href="../../GeneralStructure/GeneralStructure.html#the-top-level-configuration-block">top-level section</a>.</li>
+</ul>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;licenseDirectoryPath&quot;</span><span class="p">:</span> <span class="s2">&quot;/opt/apps/PELE&quot;</span><span class="p">,</span>
+<span class="nt">&quot;simulationLogPath&quot;</span> <span class="p">:</span> <span class="s2">&quot;$OUTPUT_PATH/logFile.txt&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Initialization Params: Contains the setup of the system (typically pdb file(s), force field and solvent). To read more, check the <a class="reference external" href="../../Initialization/Initialization.html">initialization section</a>.</li>
+</ul>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;Initialization&quot;</span> <span class="p">:</span> <span class="p">{</span>
+ <span class="nt">&quot;allowMissingTerminals&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+ <span class="nt">&quot;ForceField&quot;</span> <span class="p">:</span> <span class="s2">&quot;OPLS2005&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;MultipleComplex&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;ref.pdb&quot;</span> <span class="p">],</span>
+ <span class="nt">&quot;Solvent&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;ionicStrength&quot;</span> <span class="p">:</span> <span class="mf">0.15</span><span class="p">,</span> <span class="nt">&quot;solventType&quot;</span> <span class="p">:</span> <span class="s2">&quot;VDGBNP&quot;</span><span class="p">,</span> <span class="nt">&quot;useDebyeLength&quot;</span> <span class="p">:</span> <span class="kc">true</span> <span class="p">}</span>
+<span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Simulation  Params: Set the ligand to be perturbed through the simulation. To read more, check the: <a class="reference external" href="../../PELE/PELESimulation.html#sec-pelesimulation">simulation section</a>.</li>
+</ul>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;commandType&quot;</span> <span class="p">:</span> <span class="s2">&quot;peleSimulation&quot;</span><span class="p">,</span>
+<span class="nt">&quot;RandomGenerator&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;seed&quot;</span> <span class="p">:</span> <span class="mi">32132</span> <span class="p">},</span>
+<span class="nt">&quot;selectionToPerturb&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;chains&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;names&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;L&quot;</span> <span class="p">]</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Output  Params: Set the name of the report (numerical values of energy &amp; SASA) and the pdb trajectories. To read more, check the: <a class="reference external" href="../../PELE/PeleOutput.html">output section</a>.</li>
+</ul>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;PELE_Output&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;savingFrequencyForAcceptedSteps&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;savingMode&quot;</span> <span class="p">:</span> <span class="s2">&quot;savingTrajectory&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;reportPath&quot;</span> <span class="p">:</span> <span class="s2">&quot;$OUTPUT_PATH/run_report&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;trajectoryPath&quot;</span> <span class="p">:</span> <span class="s2">&quot;$OUTPUT_PATH/run_trajectory.pdb&quot;</span>
+<span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>PELE  Params: Set the top level parameters for PELE simulation. This are the default parameters we use for a standard PELE simulation. For specific cases such as induced fit simulation or binding site detection  we will fine tune some of the parameters to obtain the best results. The specifics will be explained later on at the tutorial. To read more, check the: <a class="reference external" href="../../PELE/PeleParameters.html">PELE params section</a>.</li>
+</ul>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;PELE_Parameters&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;anmFrequency&quot;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="nt">&quot;sideChainPredictionFrequency&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;minimizationFrequency&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;sideChainPredictionRegionRadius&quot;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="nt">&quot;perturbationCOMConstraintConstant&quot;</span> <span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="nt">&quot;activateProximityDetection&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;temperature&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="nt">&quot;numberOfPeleSteps&quot;</span><span class="p">:</span> <span class="mi">1000</span>
+<span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Constraints  Params: This section applies permanent constraints to specific atoms. To read more about, check the: <a class="reference external" href="../../PermanentConstraints/PermanentConstraints.html">constraint section</a>.</li>
+</ul>
+<p>Generally, constraints of 0.5 are placed on the CA and 2 at the terminal to avoid the protein to collapse.</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;constraints&quot;</span><span class="p">:[</span>
+<span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;constrainAtomToPosition&quot;</span><span class="p">,</span><span class="nt">&quot;springConstant&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&quot;equilibriumDistance&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;constrainThisAtom&quot;</span><span class="p">:</span><span class="s2">&quot;A:328:_CA_&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;constrainAtomToPosition&quot;</span><span class="p">,</span><span class="nt">&quot;springConstant&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&quot;equilibriumDistance&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;constrainThisAtom&quot;</span><span class="p">:</span><span class="s2">&quot;A:358:_CA_&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;constrainAtomToPosition&quot;</span><span class="p">,</span><span class="nt">&quot;springConstant&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&quot;equilibriumDistance&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;constrainThisAtom&quot;</span><span class="p">:</span><span class="s2">&quot;A:362:_CA_&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;constrainAtomToPosition&quot;</span><span class="p">,</span><span class="nt">&quot;springConstant&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&quot;equilibriumDistance&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;constrainThisAtom&quot;</span><span class="p">:</span><span class="s2">&quot;A:612:_CA_&quot;</span><span class="p">}</span>
+<span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Perturbation Params: This section defines the exploration volume and several other characteristics: To read more about, check the: <a class="reference external" href="../../Perturbation/Perturbation.html">Perturbation section</a>.</li>
+</ul>
+<p>The box params are of utmost importance as they define the space to explore.</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;Perturbation&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="nt">&quot;Box&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;radius&quot;</span> <span class="p">:</span> <span class="mi">35</span><span class="p">,</span>
+<span class="nt">&quot;fixedCenter&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">14</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">41</span> <span class="p">],</span>
+ <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;sphericalBox&quot;</span> <span class="p">},</span>
+<span class="nt">&quot;perturbationType&quot;</span><span class="p">:</span><span class="s2">&quot;naive&quot;</span><span class="p">,</span>
+<span class="nt">&quot;translationDirection&quot;</span><span class="p">:</span> <span class="s2">&quot;random&quot;</span><span class="p">,</span>
+<span class="nt">&quot;rotationAngles&quot;</span><span class="p">:</span> <span class="s2">&quot;nonCoupled&quot;</span><span class="p">,</span>
+<span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;numberOfStericTrials&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="nt">&quot;steeringUpdateFrequency&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;overlapFactor&quot;</span><span class="p">:</span> <span class="mf">0.65</span>
+<span class="p">}</span>
+<span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>ANM Params: This section defines the anisotropic network model parameters. The lowest eigenvalues are normally used as it is well define in the literature that are the ones contributing the most to the bioactive conformation of the complex. However, only harmonic movements will be capture with this method. Check the <a class="reference external" href="../../pca.html">PCA chapter</a> to capture other type of movement from crystals or MD. To read more about anm, check the: <a class="reference external" href="../../ANM/Anm.html">ANM section</a>.</li>
+</ul>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;ANM&quot;</span> <span class="p">:</span> <span class="p">{</span>
+<span class="nt">&quot;algorithm&quot;</span><span class="p">:</span> <span class="s2">&quot;CARTESIANS&quot;</span><span class="p">,</span> <span class="nt">&quot;nodes&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;atoms&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;_CA_&quot;</span> <span class="p">]}</span> <span class="p">},</span>
+<span class="nt">&quot;ANMMinimizer&quot;</span> <span class="p">:</span> <span class="p">{</span>
+   <span class="nt">&quot;algorithm&quot;</span> <span class="p">:</span> <span class="s2">&quot;TruncatedNewton&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;parameters&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;MaximumMinimizationIterations&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;MaximumNewtonIterations&quot;</span> <span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+      <span class="nt">&quot;MinimumRMS&quot;</span> <span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+      <span class="nt">&quot;alphaUpdated&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;nonBondingListUpdatedEachMinStep&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+   <span class="p">}</span>
+<span class="p">},</span>
+<span class="nt">&quot;options&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;directionGeneration&quot;</span> <span class="p">:</span> <span class="s2">&quot;random&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;modesMixingOption&quot;</span> <span class="p">:</span> <span class="s2">&quot;mixMainModeWithOthersModes&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;pickingCase&quot;</span> <span class="p">:</span> <span class="s2">&quot;RANDOM_MODE&quot;</span>
+<span class="p">},</span>
+<span class="nt">&quot;parameters&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;displacementFactor&quot;</span> <span class="p">:</span> <span class="mf">0.75</span><span class="p">,</span>
+    <span class="nt">&quot;eigenUpdateFrequency&quot;</span> <span class="p">:</span> <span class="mi">1000000</span><span class="p">,</span>
+    <span class="nt">&quot;mainModeWeightForMixModes&quot;</span> <span class="p">:</span> <span class="mf">0.75</span><span class="p">,</span>
+    <span class="nt">&quot;modesChangeFrequency&quot;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;numberOfModes&quot;</span><span class="p">:</span> <span class="mi">6</span> <span class="p">,</span>
+    <span class="nt">&quot;relaxationSpringConstant&quot;</span> <span class="p">:</span> <span class="mf">0.5</span>
+<span class="p">}</span>
+<span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>SideChain Prediction Params: This section defines the side chain sampling simulation params. Change the sidechain resolution to 30-60 if you have a high number of rotatable bonds (4-5 connected).  To read more, check the: <a class="reference external" href="../../SideChainPrediction/SideChainPrediction.html">sidechain prediction section</a>.</li>
+</ul>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;SideChainPrediction&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;algorithm&quot;</span> <span class="p">:</span> <span class="s2">&quot;zhexin&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;parameters&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;discardHighEnergySolutions&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nt">&quot;resolution&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nt">&quot;randomize&quot;</span> <span class="p">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Minimization Params: This section defines the minimization algorithm. Increase the “MinimumRMS” field to 0.5 if you want to have a faster but less converge minimization.  To read more, check the: <a class="reference external" href="../../Minimization/Minimization.html">minimization section</a>.</li>
+</ul>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="nt">&quot;Minimizer&quot;</span> <span class="p">:</span> <span class="p">{</span>
+     <span class="nt">&quot;algorithm&quot;</span> <span class="p">:</span> <span class="s2">&quot;TruncatedNewton&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;parameters&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;MinimumRMS&quot;</span> <span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="nt">&quot;alphaUpdated&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nt">&quot;nonBondingListUpdatedEachMinStep&quot;</span> <span class="p">:</span> <span class="kc">true</span> <span class="p">}</span>
+<span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Metrics: This section specifies the metrics to be calculated along the simulation. Always calculate Binding Energy and SASA. Apart from that ones, the most useful  metrics are:</li>
+</ul>
+<ol class="arabic simple">
+<li>Distance of the ligand to a catalytic residue or point</li>
+</ol>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;distanceToPoint&quot;</span><span class="p">,</span>
+<span class="nt">&quot;point&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">15.32</span><span class="p">,</span> <span class="mi">-17</span><span class="p">,</span> <span class="mi">-16</span><span class="p">],</span>
+<span class="nt">&quot;atoms&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;links&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;ids&quot;</span><span class="p">:[</span><span class="s2">&quot;L:900&quot;</span><span class="p">]}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>RMSD to a native pdb</li>
+</ol>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;rmsd&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Native&quot;</span><span class="p">:{</span> <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;ref.pdb&quot;</span><span class="p">},</span>
+  <span class="nt">&quot;selection&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;chains&quot;</span><span class="p">:{</span> <span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;L&quot;</span><span class="p">]}</span> <span class="p">},</span>
+  <span class="nt">&quot;superpositionSelection&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;atoms&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;_CA_&quot;</span><span class="p">]</span> <span class="p">}</span> <span class="p">},</span>
+  <span class="nt">&quot;includeHydrogens&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;rmsd_ligand&quot;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>To read more about metrics, check the: <a class="reference external" href="Sensors/MetricTypes.html">metrics section</a>.</p>
+<ul class="simple">
+<li>Parameter Changes: This section specifies the translation and rotation range of the ligand along the simulation. To read more, check the: <a class="reference external" href="PELEDynamicChangesInSimulationParameters/PELEDynamicChangesInSimulationParameters.html">parameter changes section</a>.</li>
+</ul>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;ifAnyIsTrue&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;rand1 &gt;= 0.5&quot;</span> <span class="p">],</span>
+    <span class="nt">&quot;doThesechanges&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;Perturbation::parameters&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;translationRange&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nt">&quot;numberOfTrials&quot;</span> <span class="p">:</span> <span class="mi">8</span> <span class="p">}</span> <span class="p">},</span>
+    <span class="nt">&quot;otherwise&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;Perturbation::parameters&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;translationRange&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="nt">&quot;numberOfTrials&quot;</span> <span class="p">:</span> <span class="mi">8</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="launch-pele">
+<h2>Launch PELE<a class="headerlink" href="#launch-pele" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="from-command-line">
+<h3>From command line:<a class="headerlink" href="#from-command-line" title="Permalink to this headline">¶</a></h3>
+<p>Command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">3</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">PELE</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">Pele_mpi</span> <span class="n">controlfile</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="from-queue-system">
+<h3>From queue system:<a class="headerlink" href="#from-queue-system" title="Permalink to this headline">¶</a></h3>
+<p>Place the command before in a .sh file with
+the specificacitions of your queue system and launch it</p>
+<p>Example slurm file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -J PELE_MPI</span>
+<span class="c1">#SBATCH --output=mpi_%j.out</span>
+<span class="c1">#SBATCH --error=mpi_%j.err</span>
+<span class="c1">#SBATCH --ntasks=48</span>
+<span class="c1">#SBATCH --mem-per-cpu=1G</span>
+
+
+<span class="n">module</span> <span class="n">purge</span>
+
+<span class="n">module</span> <span class="n">load</span> <span class="n">Python</span> <span class="n">PELE</span><span class="o">/</span><span class="mf">1.5</span><span class="o">.</span><span class="mf">0.2524</span>
+
+<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">sNow</span><span class="o">/</span><span class="n">easybuild</span><span class="o">/</span><span class="n">centos</span><span class="o">/</span><span class="mf">7.4</span><span class="o">.</span><span class="mi">1708</span><span class="o">/</span><span class="n">Skylake</span><span class="o">/</span><span class="n">software</span><span class="o">/</span><span class="n">PELE</span><span class="o">/</span><span class="mf">1.5</span><span class="o">.</span><span class="mf">0.2524</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">Pele_mpi</span><span class="o">/</span><span class="n">Data</span> <span class="n">Data</span>
+<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">sNow</span><span class="o">/</span><span class="n">easybuild</span><span class="o">/</span><span class="n">centos</span><span class="o">/</span><span class="mf">7.4</span><span class="o">.</span><span class="mi">1708</span><span class="o">/</span><span class="n">Skylake</span><span class="o">/</span><span class="n">software</span><span class="o">/</span><span class="n">PELE</span><span class="o">/</span><span class="mf">1.5</span><span class="o">.</span><span class="mf">0.2524</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">Pele_mpi</span><span class="o">/</span><span class="n">Documents</span> <span class="n">Documents</span>
+
+<span class="n">mpirun</span> <span class="o">-</span><span class="n">np</span> <span class="mi">48</span> <span class="n">Pele_mpi</span> <span class="n">contol_file</span><span class="o">.</span><span class="n">conf</span>
+</pre></div>
+</div>
+<p>sbatch slurm.sh</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Simulation</a><ul>
+<li><a class="reference internal" href="#input">Input</a></li>
+<li><a class="reference internal" href="#launch-pele">Launch PELE</a><ul>
+<li><a class="reference internal" href="#from-command-line">From command line:</a></li>
+<li><a class="reference internal" href="#from-queue-system">From queue system:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../SystemPreparation/SystemPreparation.html"
+                        title="previous chapter">Preparation of the System</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../GeneralAnalysis/GeneralAnalysis.html"
+                        title="next chapter">Basic Analysis</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/intro/Simulation/Simulation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../GeneralAnalysis/GeneralAnalysis.html" title="Basic Analysis"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../SystemPreparation/SystemPreparation.html" title="Preparation of the System"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../intro.html" >Introduction</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+    <a href="../../index.html#license">License</a>.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+###################
+Basic Analysis
+###################
+
+The basics on PELE analysis to run after the simulation is finished
+
+
+**************************
+Plot metrics
+**************************
+
+Gnuplot is need it. To run from inside the results folder.
+
+Explanation::
+
+    plot for [i=1:processors] "report_file_name".i u xcolumn:ycolumn w l  notitle
+    set xrange [xrange]
+    set yrange [yrange]
+
+Example::
+
+    plot for [i=1:47] "report_".i u 5:6 w l  notitle
+    set xrange [0:15]
+    set yrange [-50:10]
+
+Output:
+
+
+.. image:: gnuplot.png
+
+
+*****************************************
+Retrieve the snapshots with best energy
+*****************************************
+
+AdaptivePELE is need it. To run from inside the results folder.
+
+Explanation::
+
+    python -m AdaptivePELE.analysis.interactivePlot  columny columnx steps -o output_folder
+
+Example::
+
+    python AdaptivePELE.analysis.interactivePlot  5 6 8 -o BestStructs
+
+Once the plot is done with your left button mouse drag a square on the plot containing the structures you want to be downloaded as shown in Figure below.
+
+
+.. image:: interactivePlot.png
+
+
+This will output all snapshots contain in the square in a folder called BestStructs.
+
+********************************************
+Extract the movie of your best snapshot
+********************************************
+
+Once you did the interactivePlot you may want to have the entrance path of your best selected structure. For this you must only sleect the desired trajectory.
+
+

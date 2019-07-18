@@ -1,0 +1,267 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>RoRγ: Dissociation Pathway &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
+    <link rel="stylesheet" href="../../_static/naturemodified.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.5.${BUILD_TAG}',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lacasses: Mutant design for ligand fitting" href="../Lacasses/Lacasses.html" />
+    <link rel="prev" title="Hemagglutinin: Pocket Detection" href="../Hemagglutinin/Hemagglutinin.html" /> 
+    <script type="text/javascript" >
+    MathJax.Hub.Config({
+        TeX: { 
+	  Macros: {
+	    AA: '{\\unicode{xC5}}'
+	  }
+	}
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Lacasses/Lacasses.html" title="Lacasses: Mutant design for ligand fitting"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Hemagglutinin/Hemagglutinin.html" title="Hemagglutinin: Pocket Detection"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../tutorial.html" accesskey="U">Tutorial</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ror-dissociation-pathway">
+<h1>RoRγ: Dissociation Pathway<a class="headerlink" href="#ror-dissociation-pathway" title="Permalink to this headline">¶</a></h1>
+<p>Retinoic-acid related-orphan-receptor-C (RORC or RORγ) belongs to the nuclear hormone receptor (NHR) superfamily. It plays a fundamental role in the maturation of IL-17 producing Th17 cells and thus is an attractive target for a variety of autoimmune diseases such as psoriasis and rheumatoid arthritis. RORγ features a multidomain structure characterized by an N-terminal DNA binding domain (DBD) and a C-terminal ligand-binding domain (LBD) capable of binding ligands and recruiting co-activator or co-repressor proteins. The LBD is compact globular structure rich in α-helices. Its ligand-binding site is located deeply at the core of the domain. Inspection of all co-crystal structures does not reveal an obvious entry path for this deep buried site. An interesting and unresolved question remains related to how RORγ-LBD active compounds diffuse in and out of the binding site, which is at the core of the LBD.</p>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/system1.png" src="../../_images/system1.png" />
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">RoRγ system</span></p>
+</div>
+<div class="section" id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<p>To explore the exit pathway of ligand from the protein-ligand bound complex.</p>
+</div>
+<div class="section" id="preparation">
+<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<p>To start the simulation we need complex, ligand, ligand parameters and the input controlfile.</p>
+<div class="section" id="receptor">
+<h3>Receptor<a class="headerlink" href="#receptor" title="Permalink to this headline">¶</a></h3>
+<p>PDB code: 5VB7 processes the protein complex with Protein Preparation Wizard (Schrodinger Program Suite) at pH 7.4 ±0.5 to assign the protonation state to all ionizable residue as well as optimize the H-bond network.</p>
+</div>
+<div class="section" id="ligand">
+<h3>Ligand<a class="headerlink" href="#ligand" title="Permalink to this headline">¶</a></h3>
+<p>Processed with LigPrep module in Schrodinger Program Suite to assign protonation state at pH 7.4 ± 0.5 and tautomerization of the molecule. ESP charges is obtained from single-point calculation at MO6/6-31G** level of theory calculation within Jaguar software.</p>
+</div>
+<div class="section" id="template-of-ligand">
+<h3>Template of ligand<a class="headerlink" href="#template-of-ligand" title="Permalink to this headline">¶</a></h3>
+<p>Output a mae file only cointaining the ligand, then run that one through PlopRotTemp.py as explain <a class="reference external" href="../../intro/SystemPreparation/SystemPreparation.html#ligand-preparation">here</a> to obtain the parameters and rotamers of the ligand and place them on the DataLocal Folder as specified <a class="reference external" href="../../molecularParameters.html#adding-the-generated-template-and-rotamer-library-files-to-pele">here</a>.</p>
+</div>
+</div>
+<div class="section" id="procedure-pele-exit-path">
+<h2>Procedure: PELE Exit Path<a class="headerlink" href="#procedure-pele-exit-path" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="main-charachteristic-of-the-simulation">
+<h3>Main Charachteristic of the simulation<a class="headerlink" href="#main-charachteristic-of-the-simulation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Using the starting structure from protein-ligand crystal complex.</li>
+<li>AdaptivePELE mode: “Unbinding”. This will move the ligand towards the bulk little by little</li>
+<li>Processors: 20 processors</li>
+<li>Compute time: 1-2 hours</li>
+</ul>
+</div>
+<div class="section" id="controlfile-specifics">
+<h3>ControlFile specifics<a class="headerlink" href="#controlfile-specifics" title="Permalink to this headline">¶</a></h3>
+<p>Special required parameters for exit simulation are:</p>
+<div class="section" id="unbinding-mode-and-exit-condition">
+<h4>Unbinding Mode and exit Condition<a class="headerlink" href="#unbinding-mode-and-exit-condition" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;simulation&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;pele&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;iterations&quot;</span> <span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+        <span class="nt">&quot;processors&quot;</span> <span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="nt">&quot;peleSteps&quot;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="nt">&quot;seed&quot;</span><span class="p">:</span> <span class="mi">67890</span><span class="p">,</span>
+        <span class="nt">&quot;controlFile&quot;</span> <span class="p">:</span> <span class="s2">&quot;pele.conf&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;runEquilibration&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nt">&quot;modeMovingBox&quot;</span> <span class="p">:</span> <span class="s2">&quot;unbinding&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;exitCondition&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;metricMultipleTrajectories&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;metricCol&quot;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="nt">&quot;exitValue&quot;</span> <span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
+                <span class="nt">&quot;condition&quot;</span> <span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;numberTrajectories&quot;</span> <span class="p">:</span> <span class="mi">5</span>
+<span class="p">}}}},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<p>“runEquilibration”: true is a keyword to run equilibration before  starting the exit simulation by means of a short minimization involving all the residues and -sidechain within 4 Å from the lingand.</p>
+<p>“modeMovingBox” : “unbinding” is a keyword to define a type of “box” as unbinding type. This “box” is defined to limit ligand perturbation within 7 Å from the center-of-mass of ligand and dynamically moved along the ligand position during exit simulation.</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="nt">&quot;exitCondition&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;metricMultipleTrajectories&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;metricCol&quot;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+      <span class="nt">&quot;exitValue&quot;</span> <span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
+      <span class="nt">&quot;condition&quot;</span> <span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;numberTrajectories&quot;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+      <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>These parameters are to define the exit condition where to stop the simulation if at least 5 trajectories (“numberTrajectories”: 5) have the SASA value of ligand more than 0.9 (metricCol” : 6 defined as the matrix column number 6 in the “pele.cof”, “condition” : “&gt;”, “exitValue” : 0.9).</p>
+</div>
+<div class="section" id="metrics">
+<h4>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h4>
+<p>Distance between importat residue HID479:NE2 of receptor and Ligand O2 atoms tracked.</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;metrics&quot;</span> <span class="p">:</span> <span class="p">[</span>
+<span class="p">{</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;com_distance&quot;</span><span class="p">,</span>
+<span class="nt">&quot;selection_group_1&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;atoms&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A:479:_NE2&quot;</span><span class="p">]</span> <span class="p">}</span> <span class="p">},</span>
+<span class="nt">&quot;selection_group_2&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;atoms&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;L:602:_O2_&quot;</span><span class="p">]</span> <span class="p">}</span> <span class="p">},</span>
+<span class="nt">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;distance&quot;</span>
+<span class="p">},</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="results">
+<h3>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="exit-plot">
+<h4>Exit Plot<a class="headerlink" href="#exit-plot" title="Permalink to this headline">¶</a></h4>
+<p>To monitor exiting progress of ligand from its binding site by measuring distance between HID479:NE2 and ligand O2 atoms, as defined in the “com_distance” as “tag”: “distance” (column number 7 in run_report file)</p>
+<div class="figure align-center" id="id2">
+<img alt="../../_images/exit_plot.png" src="../../_images/exit_plot.png" />
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Plot of Pele accepted steps (X-axis) and the distance between Ligand and HID479 (Y-axis)</span></p>
+</div>
+</div>
+<div class="section" id="exit-path-important-residues">
+<h4>Exit Path Important Residues<a class="headerlink" href="#exit-path-important-residues" title="Permalink to this headline">¶</a></h4>
+<p>To map the residues movement along the ligand exit pathway from the trajectory
+make the movie as described <a class="reference external" href="../../intro/AdaptiveMethodology/GeneralAnalysis/GeneralAnalysis.html#extract-the-movie-of-your-best-snapshot">here</a> and plot all the residues close to the ligand of all snapshots together to see their fluctuation as seen in the Figure below.</p>
+<div class="figure align-center" id="id3">
+<img alt="../../_images/exit_path.png" src="../../_images/exit_path.png" />
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Depiction of the important resiudes along the dissociation path</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">RoRγ: Dissociation Pathway</a><ul>
+<li><a class="reference internal" href="#objective">Objective</a></li>
+<li><a class="reference internal" href="#preparation">Preparation</a><ul>
+<li><a class="reference internal" href="#receptor">Receptor</a></li>
+<li><a class="reference internal" href="#ligand">Ligand</a></li>
+<li><a class="reference internal" href="#template-of-ligand">Template of ligand</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#procedure-pele-exit-path">Procedure: PELE Exit Path</a><ul>
+<li><a class="reference internal" href="#main-charachteristic-of-the-simulation">Main Charachteristic of the simulation</a></li>
+<li><a class="reference internal" href="#controlfile-specifics">ControlFile specifics</a><ul>
+<li><a class="reference internal" href="#unbinding-mode-and-exit-condition">Unbinding Mode and exit Condition</a></li>
+<li><a class="reference internal" href="#metrics">Metrics</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#results">Results</a><ul>
+<li><a class="reference internal" href="#exit-plot">Exit Plot</a></li>
+<li><a class="reference internal" href="#exit-path-important-residues">Exit Path Important Residues</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Hemagglutinin/Hemagglutinin.html"
+                        title="previous chapter">Hemagglutinin: Pocket Detection</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Lacasses/Lacasses.html"
+                        title="next chapter">Lacasses: Mutant design for ligand fitting</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/tutorial/RoRGamma/RoRGamma.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Lacasses/Lacasses.html" title="Lacasses: Mutant design for ligand fitting"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Hemagglutinin/Hemagglutinin.html" title="Hemagglutinin: Pocket Detection"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../tutorial.html" >Tutorial</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+    <a href="../../index.html#license">License</a>.
+    </div>
+  </body>
+</html>
