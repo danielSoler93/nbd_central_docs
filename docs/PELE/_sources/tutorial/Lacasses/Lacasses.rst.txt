@@ -2,22 +2,23 @@
 Lacasses: Mutant design for ligand fitting
 ##############################################
 
-**Aniline polymerization with laccases**: Laccases are multicopper oxidases capable to oxidize a wide range of aromatic and phenolic compounds. The reaction in a copper molecule (T1) and the electron move to the trinuclear copper cluster where will be accepted by molecular oxygen releasing water as the final by-product.
+**Aniline polymerization with laccases**: Laccases are multicopper oxidases capable of oxidizing a wide range of aromatic and phenolic compounds. The reaction occurs in a copper, and the electron moves to the trinuclear copper cluster, where it will be accepted by molecular oxygen releasing water as the final by-product.
+The reaction in a copper molecule (T1) and the electron move to the trinuclear copper cluster where will be accepted by molecular oxygen releasing water as the final by-product.
 
-Aniline is an arylamine (highly toxic in the monomeric form) with many applications when its polymerized in a low pH. The protonation state of the monomer is translated into a conductive polymer with several industrial applications (Figure 1). The idea is to replace toxic chemical oxidants for a green biocatalyst like a laccase. 
+Aniline is an arylamine (highly toxic in the monomeric form) with many applications when polymerized at low pH. The protonation state of the monomer is translated into a conductive polymer with several industrial applications (Figure 10). The idea is to replace toxic chemical oxidants with a green biocatalyst like a laccase. 
 
 .. figure:: system.png
     :align: center
 
     Conductive polyaniline (PANI) production
 
-The tutorial is focused on the limiting step of PANI production, the aniline monomers oxidation by laccase and an enhanced variant. Before the starting the simulations several points have to be noticed:
+The tutorial is focused on the limiting step of PANI production, the aniline monomers oxidation by laccase and an enhanced variant. Before starting the simulations several points have to be mentioned.
 
 - There are several histidines and a cysteine coordinating the copper molecules. Therefore, it is very important to check the protonation state of all these residues before starting any simulation.
 
-- In the working pH of the system (pH=3), the aniline monomer has the amine group protonated.  
+- At the working pH of the system (pH=3), the aniline monomer has the amine group protonated.
 
-- Theoretically, the coppers have a +2 charge, but in nature, the charge is distributed in the coordinating residues, so a +1 charge is more realistic. 
+- Theoretically, the coppers have a +2 charge, but in nature, the charge is distributed onto the coordinating residues, so a +1 charge is more realistic. 
 
 
 ***********
@@ -31,7 +32,7 @@ Objective
 Preparation
 **************
 
-To start the simulation we need complex, ligand, ligand parameters and the input controlfile.
+To start the simulation, we need the complex, the ligand, the ligand parameters, and the input control file.
 
 Receptor
 ==========
@@ -49,27 +50,27 @@ Ligand
 Template of ligand
 =====================
 
-Output a mae file only cointaining the ligand, then run that one through PlopRotTemp.py as explain `here <../../intro/SystemPreparation/SystemPreparation.html#ligand-preparation>`__ to obtain the parameters and rotamers of the ligand and place them on the DataLocal Folder as specified `here <../../molecularParameters.html#adding-the-generated-template-and-rotamer-library-files-to-pele>`_.
+Output a mae file that contains the ligand only, then run that one through PlopRotTemp.py as explain `here <../../intro/SystemPreparation/SystemPreparation.html#ligand-preparation>`__ to obtain the parameters and rotamers of the ligand and place them in the DataLocal Folder as specified `here <../../molecularParameters.html#adding-the-generated-template-and-rotamer-library-files-to-pele>`_.
 
 
 ********************************************
 Procedure: PELE Global Exploration
 ********************************************
 
-Main Charachteristic of the simulation
+Main characteristics of the simulation
 ========================================
 
-- Starting poses for PELE Local Exploration: 10 initial poses at random positions around the whole protein were generated.
+- Starting poses for PELE Global Exploration: 10 initial poses at random positions around the whole protein were generated.
 - Processors: 48
 - Compute time: 12-15h
 
 
-ControlFile specifics
+Control File specifics
 ==========================
 
 Special required parameters for this simulation are:
 
-Constraining Cu coordinations distances
+Constraining Cu coordination distances
 +++++++++++++++++++++++++++++++++++++++++
 
 In other to fix a coordinated metal position, it is the addition of distant constraints to retain the molecule in a certain position.
@@ -90,7 +91,7 @@ In other to fix a coordinated metal position, it is the addition of distant cons
 Distances to monitor
 +++++++++++++++++++++++
 
-In this example we control the catalytic distance of the limiting step of the reaction.
+In this example, we control the catalytic distance of the limiting step of the reaction.
 
 .. code-block:: json
   
@@ -113,7 +114,7 @@ In this example we control the catalytic distance of the limiting step of the re
 Results
 ==============
 
-The ligand exploration of the aniline with the wild-type and the mutant form will look like: 
+The ligand exploration of the aniline with the wild-type and the mutant will look like: 
 
 
 
@@ -122,10 +123,11 @@ The figure is generated with Gnuplot as explained `here <../../intro/GeneralAnal
 .. figure:: result_lacasses.png
    :align: center
 
-   Binding energy plot against H455-ANL distance (wild-type in red and mutant variant in blue).
+   Binding energy versus H455-ANL distance (wild-type in red and mutant in blue).
 
 
 
-In the plots, it is easy to see how in the mutant variant, the ligand reaches closer distances to the catalytic residue.  
+One can see from the Figure how the ligand gets closer to the catalytic residue in the mutant than in the wild-type.
+
 
 

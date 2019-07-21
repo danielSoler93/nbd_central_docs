@@ -4,24 +4,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Software &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../../../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../../',
-        VERSION:     '1.5.${BUILD_TAG}',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Simulation" href="../Simulation/Simulation.html" />
@@ -36,8 +29,7 @@
     });
     </script>
 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -63,16 +55,17 @@
             
   <div class="section" id="software">
 <h1>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h1>
-<p>AdaptivePELE is a Python module to perform enhancing sampling of molecular simulation built around the Protein Energy Landscape Exploration method (PELE) developed in the Electronic and Atomic Protein Modelling grop (EAPM) at the Barcelona Supercomputing Center (BSC). For more information about the method refer to the paper. DOI  10.1038/s41598-017-08445-5</p>
-<p>AdaptivePELE is called with a control file as a parameters. The control file is a json document that contains 4 sections: general parameters, simulation parameters, clustering parameters and spawning parameters. The first block refers to general parameters of the adaptive run, while the other three blocks configure the three steps of an adaptive sampling run, first run a propagation algorithm (simulation), then cluster the trajectories obtained (clustering) and finally select the best point to start the next iteration (spawning).</p>
+<p>AdaptivePELE is a Python module to perform enhanced sampling simulations using the Protein Energy Landscape Exploration method (PELE) developed by the Electronic and Atomic Protein Modelling group (EAPM) at the Barcelona Supercomputing Center (BSC).
+. For more information about the method, please refer to the paper. DOI  10.1038/s41598-017-08445-5</p>
+<p>AdaptivePELE is called with a control file as input. The control file is a json document that contains 4 sections: general parameters, simulation parameters, clustering, and spawning parameters. The first block refers to general parameters of the adaptive run, while the other three blocks configure the three steps of an adaptive sampling run. First a propagation algorithm is run (simulation), then the clusters of the trajectories are obtained (clustering), and finally the best point to start the next iteration is selected (spawning).</p>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>To start a simulation you must have:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Comercial PELE installed. Send and e-mail to: <a class="reference external" href="mailto:daniel&#46;soler&#37;&#52;&#48;nostrumbiodiscovery&#46;com">daniel<span>&#46;</span>soler<span>&#64;</span>nostrumbiodiscovery<span>&#46;</span>com</a></li>
+<li>Commercial PELE installed. Send and e-mail to: <a class="reference external" href="mailto:daniel&#46;soler&#37;&#52;&#48;nostrumbiodiscovery&#46;com">daniel<span>&#46;</span>soler<span>&#64;</span>nostrumbiodiscovery<span>&#46;</span>com</a></li>
 <li>AdaptivePELE installed. Check the <a class="reference external" href="https://adaptivepele.github.io/AdaptivePELE/Examples.html#installation">AdaptivePELE installation</a>.</li>
-<li>Prepared the receptor with OPLS atom typing. Check the <a class="reference external" href="../SystemPreparation/SystemPreparation.html#receptor-preparation">Protein Preparation</a>  section.</li>
+<li>Prepared the receptor with OPLS atom types. Check the <a class="reference external" href="../SystemPreparation/SystemPreparation.html#receptor-preparation">Protein Preparation</a>  section.</li>
 <li>Prepared a DataLocal folder with the parameters of your ligand. Check the <a class="reference external" href="../SystemPreparation/SystemPreparation.html#ligand-preparation">Ligand Preparation</a>  section.</li>
 <li>Prepated a AdaptivePELE Control File. Check the <a class="reference external" href="../Simulation/Simulation.html#Input">Control File</a> section.</li>
 <li>Prepared a PELE Control File. Check the <a class="reference external" href="../Simulation/Simulation.html#Input">Control File</a> section.</li>
@@ -87,7 +80,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Software</a><ul>
 <li><a class="reference internal" href="#requirements">Requirements</a></li>
@@ -110,12 +103,14 @@
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -141,7 +136,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
     <a href="../../../index.html#license">License</a>.
     </div>
   </body>

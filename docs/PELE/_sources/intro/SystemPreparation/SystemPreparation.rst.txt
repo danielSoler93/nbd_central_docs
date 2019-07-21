@@ -21,16 +21,16 @@ Download (or load) the target PDB file in the maestro suite. Proteins obtained d
 - Unnecessary water molecules
 - No coordination bonds
 
-Run Protein Preparation Wizard will solve almost all of this problems or it will call the necessary plugins to solve them (Prime for missing side chains for example). Then using the Refine option the pH of the system could be set up towards the project needs. 
+Run Protein Preparation Wizard will solve almost all of these problems or it will call the necessary plugins to solve them (Prime for missing side chains for example). Using the ‘Refine’ option, the system pH can be set. 
 
-Finally, the protein has to be merge with the ligand molecule in a single PDB  file.  
+Finally, the protein has to be merged with the ligand molecule into a single PDB  file.  
 
 ====
 PPP
 ====
 
 Run the experimental PPP module to make sure all terminal
-atoms are properly name and to change water atom naming.
+atoms are properly named and to change water atom naming.
 
 Report any know issue to: daniel.soler@nostrumbiodiscovery.com
 
@@ -40,7 +40,7 @@ Report any know issue to: daniel.soler@nostrumbiodiscovery.com
 Ligand Preparation
 *************************
 
-To prepare the ligand you must create a DataLocal folder
+To prepare the ligand, you must create a DataLocal folder
 placing the template "resz" at :file:`DataLocal/Templates/<forcefield>/HeteroAtoms/`
 and the romater file "RES.ROT.ASSIGN" at :file:`DataLocal/RotamerLibs/`
 as explain in the section `DataLocal Folder <../../molecularParameters.html>`__
@@ -57,7 +57,7 @@ Ligand Parameters with OPLS2005 charges
         - python /path/to/schordinger/python PlopRotTemp_S_2017/main.py  file.01.mae
 
 
-    3. Copy the template ligz and the rotamer files LIG.ROT.ASSIGN to DataLocal as explained above
+    3. Copy the template ligz and the rotamer file LIG.ROT.ASSIGN to DataLocal as explained above. For more on the template and the rotamer file refer to `here <../../molecularParameters.html>`__
 
     
     PlopRotTemp can be downloaded from: https://github.com/danielSoler93/PlopRotTemp_S_2017.git
@@ -67,7 +67,7 @@ Ligand Parameters with Jaguar ESP charges
 ===========================================
 
     
-    The electrostatic potential (ESP) fitted charge to ligand can be assigned to Ligand Parameter´s file by performing following step:
+    The electrostatic potential (ESP) fitted charge of the ligand can be assigned in the Ligand Parameter file via the following steps:
     
 
     1. Prepare ligand molecule using LigPrep module in Schrodinger Program Suite to assign protonation state at pH 7.4 ± 0.5 and tautomerization of the molecule.

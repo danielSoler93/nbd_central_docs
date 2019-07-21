@@ -6,11 +6,16 @@ Contents:
 
 .. toctree::
   :maxdepth: 2
+  
 
-  Hemagglutinin/Hemagglutinin.rst
+  
  
   RoRGamma/RoRGamma.rst
 
-  Lacasses/Lacasses.rst
+  Hemagglutinin/Hemagglutinin.rst
+
+  MgluR5/MgluR5.rst
 
   Esterases/Esterases.rst
+
+  Lacasses/Lacasses.rst

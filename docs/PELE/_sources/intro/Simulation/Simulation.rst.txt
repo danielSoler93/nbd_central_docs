@@ -2,8 +2,7 @@
 Simulation
 #############
 
-In this stage the PELE input is built
-and the simulation is launched
+At this stage, the PELE input is built and the simulation is launched.
 
 **********
 Input
@@ -14,7 +13,7 @@ learn more about it in the `controlFile section <../../GeneralStructure/GeneralS
 
 To have an idea of the main sections of the input, next we retireve a brief summary:
 
-- General Params: These section specifies the location of the licenses. And the name of the log files (important when debugging). To read more, check the `top-level section <../../GeneralStructure/GeneralStructure.html#the-top-level-configuration-block>`__.
+- General Params: General Params: This section specifies the location of the licenses and the name of the log files (important when debugging). For more details, `top-level section <../../GeneralStructure/GeneralStructure.html#the-top-level-configuration-block>`__.
 
 .. code-block:: json
 
@@ -23,7 +22,7 @@ To have an idea of the main sections of the input, next we retireve a brief summ
    "simulationLogPath" : "$OUTPUT_PATH/logFile.txt",
    }
 
-- Initialization Params: Contains the setup of the system (typically pdb file(s), force field and solvent). To read more, check the `initialization section <../../Initialization/Initialization.html>`__.
+- Initialization Params: Contains the setup of the system (typically pdb file(s), force field and solvent). For more details, `initialization section <../../Initialization/Initialization.html>`__.
 
 .. code-block:: json
 
@@ -36,7 +35,7 @@ To have an idea of the main sections of the input, next we retireve a brief summ
    },
    }
 
-- Simulation  Params: Set the ligand to be perturbed through the simulation. To read more, check the: `simulation section <../../PELE/PELESimulation.html#sec-pelesimulation>`__.
+- Simulation  Params: Set the ligand to be perturbed through the simulation. For more details, `simulation section <../../PELE/PELESimulation.html#sec-pelesimulation>`__.
 
 .. code-block:: json
 
@@ -46,7 +45,7 @@ To have an idea of the main sections of the input, next we retireve a brief summ
     "selectionToPerturb" : { "chains" : { "names" : [ "L" ] } }
     }
 
-- Output  Params: Set the name of the report (numerical values of energy & SASA) and the pdb trajectories. To read more, check the: `output section <../../PELE/PeleOutput.html>`__.
+- Output  Params: Set the name of the report (numerical values of energy & SASA) and the pdb trajectories. For more details,: `output section <../../PELE/PeleOutput.html>`__.
 
 .. code-block:: json
 
@@ -59,7 +58,7 @@ To have an idea of the main sections of the input, next we retireve a brief summ
     },
     }
 
-- PELE  Params: Set the top level parameters for PELE simulation. This are the default parameters we use for a standard PELE simulation. For specific cases such as induced fit simulation or binding site detection  we will fine tune some of the parameters to obtain the best results. The specifics will be explained later on at the tutorial. To read more, check the: `PELE params section <../../PELE/PeleParameters.html>`__.
+- PELE  Params: Set the top level parameters for PELE simulation. These are the default parameters we use for a standard PELE simulation. For specific cases such as induced fit simulation or binding site detection, we will fine tune some of the parameters to obtain the best results. The specifics will be explained later on at the tutorial. For more details, `PELE params section <../../PELE/PeleParameters.html>`__.
 
 .. code-block:: json
     
@@ -76,9 +75,9 @@ To have an idea of the main sections of the input, next we retireve a brief summ
     },
     }
 
-- Constraints  Params: This section applies permanent constraints to specific atoms. To read more about, check the: `constraint section <../../PermanentConstraints/PermanentConstraints.html>`__.
+- Constraints  Params: This section applies permanent constraints to specific atoms. For more details, `constraint section <../../PermanentConstraints/PermanentConstraints.html>`__.
 
-Generally, constraints of 0.5 are placed on the CA and 2 at the terminal to avoid the protein to collapse.
+Generally, constraints of 0.5kcal/mol are placed on the CA and constraints of 2kcal/mol at the termini to avoid the protein to collapse.
 
 .. code-block:: json
 
@@ -92,9 +91,9 @@ Generally, constraints of 0.5 are placed on the CA and 2 at the terminal to avoi
    }
 
 
-- Perturbation Params: This section defines the exploration volume and several other characteristics: To read more about, check the: `Perturbation section <../../Perturbation/Perturbation.html>`__.
+- Perturbation Params: This section defines the exploration volume and several other characteristics: For more details, check the `Perturbation section <../../Perturbation/Perturbation.html>`__.
 
-The box params are of utmost importance as they define the space to explore.
+**The box params are of utmost importance as they define the space to explore.**
 
 
 .. code-block:: json
@@ -115,7 +114,8 @@ The box params are of utmost importance as they define the space to explore.
     },
     }
 
-- ANM Params: This section defines the anisotropic network model parameters. The lowest eigenvalues are normally used as it is well define in the literature that are the ones contributing the most to the bioactive conformation of the complex. However, only harmonic movements will be capture with this method. Check the `PCA chapter <../../pca.html>`__ to capture other type of movement from crystals or MD. To read more about anm, check the: `ANM section <../../ANM/Anm.html>`__.
+- ANM Params: This section defines the anisotropic network model parameters. The lowest eigenvalues are normally used as it is well define in the literature that are the ones contributing the most to the bioactive conformation of the complex. However, only harmonic movements will be captured with this method. Check the `PCA chapter <../../pca.html>`__ to characterize other types of movements from X-ray structures or MDs. 
+For more information on ANM, check the: `ANM section <../../ANM/Anm.html>`__.
 
 .. code-block:: json
 
@@ -148,7 +148,7 @@ The box params are of utmost importance as they define the space to explore.
     },
     }
 
-- SideChain Prediction Params: This section defines the side chain sampling simulation params. Change the sidechain resolution to 30-60 if you have a high number of rotatable bonds (4-5 connected).  To read more, check the: `sidechain prediction section <../../SideChainPrediction/SideChainPrediction.html>`__.
+- SideChain Prediction Params: This section defines the side chain sampling params. Change the sidechain resolution to 30-60 if you have a high number of rotatable bonds (4-5 connected rotatable bonds).  For more details,: `sidechain prediction section <../../SideChainPrediction/SideChainPrediction.html>`__.
 
 
 .. code-block:: json
@@ -160,7 +160,7 @@ The box params are of utmost importance as they define the space to explore.
    },
    }
 
-- Minimization Params: This section defines the minimization algorithm. Increase the "MinimumRMS” field to 0.5 if you want to have a faster but less converge minimization.  To read more, check the: `minimization section <../../Minimization/Minimization.html>`__.
+- Minimization Params: This section defines the minimization algorithm. Increase the "MinimumRMS” field to 0.5 if you want to have a faster but less converged minimization.  For more details,: `minimization section <../../Minimization/Minimization.html>`__.
 
 .. code-block:: json
 
@@ -172,7 +172,7 @@ The box params are of utmost importance as they define the space to explore.
    }
 
 
-- Metrics: This section specifies the metrics to be calculated along the simulation. Always calculate Binding Energy and SASA. Apart from that ones, the most useful  metrics are:
+- Metrics: This section specifies the metrics to be calculated along the simulation. Always calculate Binding Energy and SASA. Apart from these ones, the most useful  metrics are:
 
 1. Distance of the ligand to a catalytic residue or point
 
@@ -200,7 +200,7 @@ The box params are of utmost importance as they define the space to explore.
 To read more about metrics, check the: `metrics section <Sensors/MetricTypes.html>`__.
 
 
-- Parameter Changes: This section specifies the translation and rotation range of the ligand along the simulation. To read more, check the: `parameter changes section <PELEDynamicChangesInSimulationParameters/PELEDynamicChangesInSimulationParameters.html>`__.
+- Parameter Changes: This section specifies the translation and rotation range of the ligand along the simulation. For more details,: `parameter changes section <PELEDynamicChangesInSimulationParameters/PELEDynamicChangesInSimulationParameters.html>`__.
 
 
 .. code-block:: json
@@ -229,8 +229,7 @@ Command::
 From queue system:
 ===================
 
-Place the command before in a .sh file with
-the specificacitions of your queue system and launch it
+Place the command in a .sh file. Include the charachteristic of your queue system and launch the file.
 
 Example slurm file::
 
@@ -251,5 +250,8 @@ Example slurm file::
     
     mpirun -np 48 Pele_mpi contol_file.conf
 
-    
-sbatch slurm.sh
+Command to launch the job with slurm queue system:
+
+::    
+
+    sbatch slurm.sh

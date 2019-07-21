@@ -10,7 +10,7 @@ Requirements
 
 To start a simulation you must have:
 
-    - Comercial PELE installed. Send and e-mail to: daniel.soler@nostrumbiodiscovery.com
+    - Commercial PELE installed. Send and e-mail to: daniel.soler@nostrumbiodiscovery.com
     - Prepared the receptor with OPLS atom typing. Check the `Protein Preparation <../SystemPreparation/SystemPreparation.html#receptor-preparation>`__  section.
     - Prepared a DataLocal folder with the parameters of your ligand. Check the `Ligand Preparation <../SystemPreparation/SystemPreparation.html#ligand-preparation>`__  section.
     - Prepared a PELE Control File. Check the `Control File <../Simulation/Simulation.html#Input>`__  section.

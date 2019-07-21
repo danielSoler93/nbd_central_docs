@@ -4,26 +4,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Hemagglutinin: Pocket Detection &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '1.5.${BUILD_TAG}',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MgluR5: Pose Prediction on GPCRs" href="../MgluR5/MgluR5.html" />
+    <link rel="prev" title="RoRγ: Dissociation Pathway to guide unbiased binding simulation" href="../RoRGamma/RoRGamma.html" /> 
     <script type="text/javascript" >
     MathJax.Hub.Config({
         TeX: { 
@@ -34,15 +29,21 @@
     });
     </script>
 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li> 
+        <li class="right" >
+          <a href="../MgluR5/MgluR5.html" title="MgluR5: Pose Prediction on GPCRs"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../RoRGamma/RoRGamma.html" title="RoRγ: Dissociation Pathway to guide unbiased binding simulation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../tutorial.html" accesskey="U">Tutorial</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -54,25 +55,25 @@
   <div class="section" id="hemagglutinin-pocket-detection">
 <h1>Hemagglutinin: Pocket Detection<a class="headerlink" href="#hemagglutinin-pocket-detection" title="Permalink to this headline">¶</a></h1>
 <p>3- Flu hemagglutinin: It is one of the two proteins found on the surface of the influenza viruses. Hemagglutinin A (HA) is an antigenic glycoprotein assembled as a homo-trimer of identical subunits that are formed of two disulfide-linked polypeptides: membrane-distal HA1 and the smaller, membrane-proximal, HA2. HA is responsible for host cell binding and subsequent fusion of viral and host membranes in the endosome after the virus has been taken up by endocytosis.</p>
-<p>It’s been identified a series of inhibitors that bind on the surface of hemagglutinin, both cyclic and linear. Additional structural information is also available of the target when bound to an antibody (Fig 21)</p>
-<div class="figure align-center" id="id4">
-<img alt="../../_images/system.png" src="../../_images/system.png" />
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Hemagglutinin system</span></p>
+<p>Cyclic and linear inhibitors that bind to the surface of hemagglutinin have been identified. Structural information on the antibody-bound target is also available (Fig. 1).</p>
+<div class="figure align-center" id="id3">
+<img alt="../../_images/system1.png" src="../../_images/system1.png" />
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Hemagglutinin system</span></p>
 </div>
 <div class="section" id="objective">
 <h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
-<p>The goal was to predict the binding mode of JNJ4796 to a structure of hemagglutinin which is not accommodated to bind JNJ4796. For this, the structure found in PDB entry 5W6T (bound to a cyclic peptide) was taken for induced fit PELE simulations.  Can PELE find the binding site and then the correct binding mode by doing a 2-step procedure: Global exploration + local refinement</p>
+<p>The goal is to predict the binding mode of JNJ4796 to a structure of hemagglutinin which is  not in a conformation likely to bind JNJ4796. For this, the structure found in PDB entry 5W6T (bound to a cyclic peptide) was taken for induced fit PELE simulations.  The question to be answered is: Can PELE find the binding site and then the correct binding mode by doing a 2-step procedure (global exploration + local refinement)?</p>
 </div>
 <div class="section" id="preparation">
 <h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="receptor">
 <h3>Receptor<a class="headerlink" href="#receptor" title="Permalink to this headline">¶</a></h3>
-<p>5W6T processed with Protein Preparation Wizard (Schrodinger)
-Of note, no crystal structure of the protein with JNJ4796 bound is available in the pdb, so the reference interactions were defined in terms of distance to the residues that are pictured in Fig 21.</p>
+<p>5W6T processed with Protein Preparation Wizard (Schrodinger).
+Of note, no crystal structure of the protein with JNJ4796 bound is available in the pdb, so the reference interactions were defined in terms of distance to the residues that are pictured in Fig 1.</p>
 </div>
 <div class="section" id="ligand">
 <h3>Ligand<a class="headerlink" href="#ligand" title="Permalink to this headline">¶</a></h3>
-<p>Processed with LigPrep. Calculate protonation state at pH 7,4±0,5 + ESP charges obtained with Jaguar single-point (DFT/M06) calculation. Of note, the C-ring predicted to be neutral.</p>
+<p>Processed with LigPrep. Calculate protonation state at pH 7.4±0.5 + ESP charges obtained with Jaguar single-point (DFT/M06) calculation. Of note, the C-ring is predicted to be neutral.</p>
 </div>
 <div class="section" id="template-of-ligand">
 <h3>Template of ligand<a class="headerlink" href="#template-of-ligand" title="Permalink to this headline">¶</a></h3>
@@ -81,27 +82,27 @@ Of note, no crystal structure of the protein with JNJ4796 bound is available in 
 </div>
 <div class="section" id="procedure-part1-pele-global-exploration">
 <h2>Procedure-Part1: PELE Global Exploration<a class="headerlink" href="#procedure-part1-pele-global-exploration" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="main-charachteristic-of-the-simulation">
-<h3>Main Charachteristic of the simulation<a class="headerlink" href="#main-charachteristic-of-the-simulation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="main-simulation-characteristics">
+<h3>Main simulation characteristics<a class="headerlink" href="#main-simulation-characteristics" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Starting poses for PELE Local Exploration: 40 initial poses at random positions around the whole protein were generated (Fig. 22)</li>
+<li>Starting poses for PELE Local Exploration: 40 initial poses at random positions around the whole protein were generated (Fig. 2)</li>
 <li>“inverselyProportional”: Emphasize clusters with low representation</li>
 <li>Iterations: 100</li>
 <li>PeleSteps: 4</li>
 <li>Processors: 250</li>
 <li>Compute time: 12-15h</li>
 </ul>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id4">
 <img alt="../../_images/initial_poses.png" src="../../_images/initial_poses.png" />
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Initial poses for AdaptivePELE</span></p>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Initial poses for AdaptivePELE</span></p>
 </div>
 </div>
 <div class="section" id="controlfile-specifics">
 <h3>ControlFile specifics<a class="headerlink" href="#controlfile-specifics" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="generalparams">
 <h4>generalParams<a class="headerlink" href="#generalparams" title="Permalink to this headline">¶</a></h4>
-<p>The initial complexes must be all around the protein surface as in Figure 2.</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p>The initial complexes must all be around the protein surface as in Figure 2.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="nt">&quot;generalParams&quot;</span> <span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;restart&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nt">&quot;debug&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
@@ -115,8 +116,8 @@ Of note, no crystal structure of the protein with JNJ4796 bound is available in 
 </div>
 <div class="section" id="spawning">
 <h4>spawning<a class="headerlink" href="#spawning" title="Permalink to this headline">¶</a></h4>
-<p>With the InverselyProportional type  the next iteration of PELE will start from the less represented clusters. Together with continuos density which assigns increasing densities for an increasing number of contacts, <strong>we will emphasize unexplored areas with high number of contacts</strong>.  Finally, set temperature to 1000 to have a standard montecarlo acceptance of 30-40%.</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p>With the InverselyProportional type,  the next iteration of PELE will start from the less represented clusters. Together with continuos density which assigns increasing densities for an increasing number of contacts, <strong>we will emphasize unexplored areas with high numbers of contacts</strong>.  Finally, set the temperature to 1000 to have a standard Monte Carlo acceptance of 30-40%.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;inverselyProportional&quot;</span><span class="p">,</span>
     <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;reportFilename&quot;</span> <span class="p">:</span> <span class="s2">&quot;run_report&quot;</span><span class="p">,</span>
@@ -131,8 +132,8 @@ Of note, no crystal structure of the protein with JNJ4796 bound is available in 
 </div>
 <div class="section" id="simulation">
 <h4>simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h4>
-<p>Set a long simulation (iterations:100)  with just a few pele steps per iteration (peleSteps: 4). As we are not interested in an induce fit (many more steps) but on jumping from one area to the other as fast as possible to explore the complete energy landscape. Set a large number of processors (processors: 250) to ensure enough exploration.</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;simulation&quot;</span><span class="p">:</span> <span class="p">{</span>
+<p>Set a long simulation (iterations:100)  with just a few pele steps per iteration (peleSteps: 4). As we are not interested in an induce fit (many more steps) but in jumping from one area to the other as fast as possible to explore the complete energy landscape. Set a large number of processors (processors: 250) to ensure enough exploration.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;simulation&quot;</span><span class="p">:</span> <span class="p">{</span>
 
     <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;iterations&quot;</span> <span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
@@ -146,8 +147,8 @@ Of note, no crystal structure of the protein with JNJ4796 bound is available in 
 </div>
 <div class="section" id="clustering">
 <h4>clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h4>
-<p>On that paragraph of the control file we need to pay attention to the values and conditions of the cluster. We want to have a big value of rmsd for low contacts (values [10] when conditions between [0.0-0.6]) a fairly generous rmsd when having some contacts (values [5] when  conditions between [0.6-1]) and a low rmsd when having many contacts (values [2.5] when conditions &gt;1]. Meaning we will have less but bigger clusters at the areas with no contacts and many  more at the areas with high number of contacts.</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<p>In that paragraph of the control file we need to pay attention to the values and conditions of the cluster. We want to have a big value of rmsd for low contacts (values [10] when conditions between [0.0-0.6]), a fairly generous rmsd when having some contacts (values [5] when  conditions between [0.6-1]), and a low rmsd when having many contacts (values [2.5] when conditions &gt;1]. This means that we will have less but bigger clusters at the areas with no contacts and many  more at the areas with high number of contacts.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="nt">&quot;clustering&quot;</span> <span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;rmsd&quot;</span><span class="p">,</span>
     <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
@@ -168,22 +169,22 @@ Of note, no crystal structure of the protein with JNJ4796 bound is available in 
 </div>
 <div class="section" id="results">
 <h3>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
-<p>The energy profile for this first initial induced-fit exploration on the whole of the surface of hamagglutinin is found in Fig. 23. As it can be seen, the exploration generates 7 minima, with one of them (point 1) being quite close (ca. 2 Angstroms) to T318. That is, the initial exploration locates the binding site as one of the probable hotspots on the surface of hemagglutinin.</p>
-<div class="figure align-center" id="id6">
+<p>The energy profile for this initial induced-fit exploration on the whole of the surface of hamagglutinin is found in Fig. 4. As it can be seen, the exploration generates 7 minima, with one of them (point 1) being quite close (ca. 2 Angstroms) to T318. That is, the initial exploration locates the binding site as one of the probable hotspots on the surface of hemagglutinin.</p>
+<div class="figure align-center" id="id5">
 <img alt="../../_images/plot_global.png" src="../../_images/plot_global.png" />
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Binding energy plot against distance to T318 (one of the key residues anchoring JNJ4796.</span></p>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Binding energy plot against distance to T318 (one of the key residues anchoring JNJ4796.</span></p>
 </div>
 <p>The 7 minima highlighted in Figure 3, which are far apart from one another, were then subjected to a second round of PELE simulations, now in local exploration mode (Fig. 4)</p>
-<div class="figure align-center" id="id7">
+<div class="figure align-center" id="id6">
 <img alt="../../_images/input_local.png" src="../../_images/input_local.png" />
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Global expoloration minimas &amp; local exploration inputs</span></p>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Global expoloration minimas &amp; local exploration inputs</span></p>
 </div>
 </div>
 </div>
 <div class="section" id="procedure-part2-pele-induced-fit">
 <h2>Procedure-Part2: PELE Induced Fit<a class="headerlink" href="#procedure-part2-pele-induced-fit" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>Main Charachteristic of the simulation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="main-charachteristic-of-the-simulation">
+<h3>Main Charachteristic of the simulation<a class="headerlink" href="#main-charachteristic-of-the-simulation" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Spawning type: “InverselyProportional”. Emphasize clusters with low representation</li>
 <li>Iterations: 4</li>
@@ -192,18 +193,18 @@ Of note, no crystal structure of the protein with JNJ4796 bound is available in 
 <li>Computate time: 1h</li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h3>ControlFile Specifics<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>ControlFile Specifics<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="ligand-perturbation">
 <h4>Ligand Perturbation<a class="headerlink" href="#ligand-perturbation" title="Permalink to this headline">¶</a></h4>
 <p>Small rotations (0.05, 0.1 radians) and small translations [0.5-1A] with a medium number of trials to find the best energy direction.</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;ifAnyIsTrue&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;rand1 &gt;= 0.5&quot;</span> <span class="p">],</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;ifAnyIsTrue&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;rand1 &gt;= 0.5&quot;</span> <span class="p">],</span>
     <span class="nt">&quot;doThesechanges&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;Perturbation::parameters&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;rotationScalingFactor&quot;</span><span class="p">:</span> <span class="mf">0.05</span> <span class="p">}</span> <span class="p">},</span>
     <span class="nt">&quot;otherwise&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;Perturbation::parameters&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;rotationScalingFactor&quot;</span><span class="p">:</span> <span class="mf">0.1</span> <span class="p">}</span> <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;ifAnyIsTrue&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;rand1 &gt;= 0.5&quot;</span> <span class="p">],</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;ifAnyIsTrue&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;rand1 &gt;= 0.5&quot;</span> <span class="p">],</span>
      <span class="nt">&quot;doThesechanges&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;Perturbation::parameters&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;translationRange&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nt">&quot;numberOfTrials&quot;</span> <span class="p">:</span> <span class="mi">8</span> <span class="p">}</span> <span class="p">},</span>
      <span class="nt">&quot;otherwise&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;Perturbation::parameters&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;translationRange&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="nt">&quot;numberOfTrials&quot;</span> <span class="p">:</span> <span class="mi">8</span> <span class="p">}</span> <span class="p">}</span>
  <span class="p">}</span>
@@ -213,7 +214,7 @@ Of note, no crystal structure of the protein with JNJ4796 bound is available in 
 <div class="section" id="sidechain-sampling">
 <h4>SideChain Sampling<a class="headerlink" href="#sidechain-sampling" title="Permalink to this headline">¶</a></h4>
 <p>High number of steric trials to improve the probability of finding a better induced fit pose</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;numberOfStericTrials&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
     <span class="nt">&quot;steeringUpdateFrequency&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -224,17 +225,15 @@ Of note, no crystal structure of the protein with JNJ4796 bound is available in 
 </div>
 </div>
 </div>
-<div class="section" id="id3">
-<h3>Results<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>The energy profile for the refinement of the 7 poses can be found in Fig. 6. As it can be seen, the pose that H-bonds to T318 is the one with the lowest interaction energy (-50kcal/mol) as predicted by PELE. The two lowest energy minima are found in Figure 7. The one that corresponds to the lowest energy value is very close to the binding mode described in the paper by JNJ.</p>
-<div class="figure align-center" id="id8">
+<div class="section" id="id2">
+<h3>Results<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The energy profile for the refinement of the 7 poses can be found in Fig. 5. The two lowest energy minima are highlighted. The lowest energy pose with an H-bond to T318 (Fig. 6) is the one with the lowest interaction energy (-50 kcal/mol) as predicted by PELE (Fig. 5). This pose is very close to the binding mode described by Kadam et al., 2017.</p>
+<div class="figure align-center" id="id7">
 <img alt="../../_images/result_local.png" src="../../_images/result_local.png" />
-<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Binding energy plot against distance to T318 (one of the key residues anchoring JNJ4796) for the 7 poses generated with the initial global exploration. The two minima which are highlighted with green and cyan circles are the ones represented in Fig. 7 below.</span></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Binding energy plot against distance to T318 (one of the key residues anchoring JNJ4796) for the 7 poses generated with the initial global exploration. The two minima which are highlighted with green and cyan circles are the ones represented in Fig. 7 below.</span></p>
 </div>
-<div class="figure align-center" id="id9">
+<div class="figure align-center">
 <img alt="../../_images/poses_local.png" src="../../_images/poses_local.png" />
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">3D pictures of JNJ4796 as predicted by the 2-step PELE procedure combining PELE global induced-fit exploration with local refinement.
-The image on the left (green) is nearly identical to the binding mode described in Kadam et al. 2017.</span></p>
 </div>
 </div>
 </div>
@@ -246,7 +245,7 @@ The image on the left (green) is nearly identical to the binding mode described 
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Hemagglutinin: Pocket Detection</a><ul>
 <li><a class="reference internal" href="#objective">Objective</a></li>
@@ -257,7 +256,7 @@ The image on the left (green) is nearly identical to the binding mode described 
 </ul>
 </li>
 <li><a class="reference internal" href="#procedure-part1-pele-global-exploration">Procedure-Part1: PELE Global Exploration</a><ul>
-<li><a class="reference internal" href="#main-charachteristic-of-the-simulation">Main Charachteristic of the simulation</a></li>
+<li><a class="reference internal" href="#main-simulation-characteristics">Main simulation characteristics</a></li>
 <li><a class="reference internal" href="#controlfile-specifics">ControlFile specifics</a><ul>
 <li><a class="reference internal" href="#generalparams">generalParams</a></li>
 <li><a class="reference internal" href="#spawning">spawning</a></li>
@@ -269,19 +268,25 @@ The image on the left (green) is nearly identical to the binding mode described 
 </ul>
 </li>
 <li><a class="reference internal" href="#procedure-part2-pele-induced-fit">Procedure-Part2: PELE Induced Fit</a><ul>
-<li><a class="reference internal" href="#id1">Main Charachteristic of the simulation</a></li>
-<li><a class="reference internal" href="#id2">ControlFile Specifics</a><ul>
+<li><a class="reference internal" href="#main-charachteristic-of-the-simulation">Main Charachteristic of the simulation</a></li>
+<li><a class="reference internal" href="#id1">ControlFile Specifics</a><ul>
 <li><a class="reference internal" href="#ligand-perturbation">Ligand Perturbation</a></li>
 <li><a class="reference internal" href="#sidechain-sampling">SideChain Sampling</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id3">Results</a></li>
+<li><a class="reference internal" href="#id2">Results</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../RoRGamma/RoRGamma.html"
+                        title="previous chapter">RoRγ: Dissociation Pathway to guide unbiased binding simulation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../MgluR5/MgluR5.html"
+                        title="next chapter">MgluR5: Pose Prediction on GPCRs</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -291,12 +296,14 @@ The image on the left (green) is nearly identical to the binding mode described 
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -309,12 +316,19 @@ The image on the left (green) is nearly identical to the binding mode described 
         <li class="right" style="margin-right: 10px">
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li> 
+        <li class="right" >
+          <a href="../MgluR5/MgluR5.html" title="MgluR5: Pose Prediction on GPCRs"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../RoRGamma/RoRGamma.html" title="RoRγ: Dissociation Pathway to guide unbiased binding simulation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../tutorial.html" >Tutorial</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
     <a href="../../index.html#license">License</a>.
     </div>
   </body>

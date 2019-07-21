@@ -4,24 +4,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Jump Controller in Pele++ control file &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.5.${BUILD_TAG}',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Changeable Parameters" href="../PELEDynamicChangesInSimulationParameters/ParametersThatCanChange.html" />
@@ -36,8 +29,7 @@
     });
     </script>
 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -70,7 +62,7 @@ defined at Task level.</p>
 <p>If you use the jumping functionality, you may want to enable the controller log file through the <a class="reference internal" href="../PELE/PeleOutput.html#sec-peleoutput-controllereventslogpath"><span class="std std-ref">PELE_Output controllerEventsLogPath</span></a> option.</p>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;jumpIf&quot;:
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;jumpIf&quot;:
 [
      &quot;diff_rmsd1 &gt; 1.1&quot;,
      &quot;diff_rmsd2 &gt; 0.5&quot;
@@ -116,7 +108,7 @@ in the whole simulation.</p>
 <p class="first admonition-title">Note</p>
 <p>In the current version it is not possible to mix absolute and
 relative conditions:</p>
-<div class="last highlight-json"><div class="highlight"><pre><span></span>&quot;jumpIf&quot;:
+<div class="last highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;jumpIf&quot;:
 [
     &quot;rmsdSelection &gt; 1.1 and diff_rmsd1 &gt; 0.5&quot;
 ]
@@ -125,13 +117,13 @@ relative conditions:</p>
 </div>
 <div class="section" id="example1">
 <h3>Example1<a class="headerlink" href="#example1" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;jumpIf&quot;:[ &quot;rmsdSelection &gt; 1.1&quot; ]
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;jumpIf&quot;:[ &quot;rmsdSelection &gt; 1.1&quot; ]
 </pre></div>
 </div>
 </div>
 <div class="section" id="example2">
 <h3>Example2<a class="headerlink" href="#example2" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;jumpIf&quot;:[ &quot;diff_rmsd1 &gt; 0.5&quot; ]
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;jumpIf&quot;:[ &quot;diff_rmsd1 &gt; 0.5&quot; ]
 </pre></div>
 </div>
 </div>
@@ -146,7 +138,7 @@ explorer/step in the simulation.</li>
 </ul>
 <div class="section" id="id1">
 <h3>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;jumpController&quot;:{
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;jumpController&quot;:{
     &quot;strategyToChooseBestExplorer&quot;:{
         &quot;type&quot;: &quot;bestHasMinimumValueForOneSensor&quot;,
          &quot;sensorTag&quot;: &quot;rmsd1&quot;
@@ -164,7 +156,7 @@ explorer/step in the simulation.</li>
 <li><p class="first">bestHasMinimumValueForOneSensor: The best explorer will have the
 smaller value for one sensor. The sensor is specified with
 “sensorTag”.</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;strategyToChooseBestExplorer&quot;:{
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;strategyToChooseBestExplorer&quot;:{
     &quot;type&quot;: &quot;bestHasMinimumValueForOneSensor&quot;,
     &quot;sensorTag&quot;: &quot;rmsd1&quot;
 }
@@ -175,7 +167,7 @@ smaller value for one sensor. The sensor is specified with
 calculated using more than one sensor, each one with a certain weight
 associated to it. It is specified with a block named “sensorWeights”
 that consists of the pairs <cite>tag:weight</cite>.</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;strategyToChooseBestExplorer&quot;:{
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;strategyToChooseBestExplorer&quot;:{
     &quot;type&quot;:&quot;bestHasMinimumValueForWeightedSensors&quot;,
     &quot;sensorWeights&quot;:{
         &quot;rmsd1&quot;: 1,
@@ -201,7 +193,7 @@ Explorer2 is better than Explorer1.</p>
 <ul>
 <li><p class="first">jumpToBestExplorerCoordinates: In case of jump, it will jump to the
 coordinates of the best explorer.</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&lt;pre&gt;
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&lt;pre&gt;
 &quot;jumpStrategy&quot;: {
     &quot;type&quot;: &quot;jumpToBestExplorerCoordinates&quot;
 }
@@ -247,7 +239,7 @@ a certain point.</p>
 <p>We need to define the distance of the ligand to the point of interest.
 In the <a class="reference internal" href="../Sensors/MetricTypes.html#sec-metrictypes"><span class="std std-ref">metrics block</span></a> of the same task
 we add:</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;metrics&quot;: [
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;metrics&quot;: [
     {
         &quot;type&quot;: &quot;distanceToPoint&quot;,
         &quot;point&quot;: [ 0.3, 0.1, 0.5 ],
@@ -265,7 +257,7 @@ we add:</p>
 </pre></div>
 </div>
 <p>In the same task, we add the “jumpIf” block:</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;jumpIf&quot;: [
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;jumpIf&quot;: [
     &quot;diff_distance &gt; 10&quot;
 ],
 &quot;jumpController&quot;: {
@@ -279,8 +271,8 @@ we add:</p>
 }
 </pre></div>
 </div>
-<p>This way, when a explorer is <span class="math">\(10 \AA{}\)</span> further to the point than the closest
-explorer (i.e. <span class="math">\(| \Delta \text{distance}| &gt; 10 \AA{}\)</span>, where <span class="math">\(\Delta \text{distance} = \text{CurrentExplorer_distance} - \text{BestExplorer_distance}\)</span>), it jumps to the
+<p>This way, when a explorer is <span class="math notranslate nohighlight">\(10 \AA{}\)</span> further to the point than the closest
+explorer (i.e. <span class="math notranslate nohighlight">\(| \Delta \text{distance}| &gt; 10 \AA{}\)</span>, where <span class="math notranslate nohighlight">\(\Delta \text{distance} = \text{CurrentExplorer_distance} - \text{BestExplorer_distance}\)</span>), it jumps to the
 best explorer coordinates. It is worth emphazising that diff_distance
 is NOT the distance between the two explorers.</p>
 </div>
@@ -289,7 +281,7 @@ is NOT the distance between the two explorers.</p>
 <p>The example is essentialy the same as the previous example. The only
 difference is that now the best explorer is the one that is the furthest
 away.The jump controller is now:</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;jumpIf&quot;: [
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;jumpIf&quot;: [
     &quot;diff_distance &gt; 10&quot;
 ],
 &quot;jumpController&quot;: {
@@ -313,7 +305,7 @@ away.The jump controller is now:</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Jump Controller in Pele++ control file</a><ul>
 <li><a class="reference internal" href="#example">Example</a></li>
@@ -354,12 +346,14 @@ away.The jump controller is now:</p>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -385,7 +379,7 @@ away.The jump controller is now:</p>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
     <a href="../index.html#license">License</a>.
     </div>
   </body>

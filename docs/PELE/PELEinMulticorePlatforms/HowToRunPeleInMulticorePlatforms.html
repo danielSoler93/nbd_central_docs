@@ -4,24 +4,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>How to run PELE in multicore platforms &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.5.${BUILD_TAG}',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="PCA for the perturbation phase of PELE" href="../pca.html" />
@@ -36,8 +29,7 @@
     });
     </script>
 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -90,7 +82,7 @@ faster, doing some calculations in parallel.</p>
 <li>Before run PELE, set the enviromental variable “OMP_NUM_THREADS” to set the number of threads that you want to use.</li>
 </ol>
 <blockquote>
-<div><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> setenv OMP_NUM_THREADS <span class="m">4</span>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> setenv OMP_NUM_THREADS <span class="m">4</span>
 <span class="gp">#</span> or
 <span class="gp">$</span> <span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">4</span>
 </pre></div>
@@ -117,14 +109,14 @@ will have N-1 explorers and 1 controller.</p>
 <li>Launch PELE using mpirun</li>
 </ol>
 <blockquote>
-<div><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> mpirun -np &lt;numberOfProcessors&gt; PELE &lt;configurationFile&gt;
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> mpirun -np &lt;numberOfProcessors&gt; PELE &lt;configurationFile&gt;
 </pre></div>
 </div>
 </div></blockquote>
 <p>If mpirun can’t find some files and crash, set the “working directory”,
 in our case the Pele directory, adding the flag “-wd “.</p>
 <p>If you are using Intel MPI and your execution fails with a message similar to:</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>Fatal error in MPI_Recv: Other MPI error, error stack:
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Fatal error in MPI_Recv: Other MPI error, error stack:
 MPI_Recv(224)...................: MPI_Recv(buf=0x29598b0, count=13647, MPI_DOUBLE, src=3, tag=6, MPI_COMM_WORLD, status=0x1) failed
 PMPIDI_CH3I_Progress(623).......: fail failed
 pkt_RTS_handler(317)............: fail failed
@@ -138,8 +130,8 @@ dcp_recv(165)...................: Internal MPI error!  Cannot read from remote p
     I_MPI_SHM_LMT=shm
 </pre></div>
 </div>
-<p>try the second suggested option, by setting the environment variable <code class="docutils literal"><span class="pre">I_MPI_SHM_LMT</span></code>:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nb">set</span> <span class="nv">I_MPI_SHM_LMT</span><span class="o">=</span>shm
+<p>try the second suggested option, by setting the environment variable <code class="docutils literal notranslate"><span class="pre">I_MPI_SHM_LMT</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nb">set</span> <span class="nv">I_MPI_SHM_LMT</span><span class="o">=</span>shm
 </pre></div>
 </div>
 </div>
@@ -187,7 +179,7 @@ thread in other processor</li>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">How to run PELE in multicore platforms</a><ul>
 <li><a class="reference internal" href="#openmp">OpenMP</a></li>
@@ -216,12 +208,14 @@ thread in other processor</li>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -246,7 +240,7 @@ thread in other processor</li>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
     <a href="../index.html#license">License</a>.
     </div>
   </body>
