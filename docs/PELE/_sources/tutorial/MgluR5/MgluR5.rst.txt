@@ -145,3 +145,13 @@ To map the movement of residues along the ligand exit pathway, make a movie as d
 
    Movie of the entrance path of the best structure in terms of binding energy
 
+************************************************
+4) Comparison with PELE simulation
+************************************************
+
+As we can see in the figure below Adaptive explores much more around the binding site area but also undersamples other parts of the energy landscape. Despite of having much more exploration in the binding site the energies are not so high as in the PELE simulation due to Adaptive clustering (At the end of the simulation we cannot create more clusters and we always repite the same steps). Finally, adaptive got to the binding sit in 20 min while PELE took 3-4h. Hence, if we know the binding site of the ligand we should use AdaptivePELE to reach the area and add a final induced fit PELE simulation to get the best possible energy.
+
+.. figure:: pele_adaptive.png
+   :align: center
+
+   Comparison between PELE and AdaptivePELE simulation

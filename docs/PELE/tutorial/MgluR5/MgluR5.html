@@ -161,6 +161,14 @@ we will set a slight bias towards the orthosteric site.</p>
 <p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Movie of the entrance path of the best structure in terms of binding energy</span></p>
 </div>
 </div>
+<div class="section" id="comparison-with-pele-simulation">
+<h2>4) Comparison with PELE simulation<a class="headerlink" href="#comparison-with-pele-simulation" title="Permalink to this headline">¶</a></h2>
+<p>As we can see in the figure below Adaptive explores much more around the binding site area but also undersamples other parts of the energy landscape. Despite of having much more exploration in the binding site the energies are not so high as in the PELE simulation due to Adaptive clustering (At the end of the simulation we cannot create more clusters and we always repite the same steps). Finally, adaptive got to the binding sit in 20 min while PELE took 3-4h. Hence, if we know the binding site of the ligand we should use AdaptivePELE to reach the area and add a final induced fit PELE simulation to get the best possible energy.</p>
+<div class="figure align-center" id="id5">
+<img alt="../../_images/pele_adaptive.png" src="../../_images/pele_adaptive.png" />
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Comparison between PELE and AdaptivePELE simulation</span></p>
+</div>
+</div>
 </div>
 
 
@@ -193,6 +201,7 @@ we will set a slight bias towards the orthosteric site.</p>
 <li><a class="reference internal" href="#plot-the-binding-energies-vs-rmsd">1) Plot the Binding Energies vs RMSD</a></li>
 <li><a class="reference internal" href="#extract-the-best-structures-in-terms-of-be-and-rmsd">2) Extract the best structures in terms of BE and RMSD</a></li>
 <li><a class="reference internal" href="#extract-a-movie-from-the-best-structure">3) Extract a movie from the best structure</a></li>
+<li><a class="reference internal" href="#comparison-with-pele-simulation">4) Comparison with PELE simulation</a></li>
 </ul>
 </li>
 </ul>
