@@ -88,6 +88,21 @@ pele.conf
 
    {"licenseDirectoryPath": "/opt/apps/PELE"}
 
+- chain of the ligand to perturb to your ligand chain
+
+
+.. code-block:: json
+
+    {"selectionToPerturb" : { "chains" : { "names" : [ "L" ] } }}
+
+.. code-block:: json
+
+    { "type" : "bindingEnergy", "boundPartSelection" : {"chains": { "names": [ "L" ] } } }
+
+.. code-block:: json
+
+    { "type" : "bindingEnergy", "boundPartSelection" : {"chains": { "names": [ "L" ] } } }
+    
 - box center and radius based on receptor grid generation from maestro. We use the receptor grid from Maestro to display the box and give you a visual idea of what will you be exploring along the simulation.
 
 
@@ -109,6 +124,7 @@ pele.conf
           "selection_group_2": { "links": { "ids": ["A:315"] } },
           "tag": "distance"
    }
+
     
 
 **2) python -m Helpers.constraints complex_processed.pdb pele.conf**
