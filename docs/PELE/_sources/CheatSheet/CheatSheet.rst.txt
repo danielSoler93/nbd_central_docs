@@ -15,26 +15,56 @@ Choose your input file depending on what you want to do with your system by foll
 Prepare your working folder
 +++++++++++++++++++++++++++++++++++++++
 
-In this section we will set our working folder by copying previously prepared control files
-with the functionality we want  and the DataLocal folder for the ligand paramaters.
+In this section we will set our working folder accordingly to the functionality (0, 1, 2, 3 or 4) we chose  in the workflow above.
 
-Explanation:
+
+If you chose 0:
+```````````````
+.. code-block:: bash
+    
+    git clone https://github.com/NostrumBioDiscovery/control_files.git
+    cp -r control_files/0_global_exploration .
+    cp -r control_files/DataLocal 0_global_exploration
+    cd 0_global_exploration
+
+
+If you chose 1:
+```````````````
+.. code-block:: bash
+    
+    git clone https://github.com/NostrumBioDiscovery/control_files.git
+    cp -r control_files/1_bias_exploration .
+    cp -r control_files/DataLocal 1_bias_exploration
+    cd 1_bias_exploration
+
+If you chose 2:
+```````````````
+.. code-block:: bash
+    
+    git clone https://github.com/NostrumBioDiscovery/control_files.git
+    cp -r control_files/2_free_local .
+    cp -r control_files/DataLocal 2_free_local
+    cd 2_free_local
+
+If you chose 3:
+```````````````
+.. code-block:: bash
+    
+    git clone https://github.com/NostrumBioDiscovery/control_files.git
+    cp -r control_files/3_exit_and_local .
+    cp -r control_files/DataLocal 3_exit_and_local
+    cd 3_exit_and_local
+
+If you chose 4:
+```````````````
 
 .. code-block:: bash
     
     git clone https://github.com/NostrumBioDiscovery/control_files.git
-    cp -r control_files/folder_you_chose_in_the_choose_your_input_file/ .
-    cp -r control_files/DataLocal folder_you_chose 
-    cd folder_you_chose
+    cp -r control_files/4_induce_fit .
+    cp -r control_files/DataLocal 4_induce_fit
+    cd 4_induce_fit
 
-Example:
-
-.. code-block:: bash
-    
-    git clone https://github.com/NostrumBioDiscovery/control_files.git
-    cp -r control_files/2_induce_fit .
-    cp -r control_files/DataLocal 2_induce_fit
-    cd 2_induce_fit
 
 Prepare complex
 +++++++++++++++++++
@@ -42,7 +72,8 @@ Prepare complex
 1) Check complex, remove crystal buffer and non important waters, include water shell around critical metals (as MG cofactors)
 2) Protein Preparation Wizard maestro
 3) Refine protonation with maestro and output complex.pdb
-4) python2.7 -m PPP.main -ipdb complex.pdb 
+4) python -m PPP.main -ipdb complex.pdb 
+5) **Make sure the ligand has a unique chain and its residue name is not UNK**
 
 **If the 4th step duplicate the residues within your pdb send a message to daniel.soler@nostrumbiodiscovery.com and move forward with the pdb from point 3**
 
@@ -50,7 +81,7 @@ Prepare complex
 Prepare ligand
 +++++++++++++++++++
 
-1) Isolate the ligand in maestro and output lig.mae. **!!!Be sure the residue name of the ligand is not UNK!!!**
+1) **From the complex.pdb above** isolate the ligand in maestro and output lig.mae.
 2) /opt/schrodinger2018-2(or lower)/utilities/python /path/to/PlopRotTemp/main.py lig.mae **(this will generate two files: ligz, LIG.rot.assign)**
 3) cp ligz DataLocal/Templates/OPLS2005/HeteroAtoms/
 4) cp LIG.rot.assign DataLocal/LigRotlib

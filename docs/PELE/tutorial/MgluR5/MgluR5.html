@@ -4,17 +4,24 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>MgluR5: Pose Prediction on GPCRs &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.5.${BUILD_TAG}',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Esterase: Mutant design for cavity creation" href="../Esterases/Esterases.html" />
@@ -29,7 +36,8 @@
     });
     </script>
 
-  </head><body>
+  </head>
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -97,7 +105,7 @@
 <h4>Slight bias towards the orthosteric site<a class="headerlink" href="#slight-bias-towards-the-orthosteric-site" title="Permalink to this headline">¶</a></h4>
 <p>As we know these compunds should bing on a Class A GPCR fashion
 we will set a slight bias towards the orthosteric site.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;spawning&quot;</span> <span class="p">:</span> <span class="p">{</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;spawning&quot;</span> <span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;epsilon&quot;</span><span class="p">,</span>
     <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;reportFilename&quot;</span> <span class="p">:</span> <span class="s2">&quot;run_report&quot;</span><span class="p">,</span>
@@ -111,7 +119,7 @@ we will set a slight bias towards the orthosteric site.</p>
 <div class="section" id="box-definition">
 <h4>Box definition<a class="headerlink" href="#box-definition" title="Permalink to this headline">¶</a></h4>
 <p>Since we hyphotesize the binding site is in between the TMs the box will contain the extracellular loops + the TM domain.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;Box&quot;</span><span class="p">:</span> <span class="p">{</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;Box&quot;</span><span class="p">:</span> <span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sphericalBox&quot;</span><span class="p">,</span>
   <span class="nt">&quot;radius&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
    <span class="nt">&quot;fixedCenter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">-24.84</span><span class="p">,</span> <span class="mf">6.36</span><span class="p">,</span> <span class="mf">39.73</span><span class="p">]</span>
@@ -123,7 +131,7 @@ we will set a slight bias towards the orthosteric site.</p>
 <div class="section" id="distances-to-monitor">
 <h4>Distances to monitor<a class="headerlink" href="#distances-to-monitor" title="Permalink to this headline">¶</a></h4>
 <p>We monitor the RMSD to the native pose along the simulation</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;rmsd&quot;</span><span class="p">,</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;rmsd&quot;</span><span class="p">,</span>
       <span class="nt">&quot;Native&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;NOSTRUM/GPCRnew/5CGC/5CGC_native.pdb&quot;</span> <span class="p">},</span>
       <span class="nt">&quot;selection&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;chains&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;C&quot;</span> <span class="p">]</span> <span class="p">}</span> <span class="p">},</span>
       <span class="nt">&quot;includeHydrogens&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nt">&quot;doSuperposition&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nt">&quot;tag&quot;</span> <span class="p">:</span> <span class="s2">&quot;rmsd_lig&quot;</span>
@@ -177,7 +185,7 @@ we will set a slight bias towards the orthosteric site.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">MgluR5: Pose Prediction on GPCRs</a><ul>
 <li><a class="reference internal" href="#objective">Objective</a></li>
@@ -221,14 +229,12 @@ we will set a slight bias towards the orthosteric site.</p>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -253,7 +259,7 @@ we will set a slight bias towards the orthosteric site.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
     <a href="../../index.html#license">License</a>.
     </div>
   </body>

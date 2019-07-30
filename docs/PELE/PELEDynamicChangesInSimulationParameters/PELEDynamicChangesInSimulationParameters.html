@@ -4,17 +4,24 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>PELE: Dynamic Changes in simulation parameters &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.5.${BUILD_TAG}',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Exit Conditions" href="../ExitConditions/ExitConditions.html" />
@@ -29,7 +36,8 @@
     });
     </script>
 
-  </head><body>
+  </head>
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -67,7 +75,7 @@ see <a class="reference internal" href="ParametersThatCanChange.html#sec-paramet
 <p>This block is optional, but if you use it, it must be included inside a
 PeleTask block.</p>
 <p>Let’s see an example:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;parametersChanges&quot;:
+<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;parametersChanges&quot;:
 [
     {
         &quot;ifAnyIsTrue&quot;: [
@@ -110,7 +118,7 @@ PeleTask block.</p>
 define lists in JSON) of two parameter changes (each defined between
 curly brackets).</p>
 <p>The first parameters change block of the list in this example is:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;ifAnyIsTrue&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;rmsd &gt; 1.0 and rmsd &lt; 1.2&quot;</span><span class="p">,</span>
         <span class="s2">&quot;rmsd_CA &gt; 1&quot;</span>
@@ -125,7 +133,7 @@ curly brackets).</p>
 </pre></div>
 </div>
 <p>and the second one is:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;ifAnyIsTrue&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;rmsd &lt; 1.0 or rmsd &lt;= 0.5&quot;</span><span class="p">,</span>
         <span class="s2">&quot;not (rmsd_CA &lt; 1 or currentEnergy &gt; 3.0)&quot;</span>
@@ -160,7 +168,7 @@ evaluate to false.</li>
 <p>Let’s have a closer look at the second parameters change block.</p>
 <p>In this case, the list of conditions for the changes to happen is given
 by:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;ifAnyIsTrue&quot;:
+<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;ifAnyIsTrue&quot;:
 [
     &quot;rmsd&lt;1.0 or rmsd&lt;=0.5&quot;,
     &quot;not(rmsd_CA&lt;1 or currentEnergy&gt;3.0)&quot;
@@ -172,7 +180,7 @@ are defined between square brackets) evaluates to true, the changes will
 take place. To know how to write conditions check <a class="reference internal" href="../LogicalConditions/ConditionsByExample.html#sec-conditionsbyexample"><span class="std std-ref">Conditions By Example</span></a>.</p>
 <p>The block that defines the changes that take place when any of the
 previous conditions is true is:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;doThesechanges&quot;: {
+<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;doThesechanges&quot;: {
     &quot;LigandPerturbation::parameters&quot;: {
         &quot;rotationScalingFactor&quot;: 0.4,
         &quot;translationRange&quot;: 3.5
@@ -191,7 +199,7 @@ the different set of changes by indicating which parameters to change
 and which are the new values of the parameters.</p>
 <p>The different sets of parameters changes are separated by commas.</p>
 <p>For instance, the first set of changes is:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;LigandPerturbation::parameters&quot;: {
+<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;LigandPerturbation::parameters&quot;: {
     &quot;rotationScalingFactor&quot;: 0.4,
     &quot;translationRange&quot;: 3.5,
 }
@@ -201,7 +209,7 @@ and which are the new values of the parameters.</p>
 “rotationScalingFactor” and the “translationRange” of the
 LigandPerturbation, being their new values 0.4 and 3.5, respectively.</p>
 <p>Similarly, the second set of changes:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;ANM::parameters&quot;: {
+<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;ANM::parameters&quot;: {
     &quot;thermalScaling&quot;: false,
     &quot;displacementFactor&quot;: 1.5,
 }
@@ -214,7 +222,7 @@ and the “displacementFactor” of the ANM with new values of false and
 <a class="reference internal" href="ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">Parameters That Can Change</span></a>.</p>
 <p>Finally, there is a block, “otherwise”, that defines the changes that
 take place when none of the previous conditions is true:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;otherwise&quot;: {
+<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;otherwise&quot;: {
     &quot;Minimizer::parameters&quot;: {
         &quot;alphaUpdated&quot;: true,
         &quot;sgbUpdated&quot;: true
@@ -226,7 +234,7 @@ take place when none of the previous conditions is true:</p>
 place when all the conditions for the change are false. Inside it, you
 should define the different set of changes by indicating which
 parameters to change and which are the new values of the parameters.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;Minimizer::parameters&quot;: {
+<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;Minimizer::parameters&quot;: {
     &quot;alphaUpdated&quot;: true,
     &quot;sgbUpdated&quot;: true
 }
@@ -256,14 +264,12 @@ parameters to change and which are the new values of the parameters.</p>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -289,7 +295,7 @@ parameters to change and which are the new values of the parameters.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
     <a href="../index.html#license">License</a>.
     </div>
   </body>

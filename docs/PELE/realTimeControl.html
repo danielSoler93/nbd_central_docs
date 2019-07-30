@@ -4,17 +4,24 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Real Time Control of PELE simulations (experimental) &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.5.${BUILD_TAG}',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="PELE File Formats" href="fileFormats.html" />
@@ -29,7 +36,8 @@
     });
     </script>
 
-  </head><body>
+  </head>
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -67,9 +75,9 @@
 <p>To use real time control of a PELE simulation, you must enable this through the control file. Then, you must write commands to the command input file, while you can see how the commands are processed at the command output file.</p>
 <div class="section" id="configure-real-time-control-of-a-pele-simulation">
 <h2>Configure real time control of a PELE simulation<a class="headerlink" href="#configure-real-time-control-of-a-pele-simulation" title="Permalink to this headline">¶</a></h2>
-<p>To enable real time control of a PELE simulation, you must add the <code class="docutils literal notranslate"><span class="pre">commandFilePath</span></code> and <code class="docutils literal notranslate"><span class="pre">commandOutputFilePath</span></code> configuration variables to the top level of the control file (see <a class="reference internal" href="GeneralStructure/GeneralStructure.html#sec-generalstructure-commandfilepath"><span class="std std-ref">commandFilePath</span></a> and <a class="reference internal" href="GeneralStructure/GeneralStructure.html#sec-generalstructure-commandoutputfilepath"><span class="std std-ref">commandOutputFilePath</span></a>).</p>
+<p>To enable real time control of a PELE simulation, you must add the <code class="docutils literal"><span class="pre">commandFilePath</span></code> and <code class="docutils literal"><span class="pre">commandOutputFilePath</span></code> configuration variables to the top level of the control file (see <a class="reference internal" href="GeneralStructure/GeneralStructure.html#sec-generalstructure-commandfilepath"><span class="std std-ref">commandFilePath</span></a> and <a class="reference internal" href="GeneralStructure/GeneralStructure.html#sec-generalstructure-commandoutputfilepath"><span class="std std-ref">commandOutputFilePath</span></a>).</p>
 <p>For example:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+<div class="highlight-json"><div class="highlight"><pre><span></span>{
  &quot;commandFilePath&quot;: &quot;commands.txt&quot;,
  &quot;commandOutputFilePath&quot;: &quot;commandsOutput.txt&quot;,
 
@@ -87,9 +95,9 @@
 </div>
 <div class="section" id="write-commands-to-the-command-input-file">
 <h2>Write commands to the command input file<a class="headerlink" href="#write-commands-to-the-command-input-file" title="Permalink to this headline">¶</a></h2>
-<p>Once the application has started and created the command files, you can write to the command stream (<code class="docutils literal notranslate"><span class="pre">commandFilePath</span></code>), where each command is a JSON object with three fields, and to let the program know that the command is finished, a final line <code class="docutils literal notranslate"><span class="pre">*END</span></code> is added to terminate the command. The fields of the JSON command object are:</p>
+<p>Once the application has started and created the command files, you can write to the command stream (<code class="docutils literal"><span class="pre">commandFilePath</span></code>), where each command is a JSON object with three fields, and to let the program know that the command is finished, a final line <code class="docutils literal"><span class="pre">*END</span></code> is added to terminate the command. The fields of the JSON command object are:</p>
 <ul class="simple">
-<li>commandId: A numeric identifier to match command output in the <code class="docutils literal notranslate"><span class="pre">commandOutputFilePath</span></code> to a given input command.</li>
+<li>commandId: A numeric identifier to match command output in the <code class="docutils literal"><span class="pre">commandOutputFilePath</span></code> to a given input command.</li>
 <li>commandType: The type of command. One of the allowed ones (see above, in the introduction section).</li>
 <li>commandData: The actual contents of the command, as a string. It will contain a JSON object (codified as a string, so quote symbols must be escaped, and backslashes also must be escaped). It will contain a set of parameter change instructions, as in <a class="reference internal" href="PELEDynamicChangesInSimulationParameters/ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">Changeable Parameters</span></a>.</li>
 </ul>
@@ -100,7 +108,7 @@
 </ul>
 <p>It always can receive a NOOP command, which has no effect.</p>
 <p>For example, the following commands will pause the simulation, make a change of parameters, and then resume the simulation:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&quot;commandId&quot;: 1,
+<div class="highlight-text"><div class="highlight"><pre><span></span>{&quot;commandId&quot;: 1,
  &quot;commandType&quot;: &quot;PAUSE&quot;,
  &quot;commandData&quot;: &quot;&quot;
 }
@@ -133,13 +141,13 @@
 <li>commandId: Matches the commandId of the command this result corresponds to.</li>
 <li>output: A string with the output for the given command.</li>
 </ul>
-<p>The output is a string codifying a list of steps where the different explorers are after executing the command, which corresponds to the next step they plan to run. The format is: <code class="docutils literal notranslate"><span class="pre">X&#64;Y:Z</span></code> where X is the explorer id, Y is the task id, and Z is the step number.</p>
+<p>The output is a string codifying a list of steps where the different explorers are after executing the command, which corresponds to the next step they plan to run. The format is: <code class="docutils literal"><span class="pre">X&#64;Y:Z</span></code> where X is the explorer id, Y is the task id, and Z is the step number.</p>
 <p>An example output, corresponding to the previous input commands:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&quot;commandId&quot;: 1, &quot;output&quot;: &quot;1@1:2 2@1:2 3@1:2&quot;}
+<div class="highlight-text"><div class="highlight"><pre><span></span>{&quot;commandId&quot;: 1, &quot;output&quot;: &quot;1@1:2 2@1:2 3@1:2&quot;}
 *END
 </pre></div>
 </div>
-<p>Notice that each reply is also terminated by a <code class="docutils literal notranslate"><span class="pre">*END</span></code> line. In the example, explorers 1, 2 and 3 were active when they received the command, and all of them were ready to start step 2 of task 1 at that time.</p>
+<p>Notice that each reply is also terminated by a <code class="docutils literal"><span class="pre">*END</span></code> line. In the example, explorers 1, 2 and 3 were active when they received the command, and all of them were ready to start step 2 of task 1 at that time.</p>
 </div>
 </div>
 
@@ -149,7 +157,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
+  <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Real Time Control of PELE simulations (experimental)</a><ul>
 <li><a class="reference internal" href="#configure-real-time-control-of-a-pele-simulation">Configure real time control of a PELE simulation</a></li>
@@ -173,14 +181,12 @@
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -205,7 +211,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
     <a href="index.html#license">License</a>.
     </div>
   </body>
