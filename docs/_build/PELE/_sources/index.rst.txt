@@ -9,6 +9,7 @@ Contents:
 
   intro/intro
   tutorial/tutorial
+  CheatSheet/CheatSheet
   theory/theory
   molecularParameters
   adaptive

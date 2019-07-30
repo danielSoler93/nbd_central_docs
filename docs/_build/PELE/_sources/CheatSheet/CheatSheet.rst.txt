@@ -1,0 +1,100 @@
+#########################
+Launch your first job
+#########################
+
+
+Choose your input file
+++++++++++++++++++++++++++
+
+
+Choose your input file depending on what you want to do with your system by following the next workflow:
+
+.. figure:: cheatsheet_pele.png
+   :align: center
+
+Prepare your working folder
++++++++++++++++++++++++++++++++++++++++
+
+In this section we will set our working folder accordingly to the functionality (0, 1, 2, 3 or 4) we chose  in the workflow above.
+
+
+If you chose 0:
+```````````````
+.. code-block:: bash
+    
+    git clone https://github.com/NostrumBioDiscovery/control_files.git
+    cp -r control_files/0_global_exploration .
+    cd 0_global_exploration
+
+
+If you chose 1:
+```````````````
+.. code-block:: bash
+    
+    git clone https://github.com/NostrumBioDiscovery/control_files.git
+    cp -r control_files/1_free_local .
+    cd  1_free_local
+
+If you chose 2:
+```````````````
+.. code-block:: bash
+    
+    git clone https://github.com/NostrumBioDiscovery/control_files.git
+    cp -r control_files/2_bias_exploration .
+    cd 2_bias_exploration
+
+If you chose 3:
+```````````````
+
+.. code-block:: bash
+    
+    git clone https://github.com/NostrumBioDiscovery/control_files.git
+    cp -r control_files/3_induced_fit .
+    cd  3_induced_fit
+
+
+Prepare complex
++++++++++++++++++++
+
+1) Check complex, remove crystal buffer and non important waters, include water shell around critical metals (as MG cofactors)
+2) Protein Preparation Wizard maestro
+3) Refine protonation with maestro and output complex.pdb
+4) python -m PPP.main -ipdb complex.pdb 
+5) **Make sure the ligand has a unique chain and its residue name is not UNK**
+
+**If the 4th step duplicate the residues within your pdb send a message to daniel.soler@nostrumbiodiscovery.com and move forward with the pdb from point 3**
+
+
+Prepare ligand
++++++++++++++++++++
+
+1) **From the complex.pdb above** isolate the ligand in maestro and output lig.mae.
+2) /opt/schrodinger2018-2(or lower)/utilities/python /path/to/PlopRotTemp/main.py lig.mae **(this will generate two files: ligz, LIG.rot.assign)**
+3) cp ligz DataLocal/Templates/OPLS2005/HeteroAtoms/
+4) cp LIG.rot.assign DataLocal/LigRotlib
+
+
+Prepare control files
+++++++++++++++++++++++++++++
+
+1) vim pele.conf and change:
+    - license path to /path/to/licenses/
+    - box center and radius based on receptor grid generation from maestro. We use the receptor grid from Maestro to display the box and give you a visual idea of what will you be exploring along the simulation.
+    - metrics you want to calculate (Choose a metric allows you to identify different poses once the simulation is done. Distance from the ligand to a residue, or distance from the ligand to a point in the cartesian space)
+
+2) python -m Helpers.constraints complex_processed.pdb pele.conf
+
+3) vim adaptive.conf
+    - change input pdb
+    - change ligand resname
+    - decrease the processors if you do not have as many as the input file says.
+
+Run simulation
++++++++++++++++++++
+
+1) python -m AdaptivePELE.adaptiveSampling adaptive.conf 
+
+**If there is an error please check the message and change whatever. If you do not understand the error message, please contact daniel.soler@nostrumbiodiscovery.com**
+
+
+
