@@ -148,6 +148,16 @@ adaptive.conf
     
     {"initialStructures" : ["input.pdb"]}
 
+- If bias simulation change the column of the report that you want to bias the simulation to and the degree of bias [0-1]:
+
+
+.. code-block:: json
+    
+    {
+    "metricColumnInReport" : 5,
+    "epsilon" : 0.25
+    }
+
 - change ligand resname
     
 .. code-block:: json
