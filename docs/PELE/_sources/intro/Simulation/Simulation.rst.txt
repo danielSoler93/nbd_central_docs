@@ -114,8 +114,7 @@ Generally, constraints of 0.5kcal/mol are placed on the CA and constraints of 2k
     },
     }
 
-- ANM Params: This section defines the anisotropic network model parameters. The lowest eigenvalues are normally used as it is well define in the literature that are the ones contributing the most to the bioactive conformation of the complex. However, only harmonic movements will be captured with this method. Check the `PCA chapter <../../pca.html>`__ to characterize other types of movements from X-ray structures or MDs. 
-For more information on ANM, check the: `ANM section <../../ANM/Anm.html>`__.
+- ANM Params: This section defines the anisotropic network model parameters. The lowest eigenvalues are normally used as it is well define in the literature that are the ones contributing the most to the bioactive conformation of the complex. However, only harmonic movements will be captured with this method. Check the `PCA chapter <../../pca.html>`__ to characterize other types of movements from X-ray structures or MDs. For more information on ANM, check the: `ANM section <../../ANM/Anm.html>`__.
 
 .. code-block:: json
 
