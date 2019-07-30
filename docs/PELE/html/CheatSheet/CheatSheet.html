@@ -70,7 +70,7 @@
 </div>
 <div class="section" id="prepare-your-working-folder">
 <h2>Prepare your working folder<a class="headerlink" href="#prepare-your-working-folder" title="Permalink to this headline">¶</a></h2>
-<p>In this section we will set our working folder accordingly to the functionality (0, 1, 2, 3 or 4) we chose  in the workflow above.</p>
+<p>In this section we will set our working folder accordingly to the functionality (0, 1, 2 or 3 ) we chose  in the workflow above.</p>
 <div class="section" id="if-you-chose-0">
 <h3>If you chose 0:<a class="headerlink" href="#if-you-chose-0" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>git clone https://github.com/NostrumBioDiscovery/control_files.git
@@ -126,29 +126,64 @@ cp -r control_files/3_induced_fit .
 </div>
 <div class="section" id="prepare-control-files">
 <h2>Prepare control files<a class="headerlink" href="#prepare-control-files" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><dl class="first docutils">
-<dt>vim pele.conf and change:</dt>
-<dd><ul class="first last">
-<li>license path to /path/to/licenses/</li>
-<li>box center and radius based on receptor grid generation from maestro. We use the receptor grid from Maestro to display the box and give you a visual idea of what will you be exploring along the simulation.</li>
-<li>metrics you want to calculate (Choose a metric allows you to identify different poses once the simulation is done. Distance from the ligand to a residue, or distance from the ligand to a point in the cartesian space)</li>
+<div class="section" id="pele-conf">
+<h3>pele.conf<a class="headerlink" href="#pele-conf" title="Permalink to this headline">¶</a></h3>
+<p><strong>1) vim pele.conf and change:</strong></p>
+<ul class="simple">
+<li>“licenseDirectoryPath”: “/path/to/licenses/”</li>
 </ul>
-</dd>
-</dl>
-</li>
-<li>python -m Helpers.constraints complex_processed.pdb pele.conf</li>
-<li><dl class="first docutils">
-<dt>vim adaptive.conf</dt>
-<dd><ul class="first last">
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;licenseDirectoryPath&quot;</span><span class="p">:</span> <span class="s2">&quot;/opt/apps/PELE&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>box center and radius based on receptor grid generation from maestro. We use the receptor grid from Maestro to display the box and give you a visual idea of what will you be exploring along the simulation.</li>
+</ul>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;Box&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;radius&quot;</span> <span class="p">:</span> <span class="mi">35</span><span class="p">,</span>
+<span class="nt">&quot;fixedCenter&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">14</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">41</span> <span class="p">],</span>
+<span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;sphericalBox&quot;</span> <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>metrics you want to calculate (Choose a metric allows you to identify different poses once the simulation is done. Distance from the ligand to a residue, or distance from the ligand to a point in the cartesian space). Fore more information, please refer to: <a class="reference external" href="../Sensors/MetricTypes.html">metrics section</a></li>
+</ul>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;com_distance&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;selection_group_1&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;atoms&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;L:1:_O3_&quot;</span><span class="p">]</span> <span class="p">}</span> <span class="p">},</span>
+       <span class="nt">&quot;selection_group_2&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A:315&quot;</span><span class="p">]</span> <span class="p">}</span> <span class="p">},</span>
+       <span class="nt">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;distance&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>2) python -m Helpers.constraints complex_processed.pdb pele.conf</strong></p>
+<blockquote>
+<div>That will convert the $CONSTRAINTS field inside pele.conf into the next json-code:</div></blockquote>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;constrainAtomToPosition&quot;</span><span class="p">,</span><span class="nt">&quot;springConstant&quot;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span><span class="nt">&quot;equilibriumDistance&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;constrainThisAtom&quot;</span><span class="p">:</span><span class="s2">&quot;A:512:_CA_&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adaptive-conf">
+<h3>adaptive.conf<a class="headerlink" href="#adaptive-conf" title="Permalink to this headline">¶</a></h3>
+<p><strong>3) vim adaptive.conf</strong></p>
+<ul class="simple">
 <li>change input pdb</li>
+</ul>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;initialStructures&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;input.pdb&quot;</span><span class="p">]}</span>
+</pre></div>
+</div>
+<ul class="simple">
 <li>change ligand resname</li>
+</ul>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;ligandResname&quot;</span> <span class="p">:</span> <span class="s2">&quot;DRG&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
 <li>decrease the processors if you do not have as many as the input file says.</li>
 </ul>
-</dd>
-</dl>
-</li>
-</ol>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;processors&quot;</span> <span class="p">:</span> <span class="mi">64</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="run-simulation">
 <h2>Run simulation<a class="headerlink" href="#run-simulation" title="Permalink to this headline">¶</a></h2>
@@ -178,7 +213,11 @@ cp -r control_files/3_induced_fit .
 </li>
 <li><a class="reference internal" href="#prepare-complex">Prepare complex</a></li>
 <li><a class="reference internal" href="#prepare-ligand">Prepare ligand</a></li>
-<li><a class="reference internal" href="#prepare-control-files">Prepare control files</a></li>
+<li><a class="reference internal" href="#prepare-control-files">Prepare control files</a><ul>
+<li><a class="reference internal" href="#pele-conf">pele.conf</a></li>
+<li><a class="reference internal" href="#adaptive-conf">adaptive.conf</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#run-simulation">Run simulation</a></li>
 </ul>
 </li>
