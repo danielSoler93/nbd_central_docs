@@ -24,7 +24,6 @@ If you chose 0:
     
     git clone https://github.com/NostrumBioDiscovery/control_files.git
     cp -r control_files/0_global_exploration .
-    cp -r control_files/DataLocal 0_global_exploration
     cd 0_global_exploration
 
 
@@ -33,37 +32,25 @@ If you chose 1:
 .. code-block:: bash
     
     git clone https://github.com/NostrumBioDiscovery/control_files.git
-    cp -r control_files/1_bias_exploration .
-    cp -r control_files/DataLocal 1_bias_exploration
-    cd 1_bias_exploration
+    cp -r control_files/1_free_local .
+    cd  1_free_local
 
 If you chose 2:
 ```````````````
 .. code-block:: bash
     
     git clone https://github.com/NostrumBioDiscovery/control_files.git
-    cp -r control_files/2_free_local .
-    cp -r control_files/DataLocal 2_free_local
-    cd 2_free_local
+    cp -r control_files/2_bias_exploration .
+    cd 2_bias_exploration
 
 If you chose 3:
 ```````````````
-.. code-block:: bash
-    
-    git clone https://github.com/NostrumBioDiscovery/control_files.git
-    cp -r control_files/3_exit_and_local .
-    cp -r control_files/DataLocal 3_exit_and_local
-    cd 3_exit_and_local
-
-If you chose 4:
-```````````````
 
 .. code-block:: bash
     
     git clone https://github.com/NostrumBioDiscovery/control_files.git
-    cp -r control_files/4_induce_fit .
-    cp -r control_files/DataLocal 4_induce_fit
-    cd 4_induce_fit
+    cp -r control_files/3_induced_fit .
+    cd  3_induced_fit
 
 
 Prepare complex
