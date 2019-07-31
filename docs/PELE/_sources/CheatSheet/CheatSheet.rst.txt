@@ -59,16 +59,19 @@ Prepare complex
 1) Check complex, remove crystal buffer and non important waters, include water shell around critical metals (as MG cofactors)
 2) Protein Preparation Wizard maestro
 3) Refine protonation with maestro and output complex.pdb
-4) python -m PPP.main -ipdb complex.pdb 
-5) **Make sure the ligand has a unique chain and its residue name is not UNK**
+4) **Make sure the ligand has**:  
+    - Unique chain
+    - No atomnames with spaces
+    - Any residuename except UNK
+5) python -m PPP.main -ipdb complex.pdb **(complex_processed.pdb)**
 
-**If the 4th step duplicate the residues within your pdb send a message to daniel.soler@nostrumbiodiscovery.com and move forward with the pdb from point 3**
+**If the 5th step duplicate the residues within your pdb send a message to daniel.soler@nostrumbiodiscovery.com and move forward with the pdb from point 4**
 
 
 Prepare ligand
 +++++++++++++++++++
 
-1) **From the complex.pdb above** isolate the ligand in maestro and output lig.mae.
+1) **From the complex_processed.pdb above** charge this pdb to maestro again, isolate the ligand in maestro and output lig.mae.
 2) /opt/schrodinger2018-2(or lower)/utilities/python /path/to/PlopRotTemp/main.py lig.mae **(this will generate two files: ligz, LIG.rot.assign)**
 3) cp ligz DataLocal/Templates/OPLS2005/HeteroAtoms/
 4) cp LIG.rot.assign DataLocal/LigRotlib
