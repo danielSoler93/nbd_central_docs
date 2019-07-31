@@ -63,7 +63,7 @@ Prepare complex
     - Unique chain
     - No atomnames with spaces
     - Any residuename except UNK
-5) python -m PPP.main -ipdb complex.pdb **(complex_processed.pdb)**
+5) python -m PPP.main -ipdb complex.pdb **(output: complex_processed.pdb)**
 
 **If the 5th step duplicate the residues within your pdb send a message to daniel.soler@nostrumbiodiscovery.com and move forward with the pdb from point 4**
 
