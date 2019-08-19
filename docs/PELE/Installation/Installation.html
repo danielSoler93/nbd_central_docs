@@ -103,6 +103,40 @@ python -m AdaptivePELE.adaptiveSampling out_in_adaptive.conf
 </div>
 </div>
 </div>
+<div class="section" id="fragpele">
+<h2>FragPELE<a class="headerlink" href="#fragpele" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">frag_pele</span></code></li>
+<li>go to <code class="docutils literal notranslate"><span class="pre">lib/pythonX/site-packages/frag_pele/constants.py</span></code> and manually change this paragraph inside the  constants.py file</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">else</span>:
+    <span class="nv">PATH_TO_PELE</span> <span class="o">=</span> None
+    <span class="nv">PATH_TO_PELE_DATA</span> <span class="o">=</span> None
+    <span class="nv">PATH_TO_PELE_DOCUMENTS</span> <span class="o">=</span> None
+    <span class="nv">PATH_TO_LICENSE</span> <span class="o">=</span> None
+    <span class="nv">SCHRODINGER_PY_PATH</span> <span class="o">=</span> None
+    <span class="nv">ENV_PYTHON</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+<p>to the path on your machine. (example below)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">else</span>:
+    <span class="nv">PATH_TO_PELE</span> <span class="o">=</span> <span class="s2">&quot;/opt/PELE/bin/PELE-1.5&quot;</span>
+    <span class="nv">PATH_TO_PELE_DATA</span> <span class="o">=</span> <span class="s2">&quot;/opt/PELE/Data&quot;</span>
+    <span class="nv">PATH_TO_PELE_DOCUMENTS</span> <span class="o">=</span> <span class="s2">&quot;/opt/PELE/Documents&quot;</span>
+    <span class="nv">PATH_TO_LICENSE</span> <span class="o">=</span> <span class="s2">&quot;/home/ywest/&quot;</span>
+    <span class="nv">SCHRODINGER_PY_PATH</span> <span class="o">=</span> <span class="s2">&quot;/opt/schrodinger2018-1/utilities/python&quot;</span>
+    <span class="nv">ENV_PYTHON</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="fragpele-test">
+<h3>FragPELE test<a class="headerlink" href="#fragpele-test" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/carlesperez94/frag_pele.git
+<span class="nb">cd</span> frag_pele/frag_pele/example/1W7H_example/
+python -m frag_pele.main -cp 1w7h_preparation_structure_2w.pdb -sef serie_file.conf
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="pele-scripts">
 <h2>PELE scripts<a class="headerlink" href="#pele-scripts" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> pele_preparation <span class="o">(</span>from before<span class="o">)</span>
@@ -136,6 +170,10 @@ python -m Helpers.constraints 1w7h_preparation_structure_2w.pdb constraints.conf
 </li>
 <li><a class="reference internal" href="#adaptive-pele">Adaptive-PELE</a><ul>
 <li><a class="reference internal" href="#test-adaptivepele-installation">Test AdaptivePELE installation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fragpele">FragPELE</a><ul>
+<li><a class="reference internal" href="#fragpele-test">FragPELE test</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#pele-scripts">PELE scripts</a><ul>
