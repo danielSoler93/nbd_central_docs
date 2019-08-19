@@ -4,24 +4,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Treatment of eigenvector and eigenvalues by the PELE ANM module &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.5.${BUILD_TAG}',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="SideChainPrediction Block in Pele++ control file" href="../SideChainPrediction/SideChainPrediction.html" />
@@ -36,8 +29,7 @@
     });
     </script>
 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -97,11 +89,11 @@ the user for each step.</p>
 are used, and for each one, indicates in an algorithmic way the math
 that is performed, and also which parameteres have to be enabled in
 order to perform the calculation:</p>
-<p>From now on, <code class="docutils literal"><span class="pre">values</span></code> refers to the array of eigenvalues, and
-<code class="docutils literal"><span class="pre">vectors</span></code> refers to the array of eigenvectors (both with dimension
-<code class="docutils literal"><span class="pre">numberOfModes</span></code>). Functions like <code class="docutils literal"><span class="pre">inverseEuclideanNorm</span></code>,
-<code class="docutils literal"><span class="pre">vectorByScalar</span></code>, etc. represent the mathematical functions they are
-called after. Also <code class="docutils literal"><span class="pre">sqrt</span></code> means squareroot, and <code class="docutils literal"><span class="pre">rand(arg,</span> <span class="pre">arg)</span></code>
+<p>From now on, <code class="docutils literal notranslate"><span class="pre">values</span></code> refers to the array of eigenvalues, and
+<code class="docutils literal notranslate"><span class="pre">vectors</span></code> refers to the array of eigenvectors (both with dimension
+<code class="docutils literal notranslate"><span class="pre">numberOfModes</span></code>). Functions like <code class="docutils literal notranslate"><span class="pre">inverseEuclideanNorm</span></code>,
+<code class="docutils literal notranslate"><span class="pre">vectorByScalar</span></code>, etc. represent the mathematical functions they are
+called after. Also <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> means squareroot, and <code class="docutils literal notranslate"><span class="pre">rand(arg,</span> <span class="pre">arg)</span></code>
 returns a random number between the given interval.</p>
 <ul>
 <li><p class="first">At the normalization step:</p>
@@ -111,7 +103,7 @@ eigenvalue associated with each vector will be used in order to
 normalize the vector.</p>
 </li>
 <li><p class="first">Calculation:</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>For i from 1 to numberOfModes
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>For i from 1 to numberOfModes
   val = values[i]
   vec = vectors[i]
   factorNormalization = inverseEuclideanNorm(vec) * (1 / sqrt(hessianConstant * val)) //&quot;hessianConstant&quot; is a constant introduced by the user
@@ -129,7 +121,7 @@ first mode will be used in order to set an scaling factor for the
 modulus.</p>
 </li>
 <li><p class="first">Calculation:</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>val = values[chosenMode]
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>val = values[chosenMode]
 base = values[0]
 scaledFactor = (0.6 * val) / base + 0.4
 scaledMove = displacement / scaledFactor //&quot;displacement&quot; is a constant introduced by the user
@@ -149,7 +141,7 @@ although the only one which will use the eigenvalues is the latter
 one.</p>
 </li>
 <li><p class="first">Calculation (for “mixMainModeWithOthersModes” option):</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>For i from 1 to numberOfModes
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>For i from 1 to numberOfModes
   if i != from chosenModeIndex
     vec = vectors[i]
     magnitude = rand(-1.0, 1.0) / sqrt(values[i]) * inverseEuclideanNorm(vec)
@@ -189,12 +181,14 @@ moveVector = normalizeVector(moveVector);
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -220,7 +214,7 @@ moveVector = normalizeVector(moveVector);
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
     <a href="../index.html#license">License</a>.
     </div>
   </body>

@@ -4,24 +4,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>PELE parameters in Pele++ control file &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.5.${BUILD_TAG}',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="PeleTasks" href="PeleTasks.html" />
@@ -36,8 +29,7 @@
     });
     </script>
 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -169,7 +161,7 @@ will never be performed.</p>
 <p>Use: Links within this range from any top side link are also added the
 Pele regions.</p>
 <p>Note for developers: Used in TopSideLinksSelection::addTopSideLinksTo.</p>
-<p>Units: <span class="math">\(\AA{}\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(\AA{}\)</span></p>
 <p>Range: [0, inf)</p>
 <p>Default value: 0</p>
 <p>Plop info:</p>
@@ -187,7 +179,7 @@ minimization Pele region. Make sure the includeInMinimization PELE
 parameter (<a class="reference internal" href="../Minimization/Minimization.html#sec-minimization"><span class="std std-ref">Minimization</span></a>) does
 not interfere with this parameter.</p>
 <p>Note for developers: Used in PeleRegions::generate.</p>
-<p>Units: <span class="math">\(\AA{}\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(\AA{}\)</span></p>
 <p>Range: [0, inf)</p>
 <p>Default value: 1000.0 (this default intends to include all side chains in the set of includeInMinimization, in case it is different from the whole set of side chains in the system).</p>
 <p>Plop info:</p>
@@ -203,7 +195,7 @@ not interfere with this parameter.</p>
 <p>Use: Links within this radius from the ligand are added to the side
 chain prediction Pele region.</p>
 <p>Note for developers: Used in PeleRegions::generate.</p>
-<p>Units: <span class="math">\(\AA{}\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(\AA{}\)</span></p>
 <p>Range: [0, inf)</p>
 <p>Default value: 6.0</p>
 <p>Plop info:</p>
@@ -220,7 +212,7 @@ chain prediction Pele region.</p>
 is close enough to perform ANM, Side Chain Prediction, Minimization and
 solvent updates.</p>
 <p>Note for developers: Used in PeleStep::runAnm and PeleStep::relax</p>
-<p>Units: <span class="math">\(\AA{}\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(\AA{}\)</span></p>
 <p>Range: [0, inf)</p>
 <p>Default value: 5.0 (only if activateProximityDetection is true).</p>
 </div>
@@ -238,7 +230,7 @@ Side Chain Prediction, Minimization and solvent updates.</p>
 <p>Use: Adds a constraint to the center of mass of the perturbed atom set
 after the perturbation. This will affect the ANM, Side Chain prediction, and the minimization phases. The constraint will be removed before the Metropolis test.</p>
 <p>Range: [0, inf)</p>
-<p>Units: <span class="math">\(\text{kcal}/(\text{mol} \cdot \AA{}^{2})\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(\text{kcal}/(\text{mol} \cdot \AA{}^{2})\)</span></p>
 <p>Default value: 0</p>
 <p>Plop info:</p>
 <ul class="simple">
@@ -260,7 +252,7 @@ energy increases just when the perturbed backbone is moved.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">PELE parameters in Pele++ control file</a><ul>
 <li><a class="reference internal" href="#parameters">Parameters</a><ul>
@@ -297,12 +289,14 @@ energy increases just when the perturbed backbone is moved.</p>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -328,7 +322,7 @@ energy increases just when the perturbed backbone is moved.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
     <a href="../index.html#license">License</a>.
     </div>
   </body>

@@ -4,24 +4,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>ANM Block in Pele++ control file &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.5.${BUILD_TAG}',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Treatment of eigenvector and eigenvalues by the PELE ANM module" href="EigenvectorsAndEigenvalues.html" />
@@ -36,8 +29,7 @@
     });
     </script>
 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -63,7 +55,7 @@
             
   <div class="section" id="anm-block-in-pele-control-file">
 <span id="sec-anm"></span><h1>ANM Block in Pele++ control file<a class="headerlink" href="#anm-block-in-pele-control-file" title="Permalink to this headline">¶</a></h1>
-<p>This block configures the ANM phase in a <code class="docutils literal"><span class="pre">peleSimulation</span></code> command, or the ANM execution of an <code class="docutils literal"><span class="pre">anmComputation</span></code> command. In a <code class="docutils literal"><span class="pre">peleSimulation</span></code>, this phase will be active depending on the <code class="docutils literal"><span class="pre">anmFrequency</span></code> PELE parameter (<a class="reference internal" href="../PELE/PeleParameters.html#sec-peleparameters-anmfrequency"><span class="std std-ref">anmFrequency</span></a>).</p>
+<p>This block configures the ANM phase in a <code class="docutils literal notranslate"><span class="pre">peleSimulation</span></code> command, or the ANM execution of an <code class="docutils literal notranslate"><span class="pre">anmComputation</span></code> command. In a <code class="docutils literal notranslate"><span class="pre">peleSimulation</span></code>, this phase will be active depending on the <code class="docutils literal notranslate"><span class="pre">anmFrequency</span></code> PELE parameter (<a class="reference internal" href="../PELE/PeleParameters.html#sec-peleparameters-anmfrequency"><span class="std std-ref">anmFrequency</span></a>).</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">Even if ANM is deactivated in your simulation, its configuration may affect the relaxation phase minimization in a PELE simulation, since the ANM nodes are constrained according to the <cite>relaxationSpringConstant</cite> parameter (<a class="reference internal" href="#sec-anm-relaxationspringconstant"><span class="std std-ref">relaxationSpringConstant</span></a>).</p>
@@ -76,7 +68,7 @@ levels:</p>
 <h3>Inside the PeleSimulation command block<a class="headerlink" href="#inside-the-pelesimulation-command-block" title="Permalink to this headline">¶</a></h3>
 <p>The parameters defined at PeleSimulation level will be common for all
 the tasks.</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>...
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>...
 &quot;commands&quot;:
 [
     {
@@ -134,7 +126,7 @@ the tasks.</p>
 <h3>Inside a PeleTask block<a class="headerlink" href="#inside-a-peletask-block" title="Permalink to this headline">¶</a></h3>
 <p>The parameters defined at PeleTask level will be used only by the
 PeleTask in which they are defined.</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>...
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>...
 &quot;commands&quot;:
 [
     {
@@ -212,7 +204,7 @@ the PeleTask level has preference.</p>
 <li>“ALPHACARBONS” Special case of “CARTESIANS” algorithm where the nodes
 are only Cα.</li>
 </ul>
-<p>When using either <code class="docutils literal"><span class="pre">CARTESIANS</span></code> or <code class="docutils literal"><span class="pre">ALPHACARBONS</span></code> options, you can specify to
+<p>When using either <code class="docutils literal notranslate"><span class="pre">CARTESIANS</span></code> or <code class="docutils literal notranslate"><span class="pre">ALPHACARBONS</span></code> options, you can specify to
 load the eigenvalues and eigenvectors from a file. See “Modes
 computation” below.</p>
 <p>Default value: “ALPHACARBONS”</p>
@@ -220,20 +212,20 @@ computation” below.</p>
 </div>
 <div class="section" id="nodes-selection">
 <h2>Nodes selection<a class="headerlink" href="#nodes-selection" title="Permalink to this headline">¶</a></h2>
-<p>ANM works on a set of nodes. First, a set of links is created by removing the <code class="docutils literal"><span class="pre">linksToOmit</span></code> (<a class="reference internal" href="#sec-anm-linkstoomit"><span class="std std-ref">linksToOmit</span></a>) from the <code class="docutils literal"><span class="pre">linksToInclude</span></code> (<a class="reference internal" href="#sec-anm-linkstoinclude"><span class="std std-ref">linksToInclude</span></a>) set. Then:</p>
+<p>ANM works on a set of nodes. First, a set of links is created by removing the <code class="docutils literal notranslate"><span class="pre">linksToOmit</span></code> (<a class="reference internal" href="#sec-anm-linkstoomit"><span class="std std-ref">linksToOmit</span></a>) from the <code class="docutils literal notranslate"><span class="pre">linksToInclude</span></code> (<a class="reference internal" href="#sec-anm-linkstoinclude"><span class="std std-ref">linksToInclude</span></a>) set. Then:</p>
 <ul class="simple">
-<li>for the <code class="docutils literal"><span class="pre">ALPHACARBONS</span></code> algorithm, all Cα atoms of that set of links will be used as nodes for ANM.</li>
-<li>for the <code class="docutils literal"><span class="pre">CARTESIANS</span></code> algorithm, the <code class="docutils literal"><span class="pre">nodes</span></code> selection is applied to that set of links, and will be used as nodes for ANM.</li>
+<li>for the <code class="docutils literal notranslate"><span class="pre">ALPHACARBONS</span></code> algorithm, all Cα atoms of that set of links will be used as nodes for ANM.</li>
+<li>for the <code class="docutils literal notranslate"><span class="pre">CARTESIANS</span></code> algorithm, the <code class="docutils literal notranslate"><span class="pre">nodes</span></code> selection is applied to that set of links, and will be used as nodes for ANM.</li>
 </ul>
-<p>Notice that the <code class="docutils literal"><span class="pre">nodes</span></code> are disposed linearly, as they appear in the input PDB, and that consecutive <code class="docutils literal"><span class="pre">nodes</span></code> are considered bonded if they are interacting (that is, under the given <a class="reference internal" href="#sec-anm-cutoff"><span class="std std-ref">cutoff</span></a>). This makes sense in the general case; also notice that this is only significant when the elastic network model used is “powerContactModel” (see <a class="reference internal" href="#sec-anm-elasticnetworkmodel"><span class="std std-ref">Elastic network model</span></a>) and the <a class="reference internal" href="#sec-anm-bondedconstantforhessian"><span class="std std-ref">bondedConstantForHessian</span></a> is greater than zero. For multichain systems, this implies that the last node from a chain and the first node from the next chain may be considered bonded. Also, if the <a class="reference internal" href="../Initialization/Initialization_general.html#sec-initialization-general-allowmissingterminals"><span class="std std-ref">allowMissingTerminals</span></a> option of the <a class="reference internal" href="../Initialization/Initialization_general.html#sec-initialization-general"><span class="std std-ref">General description</span></a> section is active, it considers as bonded those nodes opening and closing a gap, depending on <a class="reference internal" href="#sec-anm-cutoff"><span class="std std-ref">cutoff</span></a>.</p>
+<p>Notice that the <code class="docutils literal notranslate"><span class="pre">nodes</span></code> are disposed linearly, as they appear in the input PDB, and that consecutive <code class="docutils literal notranslate"><span class="pre">nodes</span></code> are considered bonded if they are interacting (that is, under the given <a class="reference internal" href="#sec-anm-cutoff"><span class="std std-ref">cutoff</span></a>). This makes sense in the general case; also notice that this is only significant when the elastic network model used is “powerContactModel” (see <a class="reference internal" href="#sec-anm-elasticnetworkmodel"><span class="std std-ref">Elastic network model</span></a>) and the <a class="reference internal" href="#sec-anm-bondedconstantforhessian"><span class="std std-ref">bondedConstantForHessian</span></a> is greater than zero. For multichain systems, this implies that the last node from a chain and the first node from the next chain may be considered bonded. Also, if the <a class="reference internal" href="../Initialization/Initialization_general.html#sec-initialization-general-allowmissingterminals"><span class="std std-ref">allowMissingTerminals</span></a> option of the <a class="reference internal" href="../Initialization/Initialization_general.html#sec-initialization-general"><span class="std std-ref">General description</span></a> section is active, it considers as bonded those nodes opening and closing a gap, depending on <a class="reference internal" href="#sec-anm-cutoff"><span class="std std-ref">cutoff</span></a>.</p>
 <div class="section" id="nodes">
 <h3>nodes<a class="headerlink" href="#nodes" title="Permalink to this headline">¶</a></h3>
-<p>Use: String used to select the nodes that the ANM will use (see <a class="reference internal" href="../Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a>). This parameter is not available for “ALPHACARBONS”, since in this case it is equivalent to selecting all <span class="math">\(C\alpha\)</span>, as shown in example 2 below.</p>
-<p>Default value: All atoms for <code class="docutils literal"><span class="pre">CARTESIANS</span></code>.</p>
+<p>Use: String used to select the nodes that the ANM will use (see <a class="reference internal" href="../Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a>). This parameter is not available for “ALPHACARBONS”, since in this case it is equivalent to selecting all <span class="math notranslate nohighlight">\(C\alpha\)</span>, as shown in example 2 below.</p>
+<p>Default value: All atoms for <code class="docutils literal notranslate"><span class="pre">CARTESIANS</span></code>.</p>
 <div class="section" id="example-1">
 <h4>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h4>
 <p>This is an example of an ANM simulation with DNA:</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;ANM&quot;:
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;ANM&quot;:
 {
     &quot;algorithm&quot;: &quot;CARTESIANS&quot;,
     &quot;nodes&quot;: {
@@ -252,11 +244,11 @@ computation” below.</p>
 </div>
 <div class="section" id="example-2">
 <h4>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;algorithm&quot;: &quot;ALPHACARBONS&quot;
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;algorithm&quot;: &quot;ALPHACARBONS&quot;
 </pre></div>
 </div>
 <p>is equivalent to using:</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;ANM&quot;:
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;ANM&quot;:
 {
     &quot;algorithm&quot;: &quot;CARTESIANS&quot;,
     &quot;nodes&quot;: {
@@ -301,7 +293,7 @@ has the same nodes as the ones that you indicate in your control file.</p>
 in your control file, then your nmd file must contain the information
 for all the alphacarbons of the system, except for those from link 71 to
 76 of chain A (both included).</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;ANM&quot;:
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;ANM&quot;:
 {
     &quot;algorithm&quot;: &quot;ALPHACARBONS&quot;,
     &quot;linksToOmit&quot;:
@@ -513,7 +505,7 @@ adjust the exponent’s value.</li>
 <p>Use: Nodes displacement factor.</p>
 <p>Note for developers: Used in
 AnmMagnitudeCalculator::computeDisplacementMagnitude.</p>
-<p>Units: <span class="math">\(\AA{}\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(\AA{}\)</span></p>
 <p>Default value: 1.0</p>
 <p>Range: (-inf, inf)</p>
 <p>Plop info:</p>
@@ -563,7 +555,7 @@ the kind of normalization to apply to the eigenvectors.</p>
 interaction between them in the ANM Hessian matrix generation.</p>
 <p>Note for developers: Used in LapackCartesianModesCalculator</p>
 <p>Range: [0, inf)</p>
-<p>Units: <span class="math">\(\AA{}\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(\AA{}\)</span></p>
 <p>Default value: 12.0</p>
 <p>Plop info:</p>
 <ul class="simple">
@@ -580,7 +572,7 @@ generate the ANM Hessian matrix. It is only used in the “powerContactModel” 
 <p>Note for developers: Used in
 LapackCartesianModesCalculator::calculateEigValuesAndEigVectors
 function.</p>
-<p>Units: <span class="math">\(kT/\AA{}^2\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(kT/\AA{}^2\)</span></p>
 <p>Range: [0, inf)</p>
 <p>Default value: 0.0</p>
 <p>Plop info:</p>
@@ -617,7 +609,7 @@ generate the ANM Hessian matrix. In the powerContactModel (see <a class="referen
 <p>Note for developers: Used in
 LapackCartesianModesCalculator::calculateEigValuesAndEigVectors
 function.</p>
-<p>Units: <span class="math">\(kT/\AA{}^2\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(kT/\AA{}^2\)</span></p>
 <p>Range: [0, inf)</p>
 <p>Default value: 1.667</p>
 <p>Plop info:</p>
@@ -638,7 +630,7 @@ used to compute the elastic constant for the constraints depending on
 the magnitude of the displacement: &gt; springConstant =
 steeringForce/displacementMagnitude</p>
 <p>Note for developers: Used in AnmCalculator::minimize.</p>
-<p>Units: <span class="math">\(kT/\AA{}\)</span> (force units)</p>
+<p>Units: <span class="math notranslate nohighlight">\(kT/\AA{}\)</span> (force units)</p>
 <p>Range: [0, inf)</p>
 <p>Default value: 20.0</p>
 <p>Plop info:</p>
@@ -656,7 +648,7 @@ If it is 0, no constraints are applied in the relaxation step
 minimization.</p>
 <p>Note for developers: Used in AnmCalculator::constrainCurrentAnmNodes
 function.</p>
-<p>Units: <span class="math">\(kT/\AA{}^2\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(kT/\AA{}^2\)</span></p>
 <p>Range: (0, inf)</p>
 <p>Default value: 0. By default, no constraints are applied in the
 relaxation step minimization.</p>
@@ -674,7 +666,7 @@ relaxation step minimization.</p>
 an angle depending on the algorithm you choose.</p>
 <p>Note for developers: Used in AnmCalculator::constrainCurrentAnmNodes and
 AnmCalculator::minimize functions.</p>
-<p>Units: <span class="math">\(\AA{}\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(\AA{}\)</span></p>
 <p>Range: (-inf, inf)</p>
 <p>Default value: 0.0</p>
 <p>Plop info: No equivalent in Plop</p>
@@ -744,7 +736,7 @@ the move vector. It represents the weight of the chosen mode.</p>
 “exponentialNetworkModel”. Then, given a value “d” for this parameter,
 then the computation of the constant of force of each pair of atoms for
 the hessian matrix will be done as follows:</p>
-<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">constant</span> <span class="o">=</span> <span class="n">parameter_constantForHessian</span><span class="o">/</span><span class="n">exp</span><span class="p">(</span><span class="n">pow</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">distance_between_atoms</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">constant</span> <span class="o">=</span> <span class="n">parameter_constantForHessian</span><span class="o">/</span><span class="n">exp</span><span class="p">(</span><span class="n">pow</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">distance_between_atoms</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
 
 <span class="c1">// (The above line comes directly from the code)</span>
 </pre></div>
@@ -760,14 +752,14 @@ ExponentialConstForceCalculator::calculateConstForce.</p>
 <div class="section" id="linkstoinclude">
 <span id="sec-anm-linkstoinclude"></span><h2>linksToInclude<a class="headerlink" href="#linkstoinclude" title="Permalink to this headline">¶</a></h2>
 <p>Selection of links to include in the ANM (see <a class="reference internal" href="../Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a>).</p>
-<p>Default: Everything but ligands (<code class="docutils literal"><span class="pre">&quot;chains&quot;:</span> <span class="pre">&quot;everythingButLigands&quot;</span></code>).</p>
+<p>Default: Everything but ligands (<code class="docutils literal notranslate"><span class="pre">&quot;chains&quot;:</span> <span class="pre">&quot;everythingButLigands&quot;</span></code>).</p>
 </div>
 <div class="section" id="linkstoomit">
 <span id="sec-anm-linkstoomit"></span><h2>linksToOmit<a class="headerlink" href="#linkstoomit" title="Permalink to this headline">¶</a></h2>
 <p>Selection of links not to include in the ANM (see <a class="reference internal" href="../Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a>).</p>
-<p>Default: No selection (<code class="docutils literal"><span class="pre">&quot;empty&quot;</span></code>).</p>
+<p>Default: No selection (<code class="docutils literal notranslate"><span class="pre">&quot;empty&quot;</span></code>).</p>
 <p>Example:</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;ANM&quot;:
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;ANM&quot;:
 {
     &quot;algorithm&quot;: &quot;ALPHACARBONS&quot;,
     &quot;linksToOmit&quot;:
@@ -811,7 +803,7 @@ ExponentialConstForceCalculator::calculateConstForce.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">ANM Block in Pele++ control file</a><ul>
 <li><a class="reference internal" href="#location">Location</a><ul>
@@ -915,12 +907,14 @@ ExponentialConstForceCalculator::calculateConstForce.</p>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -946,7 +940,7 @@ ExponentialConstForceCalculator::calculateConstForce.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
     <a href="../index.html#license">License</a>.
     </div>
   </body>

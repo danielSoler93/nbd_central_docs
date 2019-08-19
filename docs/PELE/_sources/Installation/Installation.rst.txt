@@ -1,13 +1,13 @@
-#########################
-Package Installation
-#########################
+############################
+PELE-package Installation
+############################
 
 Here we will go through the installation of PELE/AdaptivePELE and
 the preparation scripts need it for PELE.
 
 
 PELE
-++++++++++++++++++++++++++
++++++++++++++++++++++++++
 
 Send an e-mail to daniel.soler@nostrumbiodiscovery.com if you are interested on receiving the commercial software. 
 After revision of your application, we will send you a form to fill in with your machine specifications.
@@ -55,7 +55,7 @@ Test AdaptivePELE installation
 .. code-block:: bash
 
     git clone https://github.com/NostrumBioDiscovery/pele_preparation.git
-    cd pele_preparation/test_adaptive
+    cd pele_preparation/tests/test_adaptive
     tar vxf test.tar
     cd test
     manually change the license path inside the file test/pele.conf (line 2) into the /opt/PELE/licenses/  in your machine : "licenseDirectoryPath" : "/home/ywest/", to "licenseDirectoryPath" : "//path/to/PELE/licenses/",
@@ -76,7 +76,7 @@ PELE scripts test
 
 .. code-block:: bash
 
-    cd test
+    cd tests/test_helpers/
     python -m PPP.main -ipdb 1w7h_preparation_structure_2w.pdb
     python -m Helpers.constraints 1w7h_preparation_structure_2w.pdb constraints.conf
     /opt/schrodinger2017-4/utilities/python ../PlopRotTemp/main.py lig.mae

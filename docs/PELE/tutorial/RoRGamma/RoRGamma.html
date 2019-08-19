@@ -4,24 +4,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>RoRγ: Dissociation Pathway to guide unbiased binding simulation &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '1.5.${BUILD_TAG}',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Hemagglutinin: Pocket Detection" href="../Hemagglutinin/Hemagglutinin.html" />
@@ -36,8 +29,7 @@
     });
     </script>
 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -106,7 +98,7 @@
 <p>Special required parameters for exit simulation are:</p>
 <div class="section" id="unbinding-mode-and-exit-condition">
 <h4>Unbinding Mode and Exit Condition<a class="headerlink" href="#unbinding-mode-and-exit-condition" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="nt">&quot;simulation&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;pele&quot;</span><span class="p">,</span>
     <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
@@ -131,7 +123,7 @@
 <p>Where:</p>
 <p>“runEquilibration”: true is a keyword to run equilibration before  starting the exit simulation by means of a short minimization involving all the residues and sidechain within 4 Å from the ligand.</p>
 <p>“modeMovingBox” : “unbinding” is a keyword to define a type of “box” as unbinding type. This “box” is defined to limit ligand perturbation within 7 Å from the center-of-mass of the ligand and is dynamically moved along the ligand path during exit simulation.</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
  <span class="nt">&quot;exitCondition&quot;</span> <span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;metricMultipleTrajectories&quot;</span><span class="p">,</span>
       <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
@@ -150,7 +142,7 @@
 <p>We set the parameter “alternativeStructure” to true to start from
 multiple different conformations of the same cluster and not only the
 representative one.</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
            <span class="nt">&quot;alternativeStructure&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
            <span class="nt">&quot;ligandResname&quot;</span> <span class="p">:</span> <span class="s2">&quot;AGO&quot;</span><span class="p">,</span>
            <span class="nt">&quot;contactThresholdDistance&quot;</span> <span class="p">:</span> <span class="mi">8</span>
@@ -161,7 +153,7 @@ representative one.</p>
 <div class="section" id="metrics">
 <h4>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h4>
 <p>Distance between the atoms of the important residue HID479:NE2 and the ligand O2 is tracked.</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="nt">&quot;metrics&quot;</span> <span class="p">:</span> <span class="p">[</span>
 <span class="p">{</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;com_distance&quot;</span><span class="p">,</span>
 <span class="nt">&quot;selection_group_1&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;atoms&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A:479:_NE2&quot;</span><span class="p">]</span> <span class="p">}</span> <span class="p">},</span>
@@ -213,7 +205,7 @@ make the movie as described <a class="reference external" href="../../intro/Adap
 <div class="section" id="box-definition">
 <h4>Box definition<a class="headerlink" href="#box-definition" title="Permalink to this headline">¶</a></h4>
 <p>We will set a small box containing entrance path and binding site</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="nt">&quot;Perturbation&quot;</span><span class="p">:</span> <span class="p">{</span>
            <span class="nt">&quot;Box&quot;</span> <span class="p">:</span> <span class="p">{</span>
                      <span class="nt">&quot;radius&quot;</span> <span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
@@ -227,7 +219,7 @@ make the movie as described <a class="reference external" href="../../intro/Adap
 <div class="section" id="clustering-well-set">
 <h4>Clustering well set<a class="headerlink" href="#clustering-well-set" title="Permalink to this headline">¶</a></h4>
 <p>We must adjust the clustering accordingly to our system looking at the epoch/clustering(summary_clustering.txt) file.</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
 
     <span class="nt">&quot;values&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
 
@@ -240,7 +232,7 @@ make the movie as described <a class="reference external" href="../../intro/Adap
 <div class="section" id="id3">
 <h4>Metrics<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <p>RMSD to the native pose</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;rmsd&quot;</span><span class="p">,</span>
    <span class="nt">&quot;Native&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/gpfs/scratch/bsc72/bsc72156/NDB/ROR/PELE/apo/ago/5vb7_prw_processed.pdb&quot;</span> <span class="p">},</span>
    <span class="nt">&quot;selection&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;chains&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;L&quot;</span> <span class="p">]</span> <span class="p">}</span> <span class="p">},</span>
@@ -276,7 +268,7 @@ make the movie as described <a class="reference external" href="../../intro/Adap
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">RoRγ: Dissociation Pathway to guide unbiased binding simulation</a><ul>
 <li><a class="reference internal" href="#objective">Objective</a></li>
@@ -335,12 +327,14 @@ make the movie as described <a class="reference external" href="../../intro/Adap
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -365,7 +359,7 @@ make the movie as described <a class="reference external" href="../../intro/Adap
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
     <a href="../../index.html#license">License</a>.
     </div>
   </body>
