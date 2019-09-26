@@ -1,21 +1,7 @@
 ###############
-Tutorial
+Tutorial (TODO)
 ###############
 
-Contents:
+This will be a tutorial on how to use PELE.
 
-.. toctree::
-  :maxdepth: 2
-  
 
-  
- 
-  RoRGamma/RoRGamma.rst
-
-  Hemagglutinin/Hemagglutinin.rst
-
-  MgluR5/MgluR5.rst
-
-  Esterases/Esterases.rst
-
-  Lacasses/Lacasses.rst
