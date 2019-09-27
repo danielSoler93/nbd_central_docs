@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>PELE Molecular Parameters &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -55,14 +53,14 @@
 <span id="sec-molecularparameters"></span><h1>PELE Molecular Parameters<a class="headerlink" href="#pele-molecular-parameters" title="Permalink to this headline">¶</a></h1>
 <p>The parameters for the force fields used in PELE and the rotamer libraries used during side chain prediction (and the side chain exploration done when needed during the perturbation), are located in the <code class="file docutils literal notranslate"><span class="pre">Data/</span></code> directory or, for non-standard molecules and residues, in your <code class="file docutils literal notranslate"><span class="pre">DataLocal/</span></code> directory. In particular:</p>
 <ul class="simple">
-<li><code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/Templates/&lt;forcefield&gt;/HeteroAtoms/</span></code> contains the force field parameters for non-protein and non-nucleic acid residues (ligands, water molecules, etc.).</li>
-<li><code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/Templates/&lt;forcefield&gt;/DNA/</span></code> contains the force field parameters for DNA residues.</li>
-<li><code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/Templates/&lt;forcefield&gt;/RNA/</span></code> contains the force field parameters for RNA residues.</li>
-<li><code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/Templates/&lt;forcefield&gt;/Protein/</span></code> contains the force field parameters for protein residues.</li>
-<li><code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/SGB/</span></code> contains parameters for the solvent-related energy when using either VDGBNP or SGBNP (see <a class="reference internal" href="Solvent/Solvent.html#sec-solvent-solventtype"><span class="std std-ref">solventType</span></a>).</li>
-<li><code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/OBC/solventParamsHCTOBC.txt</span></code> contains parameters for the solvent-related energy when using OBC (see <a class="reference internal" href="Solvent/Solvent.html#sec-solvent-solventtype"><span class="std std-ref">solventType</span></a>).</li>
-<li><code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/LigandRotamerLibs/</span></code> contains the rotamer libraries for non-protein and non-nucleic acid residues (usually ligands and cofactors).</li>
-<li><code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/RotamerLibs/</span></code> contains the rotamer libraries for DNA, RNA and protein residues.</li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/Templates/&lt;forcefield&gt;/HeteroAtoms/</span></code> contains the force field parameters for non-protein and non-nucleic acid residues (ligands, water molecules, etc.).</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/Templates/&lt;forcefield&gt;/DNA/</span></code> contains the force field parameters for DNA residues.</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/Templates/&lt;forcefield&gt;/RNA/</span></code> contains the force field parameters for RNA residues.</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/Templates/&lt;forcefield&gt;/Protein/</span></code> contains the force field parameters for protein residues.</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/SGB/</span></code> contains parameters for the solvent-related energy when using either VDGBNP or SGBNP (see <a class="reference internal" href="Solvent/Solvent.html#sec-solvent-solventtype"><span class="std std-ref">solventType</span></a>).</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/OBC/solventParamsHCTOBC.txt</span></code> contains parameters for the solvent-related energy when using OBC (see <a class="reference internal" href="Solvent/Solvent.html#sec-solvent-solventtype"><span class="std std-ref">solventType</span></a>).</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/LigandRotamerLibs/</span></code> contains the rotamer libraries for non-protein and non-nucleic acid residues (usually ligands and cofactors).</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/RotamerLibs/</span></code> contains the rotamer libraries for DNA, RNA and protein residues.</p></li>
 </ul>
 <p>where <code class="docutils literal notranslate"><span class="pre">&lt;DataDir&gt;</span></code> refers to either <code class="file docutils literal notranslate"><span class="pre">Data/</span></code> or <code class="file docutils literal notranslate"><span class="pre">DataLocal/</span></code>, and the <code class="docutils literal notranslate"><span class="pre">&lt;forcefield&gt;</span></code> directory is one of the currently supported ones (see <a class="reference internal" href="Initialization/Initialization_general.html#sec-initialization-general-forcefield"><span class="std std-ref">ForceField</span></a>).</p>
 <p>If you use an hetero group not included in the data directories, then you should create and add both the template file with the force field parameters (under <code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/Templates/&lt;forcefield&gt;/HeteroAtoms/</span></code>), the OBC parameters for that group at the end of <code class="file docutils literal notranslate"><span class="pre">solventParamsHCTOBC.txt</span></code> (only if you use the OBC solvent model),  and the rotamer library definition file (at <code class="file docutils literal notranslate"><span class="pre">&lt;DataDir&gt;/LigandRotamerLibs/</span></code>). The following sections explain how to generate the different data needed.</p>
@@ -85,10 +83,10 @@
 <h2>Template parameters<a class="headerlink" href="#template-parameters" title="Permalink to this headline">¶</a></h2>
 <p>You can find a description of the file formats used at:</p>
 <ul class="simple">
-<li>IMPACT (standard template format): <a class="reference internal" href="fileFormats.html#sec-fileformats-impact"><span class="std std-ref">IMPACT template file format</span></a>.</li>
-<li>PELE Custom format (for inter-residue parameters): <a class="reference internal" href="fileFormats.html#sec-fileformats-pelecustom"><span class="std std-ref">PELE custom template file format</span></a>.</li>
-<li>Non-ligand rotamer library: <a class="reference internal" href="fileFormats.html#sec-fileformats-nonligandrotamers"><span class="std std-ref">Non-ligand rotamer library file</span></a>.</li>
-<li>Ligand rotamer library: <a class="reference internal" href="fileFormats.html#sec-fileformats-ligandrotamers"><span class="std std-ref">Ligand rotamer library file</span></a>.</li>
+<li><p>IMPACT (standard template format): <a class="reference internal" href="fileFormats.html#sec-fileformats-impact"><span class="std std-ref">IMPACT template file format</span></a>.</p></li>
+<li><p>PELE Custom format (for inter-residue parameters): <a class="reference internal" href="fileFormats.html#sec-fileformats-pelecustom"><span class="std std-ref">PELE custom template file format</span></a>.</p></li>
+<li><p>Non-ligand rotamer library: <a class="reference internal" href="fileFormats.html#sec-fileformats-nonligandrotamers"><span class="std std-ref">Non-ligand rotamer library file</span></a>.</p></li>
+<li><p>Ligand rotamer library: <a class="reference internal" href="fileFormats.html#sec-fileformats-ligandrotamers"><span class="std std-ref">Ligand rotamer library file</span></a>.</p></li>
 </ul>
 <div class="section" id="opls">
 <span id="sec-molecularparameters-templateparameters-opls"></span><h3>OPLS<a class="headerlink" href="#opls" title="Permalink to this headline">¶</a></h3>
@@ -101,24 +99,24 @@
 </div>
 <p>From a MAE file, first you have to make sure that your ligand has a PDB residue name assigned, and that all PDB atom names are unique. To do this:</p>
 <ul class="simple">
-<li>Open you ligand in Maestro.</li>
-<li>Select it.</li>
-<li>Go to <cite>Build</cite> and under <cite>Other Edits</cite> select <cite>Change Other Properties</cite>.</li>
-<li>Select property <cite>Residue / Chain Name</cite>.</li>
-<li>Enter the 3-letter name you want for your residue (see <a class="reference internal" href="#fig-molecularparameters-changeresiduenameinmaestro"><span class="std std-numref">Fig. 1</span></a>).</li>
-<li>Apply your changes.</li>
-<li>Select property <cite>PDB Atom Name</cite>.</li>
-<li>Mark option <cite>Set unique PDB atom names within residues</cite> (see <a class="reference internal" href="#fig-molecularparameters-setuniquepdbnamesinmaestro"><span class="std std-numref">Fig. 2</span></a>).</li>
-<li>Apply your changes and close the dialog.</li>
-<li>Save your ligand in a new MAE file.</li>
+<li><p>Open you ligand in Maestro.</p></li>
+<li><p>Select it.</p></li>
+<li><p>Go to <cite>Build</cite> and under <cite>Other Edits</cite> select <cite>Change Other Properties</cite>.</p></li>
+<li><p>Select property <cite>Residue / Chain Name</cite>.</p></li>
+<li><p>Enter the 3-letter name you want for your residue (see <a class="reference internal" href="#fig-molecularparameters-changeresiduenameinmaestro"><span class="std std-numref">Fig. 20</span></a>).</p></li>
+<li><p>Apply your changes.</p></li>
+<li><p>Select property <cite>PDB Atom Name</cite>.</p></li>
+<li><p>Mark option <cite>Set unique PDB atom names within residues</cite> (see <a class="reference internal" href="#fig-molecularparameters-setuniquepdbnamesinmaestro"><span class="std std-numref">Fig. 21</span></a>).</p></li>
+<li><p>Apply your changes and close the dialog.</p></li>
+<li><p>Save your ligand in a new MAE file.</p></li>
 </ul>
-<div class="figure" id="id1">
+<div class="figure align-default" id="id1">
 <span id="fig-molecularparameters-changeresiduenameinmaestro"></span><img alt="_images/changeResidueNameInMaestro.png" src="_images/changeResidueNameInMaestro.png" />
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Dialog to set the PDB residue name for your ligand in Maestro.</span></p>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Dialog to set the PDB residue name for your ligand in Maestro.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id2">
+<div class="figure align-default" id="id2">
 <span id="fig-molecularparameters-setuniquepdbnamesinmaestro"></span><img alt="_images/setUniquePDBNamesInMaestro.png" src="_images/setUniquePDBNamesInMaestro.png" />
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Dialog to set unique PDB atom names for your ligand in Maestro.</span></p>
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Dialog to set unique PDB atom names for your ligand in Maestro.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>Once you have your ligand in a MAE file, run:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> /opt/schrodinger/utilities/python /opt/pele/scripts/PlopRotTemp.py -OPLS<span class="o">=</span><span class="m">2005</span> myligand.mae
@@ -129,8 +127,8 @@
 <h4>Adding the generated template and rotamer library files to PELE<a class="headerlink" href="#adding-the-generated-template-and-rotamer-library-files-to-pele" title="Permalink to this headline">¶</a></h4>
 <p>Say your ligand is named with the PDB code <code class="docutils literal notranslate"><span class="pre">LIG</span></code>. then, your files will be named by <strong class="program">PlopRotTemp.py</strong> as:</p>
 <ul class="simple">
-<li><code class="file docutils literal notranslate"><span class="pre">lig</span></code></li>
-<li><code class="file docutils literal notranslate"><span class="pre">LIG.rot.assign</span></code></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">lig</span></code></p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">LIG.rot.assign</span></code></p></li>
 </ul>
 <p>If you want to add them to your PELE project’s <code class="file docutils literal notranslate"><span class="pre">./DataLocal/</span></code> directory, remember to add a <code class="docutils literal notranslate"><span class="pre">z</span></code> at the end of the template file (which, in the example, will be named <code class="file docutils literal notranslate"><span class="pre">ligz</span></code>). Place the template file under <code class="file docutils literal notranslate"><span class="pre">./DataLocal/Templates/OPLS2005/HeteroAtoms/</span></code>. If you are updating the central database, use <code class="file docutils literal notranslate"><span class="pre">Data/</span></code> instead of <code class="file docutils literal notranslate"><span class="pre">./DataLocal/</span></code>. As for the rotamer file, place it inside <code class="file docutils literal notranslate"><span class="pre">./DataLocal/LigandRotamerLibs/</span></code>; as before, use <code class="file docutils literal notranslate"><span class="pre">Data/</span></code> instead of <code class="file docutils literal notranslate"><span class="pre">./DataLocal/</span></code> if you are updating the central database.</p>
 </div>
@@ -299,13 +297,11 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -331,7 +327,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
     <a href="index.html#license">License</a>.
     </div>
   </body>

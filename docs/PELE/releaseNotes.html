@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Release notes &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -52,199 +50,190 @@
 <div class="section" id="rev12510">
 <h2>rev12510<a class="headerlink" href="#rev12510" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Fix problem with spawning in machines with MPI implementations different from OpenMPI, such as MareNostrum IV (rev. 12509).</li>
-<li>Included latest version of PlopRotTemp.py which now works with Maestro 2017 format (rev. 12500).</li>
+<li><p>Fix problem with spawning in machines with MPI implementations different from OpenMPI, such as MareNostrum IV (rev. 12509).</p></li>
+<li><p>Included latest version of PlopRotTemp.py which now works with Maestro 2017 format (rev. 12500).</p></li>
 </ul>
 </div>
 <div class="section" id="rev12489">
 <h2>rev12489<a class="headerlink" href="#rev12489" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Reorganize installation directory structure.</li>
-<li>Add script calculatePCA4PELE.py to calculate PCA components for the PELE simulation (rev. 12484).</li>
-<li>Add link to Adaptive PELE in the documentation.</li>
-<li>Check the number of nodes in pre-loaded normal modes is coherent with the one in the control file (rev. 12458).</li>
+<li><p>Reorganize installation directory structure.</p></li>
+<li><p>Add script calculatePCA4PELE.py to calculate PCA components for the PELE simulation (rev. 12484).</p></li>
+<li><p>Add link to Adaptive PELE in the documentation.</p></li>
+<li><p>Check the number of nodes in pre-loaded normal modes is coherent with the one in the control file (rev. 12458).</p></li>
 </ul>
 </div>
 <div class="section" id="rev12455">
 <h2>rev12455<a class="headerlink" href="#rev12455" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Allow real time control of the simulation (for PELE-GUI) (rev. 12416).</li>
-<li>Honor “tag” field in configuration of metrics. This affects the header of the report file; in particular, “AcceptedSteps” becomes “numberOfAcceptedPeleSteps” and “Energy” becomes “currentEnergy” (rev. 12377).</li>
-<li>Detect wrongly formatted OBC parameter files, regarding missing fields and usage of non-numbers in a numeric field (rev. 12376).</li>
-<li>Improvements in documentation.</li>
+<li><p>Allow real time control of the simulation (for PELE-GUI) (rev. 12416).</p></li>
+<li><p>Honor “tag” field in configuration of metrics. This affects the header of the report file; in particular, “AcceptedSteps” becomes “numberOfAcceptedPeleSteps” and “Energy” becomes “currentEnergy” (rev. 12377).</p></li>
+<li><p>Detect wrongly formatted OBC parameter files, regarding missing fields and usage of non-numbers in a numeric field (rev. 12376).</p></li>
+<li><p>Improvements in documentation.</p></li>
 </ul>
 </div>
 <div class="section" id="rev12360">
 <h2>rev12360<a class="headerlink" href="#rev12360" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Partial support for insertion codes in PDB files, since selection still does not work in all cases (rev. 12311).</li>
-<li>More flexible templates allowed, with any number of spaces at the end of ATOM lines (rev. 12318).</li>
-<li>Removed test templates and other data files from the distributed Data/ directory (rev. 12322).</li>
-<li>Fixed assignment of dihedrals and 1-4 lists of 4-member rings in ligands (rev. 12346).</li>
-<li>Improvements in documentation.</li>
+<li><p>Partial support for insertion codes in PDB files, since selection still does not work in all cases (rev. 12311).</p></li>
+<li><p>More flexible templates allowed, with any number of spaces at the end of ATOM lines (rev. 12318).</p></li>
+<li><p>Removed test templates and other data files from the distributed Data/ directory (rev. 12322).</p></li>
+<li><p>Fixed assignment of dihedrals and 1-4 lists of 4-member rings in ligands (rev. 12346).</p></li>
+<li><p>Improvements in documentation.</p></li>
 </ul>
 </div>
 <div class="section" id="rev12308">
 <h2>rev12308<a class="headerlink" href="#rev12308" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Improvements in documentation and error reporting.</li>
-<li>Fix problem with steering non working right when being activated/deactivated through changeable parameters using a zero update frequency. Now, steering can be safely activated/deactived in that way (rev. 12251).</li>
-<li>Detect a bond in a ligand rotamer library does not actually exist (rev. 12286).</li>
-<li>Change default rotamer resolution to 10 degrees, both in perturbation and in side chain prediction phases (rev. 12289).</li>
-<li>Pass per-complex configuration properties in the control file (fixTrees, fixChainNames, allowMissingTerminals) to global properties (top level properties under “Initialization”), so that they apply to all PDB reading in the simulation, and not in a per-complex basis (rev. 12308).</li>
+<li><p>Improvements in documentation and error reporting.</p></li>
+<li><p>Fix problem with steering non working right when being activated/deactivated through changeable parameters using a zero update frequency. Now, steering can be safely activated/deactived in that way (rev. 12251).</p></li>
+<li><p>Detect a bond in a ligand rotamer library does not actually exist (rev. 12286).</p></li>
+<li><p>Change default rotamer resolution to 10 degrees, both in perturbation and in side chain prediction phases (rev. 12289).</p></li>
+<li><p>Pass per-complex configuration properties in the control file (fixTrees, fixChainNames, allowMissingTerminals) to global properties (top level properties under “Initialization”), so that they apply to all PDB reading in the simulation, and not in a per-complex basis (rev. 12308).</p></li>
 </ul>
 </div>
 <div class="section" id="rev12183">
 <h2>rev12183<a class="headerlink" href="#rev12183" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Improvements in documentation.</li>
-<li>Fix problem of automatic assignment of templates for HIS residues according to its protonation (rev. 12179).</li>
-<li>Atom Pulling functionality implemented by Israel Cabeza de Vaca is now available (rev. 12081).</li>
-<li>Check the atoms of all residues in a PDB file match the atoms in the corresponding templates (rev. 12062).</li>
-<li>Fix: allow empty ligand rotamer library files for rigid ligands (rev. 12061).</li>
-<li>Fix: fail when a missing improper dihedral parameter is needed (rev. 12060).</li>
-<li>Default values for control file parameters change (rev. 12043).</li>
-<li>Command line parameter –license-directory eases indication of the directory with the license (rev. 12032).</li>
-<li>Control files now allow line comments (rev. 12030).</li>
+<li><p>Improvements in documentation.</p></li>
+<li><p>Fix problem of automatic assignment of templates for HIS residues according to its protonation (rev. 12179).</p></li>
+<li><p>Atom Pulling functionality implemented by Israel Cabeza de Vaca is now available (rev. 12081).</p></li>
+<li><p>Check the atoms of all residues in a PDB file match the atoms in the corresponding templates (rev. 12062).</p></li>
+<li><p>Fix: allow empty ligand rotamer library files for rigid ligands (rev. 12061).</p></li>
+<li><p>Fix: fail when a missing improper dihedral parameter is needed (rev. 12060).</p></li>
+<li><p>Default values for control file parameters change (rev. 12043).</p></li>
+<li><p>Command line parameter –license-directory eases indication of the directory with the license (rev. 12032).</p></li>
+<li><p>Control files now allow line comments (rev. 12030).</p></li>
 </ul>
 </div>
 <div class="section" id="rev12025">
 <h2>rev12025<a class="headerlink" href="#rev12025" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Perturbation boxes now check for the center of mass of the atoms, instead of forcing that all atoms must be inside the box (rev. 12015).</li>
+<li><p>Perturbation boxes now check for the center of mass of the atoms, instead of forcing that all atoms must be inside the box (rev. 12015).</p></li>
 </ul>
 </div>
 <div class="section" id="rev11996">
 <h2>rev11996<a class="headerlink" href="#rev11996" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Fix: Energy calculation at step 0 when using SASA metric is now correct (rev. 11994).</li>
-<li>Improved control file checks and error messages (problems with selections, empty PDBs, duplicate atoms in PDB, missing template files, etc.).</li>
-<li>New documentation (rev. 11905 through rev. 11941)</li>
-<li>“failsafe” option in Side Chain Prediction (rev. 11904).</li>
-<li>New parameter to control the actual range used when choosing an angle at random for ligand perturbation (rev. 11900).</li>
+<li><p>Fix: Energy calculation at step 0 when using SASA metric is now correct (rev. 11994).</p></li>
+<li><p>Improved control file checks and error messages (problems with selections, empty PDBs, duplicate atoms in PDB, missing template files, etc.).</p></li>
+<li><p>New documentation (rev. 11905 through rev. 11941)</p></li>
+<li><p>“failsafe” option in Side Chain Prediction (rev. 11904).</p></li>
+<li><p>New parameter to control the actual range used when choosing an angle at random for ligand perturbation (rev. 11900).</p></li>
 </ul>
 </div>
 <div class="section" id="rev11893">
 <h2>rev11893<a class="headerlink" href="#rev11893" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Improved documentation.</li>
-<li>Improved log information about side chain prediction (when it fails), ANM parameters and chain charges (rev. 11890, 11756, 11729).</li>
-<li>New condition, based on step frequency, to control changeable parameters (rev. 11853).</li>
-<li>Initial and final PDBs are now only stored if explicitly said in the control file (rev. 11822).</li>
-<li>Fix: ASH and GLH rotamer libraries (rev. 11795).</li>
-<li>Fix: GB alphas calculation / solvation energies calculation when part of the system was frozen, as in the side chain prediction phase (rev. 11750).</li>
-<li>RMSD metric now alows different selection for alignment and for calculation (rev. 11738).</li>
-<li>RMSD metric now works with native structures that differ from the simulated structure (rev. 11736).</li>
-<li>exponentialDistanceDecay (in ANM) is now a changeable parameter (rev. 11730).</li>
-<li>Minimization selections (includeInMinimization, doNotIncludeInMinimization) now affect ANM (rev. 11686).</li>
+<li><p>Improved documentation.</p></li>
+<li><p>Improved log information about side chain prediction (when it fails), ANM parameters and chain charges (rev. 11890, 11756, 11729).</p></li>
+<li><p>New condition, based on step frequency, to control changeable parameters (rev. 11853).</p></li>
+<li><p>Initial and final PDBs are now only stored if explicitly said in the control file (rev. 11822).</p></li>
+<li><p>Fix: ASH and GLH rotamer libraries (rev. 11795).</p></li>
+<li><p>Fix: GB alphas calculation / solvation energies calculation when part of the system was frozen, as in the side chain prediction phase (rev. 11750).</p></li>
+<li><p>RMSD metric now alows different selection for alignment and for calculation (rev. 11738).</p></li>
+<li><p>RMSD metric now works with native structures that differ from the simulated structure (rev. 11736).</p></li>
+<li><p>exponentialDistanceDecay (in ANM) is now a changeable parameter (rev. 11730).</p></li>
+<li><p>Minimization selections (includeInMinimization, doNotIncludeInMinimization) now affect ANM (rev. 11686).</p></li>
 </ul>
 </div>
 <div class="section" id="rev11678">
 <h2>rev11678<a class="headerlink" href="#rev11678" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Boltzmann sampling Side Chain Prediction (rev. 11674).</li>
+<li><p>Boltzmann sampling Side Chain Prediction (rev. 11674).</p></li>
 </ul>
 </div>
 <div class="section" id="rev11670">
 <h2>rev11670<a class="headerlink" href="#rev11670" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">Change steering vector when perturbation steric try goes out of the box (rev. 11669).</p>
-</li>
-<li><p class="first">Reject PELE step when perturbed atom set ends out of the box (rev. 11669).</p>
-</li>
-<li><p class="first">Improved logging:</p>
+<li><p>Change steering vector when perturbation steric try goes out of the box (rev. 11669).</p></li>
+<li><p>Reject PELE step when perturbed atom set ends out of the box (rev. 11669).</p></li>
+<li><p>Improved logging:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Added residue number when logging constraints (rev. 11665).</li>
-<li>Identify missing atom for applying rotamers (rev. 11664).</li>
+<li><p>Added residue number when logging constraints (rev. 11665).</p></li>
+<li><p>Identify missing atom for applying rotamers (rev. 11664).</p></li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">Atom Pulling changes in the way to compute bead positions (rev. 11661).</p>
-</li>
-<li><p class="first">Fix: Parameters from the command configuration are now inherited at the task level (rev. 11654).</p>
-</li>
-<li><p class="first">Changeable parameters section applied from the beginning, before step 1 (rev. 11621).</p>
-</li>
+<li><p>Atom Pulling changes in the way to compute bead positions (rev. 11661).</p></li>
+<li><p>Fix: Parameters from the command configuration are now inherited at the task level (rev. 11654).</p></li>
+<li><p>Changeable parameters section applied from the beginning, before step 1 (rev. 11621).</p></li>
 </ul>
 </div>
 <div class="section" id="rev11620">
 <h2>rev11620<a class="headerlink" href="#rev11620" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">Disulfide bonds excluded from side chain prediction (rev. 11563).</p>
-</li>
-<li><p class="first">Improved logging:</p>
+<li><p>Disulfide bonds excluded from side chain prediction (rev. 11563).</p></li>
+<li><p>Improved logging:</p>
 <blockquote>
 <div><ul class="simple">
-<li>List of links studied in side chain prediction and minimization (rev. 11601).</li>
-<li>Steering configuration reported for metropolis perturbation (rev. 11583).</li>
-<li>Logging available for all commands (rev. 11546).</li>
-<li>Warnings when using minimization radius, and the whole protein is selected (rev. 11521).</li>
+<li><p>List of links studied in side chain prediction and minimization (rev. 11601).</p></li>
+<li><p>Steering configuration reported for metropolis perturbation (rev. 11583).</p></li>
+<li><p>Logging available for all commands (rev. 11546).</p></li>
+<li><p>Warnings when using minimization radius, and the whole protein is selected (rev. 11521).</p></li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">Added keyword “empty” for selections (rev. 11510).</p>
-</li>
-<li><p class="first">Fix broken vacuum calculations (rev. 11492).</p>
-</li>
-<li><p class="first">Atom Pulling (rev. 11488).</p>
-</li>
+<li><p>Added keyword “empty” for selections (rev. 11510).</p></li>
+<li><p>Fix broken vacuum calculations (rev. 11492).</p></li>
+<li><p>Atom Pulling (rev. 11488).</p></li>
 </ul>
 </div>
 <div class="section" id="rev11368">
 <h2>rev11368<a class="headerlink" href="#rev11368" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>In the “parametersChanges” section, if the value for updateSteeringFrequency is not different from the current one, then the change is ignored (that is, the internal counter to decide when to update the steering vector is not reset). (rev. 11368).</li>
-<li>Fixed updateSteeringFrequency as a changeable parameter, and deactivate steering when this parameter is 0 (rev. 11360).</li>
-<li>Added PELE version information to log, output, and –version command-line argument (rev. 11346).</li>
+<li><p>In the “parametersChanges” section, if the value for updateSteeringFrequency is not different from the current one, then the change is ignored (that is, the internal counter to decide when to update the steering vector is not reset). (rev. 11368).</p></li>
+<li><p>Fixed updateSteeringFrequency as a changeable parameter, and deactivate steering when this parameter is 0 (rev. 11360).</p></li>
+<li><p>Added PELE version information to log, output, and –version command-line argument (rev. 11346).</p></li>
 </ul>
 </div>
 <div class="section" id="rev11362">
 <h2>rev11362<a class="headerlink" href="#rev11362" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Fixed updateSteeringFrequency as a changeable parameter, and deactivate steering when this parameter is 0 (rev. 11360).</li>
-<li>Added PELE version information to log, output, and –version command-line argument (rev. 11346).</li>
+<li><p>Fixed updateSteeringFrequency as a changeable parameter, and deactivate steering when this parameter is 0 (rev. 11360).</p></li>
+<li><p>Added PELE version information to log, output, and –version command-line argument (rev. 11346).</p></li>
 </ul>
 </div>
 <div class="section" id="rev11335">
 <h2>rev11335<a class="headerlink" href="#rev11335" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Added steering to Metropolis perturbation (rev. 11335).</li>
-<li>New default of 200000 K for the <cite>temperature</cite> parameter of Metropolis perturbation (rev. 11263).</li>
+<li><p>Added steering to Metropolis perturbation (rev. 11335).</p></li>
+<li><p>New default of 200000 K for the <cite>temperature</cite> parameter of Metropolis perturbation (rev. 11263).</p></li>
 </ul>
 </div>
 <div class="section" id="rev11260">
 <h2>rev11260<a class="headerlink" href="#rev11260" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Parameter to force perturbation to keep trying until accepting at least one trial (rev. 11257).</li>
+<li><p>Parameter to force perturbation to keep trying until accepting at least one trial (rev. 11257).</p></li>
 </ul>
 </div>
 <div class="section" id="rev11227">
 <h2>rev11227<a class="headerlink" href="#rev11227" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Pele steps now start at 1, and the initial state is included in the report and trajectory (rev. 11151).</li>
+<li><p>Pele steps now start at 1, and the initial state is included in the report and trajectory (rev. 11151).</p></li>
 </ul>
 </div>
 <div class="section" id="rev11145">
 <h2>rev11145<a class="headerlink" href="#rev11145" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Proximity distance checks to skip unneeded updates (rev. 11140).</li>
-<li>Control file validation (rev. 11123).</li>
+<li><p>Proximity distance checks to skip unneeded updates (rev. 11140).</p></li>
+<li><p>Control file validation (rev. 11123).</p></li>
 </ul>
 </div>
 <div class="section" id="rev11122">
 <h2>rev11122<a class="headerlink" href="#rev11122" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><cite>./DataLocal/</cite> directory for overwriting data files (rev. 11107).</li>
-<li>Default overlapFactor of 0.7 (rev. 11102).</li>
-<li>Centered and spherical translation range (rev. 11067).</li>
-<li>Update pele regions every perturbation try (rev. 11066).</li>
+<li><p><cite>./DataLocal/</cite> directory for overwriting data files (rev. 11107).</p></li>
+<li><p>Default overlapFactor of 0.7 (rev. 11102).</p></li>
+<li><p>Centered and spherical translation range (rev. 11067).</p></li>
+<li><p>Update pele regions every perturbation try (rev. 11066).</p></li>
 </ul>
 </div>
 <div class="section" id="rev11056">
 <h2>rev11056<a class="headerlink" href="#rev11056" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Reading ANM modes from file (rev. 11056).</li>
+<li><p>Reading ANM modes from file (rev. 11056).</p></li>
 </ul>
 </div>
 </div>
@@ -293,13 +282,11 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -322,7 +309,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
     <a href="index.html#license">License</a>.
     </div>
   </body>

@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>PELE 1.5 documentation &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +15,7 @@
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction (TODO)" href="intro/intro.html" /> 
+    <link rel="next" title="PELE-package Installation" href="Installation/Installation.html" /> 
     <script type="text/javascript" >
     MathJax.Hub.Config({
         TeX: { 
@@ -36,7 +34,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="intro/intro.html" title="Introduction (TODO)"
+          <a href="Installation/Installation.html" title="PELE-package Installation"
              accesskey="N">next</a> |</li>
         <li class="nav-item nav-item-0"><a href="#">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li> 
       </ul>
@@ -52,8 +50,38 @@
 <p>Contents:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="intro/intro.html">Introduction (TODO)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial/tutorial.html">Tutorial (TODO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation/Installation.html">PELE-package Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Installation/Installation.html#pele">PELE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation/Installation.html#adaptive-pele">Adaptive-PELE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation/Installation.html#fragpele">FragPELE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation/Installation.html#pele-scripts">PELE scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="intro/intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro/Software/Software.html">Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro/SystemPreparation/SystemPreparation.html">Preparation of the System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro/Simulation/Simulation.html">Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro/GeneralAnalysis/GeneralAnalysis.html">Basic Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro/AdaptiveMethodology/AdaptiveMethodology.html">Adaptive Method</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/RoRGamma/RoRGamma.html">RoRγ: Dissociation Pathway to guide unbiased binding simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/Hemagglutinin/Hemagglutinin.html">Hemagglutinin: Pocket Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/MgluR5/MgluR5.html">MgluR5: Pose Prediction on GPCRs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/Esterases/Esterases.html">Esterase: Mutant design for cavity creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/Lacasses/Lacasses.html">Lacasses: Mutant design for ligand fitting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CheatSheet/CheatSheet.html">Launch your first job</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CheatSheet/CheatSheet.html#choose-your-input-file">Choose your input file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CheatSheet/CheatSheet.html#prepare-your-working-folder">Prepare your working folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CheatSheet/CheatSheet.html#prepare-complex">Prepare complex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CheatSheet/CheatSheet.html#prepare-ligand">Prepare ligand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CheatSheet/CheatSheet.html#prepare-control-files">Prepare control files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CheatSheet/CheatSheet.html#run-simulation">Run simulation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="theory/theory.html">PELE Theory</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="theory/overview.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="theory/energyFunction.html">Energy Function</a></li>
@@ -141,8 +169,8 @@
 </ul>
 
   <h4>Next topic</h4>
-  <p class="topless"><a href="intro/intro.html"
-                        title="next chapter">Introduction (TODO)</a></p>
+  <p class="topless"><a href="Installation/Installation.html"
+                        title="next chapter">PELE-package Installation</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -151,13 +179,11 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -173,14 +199,14 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="intro/intro.html" title="Introduction (TODO)"
+          <a href="Installation/Installation.html" title="PELE-package Installation"
              >next</a> |</li>
         <li class="nav-item nav-item-0"><a href="#">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
     <a href="##license">License</a>.
     </div>
   </body>

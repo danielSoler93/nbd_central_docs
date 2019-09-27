@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>PCA for the perturbation phase of PELE &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -54,10 +52,10 @@
             
   <div class="section" id="pca-for-the-perturbation-phase-of-pele">
 <span id="sec-pca"></span><h1>PCA for the perturbation phase of PELE<a class="headerlink" href="#pca-for-the-perturbation-phase-of-pele" title="Permalink to this headline">¶</a></h1>
-<p>You can do a PCA (Principal Component Analysis) of a set of structures, so that the eigenvalues and eigenvectors representing the principal components of the variation in the conformation of the macromolecular structure in the set can be used as the eigenvalues and eigenvectors directing the perturbation moves for the macromolecule in PELE (see <a class="reference internal" href="WaterPerturbation/Waterperturbation.html#sec-anm"><span class="std std-ref">Water Perturbation Block in Pele++ control file</span></a>).</p>
+<p>You can do a PCA (Principal Component Analysis) of a set of structures, so that the eigenvalues and eigenvectors representing the principal components of the variation in the conformation of the macromolecular structure in the set can be used as the eigenvalues and eigenvectors directing the perturbation moves for the macromolecule in PELE (see <a class="reference internal" href="ANM/Anm.html#sec-anm"><span class="std std-ref">ANM Block in Pele++ control file</span></a>).</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">When running the script, you input PDB files may be modified, since they are rewritten in a PDB format consistent to that used by ProDy, and the HIE and HID residues are renamed as HIS residues.</p>
+<p class="admonition-title">Warning</p>
+<p>When running the script, you input PDB files may be modified, since they are rewritten in a PDB format consistent to that used by ProDy, and the HIE and HID residues are renamed as HIS residues.</p>
 </div>
 <p>To do so, you need an NMD file (see <a class="reference internal" href="fileFormats.html#sec-fileformats-nmd"><span class="std std-ref">Normal modes file format (NMD)</span></a>) codifying the eigenvalues and eigenvectors. To ease the generation of this file, you can use the script <code class="file docutils literal notranslate"><span class="pre">scripts/pca/calculatePCA4PELE.py</span></code>, which has been provided by Christoph Grebner, from AstraZeneca. You will need Python 2.7 installed, with the ProDy Python package also installed (<a class="reference external" href="http://prody.csb.pitt.edu/index.html">http://prody.csb.pitt.edu/index.html</a>).</p>
 <p>To see how to use the script, you will perform some calculations with the data in <code class="file docutils literal notranslate"><span class="pre">samples/aspirin/</span></code>. This example contains a subdirectory <code class="file docutils literal notranslate"><span class="pre">normalModes/</span></code>, with a generated trajectory from which to do the PCA study.</p>
@@ -160,13 +158,11 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -193,7 +189,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
     <a href="index.html#license">License</a>.
     </div>
   </body>

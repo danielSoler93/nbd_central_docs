@@ -1,0 +1,60 @@
+###################
+Basic Analysis
+###################
+
+The basics on PELE analysis to run after the simulation is finished.
+
+
+*******************************************
+Plot metrics
+*******************************************
+
+- Requirements: Gnuplot is needed. To run inside the results folder.
+
+- Use: It can be used to plot two different metrics when simulation is finished but also along  simulations that are still running to check everything looks ok.
+
+Explanation::
+
+    plot for [i=1:processors] "report_file_name".i u xcolumn:ycolumn w l  notitle
+    set xrange [xrange]
+    set yrange [yrange]
+
+Example::
+
+    plot for [i=1:47] "report_".i u 5:6 w l  notitle
+    set xrange [0:15]
+    set yrange [-50:10]
+
+Output:
+
+
+.. image:: gnuplot.png
+
+
+*****************************************
+Retrieve the snapshots with best energy
+*****************************************
+
+- Requirements: AdaptivePELE is needed. To run from inside the results folder.
+- Use: To retrieve the best energy structures from the finished simulation to be able to visually inspect the best poses. Generally, you will not find only one best pose but several ones, the next are putative strategies to help you discriminate which is the correct one.
+        - MD of the poses if there is no experimental information
+        - Pharmacophore alignment with a previous precursor, peptide, etc...
+        - Mutagenesis, SAR, literature information...
+
+Explanation::
+
+    python -m AdaptivePELE.analysis.interactivePlot  columny columnx steps -o output_folder
+
+Example::
+
+    python -m AdaptivePELE.analysis.interactivePlot  5 6 8 -o BestStructs
+
+
+Once the plot is done, mark the structures you wish to download by defining a square on the plot using your left mouse button (see Figure below).
+
+
+.. image:: interactivePlot.png
+
+
+This will output all snapshots contained in the square into a folder called BestStructs.
+

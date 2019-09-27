@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>StateTracker types in Pele++ control file &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -66,24 +64,24 @@ in <a class="reference internal" href="Sensors.html#sec-sensors"><span class="st
 </pre></div>
 </div>
 <ul class="simple">
-<li>The “variable” parameter indicates the Pele++ variable that is
+<li><p>The “variable” parameter indicates the Pele++ variable that is
 followed. It’s different an unique for each type of StateTracker and
 it’s automatically used as a tag in logical conditions. This fact is
 very important because the names used to define StateTracker types
-can not be used to tag Metrics.</li>
-<li>The “logIt” parameter is optional and it indicates if we’d like the
+can not be used to tag Metrics.</p></li>
+<li><p>The “logIt” parameter is optional and it indicates if we’d like the
 variable values to be logged or not. By default is set to true, so
 they are always logged. If you want them not to be logged, set
-“logIt” to false.</li>
+“logIt” to false.</p></li>
 </ul>
 <p>Currently available trackers are:</p>
 <ul class="simple">
-<li>currentEnergy (available and logged by default; cannot be
-configured).</li>
-<li>numberOfAcceptedPeleSteps (available and logged by default; cannot be
-configured).</li>
-<li>currentStep.</li>
-<li>stepsSinceLastAccepted.</li>
+<li><p>currentEnergy (available and logged by default; cannot be
+configured).</p></li>
+<li><p>numberOfAcceptedPeleSteps (available and logged by default; cannot be
+configured).</p></li>
+<li><p>currentStep.</p></li>
+<li><p>stepsSinceLastAccepted.</p></li>
 </ul>
 <p>Following are the types of state trackers:</p>
 <div class="section" id="current-energy">
@@ -217,13 +215,11 @@ logged unless you explicitly indicate otherwise.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -252,7 +248,7 @@ logged unless you explicitly indicate otherwise.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
     <a href="../index.html#license">License</a>.
     </div>
   </body>

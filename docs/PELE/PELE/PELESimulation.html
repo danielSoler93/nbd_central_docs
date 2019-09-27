@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>PeleSimulation block in PELE++ &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -66,7 +64,7 @@
 <h2>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">¶</a></h2>
 <p>Pele must have the following algorithms defined:
 <a class="reference internal" href="../Perturbation/Perturbation.html#sec-perturbation"><span class="std std-ref">Perturbation</span></a>,
-<a class="reference internal" href="../WaterPerturbation/Waterperturbation.html#sec-anm"><span class="std std-ref">ANM</span></a>, <a class="reference internal" href="../SideChainPrediction/SideChainPrediction.html#sec-sidechainprediction"><span class="std std-ref">Side Chain
+<a class="reference internal" href="../ANM/Anm.html#sec-anm"><span class="std std-ref">ANM</span></a>, <a class="reference internal" href="../SideChainPrediction/SideChainPrediction.html#sec-sidechainprediction"><span class="std std-ref">Side Chain
 Prediction</span></a> and
 <a class="reference internal" href="../Minimization/Minimization.html#sec-minimization"><span class="std std-ref">Minimization</span></a>. If an algorithm is
 defined at peleSimulation level it is going to be used throughout the
@@ -114,11 +112,11 @@ Conditions</span></a>).</p>
 perturbing only one of them at each PELE step. The order in which
 multiple chains are considered for perturbation is:</p>
 <ul class="simple">
-<li>first, protein chains in the order they appear in the input PDB.</li>
-<li>second, DNA chains in the order they appear in the input PDB.</li>
-<li>third, RNA chains in the order they appear in the input PDB.</li>
-<li>fourth, all other chains (ligands) in the order they appear in the
-input PDB.</li>
+<li><p>first, protein chains in the order they appear in the input PDB.</p></li>
+<li><p>second, DNA chains in the order they appear in the input PDB.</p></li>
+<li><p>third, RNA chains in the order they appear in the input PDB.</p></li>
+<li><p>fourth, all other chains (ligands) in the order they appear in the
+input PDB.</p></li>
 </ul>
 <p>Therefore, if you select chains “L”, “M”, both of ligand type, and “M”
 appears first in the PDB file, then the first PELE step will perturb
@@ -201,13 +199,11 @@ a simulation) is considered to be finished.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -235,7 +231,7 @@ a simulation) is considered to be finished.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
     <a href="../index.html#license">License</a>.
     </div>
   </body>

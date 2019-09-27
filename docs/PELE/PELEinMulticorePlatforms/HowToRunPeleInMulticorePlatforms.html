@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>How to run PELE in multicore platforms &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -56,16 +54,16 @@
 <h1>How to run PELE in multicore platforms<a class="headerlink" href="#how-to-run-pele-in-multicore-platforms" title="Permalink to this headline">¶</a></h1>
 <p>PELE can take advantage of multicore platforms in different ways:</p>
 <ul class="simple">
-<li>OpenMP</li>
-<li>MPI</li>
-<li>MPI + OpenMP</li>
-<li>CUDA (Experimental)</li>
+<li><p>OpenMP</p></li>
+<li><p>MPI</p></li>
+<li><p>MPI + OpenMP</p></li>
+<li><p>CUDA (Experimental)</p></li>
 </ul>
 <p>Brief introduction of computing language used in this page:</p>
 <ul class="simple">
-<li>Processor: a die with one or more cores</li>
-<li>Core: execution unit</li>
-<li>Thread: process running in a core</li>
+<li><p>Processor: a die with one or more cores</p></li>
+<li><p>Core: execution unit</p></li>
+<li><p>Thread: process running in a core</p></li>
 </ul>
 <p>Usually the meaning of each words depends on the context. It’s also used
 processor instead of core, etc.</p>
@@ -78,8 +76,8 @@ implementation is like the serial execution of PELE (one explorer) but
 faster, doing some calculations in parallel.</p>
 <p>To use the OpenMP version of PELE, you have to follow the next steps:</p>
 <ol class="arabic simple">
-<li>Compile PELE with the pre-processor flag -DOPENMP and the flags to compile an OpenMP source code in your machine.</li>
-<li>Before run PELE, set the enviromental variable “OMP_NUM_THREADS” to set the number of threads that you want to use.</li>
+<li><p>Compile PELE with the pre-processor flag -DOPENMP and the flags to compile an OpenMP source code in your machine.</p></li>
+<li><p>Before run PELE, set the enviromental variable “OMP_NUM_THREADS” to set the number of threads that you want to use.</p></li>
 </ol>
 <blockquote>
 <div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> setenv OMP_NUM_THREADS <span class="m">4</span>
@@ -90,7 +88,7 @@ faster, doing some calculations in parallel.</p>
 </div></blockquote>
 <p>Tip: set at maximum the number of REAL cores that you have to map each thread to a real core and get the maximum perfomance. Pay attention if you have an Intel cpu with hyperthreading enable.</p>
 <ol class="arabic simple" start="3">
-<li>Run PELE</li>
+<li><p>Run PELE</p></li>
 </ol>
 <p>It doesn’t need any anotation in the configuration file.</p>
 </div>
@@ -104,9 +102,9 @@ serial executions of PELE running at the same time being handled by a
 controller. If we have N cores and we launch PELE using all of them, we
 will have N-1 explorers and 1 controller.</p>
 <ol class="arabic simple">
-<li>Compile PELE for MPI</li>
-<li>Set in the PeleParameters section of the configuration file the “useMPI” option to true.</li>
-<li>Launch PELE using mpirun</li>
+<li><p>Compile PELE for MPI</p></li>
+<li><p>Set in the PeleParameters section of the configuration file the “useMPI” option to true.</p></li>
+<li><p>Launch PELE using mpirun</p></li>
 </ol>
 <blockquote>
 <div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> mpirun -np &lt;numberOfProcessors&gt; PELE &lt;configurationFile&gt;
@@ -143,24 +141,24 @@ time.</p>
 <p>For example, if we have 10 processors with 4 cores each one, we can
 have two configurations to use all the resources in an efficient way:</p>
 <ul class="simple">
-<li>10 MPI threads (explorers) with 4 OpenMP threads</li>
-<li>20 MPI threads (explorers) with 2 OpenMP threads</li>
+<li><p>10 MPI threads (explorers) with 4 OpenMP threads</p></li>
+<li><p>20 MPI threads (explorers) with 2 OpenMP threads</p></li>
 </ul>
 <div class="section" id="tips">
 <h3>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p class="first">Don’t split an explorer to use OpenMP threads from a different
+<li><p>Don’t split an explorer to use OpenMP threads from a different
 processors. This situation can decrease the performance. Example, if
 we have 2 processors sharing memory with 6-core each, we have the
 following good and bad configurations:</p>
 <blockquote>
 <div><ul class="simple">
-<li>2 MPI threads with 6 OpenMP threads -&gt; GOOD</li>
-<li>3 MPI threads with 4 OpenMP threads -&gt; BAD, because one MPI
+<li><p>2 MPI threads with 6 OpenMP threads -&gt; GOOD</p></li>
+<li><p>3 MPI threads with 4 OpenMP threads -&gt; BAD, because one MPI
 thread will have 2 OpenMP thread in one processors and 2 OpenMP
-thread in other processor</li>
-<li>4 MPI threads with 3 OpenMP threads -&gt; GOOD</li>
-<li>6 MPI threads with 2 OpenMP threads -&gt; GOOD</li>
+thread in other processor</p></li>
+<li><p>4 MPI threads with 3 OpenMP threads -&gt; GOOD</p></li>
+<li><p>6 MPI threads with 2 OpenMP threads -&gt; GOOD</p></li>
 </ul>
 </div></blockquote>
 </li>
@@ -207,13 +205,11 @@ thread in other processor</li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -240,7 +236,7 @@ thread in other processor</li>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
     <a href="../index.html#license">License</a>.
     </div>
   </body>

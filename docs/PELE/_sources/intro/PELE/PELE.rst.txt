@@ -1,0 +1,15 @@
+######
+PELE 
+######
+
+PELE is an heuristic MC simulation software build as a 3-part algorithm as explained `here <../../theory/theory.html>`__ .
+
+**********************************
+Simulation Requirements
+**********************************
+
+To start a simulation you must have:
+
+    - Prepared the receptor with OPLS atom typing. Check the `Protein Preparation <../SystemPreparation/SystemPreparation.html#receptor-preparation>`__  section.
+    - Prepared a DataLocal folder with the parameters of your ligand. Check the `Ligand Prepareation <../SystemPreparation/SystemPreparation.html#ligand-preparation>`__  section.
+    - Prepared a PELE Control File. Check the `Control File <>`__  section.

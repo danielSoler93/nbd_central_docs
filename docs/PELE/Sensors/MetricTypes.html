@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Metrics block in Pele++ control file &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -61,17 +59,17 @@
 <p>In general a Metric declaration in the control file is comprised of
 three parts:</p>
 <ul class="simple">
-<li>The type of Metric.</li>
-<li>The specific parameters for that type of Metric (each metric has its
-own parameters).</li>
-<li>A tag which is a name to identify the Metric in logical conditions
+<li><p>The type of Metric.</p></li>
+<li><p>The specific parameters for that type of Metric (each metric has its
+own parameters).</p></li>
+<li><p>A tag which is a name to identify the Metric in logical conditions
 (see <a class="reference internal" href="../LogicalConditions/ConditionsByExample.html#sec-conditionsbyexample"><span class="std std-ref">Conditions By Example</span></a>). The tag
 cannot contain spaces. This part is optional; if present, it is used
 to identify the metric in the report file; otherwise, a generic
-description is used.</li>
-<li>A boolean value indicating if you want the Metric to be logged or
+description is used.</p></li>
+<li><p>A boolean value indicating if you want the Metric to be logged or
 not. This is also optional. By default all Metrics are logged (it’s
-true by default).</li>
+true by default).</p></li>
 </ul>
 <p>This would be a general example of a Metric definition block:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
@@ -167,12 +165,12 @@ list, check below.</p>
 their names and specific parameters.</p>
 <p>The currently available metrics are:</p>
 <ul class="simple">
-<li><a class="reference internal" href="#sec-metrictypes-bindingenergy"><span class="std std-ref">Binding energy</span></a></li>
-<li><a class="reference internal" href="#sec-metrictypes-comdistance"><span class="std std-ref">Distance bewteen centers of mass</span></a></li>
-<li><a class="reference internal" href="#sec-metrictypes-sasa"><span class="std std-ref">SASA</span></a></li>
-<li><a class="reference internal" href="#sec-metrictypes-distancetopoint"><span class="std std-ref">Distance to point</span></a></li>
-<li><a class="reference internal" href="#sec-metrictypes-randomnumber"><span class="std std-ref">Random number</span></a></li>
-<li><a class="reference internal" href="#sec-metrictypes-rmsd"><span class="std std-ref">RMSD</span></a></li>
+<li><p><a class="reference internal" href="#sec-metrictypes-bindingenergy"><span class="std std-ref">Binding energy</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-metrictypes-comdistance"><span class="std std-ref">Distance bewteen centers of mass</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-metrictypes-sasa"><span class="std std-ref">SASA</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-metrictypes-distancetopoint"><span class="std std-ref">Distance to point</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-metrictypes-randomnumber"><span class="std std-ref">Random number</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-metrictypes-rmsd"><span class="std std-ref">RMSD</span></a></p></li>
 </ul>
 <div class="section" id="binding-energy">
 <span id="sec-metrictypes-bindingenergy"></span><h3>Binding energy<a class="headerlink" href="#binding-energy" title="Permalink to this headline">¶</a></h3>
@@ -482,13 +480,11 @@ disabled by setting the “doSuperposition” parameter to false.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -517,7 +513,7 @@ disabled by setting the “doSuperposition” parameter to false.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
     <a href="../index.html#license">License</a>.
     </div>
   </body>

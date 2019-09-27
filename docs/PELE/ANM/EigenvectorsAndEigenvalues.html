@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Treatment of eigenvector and eigenvalues by the PELE ANM module &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -60,20 +58,20 @@ order to calculate the displacement vector for each node. The sequence
 of steps that PELE follows when dealing with eigenvectors in order to
 calculate the final displacement vector is the following:</p>
 <ul class="simple">
-<li>The eigenvectors, and they corresponding eigenvalues, are computed
-both at the same time.</li>
-<li>The vectors are normalized.</li>
-<li>A mode is chosen among the set of eigenvectors</li>
-<li>For the selected mode, a new direction is set.</li>
-<li>The chosen mode is scaled to a certain modulus.</li>
-<li>A final direction vector is obtained mixing the selected mode with
-the other ones.</li>
-<li>For each atom, a target position is calculated using the previously
-calculated move vector.</li>
-<li>A set of harmonic constraints is added to energy computation
+<li><p>The eigenvectors, and they corresponding eigenvalues, are computed
+both at the same time.</p></li>
+<li><p>The vectors are normalized.</p></li>
+<li><p>A mode is chosen among the set of eigenvectors</p></li>
+<li><p>For the selected mode, a new direction is set.</p></li>
+<li><p>The chosen mode is scaled to a certain modulus.</p></li>
+<li><p>A final direction vector is obtained mixing the selected mode with
+the other ones.</p></li>
+<li><p>For each atom, a target position is calculated using the previously
+calculated move vector.</p></li>
+<li><p>A set of harmonic constraints is added to energy computation
 function. The equilibrium position for each constraint (i.e. for each
 atom) is the target position obtained at the previous step, while the
-“k” constant is the same for all the constraints.</li>
+“k” constant is the same for all the constraints.</p></li>
 </ul>
 <p>The previous sequence of steps describes the algorithm, but the actual
 procedure that is followed at each step is parameterizable by the user.
@@ -96,13 +94,12 @@ order to perform the calculation:</p>
 called after. Also <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> means squareroot, and <code class="docutils literal notranslate"><span class="pre">rand(arg,</span> <span class="pre">arg)</span></code>
 returns a random number between the given interval.</p>
 <ul>
-<li><p class="first">At the normalization step:</p>
+<li><p>At the normalization step:</p>
 <ul>
-<li><p class="first">If the parameter “thermalScaling” has been set to true, the
+<li><p>If the parameter “thermalScaling” has been set to true, the
 eigenvalue associated with each vector will be used in order to
-normalize the vector.</p>
-</li>
-<li><p class="first">Calculation:</p>
+normalize the vector.</p></li>
+<li><p>Calculation:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>For i from 1 to numberOfModes
   val = values[i]
   vec = vectors[i]
@@ -113,14 +110,13 @@ normalize the vector.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">When calculating the modulus for the chosen mode:</p>
+<li><p>When calculating the modulus for the chosen mode:</p>
 <ul>
-<li><p class="first">If the option “moveMagnitudeGeneration” has been set to
+<li><p>If the option “moveMagnitudeGeneration” has been set to
 “scaledBiasedRandom” the eigenvalues of the chosen mode and the
 first mode will be used in order to set an scaling factor for the
-modulus.</p>
-</li>
-<li><p class="first">Calculation:</p>
+modulus.</p></li>
+<li><p>Calculation:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>val = values[chosenMode]
 base = values[0]
 scaledFactor = (0.6 * val) / base + 0.4
@@ -131,16 +127,15 @@ modulus = scaledMove * rand(0.625, 1.0)
 </li>
 </ul>
 </li>
-<li><p class="first">When mixing the normal modes:</p>
+<li><p>When mixing the normal modes:</p>
 <ul>
-<li><p class="first">Eigenvalues are also used for mixing the chosen mode with the
+<li><p>Eigenvalues are also used for mixing the chosen mode with the
 another ones. However, PELE by default does not mix the modes, so
 in order to do so, the option “modesMixingOption” must be set to
 either “mixAllModesEquallyRandom” or “mixMainModeWithOthersModes”,
 although the only one which will use the eigenvalues is the latter
-one.</p>
-</li>
-<li><p class="first">Calculation (for “mixMainModeWithOthersModes” option):</p>
+one.</p></li>
+<li><p>Calculation (for “mixMainModeWithOthersModes” option):</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>For i from 1 to numberOfModes
   if i != from chosenModeIndex
     vec = vectors[i]
@@ -180,13 +175,11 @@ moveVector = normalizeVector(moveVector);
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -214,7 +207,7 @@ moveVector = normalizeVector(moveVector);
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
     <a href="../index.html#license">License</a>.
     </div>
   </body>
