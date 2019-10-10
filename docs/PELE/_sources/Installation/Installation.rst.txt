@@ -1,5 +1,5 @@
 ############################
-PELE-package Installation
+Installation
 ############################
 
 Here we will go through the installation of PELE/AdaptivePELE and
@@ -29,7 +29,10 @@ Test PELE installation
 Adaptive-PELE
 ++++++++++++++++++++++++++
 
-1) ``pip install AdaptivePELE`` (with the right python as it will compile cython extensions) --> numpy and cython need to be installed.
+
+1)  - From Pypi: ``pip install AdaptivePELE`` (with the right python as it will compile cython extensions) --> numpy and cython need to be installed.
+    
+    - From Conda: ``conda install -c NostrumBioDiscovery -c omnia adaptive_pele`` 
 
 2) go to ``lib/pythonX/site-packages/AdaptivePELE/constants/constants.py`` and manually change this paragraph inside the  constants.py file
 

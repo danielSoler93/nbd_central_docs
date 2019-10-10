@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>PELE-package Installation &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
+    <title>Installation &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -49,8 +49,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="pele-package-installation">
-<h1>PELE-package Installation<a class="headerlink" href="#pele-package-installation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>Here we will go through the installation of PELE/AdaptivePELE and
 the preparation scripts need it for PELE.</p>
 <div class="section" id="pele">
@@ -73,7 +73,11 @@ mpirun -np <span class="m">3</span> ../../bin/Pele_mpi control_file --license-di
 <div class="section" id="adaptive-pele">
 <h2>Adaptive-PELE<a class="headerlink" href="#adaptive-pele" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">AdaptivePELE</span></code> (with the right python as it will compile cython extensions) –&gt; numpy and cython need to be installed.</p></li>
+<li><ul class="simple">
+<li><p>From Pypi: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">AdaptivePELE</span></code> (with the right python as it will compile cython extensions) –&gt; numpy and cython need to be installed.</p></li>
+<li><p>From Conda: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">NostrumBioDiscovery</span> <span class="pre">-c</span> <span class="pre">omnia</span> <span class="pre">adaptive_pele</span></code></p></li>
+</ul>
+</li>
 <li><p>go to <code class="docutils literal notranslate"><span class="pre">lib/pythonX/site-packages/AdaptivePELE/constants/constants.py</span></code> and manually change this paragraph inside the  constants.py file</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">else</span>:
@@ -161,7 +165,7 @@ python -m Helpers.constraints 1w7h_preparation_structure_2w.pdb constraints.conf
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">PELE-package Installation</a><ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
 <li><a class="reference internal" href="#pele">PELE</a><ul>
 <li><a class="reference internal" href="#test-pele-installation">Test PELE installation</a></li>
 </ul>
