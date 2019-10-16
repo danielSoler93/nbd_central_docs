@@ -1,18 +1,27 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>How to contribute to the documentation &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.5.${BUILD_TAG}',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="References" href="references.html" />
@@ -27,7 +36,8 @@
     });
     </script>
 
-  </head><body>
+  </head>
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -62,26 +72,26 @@
 <h3>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h3>
 <p>Follow the sectioning structure that Sphinx uses as a convention (<a class="reference external" href="http://sphinx-doc.org/rest.html#sections">http://sphinx-doc.org/rest.html#sections</a>). This is:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">#</span></code> with overline, for parts</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> with overline, for chapters</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">=</span></code>, for sections</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code>, for subsections</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code>, for subsubsections</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;</span></code>, for paragraphs</p></li>
+<li><code class="docutils literal"><span class="pre">#</span></code> with overline, for parts</li>
+<li><code class="docutils literal"><span class="pre">*</span></code> with overline, for chapters</li>
+<li><code class="docutils literal"><span class="pre">=</span></code>, for sections</li>
+<li><code class="docutils literal"><span class="pre">-</span></code>, for subsections</li>
+<li><code class="docutils literal"><span class="pre">^</span></code>, for subsubsections</li>
+<li><code class="docutils literal"><span class="pre">&quot;</span></code>, for paragraphs</li>
 </ul>
 <p>Depending on where your documentation page fits into the PELE documentation structure, your page top level header can be any of the previous ones.</p>
 </div>
 <div class="section" id="cross-references">
 <h3>Cross-references<a class="headerlink" href="#cross-references" title="Permalink to this headline">¶</a></h3>
 <p>To help the user connecting ideas, and also to avoid redundance by keeping the information in a single place, use cross-references (see <a class="reference external" href="http://sphinx-doc.org/markup/inline.html#cross-referencing-arbitrary-locations">http://sphinx-doc.org/markup/inline.html#cross-referencing-arbitrary-locations</a>).</p>
-<p>Labels for section will start with <code class="docutils literal notranslate"><span class="pre">sec-</span></code>, while labels for figures start with <code class="docutils literal notranslate"><span class="pre">fig-</span></code> and labels for tables with <code class="docutils literal notranslate"><span class="pre">table-</span></code>.</p>
-<p>For sections, the main header of a page will take the name of the file, but with the first character in lower case (unless the file starts with an acronym as PELE). For example, the label for the main header of file <code class="file docutils literal notranslate"><span class="pre">SelectionExamples.rst</span></code> is <code class="docutils literal notranslate"><span class="pre">sec-selectionExamples</span></code>; however, for <code class="file docutils literal notranslate"><span class="pre">PELESimulation.rst</span></code>, it is <code class="docutils literal notranslate"><span class="pre">sec-PELESimulation</span></code>. Subsections in a file will start with the same label as the main header of the file, plus additional text, using <code class="docutils literal notranslate"><span class="pre">-</span></code> as a separator. For example, the label for the <code class="docutils literal notranslate"><span class="pre">Parameters</span></code> section in the <code class="file docutils literal notranslate"><span class="pre">Anm.rst</span></code> file is <code class="docutils literal notranslate"><span class="pre">sec-anm-parameters</span></code>.</p>
+<p>Labels for section will start with <code class="docutils literal"><span class="pre">sec-</span></code>, while labels for figures start with <code class="docutils literal"><span class="pre">fig-</span></code> and labels for tables with <code class="docutils literal"><span class="pre">table-</span></code>.</p>
+<p>For sections, the main header of a page will take the name of the file, but with the first character in lower case (unless the file starts with an acronym as PELE). For example, the label for the main header of file <code class="file docutils literal"><span class="pre">SelectionExamples.rst</span></code> is <code class="docutils literal"><span class="pre">sec-selectionExamples</span></code>; however, for <code class="file docutils literal"><span class="pre">PELESimulation.rst</span></code>, it is <code class="docutils literal"><span class="pre">sec-PELESimulation</span></code>. Subsections in a file will start with the same label as the main header of the file, plus additional text, using <code class="docutils literal"><span class="pre">-</span></code> as a separator. For example, the label for the <code class="docutils literal"><span class="pre">Parameters</span></code> section in the <code class="file docutils literal"><span class="pre">Anm.rst</span></code> file is <code class="docutils literal"><span class="pre">sec-anm-parameters</span></code>.</p>
 </div>
 <div class="section" id="footnotes">
 <h3>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this headline">¶</a></h3>
 <p>The text corresponding to footnotes will appear in the same page as the footnote. See Sphinx for reference: <a class="reference external" href="http://sphinx-doc.org/rest.html#footnotes">http://sphinx-doc.org/rest.html#footnotes</a></p>
-<p>Footnotes will be labeled as <code class="docutils literal notranslate"><span class="pre">#f&lt;footnote_number&gt;</span></code> consecutively in the file. The footnote section will be defined with the <cite>rubric</cite> directive. For example:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>A peleSimulation has a PeleTask block. It is an array comprised of all
+<p>Footnotes will be labeled as <code class="docutils literal"><span class="pre">#f&lt;footnote_number&gt;</span></code> consecutively in the file. The footnote section will be defined with the <cite>rubric</cite> directive. For example:</p>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>A peleSimulation has a PeleTask block. It is an array comprised of all
 the tasks that the program has to carry out before a command (usually a
 simulation) is considered to be finished <span class="s">[#f1]_</span>. Each task is a block, so it
 should be enclosed in curly braces.
@@ -94,16 +104,16 @@ should be enclosed in curly braces.
 </div>
 <div class="section" id="citations">
 <h3>Citations<a class="headerlink" href="#citations" title="Permalink to this headline">¶</a></h3>
-<p>Each part of the documentation (for example, the <code class="docutils literal notranslate"><span class="pre">Reference</span> <span class="pre">Manual</span></code> or the <code class="docutils literal notranslate"><span class="pre">Tutorial</span></code>) may have its own references, which should be gathered in a page of their own. Each reference will be labeled by <code class="docutils literal notranslate"><span class="pre">[firstauthor:year]</span></code>, and follows the format: Authors “Article title” <em>Journal</em> volume, pp. 1-n, Year. URL.</p>
+<p>Each part of the documentation (for example, the <code class="docutils literal"><span class="pre">Reference</span> <span class="pre">Manual</span></code> or the <code class="docutils literal"><span class="pre">Tutorial</span></code>) may have its own references, which should be gathered in a page of their own. Each reference will be labeled by <code class="docutils literal"><span class="pre">[firstauthor:year]</span></code>, and follows the format: Authors “Article title” <em>Journal</em> volume, pp. 1-n, Year. URL.</p>
 <p>For example:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="gh">References</span>
+<div class="highlight-rest"><div class="highlight"><pre><span></span><span class="gh">References</span>
 <span class="gh">==========</span>
 
 <span class="p">..</span> <span class="nt">[atilgan:2001]</span> Atilgan, A.R. and Durell, S.R. and Jernigan, R.L. and Demirel, M.C. and Keskin, O. and Bahar, I. &quot;Anisotropy of Fluctuation Dynamics of Proteins with an Elastic Network Model&quot; <span class="ge">*Biophysical Journal*</span> 80, pp. 505--515, 2001. http://dx.doi.org/10.1016/S0006-3495(01)76033-X
 </pre></div>
 </div>
 <p>For citing those references, follow the instructions given by Sphinx (<a class="reference external" href="http://sphinx-doc.org/rest.html#citations">http://sphinx-doc.org/rest.html#citations</a>). For example, the previous paper will be cited as:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>The original form of the potential (<span class="s">[atilgan:2001]_</span>) is ...
+<div class="highlight-rest"><div class="highlight"><pre><span></span>The original form of the potential (<span class="s">[atilgan:2001]_</span>) is ...
 </pre></div>
 </div>
 </div>
@@ -111,31 +121,31 @@ should be enclosed in curly braces.
 <h3>Mathematics<a class="headerlink" href="#mathematics" title="Permalink to this headline">¶</a></h3>
 <p>The documentation uses MathJax to display mathematical formulas, symbols and equations (see <a class="reference external" href="http://sphinx-doc.org/ext/math.html">http://sphinx-doc.org/ext/math.html</a>). This is basically LaTeX input, though only basic mathematical commands are available (for a complete documentation, see <a class="reference external" href="https://www.mathjax.org/">MathJax</a>).</p>
 <p>For example, the Pythagoras equation, inline, would be coded as:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>Since Pythagoras, we know that <span class="na">:math:</span><span class="nv">`a^2 + b^2 = c^2`</span>.
+<div class="highlight-rest"><div class="highlight"><pre><span></span>Since Pythagoras, we know that <span class="na">:math:</span><span class="nv">`a^2 + b^2 = c^2`</span>.
 </pre></div>
 </div>
-<p>And it will appear as <span class="math notranslate nohighlight">\(a^2 + b^2 = c^2\)</span>.</p>
-<p>Though the <code class="docutils literal notranslate"><span class="pre">\AA</span></code> command is not defined in MathJax, the PELE documentation configures MathJax (in <code class="file docutils literal notranslate"><span class="pre">_templates/layout.html</span></code>) so that you can use it to represent <span class="math notranslate nohighlight">\(\AA{}\)</span>.</p>
+<p>And it will appear as <span class="math">\(a^2 + b^2 = c^2\)</span>.</p>
+<p>Though the <code class="docutils literal"><span class="pre">\AA</span></code> command is not defined in MathJax, the PELE documentation configures MathJax (in <code class="file docutils literal"><span class="pre">_templates/layout.html</span></code>) so that you can use it to represent <span class="math">\(\AA{}\)</span>.</p>
 <p>Notice that the HTML representation of mathematics through MathJax requires an Internet connection, since the MathJax Javascript code is always retrieved from the Internet.</p>
 </div>
 <div class="section" id="file-names">
 <h3>File names<a class="headerlink" href="#file-names" title="Permalink to this headline">¶</a></h3>
-<p>When providing a file name or path, use the <code class="docutils literal notranslate"><span class="pre">:file:</span></code> role of Sphinx (<a class="reference external" href="http://sphinx-doc.org/markup/inline.html#role-file">http://sphinx-doc.org/markup/inline.html#role-file</a>):</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>Open file <span class="na">:file:</span><span class="nv">`README.txt`</span>.
+<p>When providing a file name or path, use the <code class="docutils literal"><span class="pre">:file:</span></code> role of Sphinx (<a class="reference external" href="http://sphinx-doc.org/markup/inline.html#role-file">http://sphinx-doc.org/markup/inline.html#role-file</a>):</p>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>Open file <span class="na">:file:</span><span class="nv">`README.txt`</span>.
 </pre></div>
 </div>
 </div>
 <div class="section" id="examples-and-source-code">
 <h3>Examples and source code<a class="headerlink" href="#examples-and-source-code" title="Permalink to this headline">¶</a></h3>
-<p>For displaying the contents (or extacts) of files, possibly source code files, use the <code class="docutils literal notranslate"><span class="pre">code-block</span></code> directive (<a class="reference external" href="http://sphinx-doc.org/markup/code.html#showing-code-examples">http://sphinx-doc.org/markup/code.html#showing-code-examples</a>). For example, to show python code, use:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> <span class="k">python</span>
+<p>For displaying the contents (or extacts) of files, possibly source code files, use the <code class="docutils literal"><span class="pre">code-block</span></code> directive (<a class="reference external" href="http://sphinx-doc.org/markup/code.html#showing-code-examples">http://sphinx-doc.org/markup/code.html#showing-code-examples</a>). For example, to show python code, use:</p>
+<div class="highlight-rest"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> <span class="k">python</span>
 
   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span>
      <span class="k">print</span> <span class="n">i</span>
 </pre></div>
 </div>
 <p>Which results in:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span>
   <span class="k">print</span> <span class="n">i</span>
 </pre></div>
 </div>
@@ -158,7 +168,7 @@ should be enclosed in curly braces.
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
+  <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">How to contribute to the documentation</a><ul>
 <li><a class="reference internal" href="#notes-on-writing-a-page-of-documentation">Notes on writing a page of documentation</a><ul>
@@ -191,13 +201,13 @@ should be enclosed in curly braces.
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
+  <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -221,7 +231,7 @@ should be enclosed in curly braces.
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
     <a href="index.html#license">License</a>.
     </div>
   </body>

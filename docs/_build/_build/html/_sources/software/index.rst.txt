@@ -41,6 +41,13 @@ The NBD's main technologies are:
 .. toctree::
    python/packages
 
+Nice DCV
+------------
+
+NICE DCV is the remote 3D visualization technology that enables Technical Computing users to connect to OpenGL applications running in a data center. (https://aws.amazon.com/es/hpc/dcv/)
+
+.. toctree::
+   Nice/nice
 
 Tests
 ----------

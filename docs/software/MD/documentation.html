@@ -17,34 +17,36 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Python Packages" href="../python/packages.html" />
     <link rel="prev" title="AdaptivePELE" href="../adaptive/documentation.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -84,14 +86,19 @@
             
               <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Software</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../pele/documentation.html">PELE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../adaptive/documentation.html">AdaptivePELE</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">MD</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#full-documentation">Full documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#md-tutorial">MD Tutorial:</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#programs">Programs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../pele/documentation.html">PELE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adaptive/documentation.html">AdaptivePELE</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#full-documentation">Full documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#md-tutorial">MD Tutorial:</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../python/packages.html">Python Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python/packages.html">Python Packages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#nice-dcv">Nice DCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tests">Tests</a></li>
 </ul>
 </li>
 </ul>
@@ -177,97 +184,89 @@
 <div class="section" id="md-tutorial">
 <h2>MD Tutorial:<a class="headerlink" href="#md-tutorial" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><ol class="first arabic">
-<li><dl class="first docutils">
-<dt>Raw Input preparation</dt>
-<dd><ul class="first last">
-<li>Open maestro preprocess the structure (capping, protonation, tautomers…) and make sure you do not have any mistake on the output structure.</li>
+<li><ol class="arabic simple">
+<li><dl class="simple">
+<dt>Raw Input preparation</dt><dd><ul>
+<li><p>Open maestro preprocess the structure (capping, protonation, tautomers…) and make sure you do not have any mistake on the output structure.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ol>
 </li>
-<li><ol class="first arabic" start="2">
-<li><dl class="first docutils">
-<dt>Processed input preparation</dt>
-<dd><ul class="first last">
-<li>Save 1 pdb called complex.pdb with receptor-ligand and structural water molecules</li>
-<li>Save 1 mol2 called ligand.mol2 with the already protonated ligand</li>
+<li><ol class="arabic simple" start="2">
+<li><dl class="simple">
+<dt>Processed input preparation</dt><dd><ul>
+<li><p>Save 1 pdb called complex.pdb with receptor-ligand and structural water molecules</p></li>
+<li><p>Save 1 mol2 called ligand.mol2 with the already protonated ligand</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ol>
 </li>
-<li><ol class="first arabic" start="3">
-<li><dl class="first docutils">
-<dt>Ligand Preparation</dt>
-<dd><ul class="first last">
-<li>export AMBERHOME=/opt/AmberTools/amber16/</li>
-<li>$AMBERHOME/bin/antechamber -i input_name.mol2 -fi mol2 -o output_name.prep -fo prepi -nc charge_of_ligand -c charge_model -at atom_types -j processors_to_use</li>
-<li>i.e $AMBERHOME/bin/antechamber -i ligand.mol2 -fi mol2 -o ligand.prep -fo prepi -nc -1 -c bcc -at gaff -j 4</li>
+<li><ol class="arabic simple" start="3">
+<li><dl class="simple">
+<dt>Ligand Preparation</dt><dd><ul>
+<li><p>export AMBERHOME=/opt/AmberTools/amber16/</p></li>
+<li><p>$AMBERHOME/bin/antechamber -i input_name.mol2 -fi mol2 -o output_name.prep -fo prepi -nc charge_of_ligand -c charge_model -at atom_types -j processors_to_use</p></li>
+<li><p>i.e $AMBERHOME/bin/antechamber -i ligand.mol2 -fi mol2 -o ligand.prep -fo prepi -nc -1 -c bcc -at gaff -j 4</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ol>
 </li>
-<li><ol class="first arabic" start="4">
-<li><dl class="first docutils">
-<dt>Receptor Preparation</dt>
-<dd><ul class="first last">
-<li>$AMBERHOME/bin/pdb4amber -i input_name.pdb -o output_name.pdb</li>
-<li>i.e $AMBERHOME/bin/antechamber -i complex.pdb -o complex_processed.pdb</li>
-<li>Read the output and make sure there are no errors in your input</li>
+<li><ol class="arabic simple" start="4">
+<li><dl class="simple">
+<dt>Receptor Preparation</dt><dd><ul>
+<li><p>$AMBERHOME/bin/pdb4amber -i input_name.pdb -o output_name.pdb</p></li>
+<li><p>i.e $AMBERHOME/bin/antechamber -i complex.pdb -o complex_processed.pdb</p></li>
+<li><p>Read the output and make sure there are no errors in your input</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ol>
 </li>
-<li><ol class="first arabic" start="5">
-<li><dl class="first docutils">
-<dt>Parametrize ligand</dt>
-<dd><ul class="first last">
-<li>$AMBERHOME/bin/parmcheck2 -i ligand.prep -f prepi  -o ligand.frcmod</li>
+<li><ol class="arabic simple" start="5">
+<li><dl class="simple">
+<dt>Parametrize ligand</dt><dd><ul>
+<li><p>$AMBERHOME/bin/parmcheck2 -i ligand.prep -f prepi  -o ligand.frcmod</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ol>
 </li>
-<li><ol class="first arabic" start="6">
-<li><dl class="first docutils">
-<dt>AmberTools input</dt>
-<dd><ul class="first last">
-<li>cp /data/software/MD/leap.in  your_directory</li>
-<li>fill in the fields indicated on the file</li>
+<li><ol class="arabic simple" start="6">
+<li><dl class="simple">
+<dt>AmberTools input</dt><dd><ul>
+<li><p>cp /data/software/MD/leap.in  your_directory</p></li>
+<li><p>fill in the fields indicated on the file</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ol>
 </li>
-<li><ol class="first arabic" start="7">
-<li><dl class="first docutils">
-<dt>Build Topology &amp; Coordinates file</dt>
-<dd><ul class="first last">
-<li>leap -sf leap.in</li>
-<li>check the warning outputs and remove the hydrogens from the complex_processed.pdb that they contain clash (as they will be automatically added by tleap) fix other errors.</li>
-<li>lauch tleap again</li>
+<li><ol class="arabic simple" start="7">
+<li><dl class="simple">
+<dt>Build Topology &amp; Coordinates file</dt><dd><ul>
+<li><p>leap -sf leap.in</p></li>
+<li><p>check the warning outputs and remove the hydrogens from the complex_processed.pdb that they contain clash (as they will be automatically added by tleap) fix other errors.</p></li>
+<li><p>lauch tleap again</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ol>
 </li>
-<li><ol class="first arabic" start="8">
-<li><dl class="first docutils">
-<dt>Visualize the ouput complex.pdb and make sure everything looks alright</dt>
-<dd><ul class="first last">
-<li>protein is inside the box</li>
-<li>ligand looks normal</li>
+<li><ol class="arabic simple" start="8">
+<li><dl class="simple">
+<dt>Visualize the ouput complex.pdb and make sure everything looks alright</dt><dd><ul>
+<li><p>protein is inside the box</p></li>
+<li><p>ligand looks normal</p></li>
 </ul>
 </dd>
 </dl>
@@ -289,7 +288,7 @@
         <a href="../python/packages.html" class="btn btn-neutral float-right" title="Python Packages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../adaptive/documentation.html" class="btn btn-neutral" title="AdaptivePELE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../adaptive/documentation.html" class="btn btn-neutral float-left" title="AdaptivePELE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -315,26 +314,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
