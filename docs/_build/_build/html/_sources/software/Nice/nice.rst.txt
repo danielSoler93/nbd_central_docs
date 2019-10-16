@@ -1,7 +1,7 @@
-Visualize thorugh vpn or ssh
-==================================
+Visualize through vpn efficiently
+===================================
 
-To render&visualize GUIs of any software (maestro, vmd, pymol ...) you must follow the next steps:
+To render&visualize GUIs of any software (maestro, vmd, pymol ...) thorugh vpn you must follow the next steps:
 
 
 1- Activate the vpn with your password
