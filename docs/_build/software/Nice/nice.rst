@@ -14,4 +14,9 @@ To render&visualize GUIs of any software (maestro, vmd, pymol ...) thorugh vpn y
 
 5- You will enter in the nbdcalc01 computer (Nexus office) where you can visualize and calculate schordinger jobs
 
+6- Open a terminal and run the next commands to deactivate the screen lock: (Temporal step until we fix it with nice distributors)
+
+    - ``gsettings set org.gnome.desktop.screensaver lock-enabled false``
+    - ``gsettings set org.gnome.desktop.lockdown disable-lock-screen true``
+
 
