@@ -1,27 +1,18 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>SideChainPrediction Block in Pele++ control file &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.5.${BUILD_TAG}',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Minimization in Pele++ control file" href="../Minimization/Minimization.html" />
@@ -36,8 +27,7 @@
     });
     </script>
 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -63,13 +53,13 @@
             
   <div class="section" id="sidechainprediction-block-in-pele-control-file">
 <span id="sec-sidechainprediction"></span><h1>SideChainPrediction Block in Pele++ control file<a class="headerlink" href="#sidechainprediction-block-in-pele-control-file" title="Permalink to this headline">¶</a></h1>
-<p>This block configures the Side Chain Prediction phase in a <code class="docutils literal"><span class="pre">peleSimulation</span></code> command, or the Side Chain Prediction execution of a <code class="docutils literal"><span class="pre">sideChainSimulation</span></code> command. In a <code class="docutils literal"><span class="pre">peleSimulation</span></code>, this phase will be active depending on the <code class="docutils literal"><span class="pre">sideChainPredictionFrequency</span></code> PELE parameter (<a class="reference internal" href="../PELE/PeleParameters.html#sec-peleparameters-sidechainpredictionfrequency"><span class="std std-ref">sideChainPredictionFrequency</span></a>).</p>
+<p>This block configures the Side Chain Prediction phase in a <code class="docutils literal notranslate"><span class="pre">peleSimulation</span></code> command, or the Side Chain Prediction execution of a <code class="docutils literal notranslate"><span class="pre">sideChainSimulation</span></code> command. In a <code class="docutils literal notranslate"><span class="pre">peleSimulation</span></code>, this phase will be active depending on the <code class="docutils literal notranslate"><span class="pre">sideChainPredictionFrequency</span></code> PELE parameter (<a class="reference internal" href="../PELE/PeleParameters.html#sec-peleparameters-sidechainpredictionfrequency"><span class="std std-ref">sideChainPredictionFrequency</span></a>).</p>
 <p>The side chain prediction will be applied to the set of links formed by:</p>
 <ul class="simple">
-<li>if <code class="docutils literal"><span class="pre">sideChainPredictionRegionRadius</span></code> (<a class="reference internal" href="../PELE/PeleParameters.html#sec-peleparameters-sidechainpredictionregionradius"><span class="std std-ref">sideChainPredictionRegionRadius</span></a>) is not zero, then the links to perturb (if the perturbation phase is active) and all those other links that are at most <code class="docutils literal"><span class="pre">sideChainPredictionRegionRadius</span></code> <span class="math">\(\AA{}\)</span> away from the links to perturb.</li>
-<li>the <em>top side links</em>, which are those links that worsen their energy the most between the beginning of a PELE step and the end of the perturbation and ANM phase. The number of these links is selected by the PELE parameter <code class="docutils literal"><span class="pre">numberOfTopSideSelectedLinks</span></code> (<a class="reference internal" href="../PELE/PeleParameters.html#sec-peleparameters-numberoftopsideselectedlinks"><span class="std std-ref">numberOfTopSideSelectedLinks</span></a>). Also the links that are at most <code class="docutils literal"><span class="pre">topSideRadius</span></code> <span class="math">\(\AA{}\)</span> away from the <em>top side links</em> (<a class="reference internal" href="../PELE/PeleParameters.html#sec-peleparameters-topsideradius"><span class="std std-ref">topSideRadius</span></a>) will be included.</li>
-<li>the links selected with <code class="docutils literal"><span class="pre">selectionToInclude</span></code> (<a class="reference internal" href="#sec-sidechainprediction-selectiontoinclude"><span class="std std-ref">selectionToInclude</span></a>).</li>
-<li>removing, from all the links previously selected, those links in <code class="docutils literal"><span class="pre">selectionToOmit</span></code> (<a class="reference internal" href="#sec-sidechainprediction-selectiontoomit"><span class="std std-ref">selectionToOmit</span></a>).</li>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">sideChainPredictionRegionRadius</span></code> (<a class="reference internal" href="../PELE/PeleParameters.html#sec-peleparameters-sidechainpredictionregionradius"><span class="std std-ref">sideChainPredictionRegionRadius</span></a>) is not zero, then the links to perturb (if the perturbation phase is active) and all those other links that are at most <code class="docutils literal notranslate"><span class="pre">sideChainPredictionRegionRadius</span></code> <span class="math notranslate nohighlight">\(\AA{}\)</span> away from the links to perturb.</p></li>
+<li><p>the <em>top side links</em>, which are those links that worsen their energy the most between the beginning of a PELE step and the end of the perturbation and ANM phase. The number of these links is selected by the PELE parameter <code class="docutils literal notranslate"><span class="pre">numberOfTopSideSelectedLinks</span></code> (<a class="reference internal" href="../PELE/PeleParameters.html#sec-peleparameters-numberoftopsideselectedlinks"><span class="std std-ref">numberOfTopSideSelectedLinks</span></a>). Also the links that are at most <code class="docutils literal notranslate"><span class="pre">topSideRadius</span></code> <span class="math notranslate nohighlight">\(\AA{}\)</span> away from the <em>top side links</em> (<a class="reference internal" href="../PELE/PeleParameters.html#sec-peleparameters-topsideradius"><span class="std std-ref">topSideRadius</span></a>) will be included.</p></li>
+<li><p>the links selected with <code class="docutils literal notranslate"><span class="pre">selectionToInclude</span></code> (<a class="reference internal" href="#sec-sidechainprediction-selectiontoinclude"><span class="std std-ref">selectionToInclude</span></a>).</p></li>
+<li><p>removing, from all the links previously selected, those links in <code class="docutils literal notranslate"><span class="pre">selectionToOmit</span></code> (<a class="reference internal" href="#sec-sidechainprediction-selectiontoomit"><span class="std std-ref">selectionToOmit</span></a>).</p></li>
 </ul>
 <p>Notice that links without side chains and cross linked cysteines are not considered in the side chain prediction.</p>
 <div class="section" id="algorithm-selection">
@@ -79,25 +69,25 @@
 <p>Use: It sets the side chain prediction algorithm that will be used.</p>
 <p>Possible options:</p>
 <ul class="simple">
-<li>“zhexin”: Iterative algorithm that predicts the side chain
-conformation for each link until it reaches convergence</li>
-<li>“boltzmannSampling”: Algorithm that samples the rotamers according to
-the Boltzmann distribution at a given temperature T</li>
+<li><p>“zhexin”: Iterative algorithm that predicts the side chain
+conformation for each link until it reaches convergence</p></li>
+<li><p>“boltzmannSampling”: Algorithm that samples the rotamers according to
+the Boltzmann distribution at a given temperature T</p></li>
 </ul>
-<p>Default value: <code class="docutils literal"><span class="pre">&quot;zhexin&quot;</span></code>.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">&quot;zhexin&quot;</span></code>.</p>
 </div>
 <div class="section" id="brief-description-of-the-algorithms">
 <h3>Brief description of the algorithms<a class="headerlink" href="#brief-description-of-the-algorithms" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Zhexin algorithm: It is an iterative algorithm that tries to find the
+<li><p>Zhexin algorithm: It is an iterative algorithm that tries to find the
 most likely rotamer. To do so, it clusters the rotamers and estimates
 the partition function. It chooses the rotamer that has the greatest
 contribution. It is performed several times, until convergence is
-reached.</li>
-<li>Boltzmann Sampling: It chooses a random rotamer according to the
+reached.</p></li>
+<li><p>Boltzmann Sampling: It chooses a random rotamer according to the
 Boltzmann distribution. For all the non-clashing rotamers, their
 energies are evaluated and assigned their Boltzmann weight
-<span class="math">\(\frac{e^{-\beta E}}{\sum e^{-\beta E}}\)</span>. One is chosen according to this weight.</li>
+<span class="math notranslate nohighlight">\(\frac{e^{-\beta E}}{\sum e^{-\beta E}}\)</span>. One is chosen according to this weight.</p></li>
 </ul>
 </div>
 </div>
@@ -110,7 +100,7 @@ energies are evaluated and assigned their Boltzmann weight
 is going to be performed.</p>
 <p>Note: It uses the standard jSon format.</p>
 <p>This example selects from link “2” to “4” in the chain “A”:</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;selectionToInclude&quot;: { &quot;links&quot;: {&quot;ranges&quot;: [&quot;A:2 A:4&quot;] } }
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;selectionToInclude&quot;: { &quot;links&quot;: {&quot;ranges&quot;: [&quot;A:2 A:4&quot;] } }
 </pre></div>
 </div>
 <p>For a more detailed description, see <a class="reference internal" href="../Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a>.</p>
@@ -145,9 +135,9 @@ link, which is 10 in the standard protein residues.</p>
 <p>Default value: 10</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘gridres’</li>
-<li>Plop parameter name: ‘side_params%gridres’</li>
-<li>Plop default value: 10</li>
+<li><p>Plop control file name: ‘gridres’</p></li>
+<li><p>Plop parameter name: ‘side_params%gridres’</p></li>
+<li><p>Plop default value: 10</p></li>
 </ul>
 </div>
 <div class="section" id="overlap-factor">
@@ -171,9 +161,9 @@ deltaOverlapFactor (=0.05). The process is repeated until overlap factor
 <p>Default value: 0.75</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘ofac_init’</li>
-<li>Plop parameter name: ‘tree_params%ofac_init’</li>
-<li>Plop default value: 0.75</li>
+<li><p>Plop control file name: ‘ofac_init’</p></li>
+<li><p>Plop parameter name: ‘tree_params%ofac_init’</p></li>
+<li><p>Plop default value: 0.75</p></li>
 </ul>
 </div>
 <div class="section" id="minimaloverlapfactor">
@@ -187,9 +177,9 @@ failed.</p>
 <p>Default value: 0.7</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘ofac_min’</li>
-<li>Plop parameter name: ‘tree_params%ofac_min’</li>
-<li>Plop default value: 0.7</li>
+<li><p>Plop control file name: ‘ofac_min’</p></li>
+<li><p>Plop parameter name: ‘tree_params%ofac_min’</p></li>
+<li><p>Plop default value: 0.7</p></li>
 </ul>
 </div>
 <div class="section" id="randomize">
@@ -197,16 +187,16 @@ failed.</p>
 <p>Parameter: bool randomize</p>
 <p>Use: It only makes sense when the ‘zhexin’ algorithm is used. It
 randomizes the initial conformation of the selected links’ side chains.
-When it is false, <code class="docutils literal"><span class="pre">numberOfIterations</span></code> is not considered, since it becomes effectively 1.</p>
+When it is false, <code class="docutils literal notranslate"><span class="pre">numberOfIterations</span></code> is not considered, since it becomes effectively 1.</p>
 <p>Notes for developers: Used in
 ZhexinSideChainAlgorithm::findMinimumInEnergyUsingRotamerLibrary and
 ZhexinSideChainAlgorithm::findMinimumInEnergyUsingRotamerLibrary</p>
 <p>Default value: false</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘rand’</li>
-<li>Plop parameter name: ‘side_params%randomize’</li>
-<li>Plop default value: False</li>
+<li><p>Plop control file name: ‘rand’</p></li>
+<li><p>Plop parameter name: ‘side_params%randomize’</p></li>
+<li><p>Plop default value: False</p></li>
 </ul>
 </div>
 <div class="section" id="discardhighenergysolutions">
@@ -220,16 +210,16 @@ initial structure is retained.</p>
 <p>Default value: false</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘failsafe’</li>
-<li>Plop parameter name: ‘side_params%failsafe’</li>
-<li>Plop default value: True</li>
+<li><p>Plop control file name: ‘failsafe’</p></li>
+<li><p>Plop parameter name: ‘side_params%failsafe’</p></li>
+<li><p>Plop default value: True</p></li>
 </ul>
 </div>
 <div class="section" id="numberofiterations">
 <h3>numberOfIterations<a class="headerlink" href="#numberofiterations" title="Permalink to this headline">¶</a></h3>
 <p>Parameter: unsigned int numberOfIterations</p>
 <p>Use: Number of iterations that the ‘zhexin’ algorithm is going to
-perform. This is only considered when <code class="docutils literal"><span class="pre">randomize</span></code> is true; otherwise, the effective number of iterations is 1.</p>
+perform. This is only considered when <code class="docutils literal notranslate"><span class="pre">randomize</span></code> is true; otherwise, the effective number of iterations is 1.</p>
 <p>Notes for developers: Used in
 ZhexinSideChainAlgorithm::findMinimumInEnergyUsingRotamerLibrary</p>
 <p>Units: Dimensionless</p>
@@ -237,9 +227,9 @@ ZhexinSideChainAlgorithm::findMinimumInEnergyUsingRotamerLibrary</p>
 <p>Default value: 1</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘iter’</li>
-<li>Plop parameter name: ‘side_params%niter’</li>
-<li>Plop default value: 1</li>
+<li><p>Plop control file name: ‘iter’</p></li>
+<li><p>Plop parameter name: ‘side_params%niter’</p></li>
+<li><p>Plop default value: 1</p></li>
 </ul>
 </div>
 <div class="section" id="temperature">
@@ -252,9 +242,9 @@ SideChain::computeNonClashingRotamersProbabilities</p>
 <p>Default value: 2000</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: -</li>
-<li>Plop parameter name: -</li>
-<li>Plop default value: -</li>
+<li><p>Plop control file name: -</p></li>
+<li><p>Plop parameter name: -</p></li>
+<li><p>Plop default value: -</p></li>
 </ul>
 </div>
 </div>
@@ -265,17 +255,17 @@ SideChain::computeNonClashingRotamersProbabilities</p>
 <p>Check the minimization block documentation (<a class="reference internal" href="../Minimization/Minimization.html#sec-minimization"><span class="std std-ref">Minimization in Pele++ control file</span></a>) for more information.</p>
 <p>If this section is present, then this minimization is run at the end of each side chain prediction iteration; the minimization affects only the atoms considered during the side chain prediction. In this case (the “sideChainMinimizer” block is present, so the internal minimization will be performed), the default minimization type is “TruncatedNewton”, with the following default parameters (other parameters have the same default as shown in the minimization block documentation):</p>
 <ul class="simple">
-<li>“EnergyDifference”: 1.0</li>
-<li>“MinimumRMS”: 0.1</li>
-<li>“MaximumMinimizationIterations”: 3</li>
-<li>“MaximumNewtonIterations”: 65,</li>
-<li>“nonBondingListUpdatedEachMinStep”: true</li>
-<li>“alphaUpdated”: false</li>
-<li>“sgbUpdated”: true</li>
-<li>“iterationsBetweenNBlistLongUpdate”: 2</li>
+<li><p>“EnergyDifference”: 1.0</p></li>
+<li><p>“MinimumRMS”: 0.1</p></li>
+<li><p>“MaximumMinimizationIterations”: 3</p></li>
+<li><p>“MaximumNewtonIterations”: 65,</p></li>
+<li><p>“nonBondingListUpdatedEachMinStep”: true</p></li>
+<li><p>“alphaUpdated”: false</p></li>
+<li><p>“sgbUpdated”: true</p></li>
+<li><p>“iterationsBetweenNBlistLongUpdate”: 2</p></li>
 </ul>
 <p>If the perturbation is active, also the perturbation constraints will be on (see <a class="reference internal" href="../PELE/PeleParameters.html#sec-peleparameters-perturbationcomconstraintconstant"><span class="std std-ref">perturbationCOMConstraintConstant</span></a>). The permanent constraints (<a class="reference internal" href="../PermanentConstraints/PermanentConstraints.html#sec-permanentconstraints"><span class="std std-ref">Permanent constraints in Pele++ control file</span></a>) are also on.</p>
-<p>A final relaxation minimization is executed at the end of the side chain prediction phase in a PELE simulation, but this is configured in the <code class="docutils literal"><span class="pre">&quot;Minimizer&quot;</span></code> section of such command (see <a class="reference internal" href="../Minimization/Minimization.html#sec-minimization"><span class="std std-ref">Minimization in Pele++ control file</span></a>).</p>
+<p>A final relaxation minimization is executed at the end of the side chain prediction phase in a PELE simulation, but this is configured in the <code class="docutils literal notranslate"><span class="pre">&quot;Minimizer&quot;</span></code> section of such command (see <a class="reference internal" href="../Minimization/Minimization.html#sec-minimization"><span class="std std-ref">Minimization in Pele++ control file</span></a>).</p>
 </div>
 </div>
 
@@ -285,7 +275,7 @@ SideChain::computeNonClashingRotamersProbabilities</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">SideChainPrediction Block in Pele++ control file</a><ul>
 <li><a class="reference internal" href="#algorithm-selection">Algorithm selection</a><ul>
@@ -328,13 +318,13 @@ SideChain::computeNonClashingRotamersProbabilities</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -360,7 +350,7 @@ SideChain::computeNonClashingRotamersProbabilities</p>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
     <a href="../index.html#license">License</a>.
     </div>
   </body>

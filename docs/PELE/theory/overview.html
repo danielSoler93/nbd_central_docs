@@ -1,27 +1,18 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Overview &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.5.${BUILD_TAG}',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Energy Function" href="energyFunction.html" />
@@ -36,8 +27,7 @@
     });
     </script>
 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -64,33 +54,33 @@
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
 <p>A PELE simulation consists of several steps of the following 3-part algorithm:</p>
 <ol class="arabic simple">
-<li>Perform perturbation</li>
+<li><p>Perform perturbation</p></li>
 </ol>
 <blockquote>
 <div><ol class="loweralpha simple">
-<li>Ligand (if present): Translation and rotation. Basic side chain relocation to avoid clashes.</li>
-<li>Protein: Get direction vectors with ANM. Perform movement through minimization.</li>
+<li><p>Ligand (if present): Translation and rotation. Basic side chain relocation to avoid clashes.</p></li>
+<li><p>Protein: Get direction vectors with ANM. Perform movement through minimization.</p></li>
 </ol>
 </div></blockquote>
 <ol class="arabic simple" start="2">
-<li>Relaxation.</li>
+<li><p>Relaxation.</p></li>
 </ol>
 <blockquote>
 <div><ol class="loweralpha simple">
-<li>Side Chain Prediction</li>
+<li><p>Side Chain Prediction</p></li>
 </ol>
 <blockquote>
 <div><ol class="lowerroman simple">
-<li>Around the ligand (if present).</li>
-<li>For the top side chains among those whose energy has changed the most in the ANM step.</li>
+<li><p>Around the ligand (if present).</p></li>
+<li><p>For the top side chains among those whose energy has changed the most in the ANM step.</p></li>
 </ol>
 </div></blockquote>
 <ol class="loweralpha simple" start="2">
-<li>Global minimization.</li>
+<li><p>Global minimization.</p></li>
 </ol>
 </div></blockquote>
 <ol class="arabic simple" start="3">
-<li>Accept or reject the step based on the Metropolis criterium.</li>
+<li><p>Accept or reject the step based on the Metropolis criterium.</p></li>
 </ol>
 <p>The following image shows the previous steps:</p>
 <img alt="../_images/pele_scheme.png" src="../_images/pele_scheme.png" />
@@ -116,13 +106,13 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -147,7 +137,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
     <a href="../index.html#license">License</a>.
     </div>
   </body>

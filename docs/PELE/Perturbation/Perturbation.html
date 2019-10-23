@@ -1,27 +1,18 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Perturbation Block in Pele++ control file &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.5.${BUILD_TAG}',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ANM Block in Pele++ control file" href="../ANM/Anm.html" />
@@ -36,8 +27,7 @@
     });
     </script>
 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -64,12 +54,12 @@
   <div class="section" id="perturbation-block-in-pele-control-file">
 <span id="sec-perturbation"></span><h1>Perturbation Block in Pele++ control file<a class="headerlink" href="#perturbation-block-in-pele-control-file" title="Permalink to this headline">¶</a></h1>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">You can skip the ligand perturbation phase in your PELE simulation by not including the <code class="docutils literal"><span class="pre">&quot;Perturbation&quot;</span></code> block in your simulation. However, if you do so, remember not to include any configuration related to it (such as a BindingEnergy metric), and also remember that the default values for some options (such as the links to be considered in the side chain prediction phase) may differ, causing that you simulation may not start or even work differently as you expect.</p>
+<p class="admonition-title">Warning</p>
+<p>You can skip the ligand perturbation phase in your PELE simulation by not including the <code class="docutils literal notranslate"><span class="pre">&quot;Perturbation&quot;</span></code> block in your simulation. However, if you do so, remember not to include any configuration related to it (such as a BindingEnergy metric), and also remember that the default values for some options (such as the links to be considered in the side chain prediction phase) may differ, causing that you simulation may not start or even work differently as you expect.</p>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;Perturbation&quot;: {
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;Perturbation&quot;: {
     &quot;perturbationType&quot;: &quot;naive&quot;,
     &quot;rotationAngles&quot;: &quot;nonCoupled&quot;,
     &quot;translationDirection&quot;: &quot;steered&quot;,
@@ -89,7 +79,7 @@
 </div>
 <div class="section" id="how-perturbation-of-the-ligand-works">
 <h2>How perturbation of the ligand works<a class="headerlink" href="#how-perturbation-of-the-ligand-works" title="Permalink to this headline">¶</a></h2>
-<p>The perturbation block controls the perturbation of the ligand. The ligand, formed by a rigid core (at least one atom) and a set of side chains, is perturbed by translating and rotating it, relieving any existing clash that may appear (<a class="reference internal" href="../references.html#borrelli-2010" id="id1">[borrelli:2010]</a>). PELE creates a list of perturbation poses (typically configured to be between 1 and 20; see <a class="reference internal" href="#sec-perturbation-parameters-numberoftrials"><span class="std std-ref">numberOfTrials</span></a>), and then chooses the one with the lowest system energy. Each perturbation pose is generated through a random procedure, where a number of translations and rotations are tried (see <a class="reference internal" href="#sec-perturbation-parameters-numberofsterictrials"><span class="std std-ref">numberOfStericTrials</span></a>), until a combination is found that doesn’t show any steric clashes after the clash relieving process. To allow the macromolecule to adapt to the new ligand position, clashes of up to 30% of the van der Waals interatomic distance between atoms are allowed (see <a class="reference internal" href="#sec-perturbation-parameters-overlapfactor"><span class="std std-ref">overlapFactor</span></a>), since the relaxation phase will probably relieve them. When searching the binding site, large translations are tried (around <span class="math">\(6 \AA{}\)</span>), while once in the binding site, small adjusments of less than <span class="math">\(1 \AA{}\)</span> are used (see <a class="reference internal" href="#sec-perturbation-parameters-translationrange"><span class="std std-ref">translationRange</span></a>). In addition, to allow the sampling of rare events, it is possible to force the translational vector to follow a randomly selected direction (what would be a steering vector) a given number of simulation steps, giving room to some small deviations (within <span class="math">\(10^{\circ}\)</span> to <span class="math">\(30^{\circ}\)</span>); in case of not finding a non-clashing translation, or after the round is finished, the steering vector is changed by a new one (see <a class="reference internal" href="#sec-perturbation-steering"><span class="std std-ref">Steering</span></a>). Also, for those simulations that require exploring a restricted volume of the search space (as it is done in binding pose refinement), all ligand perturbations that place the ligand center of mass outside a predefined box are rejected (see <a class="reference internal" href="../Boxes/Boxes.html#sec-boxes"><span class="std std-ref">Boxes</span></a>).</p>
+<p>The perturbation block controls the perturbation of the ligand. The ligand, formed by a rigid core (at least one atom) and a set of side chains, is perturbed by translating and rotating it, relieving any existing clash that may appear (<a class="reference internal" href="../references.html#borrelli-2010" id="id1"><span>[borrelli:2010]</span></a>). PELE creates a list of perturbation poses (typically configured to be between 1 and 20; see <a class="reference internal" href="#sec-perturbation-parameters-numberoftrials"><span class="std std-ref">numberOfTrials</span></a>), and then chooses the one with the lowest system energy. Each perturbation pose is generated through a random procedure, where a number of translations and rotations are tried (see <a class="reference internal" href="#sec-perturbation-parameters-numberofsterictrials"><span class="std std-ref">numberOfStericTrials</span></a>), until a combination is found that doesn’t show any steric clashes after the clash relieving process. To allow the macromolecule to adapt to the new ligand position, clashes of up to 30% of the van der Waals interatomic distance between atoms are allowed (see <a class="reference internal" href="#sec-perturbation-parameters-overlapfactor"><span class="std std-ref">overlapFactor</span></a>), since the relaxation phase will probably relieve them. When searching the binding site, large translations are tried (around <span class="math notranslate nohighlight">\(6 \AA{}\)</span>), while once in the binding site, small adjusments of less than <span class="math notranslate nohighlight">\(1 \AA{}\)</span> are used (see <a class="reference internal" href="#sec-perturbation-parameters-translationrange"><span class="std std-ref">translationRange</span></a>). In addition, to allow the sampling of rare events, it is possible to force the translational vector to follow a randomly selected direction (what would be a steering vector) a given number of simulation steps, giving room to some small deviations (within <span class="math notranslate nohighlight">\(10^{\circ}\)</span> to <span class="math notranslate nohighlight">\(30^{\circ}\)</span>); in case of not finding a non-clashing translation, or after the round is finished, the steering vector is changed by a new one (see <a class="reference internal" href="#sec-perturbation-steering"><span class="std std-ref">Steering</span></a>). Also, for those simulations that require exploring a restricted volume of the search space (as it is done in binding pose refinement), all ligand perturbations that place the ligand center of mass outside a predefined box are rejected (see <a class="reference internal" href="../Boxes/Boxes.html#sec-boxes"><span class="std std-ref">Boxes</span></a>).</p>
 <p>The clash relieving process consists of trying different conformations on the flexible side chains of the ligand and macromolecule. If a clash exists between the cores of the ligand and receptor, then the pose is discarded. Otherwise, while there exists any clash around the ligand, a clashing residue (or the ligand) is randomly chosen, and a new conformation for its side chains is tried.</p>
 <p>To configure the type of perturbation to perform, check <a class="reference internal" href="#sec-perturbation-perturbationselection"><span class="std std-ref">Perturbation selection</span></a> and <a class="reference internal" href="#sec-perturbation-parameters"><span class="std std-ref">Parameters</span></a>.</p>
 </div>
@@ -97,10 +87,10 @@
 <span id="sec-perturbation-steering"></span><h2>Steering<a class="headerlink" href="#steering" title="Permalink to this headline">¶</a></h2>
 <p>Through the <a class="reference internal" href="#sec-perturbation-perturbationselection-translationdirection"><span class="std std-ref">translationDirection</span></a> option you can control whether to activate steering or not. Even when the steering is active, you can temporarily deactivate it by setting the update frequency to zero (<a class="reference internal" href="#sec-perturbation-parameters-steeringupdatefrequency"><span class="std std-ref">steeringUpdateFrequency</span></a>).</p>
 <p>There are two kinds of steering, and they can be configured through <a class="reference internal" href="#sec-perturbation-parameters-steeringmode"><span class="std std-ref">steeringMode</span></a>.</p>
-<p>A steering cycle spreads through the perturbation phases of several PELE steps, consisting of <code class="docutils literal"><span class="pre">steeringUpdateFrequency</span></code> steps (see <a class="reference internal" href="#sec-perturbation-parameters-steeringupdatefrequency"><span class="std std-ref">steeringUpdateFrequency</span></a>). A steering vector is selected in each cycle, and all translations during that cycle will be based on that steering vector, with a Gaussian dispersion. After a steering cycle ends, a new steering vector is selected.</p>
-<p>The <code class="docutils literal"><span class="pre">random</span></code> steering mode, selects a random steering vector before starting a new steering cycle. The <code class="docutils literal"><span class="pre">best</span></code> steering mode, selects as steering vector the translation vector of the perturbation selected in the first iteration of the steering cycle (therefore, the steering vector will be applied only during the next iterations in this case).</p>
-<p>Notice that when using the <code class="docutils literal"><span class="pre">proximityDistance</span></code> option (<a class="reference internal" href="../PELE/PeleParameters.html#sec-peleparameters-proximitydistance"><span class="std std-ref">proximityDistance</span></a>), if the ligand is far, the perturbation during that step will not use a steering vector, and a new steering cycle will start in the next PELE step.</p>
-<p>If you change the <code class="docutils literal"><span class="pre">steeringUpdateFrequency</span></code> or the <code class="docutils literal"><span class="pre">steeringMode</span></code> to a different value during the simulation (see <a class="reference internal" href="../PELEDynamicChangesInSimulationParameters/ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">Changeable Parameters</span></a>), a new steering cycle starts. Also, if during a steering cycle, while generating a particular perturbation (for a maximum of <code class="docutils literal"><span class="pre">numberOfStericTrials</span></code>), the ligand always goes out of the configured box, then the steering vector is considered to get nowhere, and a new steering cycle is considered to have started (which implies selecting new steering vectors).</p>
+<p>A steering cycle spreads through the perturbation phases of several PELE steps, consisting of <code class="docutils literal notranslate"><span class="pre">steeringUpdateFrequency</span></code> steps (see <a class="reference internal" href="#sec-perturbation-parameters-steeringupdatefrequency"><span class="std std-ref">steeringUpdateFrequency</span></a>). A steering vector is selected in each cycle, and all translations during that cycle will be based on that steering vector, with a Gaussian dispersion. After a steering cycle ends, a new steering vector is selected.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">random</span></code> steering mode, selects a random steering vector before starting a new steering cycle. The <code class="docutils literal notranslate"><span class="pre">best</span></code> steering mode, selects as steering vector the translation vector of the perturbation selected in the first iteration of the steering cycle (therefore, the steering vector will be applied only during the next iterations in this case).</p>
+<p>Notice that when using the <code class="docutils literal notranslate"><span class="pre">proximityDistance</span></code> option (<a class="reference internal" href="../PELE/PeleParameters.html#sec-peleparameters-proximitydistance"><span class="std std-ref">proximityDistance</span></a>), if the ligand is far, the perturbation during that step will not use a steering vector, and a new steering cycle will start in the next PELE step.</p>
+<p>If you change the <code class="docutils literal notranslate"><span class="pre">steeringUpdateFrequency</span></code> or the <code class="docutils literal notranslate"><span class="pre">steeringMode</span></code> to a different value during the simulation (see <a class="reference internal" href="../PELEDynamicChangesInSimulationParameters/ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">Changeable Parameters</span></a>), a new steering cycle starts. Also, if during a steering cycle, while generating a particular perturbation (for a maximum of <code class="docutils literal notranslate"><span class="pre">numberOfStericTrials</span></code>), the ligand always goes out of the configured box, then the steering vector is considered to get nowhere, and a new steering cycle is considered to have started (which implies selecting new steering vectors).</p>
 </div>
 <div class="section" id="perturbation-selection">
 <span id="sec-perturbation-perturbationselection"></span><h2>Perturbation selection<a class="headerlink" href="#perturbation-selection" title="Permalink to this headline">¶</a></h2>
@@ -109,10 +99,10 @@
 <p>Use: It selects the ligand perturbation that is going to be used.</p>
 <p>Possible values:</p>
 <ul class="simple">
-<li>“naive”: Selects the best ligand conformation (i.e. the one with
-lowest energy) of a certain number of random movements.</li>
-<li>“metropolis”: The ligand performs a random walk using the Metropolis
-algorithm.</li>
+<li><p>“naive”: Selects the best ligand conformation (i.e. the one with
+lowest energy) of a certain number of random movements.</p></li>
+<li><p>“metropolis”: The ligand performs a random walk using the Metropolis
+algorithm.</p></li>
 </ul>
 <p>Default value: No default value. You must indicate it.</p>
 </div>
@@ -124,17 +114,17 @@ translationDirectionGenerator</p>
 <p>Note for developers: Used in AtomSetMover.</p>
 <p>Possible values:</p>
 <ul class="simple">
-<li>“random”: Chooses a complete random direction.</li>
-<li>“steered”: Chooses a direction with a Gaussian dispersion with
+<li><p>“random”: Chooses a complete random direction.</p></li>
+<li><p>“steered”: Chooses a direction with a Gaussian dispersion with
 respect to the steering vector. The steering vector is updated
-according to the “steeringUpdateFrequency”.</li>
+according to the “steeringUpdateFrequency”.</p></li>
 </ul>
 <p>Default value: “random”</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: steered</li>
-<li>Plop parameter name: liga_lig%steered</li>
-<li>Plop default value: 0</li>
+<li><p>Plop control file name: steered</p></li>
+<li><p>Plop parameter name: liga_lig%steered</p></li>
+<li><p>Plop default value: 0</p></li>
 </ul>
 </div>
 <div class="section" id="translationrangetype">
@@ -143,12 +133,12 @@ according to the “steeringUpdateFrequency”.</li>
 “translationRange”.</p>
 <p>Possible values:</p>
 <ul class="simple">
-<li>“spherical”: The translation vector is allowed to be inside a sphere
+<li><p>“spherical”: The translation vector is allowed to be inside a sphere
 centered in the perturbed atom set. That is, the vector modulus is
-drawn from a uniform distribution in [0,”translationRange”].</li>
-<li>“centered”: The translation vector modulus is drawn from a uniform
+drawn from a uniform distribution in [0,”translationRange”].</p></li>
+<li><p>“centered”: The translation vector modulus is drawn from a uniform
 distribution centered on “translatinRange”, [0.75 *
-“translationRange”, 1.25 * “translationRange”].</li>
+“translationRange”, 1.25 * “translationRange”].</p></li>
 </ul>
 <p>Default value: “centered”</p>
 <p>Plop info: There is no equivalence in Plop</p>
@@ -159,24 +149,24 @@ distribution centered on “translatinRange”, [0.75 *
 rotationScalingFactor.</p>
 <p>Default value: “nonCoupled”</p>
 <ul>
-<li><p class="first">coupled: The same rotationScalingFactor is used for every angle.</p>
+<li><p>coupled: The same rotationScalingFactor is used for every angle.</p>
 <blockquote>
 <div><ul class="simple">
-<li><span class="math">\(\phi = \text{rotationScalingFactor} * \text{rand}(-2\pi, 2\pi)\)</span></li>
-<li><span class="math">\(\psi = \text{rotationScalingFactor} * \text{rand}(-2\pi, 2\pi)\)</span></li>
-<li><span class="math">\(\theta = \text{rotationScalingFactor} * \text{rand}(-\pi, \pi)\)</span></li>
+<li><p><span class="math notranslate nohighlight">\(\phi = \text{rotationScalingFactor} * \text{rand}(-2\pi, 2\pi)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\psi = \text{rotationScalingFactor} * \text{rand}(-2\pi, 2\pi)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta = \text{rotationScalingFactor} * \text{rand}(-\pi, \pi)\)</span></p></li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
-<p>where <span class="math">\(\phi\)</span>, <span class="math">\(\psi\)</span>, and <span class="math">\(\theta\)</span> are the rotation angles and <span class="math">\(\text{rand}(a,b)\)</span> is a random
+<p>where <span class="math notranslate nohighlight">\(\phi\)</span>, <span class="math notranslate nohighlight">\(\psi\)</span>, and <span class="math notranslate nohighlight">\(\theta\)</span> are the rotation angles and <span class="math notranslate nohighlight">\(\text{rand}(a,b)\)</span> is a random
 number in the interval between brackets.</p>
 <ul class="simple">
-<li>nonCoupled: Randomly, rotationScalingFactor is assigned to either 1,
+<li><p>nonCoupled: Randomly, rotationScalingFactor is assigned to either 1,
 2 or 3 angles at random. For the rest, a rotationScalingFactor of
 0.02 is assigned. The angle is computed as follows: for a target
-angle <span class="math">\(\text{TA} = \text{FAR} * \text{rotationScalingFactor}\)</span>, <span class="math">\(\text{angle} = \text{sign}(\text{rand}) * \text{rand}((1-\text{RRF})*\text{TA}, (1+\text{RRF}) * \text{TA})\)</span>, where FAR (full angle range) is <span class="math">\(2\pi\)</span> for
-<span class="math">\(\phi\)</span> and <span class="math">\(\psi\)</span>, and <span class="math">\(\pi\)</span> for <span class="math">\(\theta\)</span>, and RRF is the rotationRangeFactor.</li>
+angle <span class="math notranslate nohighlight">\(\text{TA} = \text{FAR} * \text{rotationScalingFactor}\)</span>, <span class="math notranslate nohighlight">\(\text{angle} = \text{sign}(\text{rand}) * \text{rand}((1-\text{RRF})*\text{TA}, (1+\text{RRF}) * \text{TA})\)</span>, where FAR (full angle range) is <span class="math notranslate nohighlight">\(2\pi\)</span> for
+<span class="math notranslate nohighlight">\(\phi\)</span> and <span class="math notranslate nohighlight">\(\psi\)</span>, and <span class="math notranslate nohighlight">\(\pi\)</span> for <span class="math notranslate nohighlight">\(\theta\)</span>, and RRF is the rotationRangeFactor.</p></li>
 </ul>
 </div>
 </div>
@@ -202,9 +192,9 @@ angle <span class="math">\(\text{TA} = \text{FAR} * \text{rotationScalingFactor}
 <p>Default value: 10</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘tries’</li>
-<li>Plop parameter name: liga_params%tries</li>
-<li>Plop default value: 1</li>
+<li><p>Plop control file name: ‘tries’</p></li>
+<li><p>Plop parameter name: liga_params%tries</p></li>
+<li><p>Plop default value: 1</p></li>
 </ul>
 </div>
 <div class="section" id="numberofsterictrials">
@@ -218,9 +208,9 @@ in ‘numberOfTrials’.</p>
 <p>Default value: 500</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘steric_tr’</li>
-<li>Plop parameter name: liga_params%max_steric_tries</li>
-<li>Plop default value: 1000</li>
+<li><p>Plop control file name: ‘steric_tr’</p></li>
+<li><p>Plop parameter name: liga_params%max_steric_tries</p></li>
+<li><p>Plop default value: 1000</p></li>
 </ul>
 </div>
 <div class="section" id="atleastoneselectedtrial">
@@ -252,9 +242,9 @@ it is the maximum number of iterations/steps done in the perturbation.</p>
 <p>Default value: 0.5</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘rot_r’</li>
-<li>Plop parameter name: liga_params%rot_range</li>
-<li>Plop default value: 0</li>
+<li><p>Plop control file name: ‘rot_r’</p></li>
+<li><p>Plop parameter name: liga_params%rot_range</p></li>
+<li><p>Plop default value: 0</p></li>
 </ul>
 </div>
 <div class="section" id="rotationrangefactor">
@@ -273,16 +263,16 @@ a rotation angle target value TA, the allowed range of angles will be
 <span id="sec-perturbation-parameters-translationrange"></span><h3>translationRange<a class="headerlink" href="#translationrange" title="Permalink to this headline">¶</a></h3>
 <p>Parameter: double translationRange.</p>
 <p>Use: Factor in the length of the random translation.</p>
-<p><span class="math">\(\text{shift} = \text{translationRange} * \text{rand}(1,2)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\text{shift} = \text{translationRange} * \text{rand}(1,2)\)</span></p>
 <p>Note for developers: Used in LigandPerturbation::translateRandomly.</p>
 <p>Range: (0,inf)</p>
-<p>Units: <span class="math">\(\AA{}\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(\AA{}\)</span></p>
 <p>Default value: 1</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘tra_r’</li>
-<li>Plop parameter name: liga_params%tr_range</li>
-<li>Plop default value: 0</li>
+<li><p>Plop control file name: ‘tra_r’</p></li>
+<li><p>Plop parameter name: liga_params%tr_range</p></li>
+<li><p>Plop default value: 0</p></li>
 </ul>
 </div>
 <div class="section" id="overlapfactor">
@@ -296,9 +286,9 @@ in ClashesReliever and Perturbation.</p>
 <p>Default value: 0.6</p>
 <p>Plop info: Plop uses the same overlap factor that uses for the proteins.</p>
 <ul class="simple">
-<li>Plop control file name: ‘ofac_min’</li>
-<li>Plop parameter name: side_params%tree_params%ofac_min</li>
-<li>Plop default value: 0.7</li>
+<li><p>Plop control file name: ‘ofac_min’</p></li>
+<li><p>Plop parameter name: side_params%tree_params%ofac_min</p></li>
+<li><p>Plop default value: 0.7</p></li>
 </ul>
 </div>
 <div class="section" id="temperature">
@@ -320,10 +310,10 @@ energies about 275 kcal/mol higher)</p>
 <p>Use: It selects how the steering vector is calculated.</p>
 <p>Possible values:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">&quot;random&quot;</span></code>: A random translation vector is selected as the steering vector in the first iteration of each steering cycle, and that vector is used during that iteration and in all later iterations of the steering cycle.</li>
-<li><code class="docutils literal"><span class="pre">&quot;best&quot;</span></code>: First iteration of each steering cycle doesn’t impose any restriction to the translation direction. After the best perturbation is chosen, its translation vector is selected as the steering vector, and subsequent iterations in the steering cycle will use that vector.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;random&quot;</span></code>: A random translation vector is selected as the steering vector in the first iteration of each steering cycle, and that vector is used during that iteration and in all later iterations of the steering cycle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;best&quot;</span></code>: First iteration of each steering cycle doesn’t impose any restriction to the translation direction. After the best perturbation is chosen, its translation vector is selected as the steering vector, and subsequent iterations in the steering cycle will use that vector.</p></li>
 </ul>
-<p>Default value: <code class="docutils literal"><span class="pre">&quot;random&quot;</span></code>.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">&quot;random&quot;</span></code>.</p>
 </div>
 <div class="section" id="steeringupdatefrequency">
 <span id="sec-perturbation-parameters-steeringupdatefrequency"></span><h3>steeringUpdateFrequency<a class="headerlink" href="#steeringupdatefrequency" title="Permalink to this headline">¶</a></h3>
@@ -343,9 +333,9 @@ steps).</p>
 <p>Default value: 2</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: waitfor</li>
-<li>Plop parameter name: liga_params%wait</li>
-<li>Plop default value: 1</li>
+<li><p>Plop control file name: waitfor</p></li>
+<li><p>Plop parameter name: liga_params%wait</p></li>
+<li><p>Plop default value: 1</p></li>
 </ul>
 </div>
 <div class="section" id="gridresolution">
@@ -379,7 +369,7 @@ link, which is 10 in the standard protein residues.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Perturbation Block in Pele++ control file</a><ul>
 <li><a class="reference internal" href="#example">Example</a></li>
@@ -427,13 +417,13 @@ link, which is 10 in the standard protein residues.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -459,7 +449,7 @@ link, which is 10 in the standard protein residues.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
     <a href="../index.html#license">License</a>.
     </div>
   </body>
