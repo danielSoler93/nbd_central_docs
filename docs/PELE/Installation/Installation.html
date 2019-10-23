@@ -141,16 +141,37 @@ python -m frag_pele.main -cp 1w7h_preparation_structure_2w.pdb -sef serie_file.c
 </div>
 <div class="section" id="pele-scripts">
 <h2>PELE scripts<a class="headerlink" href="#pele-scripts" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> pele_preparation <span class="o">(</span>from before<span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NostrumBioDiscovery/pele_preparation.git
+
+<span class="nb">cd</span> pele_preparation
+
 pip install --ignore-installed .
+
+yum install gcc gcc-c++ kernel-devel python-devel tkinter python-pmw glew-devel
+freeglut-devel libpng-devel freetype-devel libxml2-devel glm-devel
+
+git clone https://github.com/schrodinger/pymol-open-source.git
+
+<span class="nb">cd</span> pymol-open-source
+
+python setup.py install <span class="o">(</span>with same python you will use later<span class="o">)</span>
 </pre></div>
 </div>
 <div class="section" id="pele-scripts-test">
 <h3>PELE scripts test<a class="headerlink" href="#pele-scripts-test" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> tests/test_helpers/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> tests/test_helpers
+
 python -m PPP.main -ipdb 1w7h_preparation_structure_2w.pdb
+
 python -m Helpers.constraints 1w7h_preparation_structure_2w.pdb constraints.conf
-/opt/schrodinger2017-4/utilities/python ../PlopRotTemp/main.py lig.mae
+
+python -m Helpers.randomize 1_3ZON_complex.pdb IK1 --poses <span class="m">2</span>
+
+<span class="nb">export</span> <span class="nv">SCHRODINGER_PYTHONPATH</span><span class="o">=</span><span class="s2">&quot; &quot;</span>
+
+<span class="nb">export</span> <span class="nv">PYTHONNOUSERSITE</span><span class="o">=</span><span class="s2">&quot; &quot;</span>
+
+/opt/schrodinger2017-4/utilities/python ../../PlopRotTemp/main.py lig.mae
 </pre></div>
 </div>
 </div>
