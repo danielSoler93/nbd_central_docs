@@ -60,11 +60,11 @@ After revision of your application, we will send you a form to fill in with your
 Then, you will recieve the PELE (pele.zip) binary containing the licenses to run and a test case to check the installation.</p>
 <div class="section" id="test-pele-installation">
 <h3>Test PELE installation<a class="headerlink" href="#test-pele-installation" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unzip pele.zip
-<span class="nb">cd</span> PELErev12535/samples/aspirin
-ln -s ../../Data Data
-ln -s ../../Documents Documents
-mpirun -np <span class="m">3</span> ../../bin/Pele_mpi control_file --license-directory ../../licenses<span class="sb">``</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unzip PELE-1.6.zip
+tar -xvf PELE-1.6.tgz
+<span class="nb">cd</span> PELE-1.6/samples/aspirin
+chmod -R u+wrx .
+mpirun -np <span class="m">3</span> ../../bin/Pele_mpi control_file --license-directory ../../licenses
 </pre></div>
 </div>
 <p>(you may have to set some environment variables by exporting LD_LIBRARY_PATH)</p>
@@ -75,7 +75,7 @@ mpirun -np <span class="m">3</span> ../../bin/Pele_mpi control_file --license-di
 <ol class="arabic simple">
 <li><ul class="simple">
 <li><p>From Pypi: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">AdaptivePELE</span></code> (with the right python as it will compile cython extensions) –&gt; numpy and cython need to be installed.</p></li>
-<li><p>From Conda: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">NostrumBioDiscovery</span> <span class="pre">-c</span> <span class="pre">omnia</span> <span class="pre">adaptive_pele</span></code></p></li>
+<li><p>From Conda: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">NostrumBioDiscovery</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">adaptive_pele</span></code></p></li>
 </ul>
 </li>
 <li><p>go to <code class="docutils literal notranslate"><span class="pre">lib/pythonX/site-packages/AdaptivePELE/constants/constants.py</span></code> and manually change this paragraph inside the  constants.py file</p></li>
@@ -108,8 +108,12 @@ python -m AdaptivePELE.adaptiveSampling out_in_adaptive.conf
 <div class="section" id="fragpele">
 <h2>FragPELE<a class="headerlink" href="#fragpele" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">frag_pele</span></code></p></li>
-<li><p>go to <code class="docutils literal notranslate"><span class="pre">lib/pythonX/site-packages/frag_pele/constants.py</span></code> and manually change this paragraph inside the  constants.py file</p></li>
+<li><ul class="simple">
+<li><p>From Pypi: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">frag_pele</span></code></p></li>
+<li><p>From conda: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">-c</span> <span class="pre">nostrumbiodiscovery</span> <span class="pre">frag_pele</span></code></p></li>
+</ul>
+</li>
+<li><p>go to <code class="docutils literal notranslate"><span class="pre">../lib/pythonX/site-packages/frag_pele/constants.py</span></code> and manually change this paragraph inside the  constants.py file</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">else</span>:
     <span class="nv">PATH_TO_PELE</span> <span class="o">=</span> None
@@ -132,8 +136,8 @@ python -m AdaptivePELE.adaptiveSampling out_in_adaptive.conf
 </div>
 <div class="section" id="fragpele-test">
 <h3>FragPELE test<a class="headerlink" href="#fragpele-test" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/carlesperez94/frag_pele.git
-<span class="nb">cd</span> frag_pele/frag_pele/example/1W7H_example/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NostrumBioDiscovery/pele_preparation.git
+<span class="nb">cd</span> pele_preparation/tests/test_frag
 python -m frag_pele.main -cp 1w7h_preparation_structure_2w.pdb -sef serie_file.conf
 </pre></div>
 </div>
