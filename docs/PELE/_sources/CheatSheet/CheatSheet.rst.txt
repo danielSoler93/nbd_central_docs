@@ -61,7 +61,7 @@ Prepare complex
 3) Refine protonation with maestro and output complex.pdb
 4) **Make sure the ligand has**:  
     - Unique chain
-    - No atomnames with spaces
+    - No atomnames with spaces or single letter
     - Any residuename except UNK
 5) python -m PPP.main -ipdb complex.pdb **(output: complex_processed.pdb)**
 
@@ -72,6 +72,11 @@ Prepare ligand
 +++++++++++++++++++
 
 1) **From the complex_processed.pdb above** charge this pdb to maestro again, isolate the ligand in maestro and output lig.mae.
+
+   - Within maestro select the residue got to ``Build>OtherEdits>AtomProperties>Residue&Chain`` and select any chain_name.
+
+   - Within maestro select the residue got to ``Build>OtherEdits>AtomProperties>PDB_atom_name`` and select **set unique PDB atom names**
+
 2) /opt/schrodinger2018-2(or lower)/utilities/python /path/to/PlopRotTemp/main.py lig.mae **(this will generate two files: ligz, LIG.rot.assign)**
 3) cp ligz DataLocal/Templates/OPLS2005/HeteroAtoms/
 4) cp LIG.rot.assign DataLocal/LigRotlib
