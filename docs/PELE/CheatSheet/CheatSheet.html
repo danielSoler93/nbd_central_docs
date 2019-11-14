@@ -97,7 +97,12 @@ cp -r control_files/3_induced_fit .
 <div class="section" id="prepare-complex">
 <h2>Prepare complex<a class="headerlink" href="#prepare-complex" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><p>Check complex, remove crystal buffer and non important waters, include water shell around critical metals (as MG cofactors)</p></li>
+<li><p>Check complex, remove crystal buffer and non important waters, include water shell around critical metals (as MG cofactors)</p>
+<ul class="simple">
+<li><p>Within maestro select the ligand residue go to <code class="docutils literal notranslate"><span class="pre">Build&gt;OtherEdits&gt;AtomProperties&gt;Residue&amp;Chain</span></code> and select any chain_name different than any other residue</p></li>
+<li><p>Within maestro select the ligand residue go to <code class="docutils literal notranslate"><span class="pre">Build&gt;OtherEdits&gt;AtomProperties&gt;PDB_atom_name</span></code> and select <strong>set unique PDB atom names</strong></p></li>
+</ul>
+</li>
 <li><p>Protein Preparation Wizard maestro</p></li>
 <li><p>Refine protonation with maestro and output complex.pdb</p></li>
 <li><dl class="simple">
@@ -116,12 +121,7 @@ cp -r control_files/3_induced_fit .
 <div class="section" id="prepare-ligand">
 <h2>Prepare ligand<a class="headerlink" href="#prepare-ligand" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><p><strong>From the complex_processed.pdb above</strong> charge this pdb to maestro again, isolate the ligand in maestro and output lig.mae.</p>
-<ul class="simple">
-<li><p>Within maestro select the residue got to <code class="docutils literal notranslate"><span class="pre">Build&gt;OtherEdits&gt;AtomProperties&gt;Residue&amp;Chain</span></code> and select any chain_name.</p></li>
-<li><p>Within maestro select the residue got to <code class="docutils literal notranslate"><span class="pre">Build&gt;OtherEdits&gt;AtomProperties&gt;PDB_atom_name</span></code> and select <strong>set unique PDB atom names</strong></p></li>
-</ul>
-</li>
+<li><p><strong>From the complex_processed.pdb above</strong> charge this pdb to maestro again, isolate the ligand in maestro and output lig.mae.</p></li>
 <li><p>/opt/schrodinger2018-2(or lower)/utilities/python /path/to/PlopRotTemp/main.py lig.mae <strong>(this will generate two files: ligz, LIG.rot.assign)</strong></p></li>
 <li><p>cp ligz DataLocal/Templates/OPLS2005/HeteroAtoms/</p></li>
 <li><p>cp LIG.rot.assign DataLocal/LigRotlib</p></li>
