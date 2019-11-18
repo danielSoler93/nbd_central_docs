@@ -52,16 +52,20 @@ If you chose 3:
     cp -r control_files/3_induced_fit .
     cd  3_induced_fit
 
+If you chose 4:
+```````````````
+
+.. code-block:: bash
+    
+    git clone https://github.com/NostrumBioDiscovery/control_files.git
+    cp -r control_files/4_anm .
+    cd 4_anm
+
 
 Prepare complex
 +++++++++++++++++++
 
 1) Check complex, remove crystal buffer and non important waters, include water shell around critical metals (as MG cofactors)
-
-   - Within maestro select the ligand residue go to ``Build>OtherEdits>AtomProperties>Residue&Chain`` and select any chain_name different than any other residue
-
-   - Within maestro select the ligand residue go to ``Build>OtherEdits>AtomProperties>PDB_atom_name`` and select **set unique PDB atom names**
-
 2) Protein Preparation Wizard maestro
 3) Refine protonation with maestro and output complex.pdb
 4) **Make sure the ligand has**:  
@@ -76,7 +80,14 @@ Prepare complex
 Prepare ligand
 +++++++++++++++++++
 
+**Skip section if you chose 4**
+
 1) **From the complex_processed.pdb above** charge this pdb to maestro again, isolate the ligand in maestro and output lig.mae.
+
+   - Within maestro select the residue got to ``Build>OtherEdits>AtomProperties>Residue&Chain`` and select any chain_name.
+
+   - Within maestro select the residue got to ``Build>OtherEdits>AtomProperties>PDB_atom_name`` and select **set unique PDB atom names**
+
 2) /opt/schrodinger2018-2(or lower)/utilities/python /path/to/PlopRotTemp/main.py lig.mae **(this will generate two files: ligz, LIG.rot.assign)**
 3) cp ligz DataLocal/Templates/OPLS2005/HeteroAtoms/
 4) cp LIG.rot.assign DataLocal/LigRotlib
@@ -84,6 +95,8 @@ Prepare ligand
 
 Prepare control files
 ++++++++++++++++++++++++++++
+
+**Only change "licenseDirectoryPath" and input_file if you chose 4. Skip the rest**
 
 pele.conf
 ```````````
