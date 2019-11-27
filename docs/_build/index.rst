@@ -32,3 +32,10 @@ project
 .. toctree::
    compute_power/index.rst
 
+
+For the IT Manager
+=========================
+
+Under the server **nbddata:/data/common/NBD_Shared_Files/developers_guide** you will find a README.txt with everything
+that has been built in the past years. And what are the next ideas.
+

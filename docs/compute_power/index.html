@@ -92,6 +92,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#private-officegpu-ak40">Private OfficeGPU AK40</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#storage-server">Storage Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#res">RES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#backup">Backup</a></li>
 </ul>
 </li>
 </ul>
@@ -201,6 +202,24 @@ and 7 more for daily back ups of all other machines</p>
 <h2>RES<a class="headerlink" href="#res" title="Permalink to this headline">¶</a></h2>
 <p>The RES grant allows us to use MN4 to run our in house ModTox project</p>
 <p><a class="reference external" href="https://nostrumbiodiscovery.github.io/modtox/">ModTox project</a></p>
+</div>
+<div class="section" id="backup">
+<h2>Backup<a class="headerlink" href="#backup" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>A daily backup is done from NBDCALC01 to NAS Synology in /home and /data.</p></li>
+<li><p>A daily backup is done from NBDDATA01 to NAS Synology in /data</p></li>
+<li><p>The backup is automatically done at 00:00 sending a daily report to support</p></li>
+</ul>
+<p>The backup keeps:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A daily backup for the last 14 days</p></li>
+<li><p>A weekly backup for the last 8 weeks</p></li>
+<li><p>A monthly backup for the last 12 months</p></li>
+<li><p>A yearly backup for all years</p></li>
+</ul>
+</div></blockquote>
+<p>This means that we have daily granularity up to 2 weeks, weekly granulatiry up to 2 month, month granularity up to 1 year and year granularuty for past years.</p>
 </div>
 </div>
 

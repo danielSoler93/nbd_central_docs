@@ -1,18 +1,27 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Metrics block in Pele++ control file &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.5.${BUILD_TAG}',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="StateTracker types in Pele++ control file" href="StateTrackerTypes.html" />
@@ -27,7 +36,8 @@
     });
     </script>
 
-  </head><body>
+  </head>
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -59,20 +69,20 @@
 <p>In general a Metric declaration in the control file is comprised of
 three parts:</p>
 <ul class="simple">
-<li><p>The type of Metric.</p></li>
-<li><p>The specific parameters for that type of Metric (each metric has its
-own parameters).</p></li>
-<li><p>A tag which is a name to identify the Metric in logical conditions
+<li>The type of Metric.</li>
+<li>The specific parameters for that type of Metric (each metric has its
+own parameters).</li>
+<li>A tag which is a name to identify the Metric in logical conditions
 (see <a class="reference internal" href="../LogicalConditions/ConditionsByExample.html#sec-conditionsbyexample"><span class="std std-ref">Conditions By Example</span></a>). The tag
 cannot contain spaces. This part is optional; if present, it is used
 to identify the metric in the report file; otherwise, a generic
-description is used.</p></li>
-<li><p>A boolean value indicating if you want the Metric to be logged or
+description is used.</li>
+<li>A boolean value indicating if you want the Metric to be logged or
 not. This is also optional. By default all Metrics are logged (it’s
-true by default).</p></li>
+true by default).</li>
 </ul>
 <p>This would be a general example of a Metric definition block:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+<div class="highlight-json"><div class="highlight"><pre><span></span>{
     &quot;type&quot;: &quot;MetricType&quot;,
     &quot;parameter1&quot;: &quot;xxx&quot;,
     ...
@@ -84,7 +94,7 @@ true by default).</p></li>
 </div>
 <div class="section" id="metrics-block-example">
 <h2>Metrics block example<a class="headerlink" href="#metrics-block-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;metrics&quot;: [
+<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;metrics&quot;: [
     {
         &quot;type&quot;: &quot;rmsd&quot;,
         &quot;Native&quot;: {
@@ -116,7 +126,7 @@ true by default).</p></li>
 a list (in <a class="reference external" href="http://www.json.org/">JSON</a> lists elements are surrounded
 by []) that contains two Metrics.</p>
 <p>The first metrics block of the list is:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;rmsd&quot;</span><span class="p">,</span>
     <span class="nt">&quot;Native&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;src/Molecules/Test/Data/plop_isr_out.pdb&quot;</span>
@@ -127,7 +137,7 @@ by []) that contains two Metrics.</p>
 <p>It measures the RMSD between the current configuration and a given
 “Native” and its values are logged each step.</p>
 <p>The second metrics block of the list is:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;rmsd&quot;</span><span class="p">,</span>
     <span class="nt">&quot;logIt&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nt">&quot;Native&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -165,19 +175,19 @@ list, check below.</p>
 their names and specific parameters.</p>
 <p>The currently available metrics are:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#sec-metrictypes-bindingenergy"><span class="std std-ref">Binding energy</span></a></p></li>
-<li><p><a class="reference internal" href="#sec-metrictypes-comdistance"><span class="std std-ref">Distance bewteen centers of mass</span></a></p></li>
-<li><p><a class="reference internal" href="#sec-metrictypes-sasa"><span class="std std-ref">SASA</span></a></p></li>
-<li><p><a class="reference internal" href="#sec-metrictypes-distancetopoint"><span class="std std-ref">Distance to point</span></a></p></li>
-<li><p><a class="reference internal" href="#sec-metrictypes-randomnumber"><span class="std std-ref">Random number</span></a></p></li>
-<li><p><a class="reference internal" href="#sec-metrictypes-rmsd"><span class="std std-ref">RMSD</span></a></p></li>
+<li><a class="reference internal" href="#sec-metrictypes-bindingenergy"><span class="std std-ref">Binding energy</span></a></li>
+<li><a class="reference internal" href="#sec-metrictypes-comdistance"><span class="std std-ref">Distance bewteen centers of mass</span></a></li>
+<li><a class="reference internal" href="#sec-metrictypes-sasa"><span class="std std-ref">SASA</span></a></li>
+<li><a class="reference internal" href="#sec-metrictypes-distancetopoint"><span class="std std-ref">Distance to point</span></a></li>
+<li><a class="reference internal" href="#sec-metrictypes-randomnumber"><span class="std std-ref">Random number</span></a></li>
+<li><a class="reference internal" href="#sec-metrictypes-rmsd"><span class="std std-ref">RMSD</span></a></li>
 </ul>
 <div class="section" id="binding-energy">
 <span id="sec-metrictypes-bindingenergy"></span><h3>Binding energy<a class="headerlink" href="#binding-energy" title="Permalink to this headline">¶</a></h3>
 <p>It computes the binding energy of a ligand.</p>
 <div class="section" id="example">
 <h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;bindingEnergy&quot;</span><span class="p">,</span>
     <span class="nt">&quot;boundPartSelection&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;chains&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;L&quot;</span> <span class="p">]</span> <span class="p">}</span>
@@ -203,7 +213,7 @@ atoms. Each group of atoms is defined by a selection block, see
 different examples of selection blocks.</p>
 <div class="section" id="id1">
 <h4>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;com_distance&quot;</span><span class="p">,</span>
     <span class="nt">&quot;selection_group_1&quot;</span><span class="p">:{</span>
         <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;ids&quot;</span><span class="p">:[</span><span class="s2">&quot;A:5&quot;</span><span class="p">]}</span>
@@ -230,7 +240,7 @@ atoms were alone in the system, so it is the maximum value for these
 atoms.</p>
 <div class="section" id="id2">
 <h4>Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;sasa&quot;</span><span class="p">,</span>
     <span class="nt">&quot;selection&quot;</span> <span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;chains&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -252,7 +262,7 @@ see different examples of selection blocks, whereas the point is given
 as a list of coordinates.</p>
 <div class="section" id="id3">
 <h4>Example<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;distanceToPoint&quot;</span><span class="p">,</span>
     <span class="nt">&quot;point&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
     <span class="nt">&quot;atoms&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -276,7 +286,7 @@ often used in Pele++ simulations as part of logical conditions in
 dynamic parameter changes.</p>
 <div class="section" id="id4">
 <h4>Example<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;random&quot;</span>
 <span class="p">}</span>
 </pre></div>
@@ -353,7 +363,7 @@ calculation and the optional superposition.</p>
 </div>
 <div class="section" id="example-1">
 <span id="sec-metrictypes-rmsd-example1"></span><h4>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;rmsd&quot;</span><span class="p">,</span>
     <span class="nt">&quot;Native&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;src/Molecules/Test/Data/AIN/native_fixed.pdb&quot;</span>
@@ -370,7 +380,7 @@ parameter equal to the path of the initial PDB.</p>
 <span id="sec-metrictypes-rmsd-example2"></span><h4>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h4>
 <p>The RMSD computation can also be limited to a given selection of the
 Complex, as we show in the following example:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;rmsd&quot;</span><span class="p">,</span>
     <span class="nt">&quot;Native&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;src/Molecules/Test/Data/AIN/native_fixed.pdb&quot;</span>
@@ -398,7 +408,7 @@ and not in the ligand).</p>
 <p>By default the RMSD is computed after superposing the selected atoms of
 the Complex and the Native. In the next example this superposition is
 disabled by setting the “doSuperposition” parameter to false.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;rmsd&quot;</span><span class="p">,</span>
     <span class="nt">&quot;savingFrequency&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="nt">&quot;Native&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -424,7 +434,7 @@ disabled by setting the “doSuperposition” parameter to false.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table of Contents</a></h3>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Metrics block in Pele++ control file</a><ul>
 <li><a class="reference internal" href="#metrics-block-example">Metrics block example</a></li>
@@ -480,13 +490,13 @@ disabled by setting the “doSuperposition” parameter to false.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
+  <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -513,7 +523,7 @@ disabled by setting the “doSuperposition” parameter to false.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
     <a href="../index.html#license">License</a>.
     </div>
   </body>

@@ -1,18 +1,27 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>PELE output parameters in Pele++ control file &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.5.${BUILD_TAG}',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="PELE parameters in Pele++ control file" href="PeleParameters.html" />
@@ -27,7 +36,8 @@
     });
     </script>
 
-  </head><body>
+  </head>
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -68,12 +78,12 @@ simulation.</p>
 options in the ConfigurationSavingMode enum.</p>
 <p>Options:</p>
 <ul class="simple">
-<li><p>“savingTrajectory”: It saves the accepted models in a given
-trajectory file. Model 1 always corresponds to the initial state.</p></li>
-<li><p>“savingSteps”: It saves the accepted models in different files in a
+<li>“savingTrajectory”: It saves the accepted models in a given
+trajectory file. Model 1 always corresponds to the initial state.</li>
+<li>“savingSteps”: It saves the accepted models in different files in a
 given folder. The file corresponding to accepted step 0 is the
-initial state.</p></li>
-<li><p>“savingBoth”: It does both previous things.</p></li>
+initial state.</li>
+<li>“savingBoth”: It does both previous things.</li>
 </ul>
 <p>Default value: “savingTrajectory”</p>
 </div>
@@ -171,7 +181,7 @@ defined in the control file.</p>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;PELE_Output&quot;:
+<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;PELE_Output&quot;:
 {
     &quot;reportPath&quot;: &quot;../../test_report&quot;,
     &quot;trajectoryPath&quot;: &quot;../../trajectory.pdb&quot;,
@@ -202,7 +212,7 @@ files. Explorers start being numbered at 1 (following their MPI rank).</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table of Contents</a></h3>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">PELE output parameters in Pele++ control file</a><ul>
 <li><a class="reference internal" href="#output-options-and-parameters">Output options and parameters.</a><ul>
@@ -237,13 +247,13 @@ files. Explorers start being numbered at 1 (following their MPI rank).</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
+  <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -269,7 +279,7 @@ files. Explorers start being numbered at 1 (following their MPI rank).</p>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
     <a href="../index.html#license">License</a>.
     </div>
   </body>
