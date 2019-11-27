@@ -55,3 +55,5 @@ The backup keeps:
     - A yearly backup for all years
 
 This means that we have daily granularity up to 2 weeks, weekly granulatiry up to 2 month, month granularity up to 1 year and year granularuty for past years.
+
+**In order to get backed up files contact with HPCNow support**
