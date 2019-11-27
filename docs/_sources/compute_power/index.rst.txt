@@ -4,8 +4,8 @@ NBD's insfrastructure
 Private Cluster
 ------------------
 
-The NBD Linux Cluster consists of 6 computing nodes with 4 GPUS NVIDIA GeForceTM GTX 1080 and 1
-xeon Gold Processors, for a total of 192 cores (384 HT threads). Includes 4 GPUs for offloading calculations.
+The NBD Linux Cluster consists of 6 computing nodes with 2 GPUS NVIDIA GeForceTM GTX 1080 and 1
+xeon Gold Processors, for a total of 156 cores (312 HT threads). Includes 2 GPUs for offloading calculations.
 
 
 Folders:
@@ -36,7 +36,7 @@ Folders:
 
 RES
 ---------
-The RES grant allows us to use MN4 to run our in house ModTox project
+The RES grant allows us to use MN4 to run our in house ModTox project. (MD&PELE for academic purposes/publications)
 
 `ModTox project <https://nostrumbiodiscovery.github.io/modtox/>`_
 
