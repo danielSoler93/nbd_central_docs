@@ -48,6 +48,28 @@ Plop info:
 -  Plop parameter name: steps
 -  Plop default value: -
 
+
+.. _sec-peleParameters-waterPerturbationFrequency:
+
+waterPerturbationFrequency
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Parameter: unsigned int waterPerturnationFrequency
+
+Use: Period to perform water perturbation
+
+Note for developers: Used in PeleParameters::isTimeToRunWaterPerturbation
+
+Units: Dimensionless (# of steps)
+
+Range: [0, inf)
+
+Default value: 3
+
+Note: If waterPerturbationFrequency = 0, the water perturbation will never be performed.
+
+
+
 .. _sec-peleParameters-anmFrequency:
 
 anmFrequency
