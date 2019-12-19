@@ -14,7 +14,7 @@ PELE
 Full documentation
 --------------------
 
-`PELE docs <../../../PELE/index.html>`_
+`PELE docs <../../PELE/index.html>`_
 
 Compilation
 --------------
@@ -44,7 +44,7 @@ Templates for launching
 
 You can find a PELE input (.conf) and a launching file (.sl) for the NBD cluster under:
 
--  **/work/NBD_Utilities/PELE/PELE_Templates/pele_intel/**
+-  **/work/NBD_Utilities/PELE/PELE_Templates/pele_intel/ (cluster)**
 
 
 
@@ -53,5 +53,11 @@ Templates for analysis
 
 You can find an analysis file with everything explain inside under:
 
--  **/work/NBD_Utilities/PELE/PELE_Templates/analisis.sl**
+-  **/work/NBD_Utilities/PELE/PELE_Templates/analisis.sl (cluster)**
 
+Create licenses
+-------------------
+
+You can find information about how to create licenses under:
+
+- **/data/users/dsoler/licenses/README.txt (server)**

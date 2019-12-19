@@ -117,6 +117,8 @@ Plop info:
 -  Plop parameter name: 'side\_params%gridres'
 -  Plop default value: 10
 
+.. _sec-sideChainPrediction-parameters-overlapfactor:
+
 Overlap factor
 ^^^^^^^^^^^^^^
 

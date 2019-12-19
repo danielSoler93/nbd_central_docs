@@ -1,0 +1,108 @@
+.. _sec-solvent:
+
+Water Block in Pele++ control file
+====================================
+
+
+Methodology
+-------------
+
+Explanation of the used methodology (we can re-used the waterMC paper)
+and how many waters to use and how much time adds up to the computation
+
+Location
+--------
+
+The Water block must be defined inside the PeleSimulation command as
+shown in the following example:
+
+.. code-block:: json
+
+commands : [
+     "commandType": "peleSimulation" {
+     ...
+"WaterPerturbation":
+         {
+             "Box" :
+             {
+                 "radius" : {},
+                 "fixedCenter": [{}],
+                 "type" : "sphericalBox"
+             },
+             "watersToPerturb": { "links": { "ids": [ {} ] } },
+             "parameters":
+             {
+                 "temperature": {},
+                 "numberOfStericTrials": {},
+                 "COMConstraintConstant": {}
+             }
+         }, 
+       ...
+       }
+   ]
+
+
+Options and parameters
+----------------------
+
+.. _sec-solvent-solventType:
+
+Box
+^^^^^^^^^^^
+
+Uses: It sets the exploration box for the waters (only spherical box is allowed)
+
+refer to: Box section for more information
+
+
+watersToPerturbPerStep
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Uses: It sets the number of waters to be perturb at the same time in each water perturbation step.
+
+Default value: -1 (all of them)
+
+
+translationRange
+^^^^^^^^^^^^^^^^^^
+
+Use: It sets the amplitude of the translation of the water molecules in each steps in angstroms.
+
+Default value: 1.0
+
+
+overlapFactor
+^^^^^^^^^^^^^^^^^^
+
+Use: It sets the overlap factor for the water molecule. For more refer to: Overlapfactor section
+
+Default value: 0.8
+
+
+temperature
+^^^^^^^^^^^^^^^^^^
+
+Use: It sets the temperature value of the water simulation
+
+Default value: 1000
+
+temperature info: Any info on optimal valuess and how does it affect??
+
+
+numberOfStericTrial
+^^^^^^^^^^^^^^^^^^^^^
+
+Use: It sets the number of steric trials in each water perturbation step. For
+more please refer to: steric trial section
+
+Default value: 100
+
+
+COMConstraintConstant
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Use: It sets a constraint on the water molecule after being perturb. For more refer to: COM section
+
+Default value: 0
+
+

@@ -14,6 +14,7 @@ Contents:
     ../RandomGenerator/RandomGenerator
     ../NonBonding/NonBondingAlgorithms
     ../Perturbation/Perturbation
+    ../WaterPerturbation/Waterperturbation
     ../ANM/Anm
     ../ANM/EigenvectorsAndEigenvalues
     ../SideChainPrediction/SideChainPrediction

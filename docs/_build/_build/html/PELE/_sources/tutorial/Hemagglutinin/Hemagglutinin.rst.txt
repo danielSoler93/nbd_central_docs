@@ -1,0 +1,241 @@
+###################################
+Hemagglutinin: Pocket Detection
+###################################
+
+
+3- Flu hemagglutinin: It is one of the two proteins found on the surface of the influenza viruses. Hemagglutinin A (HA) is an antigenic glycoprotein assembled as a homo-trimer of identical subunits that are formed of two disulfide-linked polypeptides: membrane-distal HA1 and the smaller, membrane-proximal, HA2. HA is responsible for host cell binding and subsequent fusion of viral and host membranes in the endosome after the virus has been taken up by endocytosis.
+
+Cyclic and linear inhibitors that bind to the surface of hemagglutinin have been identified. Structural information on the antibody-bound target is also available (Fig. 1).
+
+
+.. figure:: system.png
+   :align: center 
+
+   Hemagglutinin system
+
+***********
+Objective
+***********
+
+The goal is to predict the binding mode of JNJ4796 to a structure of hemagglutinin which is  not in a conformation likely to bind JNJ4796. For this, the structure found in PDB entry 5W6T (bound to a cyclic peptide) was taken for induced fit PELE simulations.  The question to be answered is: Can PELE find the binding site and then the correct binding mode by doing a 2-step procedure (global exploration + local refinement)?
+
+
+**************
+Preparation
+**************
+
+Receptor
+==========
+
+5W6T processed with Protein Preparation Wizard (Schrodinger). 
+Of note, no crystal structure of the protein with JNJ4796 bound is available in the pdb, so the reference interactions were defined in terms of distance to the residues that are pictured in Fig 1.
+
+Ligand
+=========
+
+Processed with LigPrep. Calculate protonation state at pH 7.4±0.5 + ESP charges obtained with Jaguar single-point (DFT/M06) calculation. Of note, the C-ring is predicted to be neutral. 
+
+Template of ligand
+=====================
+
+Output a mae file only cointaining the ligand, then run that one through PlopRotTemp.py as explain `here <../../intro/SystemPreparation/SystemPreparation.html#ligand-preparation>`__ to obtain the parameters and rotamers of the ligand and place them on the DataLocal Folder as specified `here <../../molecularParameters.html#adding-the-generated-template-and-rotamer-library-files-to-pele>`_.
+
+
+********************************************
+Procedure-Part1: PELE Global Exploration
+********************************************
+
+Main simulation characteristics
+========================================
+
+- Starting poses for PELE Local Exploration: 40 initial poses at random positions around the whole protein were generated (Fig. 2)
+- “inverselyProportional”: Emphasize clusters with low representation
+- Iterations: 100
+- PeleSteps: 4
+- Processors: 250
+- Compute time: 12-15h
+
+.. figure:: initial_poses.png
+   :align: center 
+
+   Initial poses for AdaptivePELE
+
+ControlFile specifics
+==========================
+
++++++++++++++++++
+generalParams
++++++++++++++++++
+
+
+The initial complexes must all be around the protein surface as in Figure 2.
+
+.. code-block:: json
+
+    {
+    "generalParams" : {
+        "restart": false,
+        "debug" : false,
+        "outputPath":"output_40initial_VG",
+        "initialStructures" : [ "GlobalExp_JNJ_5W6T_40_initial/input1.pdb", "GlobalExp_JNJ_5W6T_40_initial/input2.pdb", "GlobalExp_JNJ_5W6T_40_initial/input3.pdb", "GlobalExp_JNJ_5W6T_40_initial/input4.pdb", "GlobalExp_JNJ_5W6T_40_initial/input40.pdb" ],
+        "writeAllClusteringStructures": false
+    },
+    }
+
++++++++++++
+spawning
++++++++++++
+
+With the InverselyProportional type,  the next iteration of PELE will start from the less represented clusters. Together with continuos density which assigns increasing densities for an increasing number of contacts, **we will emphasize unexplored areas with high numbers of contacts**.  Finally, set the temperature to 1000 to have a standard Monte Carlo acceptance of 30-40%. 
+
+
+.. code-block:: json
+    
+    {
+    "type" : "inverselyProportional",
+        "params" : {
+            "reportFilename" : "run_report",
+            "T":1000
+        "density" :{
+            "type": "continuous"
+        }
+    },
+    }
+
++++++++++++++
+simulation
++++++++++++++
+
+Set a long simulation (iterations:100)  with just a few pele steps per iteration (peleSteps: 4). As we are not interested in an induce fit (many more steps) but in jumping from one area to the other as fast as possible to explore the complete energy landscape. Set a large number of processors (processors: 250) to ensure enough exploration.
+
+.. code-block:: json
+    
+    {"simulation": {
+
+        "params" : {
+            "iterations" : 100,
+            "peleSteps" : 4,
+            "processors" : 250,
+             "seed": 123456,
+            "controlFile" : "./pele_VG.conf"
+        }},}
+
+
+++++++++++++++
+clustering
+++++++++++++++
+
+In that paragraph of the control file we need to pay attention to the values and conditions of the cluster. We want to have a big value of rmsd for low contacts (values [10] when conditions between [0.0-0.6]), a fairly generous rmsd when having some contacts (values [5] when  conditions between [0.6-1]), and a low rmsd when having many contacts (values [2.5] when conditions >1]. This means that we will have less but bigger clusters at the areas with no contacts and many  more at the areas with high number of contacts. 
+
+
+.. code-block:: json
+
+    {
+    "clustering" : {
+        "type" : "rmsd",
+        "params" : {
+           "ligandResname" : "JNJ",
+           "contactThresholdDistance" : 8
+        },
+        "thresholdCalculator" : {
+          "type" : "heaviside", 
+          "params" : {
+              "values" : [2.5, 5, 10],
+              "conditions": [1, 0.6, 0.0]
+            }
+        }
+    }
+
+
+Results
+==============
+
+The energy profile for this initial induced-fit exploration on the whole of the surface of hamagglutinin is found in Fig. 4. As it can be seen, the exploration generates 7 minima, with one of them (point 1) being quite close (ca. 2 Angstroms) to T318. That is, the initial exploration locates the binding site as one of the probable hotspots on the surface of hemagglutinin. 
+
+
+.. figure:: plot_global.png
+   :align: center
+
+   Binding energy plot against distance to T318 (one of the key residues anchoring JNJ4796. 
+
+
+The 7 minima highlighted in Figure 3, which are far apart from one another, were then subjected to a second round of PELE simulations, now in local exploration mode (Fig. 4)
+
+
+.. figure:: input_local.png
+   :align: center
+
+   Global expoloration minimas & local exploration inputs
+
+
+********************************************
+Procedure-Part2: PELE Induced Fit
+********************************************
+
+
+Main Charachteristic of the simulation
+========================================
+
+- Spawning type: "InverselyProportional". Emphasize clusters with low representation
+- Iterations: 4
+- PeleSteps: 10. High number of steps per iteration to have enough conformational sampling
+- Processors: 175
+- Computate time: 1h
+
+
+ControlFile Specifics
+===========================
+
++++++++++++++++++++++++
+Ligand Perturbation
++++++++++++++++++++++++
+
+Small rotations (0.05, 0.1 radians) and small translations [0.5-1A] with a medium number of trials to find the best energy direction.
+
+.. code-block:: json
+
+    
+    { "ifAnyIsTrue": [ "rand1 >= 0.5" ],
+        "doThesechanges": { "Perturbation::parameters": { "rotationScalingFactor": 0.05 } },
+        "otherwise": { "Perturbation::parameters": { "rotationScalingFactor": 0.1 } }
+    }
+
+.. code-block:: json
+    
+    { "ifAnyIsTrue": [ "rand1 >= 0.5" ],
+         "doThesechanges": { "Perturbation::parameters": { "translationRange": 0.5, "numberOfTrials" : 8 } },
+         "otherwise": { "Perturbation::parameters": { "translationRange": 1.0, "numberOfTrials" : 8 } }
+     }
+     
+
++++++++++++++++++++++++++
+SideChain Sampling
++++++++++++++++++++++++++
+
+High number of steric trials to improve the probability of finding a better induced fit pose
+
+.. code-block:: json
+
+    {
+        "parameters": {
+        "numberOfStericTrials": 200,
+        "steeringUpdateFrequency": 0,
+        "overlapFactor": 0.65
+    },
+    }
+
+Results
+===========
+
+The energy profile for the refinement of the 7 poses can be found in Fig. 5. The two lowest energy minima are highlighted. The lowest energy pose with an H-bond to T318 (Fig. 6) is the one with the lowest interaction energy (-50 kcal/mol) as predicted by PELE (Fig. 5). This pose is very close to the binding mode described by Kadam et al., 2017.
+
+.. figure:: result_local.png
+   :align: center
+
+   Binding energy plot against distance to T318 (one of the key residues anchoring JNJ4796) for the 7 poses generated with the initial global exploration. The two minima which are highlighted with green and cyan circles are the ones represented in Fig. 7 below.
+
+
+.. figure:: poses_local.png
+    :align: center
+    
+     Lowest energy binding pose of JNJ4796 as 3D pictures of JNJ4796 as predicted by the 2-step PELE procedure combining PELE global induced-fit exploration with local refinement. The image on the left (green) is nearly identical to the binding mode described by Kadam et al., 2017.

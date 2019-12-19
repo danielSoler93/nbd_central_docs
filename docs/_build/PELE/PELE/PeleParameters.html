@@ -1,27 +1,18 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>PELE parameters in Pele++ control file &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.5.${BUILD_TAG}',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="PeleTasks" href="PeleTasks.html" />
@@ -36,8 +27,7 @@
     });
     </script>
 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -75,9 +65,9 @@
 <p>Default value: 1000</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘temp’</li>
-<li>Plop parameter name: liga_params%temp</li>
-<li>Plop default value: 298</li>
+<li><p>Plop control file name: ‘temp’</p></li>
+<li><p>Plop parameter name: liga_params%temp</p></li>
+<li><p>Plop default value: 298</p></li>
 </ul>
 </div>
 <div class="section" id="numberofpelesteps">
@@ -90,10 +80,20 @@
 <p>Default value: 1000</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘steps’</li>
-<li>Plop parameter name: steps</li>
-<li>Plop default value: -</li>
+<li><p>Plop control file name: ‘steps’</p></li>
+<li><p>Plop parameter name: steps</p></li>
+<li><p>Plop default value: -</p></li>
 </ul>
+</div>
+<div class="section" id="waterperturbationfrequency">
+<span id="sec-peleparameters-waterperturbationfrequency"></span><h3>waterPerturbationFrequency<a class="headerlink" href="#waterperturbationfrequency" title="Permalink to this headline">¶</a></h3>
+<p>Parameter: unsigned int waterPerturnationFrequency</p>
+<p>Use: Period to perform water perturbation</p>
+<p>Note for developers: Used in PeleParameters::isTimeToRunWaterPerturbation</p>
+<p>Units: Dimensionless (# of steps)</p>
+<p>Range: [0, inf)</p>
+<p>Default value: 3</p>
+<p>Note: If waterPerturbationFrequency = 0, the water perturbation will never be performed.</p>
 </div>
 <div class="section" id="anmfrequency">
 <span id="sec-peleparameters-anmfrequency"></span><h3>anmFrequency<a class="headerlink" href="#anmfrequency" title="Permalink to this headline">¶</a></h3>
@@ -105,9 +105,9 @@
 <p>Default value: 2</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘anmfre’</li>
-<li>Plop parameter name: liga_params%anmfreq</li>
-<li>Plop default value: 0</li>
+<li><p>Plop control file name: ‘anmfre’</p></li>
+<li><p>Plop parameter name: liga_params%anmfreq</p></li>
+<li><p>Plop default value: 0</p></li>
 </ul>
 <p>Note: If anmStepFrequency = 0, the ANM will never be performed.</p>
 </div>
@@ -123,9 +123,9 @@ PeleParameters::isTimeToRunTheConstrainedMinimization</p>
 <p>Default value: 1</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘mifre’</li>
-<li>Plop parameter name: liga_params%minifreq</li>
-<li>Plop default value: 1</li>
+<li><p>Plop control file name: ‘mifre’</p></li>
+<li><p>Plop parameter name: liga_params%minifreq</p></li>
+<li><p>Plop default value: 1</p></li>
 </ul>
 <p>Note: If constrainedMinimizationStepFrequency = 0, the constrained
 minimization will never be performed (unless the side chain prediction happens, in which case a final minimization also happens).</p>
@@ -141,9 +141,9 @@ PeleParameters::isTimeToRunSideChainPrediction</p>
 <p>Default value: 3</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘spfre’</li>
-<li>Plop parameter name: liga_params%sidefreq</li>
-<li>Plop default value: 1</li>
+<li><p>Plop control file name: ‘spfre’</p></li>
+<li><p>Plop parameter name: liga_params%sidefreq</p></li>
+<li><p>Plop default value: 1</p></li>
 </ul>
 <p>Note: If sideChainPredictionFrequency = 0, the side chain prediction
 will never be performed.</p>
@@ -158,9 +158,9 @@ will never be performed.</p>
 <p>Default value: 0</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘top_side’</li>
-<li>Plop parameter name: liga_params%top_side</li>
-<li>Plop default value: 0</li>
+<li><p>Plop control file name: ‘top_side’</p></li>
+<li><p>Plop parameter name: liga_params%top_side</p></li>
+<li><p>Plop default value: 0</p></li>
 </ul>
 </div>
 <div class="section" id="topsideradius">
@@ -169,14 +169,14 @@ will never be performed.</p>
 <p>Use: Links within this range from any top side link are also added the
 Pele regions.</p>
 <p>Note for developers: Used in TopSideLinksSelection::addTopSideLinksTo.</p>
-<p>Units: <span class="math">\(\AA{}\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(\AA{}\)</span></p>
 <p>Range: [0, inf)</p>
 <p>Default value: 0</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘top_clust’</li>
-<li>Plop parameter name: liga_params%top_clust</li>
-<li>Plop default value: 0</li>
+<li><p>Plop control file name: ‘top_clust’</p></li>
+<li><p>Plop parameter name: liga_params%top_clust</p></li>
+<li><p>Plop default value: 0</p></li>
 </ul>
 </div>
 <div class="section" id="minimizationregionradius">
@@ -187,14 +187,14 @@ minimization Pele region. Make sure the includeInMinimization PELE
 parameter (<a class="reference internal" href="../Minimization/Minimization.html#sec-minimization"><span class="std std-ref">Minimization</span></a>) does
 not interfere with this parameter.</p>
 <p>Note for developers: Used in PeleRegions::generate.</p>
-<p>Units: <span class="math">\(\AA{}\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(\AA{}\)</span></p>
 <p>Range: [0, inf)</p>
 <p>Default value: 1000.0 (this default intends to include all side chains in the set of includeInMinimization, in case it is different from the whole set of side chains in the system).</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘mirad’</li>
-<li>Plop parameter name: liga_params%minirad</li>
-<li>Plop default value: 0</li>
+<li><p>Plop control file name: ‘mirad’</p></li>
+<li><p>Plop parameter name: liga_params%minirad</p></li>
+<li><p>Plop default value: 0</p></li>
 </ul>
 </div>
 <div class="section" id="sidechainpredictionregionradius">
@@ -203,14 +203,14 @@ not interfere with this parameter.</p>
 <p>Use: Links within this radius from the ligand are added to the side
 chain prediction Pele region.</p>
 <p>Note for developers: Used in PeleRegions::generate.</p>
-<p>Units: <span class="math">\(\AA{}\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(\AA{}\)</span></p>
 <p>Range: [0, inf)</p>
 <p>Default value: 6.0</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘sprad’</li>
-<li>Plop parameter name: liga_params%siderad</li>
-<li>Plop default value: 0</li>
+<li><p>Plop control file name: ‘sprad’</p></li>
+<li><p>Plop parameter name: liga_params%siderad</p></li>
+<li><p>Plop default value: 0</p></li>
 </ul>
 </div>
 <div class="section" id="proximitydistance">
@@ -220,7 +220,7 @@ chain prediction Pele region.</p>
 is close enough to perform ANM, Side Chain Prediction, Minimization and
 solvent updates.</p>
 <p>Note for developers: Used in PeleStep::runAnm and PeleStep::relax</p>
-<p>Units: <span class="math">\(\AA{}\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(\AA{}\)</span></p>
 <p>Range: [0, inf)</p>
 <p>Default value: 5.0 (only if activateProximityDetection is true).</p>
 </div>
@@ -238,13 +238,13 @@ Side Chain Prediction, Minimization and solvent updates.</p>
 <p>Use: Adds a constraint to the center of mass of the perturbed atom set
 after the perturbation. This will affect the ANM, Side Chain prediction, and the minimization phases. The constraint will be removed before the Metropolis test.</p>
 <p>Range: [0, inf)</p>
-<p>Units: <span class="math">\(\text{kcal}/(\text{mol} \cdot \AA{}^{2})\)</span></p>
+<p>Units: <span class="math notranslate nohighlight">\(\text{kcal}/(\text{mol} \cdot \AA{}^{2})\)</span></p>
 <p>Default value: 0</p>
 <p>Plop info:</p>
 <ul class="simple">
-<li>Plop control file name: ‘lcom_con’</li>
-<li>Plop parameter name: liga_params%liga_com_constraint</li>
-<li>Plop default value: 0</li>
+<li><p>Plop control file name: ‘lcom_con’</p></li>
+<li><p>Plop parameter name: liga_params%liga_com_constraint</p></li>
+<li><p>Plop default value: 0</p></li>
 </ul>
 <p>Note: In plop, the atoms are constrained to the COM, so the energy
 increases when the constraint is addeed. By contrast, we constrain the
@@ -260,12 +260,13 @@ energy increases just when the perturbed backbone is moved.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">PELE parameters in Pele++ control file</a><ul>
 <li><a class="reference internal" href="#parameters">Parameters</a><ul>
 <li><a class="reference internal" href="#temperature">temperature</a></li>
 <li><a class="reference internal" href="#numberofpelesteps">numberOfPeleSteps</a></li>
+<li><a class="reference internal" href="#waterperturbationfrequency">waterPerturbationFrequency</a></li>
 <li><a class="reference internal" href="#anmfrequency">anmFrequency</a></li>
 <li><a class="reference internal" href="#minimizationfrequency">minimizationFrequency</a></li>
 <li><a class="reference internal" href="#sidechainpredictionfrequency">sideChainPredictionFrequency</a></li>
@@ -296,13 +297,13 @@ energy increases just when the perturbed backbone is moved.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -328,7 +329,7 @@ energy increases just when the perturbed backbone is moved.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
     <a href="../index.html#license">License</a>.
     </div>
   </body>

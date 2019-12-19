@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Installation &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
+    <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction" href="../intro/intro.html" />
+    <link rel="prev" title="PELE 1.5 documentation" href="../index.html" /> 
+    <script type="text/javascript" >
+    MathJax.Hub.Config({
+        TeX: { 
+	  Macros: {
+	    AA: '{\\unicode{xC5}}'
+	  }
+	}
+    });
+    </script>
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../intro/intro.html" title="Introduction"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="PELE 1.5 documentation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Here we will go through the installation of PELE/AdaptivePELE and
+the preparation scripts need it for PELE.</p>
+<div class="section" id="pele">
+<h2>PELE<a class="headerlink" href="#pele" title="Permalink to this headline">¶</a></h2>
+<p>Send an e-mail to <a class="reference external" href="mailto:daniel&#46;soler&#37;&#52;&#48;nostrumbiodiscovery&#46;com">daniel<span>&#46;</span>soler<span>&#64;</span>nostrumbiodiscovery<span>&#46;</span>com</a> if you are interested on receiving the commercial software.
+After revision of your application, we will send you a form to fill in with your machine specifications.
+Then, you will recieve the PELE (pele.zip) binary containing the licenses to run and a test case to check the installation.</p>
+<div class="section" id="test-pele-installation">
+<h3>Test PELE installation<a class="headerlink" href="#test-pele-installation" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unzip PELE-1.6.zip
+tar -xvf PELE-1.6.tgz
+<span class="nb">cd</span> PELE-1.6/samples/aspirin
+chmod -R u+wrx .
+mpirun -np <span class="m">3</span> ../../bin/Pele_mpi control_file --license-directory ../../licenses
+</pre></div>
+</div>
+<p>(you may have to set some environment variables by exporting LD_LIBRARY_PATH)</p>
+</div>
+</div>
+<div class="section" id="adaptive-pele">
+<h2>Adaptive-PELE<a class="headerlink" href="#adaptive-pele" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><ul class="simple">
+<li><p>From Pypi: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">AdaptivePELE</span></code> (with the right python as it will compile cython extensions) –&gt; numpy and cython need to be installed.</p></li>
+<li><p>From Conda: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">NostrumBioDiscovery</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">adaptive_pele</span></code></p></li>
+</ul>
+</li>
+<li><p>go to <code class="docutils literal notranslate"><span class="pre">lib/pythonX/site-packages/AdaptivePELE/constants/constants.py</span></code> and manually change this paragraph inside the  constants.py file</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">else</span>:
+ <span class="nv">PELE_EXECUTABLE</span> <span class="o">=</span> None
+ <span class="nv">DATA_FOLDER</span> <span class="o">=</span> None
+ <span class="nv">DOCUMENTS_FOLDER</span> <span class="o">=</span> None
+</pre></div>
+</div>
+<p>to the path on your machine. (example below)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">else</span>:
+ <span class="nv">PELE_EXECUTABLE</span> <span class="o">=</span> <span class="s2">&quot;/home/dsoler/PELE/PELE-1.5/bin/PELE-1.5_mpi&quot;</span>
+ <span class="nv">DATA_FOLDER</span> <span class="o">=</span> <span class="s2">&quot;/home/dsoler/PELE/PELE-1.5/Data&quot;</span>
+ <span class="nv">DOCUMENTS_FOLDER</span> <span class="o">=</span> <span class="s2">&quot;/home/dsoler/PELE/PELE-1.5/Documents&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="test-adaptivepele-installation">
+<h3>Test AdaptivePELE installation<a class="headerlink" href="#test-adaptivepele-installation" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NostrumBioDiscovery/pele_preparation.git
+<span class="nb">cd</span> pele_preparation/tests/test_adaptive
+tar vxf test.tar
+<span class="nb">cd</span> <span class="nb">test</span>
+manually change the license path inside the file test/pele.conf <span class="o">(</span>line <span class="m">2</span><span class="o">)</span> into the /opt/PELE/licenses/  in your machine : <span class="s2">&quot;licenseDirectoryPath&quot;</span> : <span class="s2">&quot;/home/ywest/&quot;</span>, to <span class="s2">&quot;licenseDirectoryPath&quot;</span> : <span class="s2">&quot;//path/to/PELE/licenses/&quot;</span>,
+python -m AdaptivePELE.adaptiveSampling out_in_adaptive.conf
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="fragpele">
+<h2>FragPELE<a class="headerlink" href="#fragpele" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><ul class="simple">
+<li><p>From Pypi: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">frag_pele</span></code></p></li>
+<li><p>From conda: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">-c</span> <span class="pre">nostrumbiodiscovery</span> <span class="pre">frag_pele</span></code></p></li>
+</ul>
+</li>
+<li><p>go to <code class="docutils literal notranslate"><span class="pre">../lib/pythonX/site-packages/frag_pele/constants.py</span></code> and manually change this paragraph inside the  constants.py file</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">else</span>:
+    <span class="nv">PATH_TO_PELE</span> <span class="o">=</span> None
+    <span class="nv">PATH_TO_PELE_DATA</span> <span class="o">=</span> None
+    <span class="nv">PATH_TO_PELE_DOCUMENTS</span> <span class="o">=</span> None
+    <span class="nv">PATH_TO_LICENSE</span> <span class="o">=</span> None
+    <span class="nv">SCHRODINGER_PY_PATH</span> <span class="o">=</span> None
+    <span class="nv">ENV_PYTHON</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+<p>to the path on your machine. (example below)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">else</span>:
+    <span class="nv">PATH_TO_PELE</span> <span class="o">=</span> <span class="s2">&quot;/opt/PELE/bin/PELE-1.5&quot;</span>
+    <span class="nv">PATH_TO_PELE_DATA</span> <span class="o">=</span> <span class="s2">&quot;/opt/PELE/Data&quot;</span>
+    <span class="nv">PATH_TO_PELE_DOCUMENTS</span> <span class="o">=</span> <span class="s2">&quot;/opt/PELE/Documents&quot;</span>
+    <span class="nv">PATH_TO_LICENSE</span> <span class="o">=</span> <span class="s2">&quot;/home/ywest/&quot;</span>
+    <span class="nv">SCHRODINGER_PY_PATH</span> <span class="o">=</span> <span class="s2">&quot;/opt/schrodinger2018-1/utilities/python&quot;</span>
+    <span class="nv">ENV_PYTHON</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="fragpele-test">
+<h3>FragPELE test<a class="headerlink" href="#fragpele-test" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NostrumBioDiscovery/pele_preparation.git
+<span class="nb">cd</span> pele_preparation/tests/test_frag
+python -m frag_pele.main -cp 1w7h_preparation_structure_2w.pdb -sef serie_file.conf
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="pele-scripts">
+<h2>PELE scripts<a class="headerlink" href="#pele-scripts" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NostrumBioDiscovery/pele_preparation.git
+
+<span class="nb">cd</span> pele_preparation
+
+pip install --ignore-installed .
+
+yum install gcc gcc-c++ kernel-devel python-devel tkinter python-pmw glew-devel
+freeglut-devel libpng-devel freetype-devel libxml2-devel glm-devel
+
+git clone https://github.com/schrodinger/pymol-open-source.git
+
+<span class="nb">cd</span> pymol-open-source
+
+python setup.py install <span class="o">(</span>with same python you will use later<span class="o">)</span>
+</pre></div>
+</div>
+<div class="section" id="pele-scripts-test">
+<h3>PELE scripts test<a class="headerlink" href="#pele-scripts-test" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> tests/test_helpers
+
+python -m PPP.main -ipdb 1w7h_preparation_structure_2w.pdb
+
+python -m Helpers.constraints 1w7h_preparation_structure_2w.pdb constraints.conf
+
+python -m Helpers.randomize 1_3ZON_complex.pdb IK1 --poses <span class="m">2</span>
+
+<span class="nb">export</span> <span class="nv">SCHRODINGER_PYTHONPATH</span><span class="o">=</span><span class="s2">&quot; &quot;</span>
+
+<span class="nb">export</span> <span class="nv">PYTHONNOUSERSITE</span><span class="o">=</span><span class="s2">&quot; &quot;</span>
+
+/opt/schrodinger2017-4/utilities/python ../../PlopRotTemp/main.py lig.mae
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#pele">PELE</a><ul>
+<li><a class="reference internal" href="#test-pele-installation">Test PELE installation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#adaptive-pele">Adaptive-PELE</a><ul>
+<li><a class="reference internal" href="#test-adaptivepele-installation">Test AdaptivePELE installation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fragpele">FragPELE</a><ul>
+<li><a class="reference internal" href="#fragpele-test">FragPELE test</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pele-scripts">PELE scripts</a><ul>
+<li><a class="reference internal" href="#pele-scripts-test">PELE scripts test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">PELE 1.5 documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../intro/intro.html"
+                        title="next chapter">Introduction</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/Installation/Installation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../intro/intro.html" title="Introduction"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="PELE 1.5 documentation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
+    <a href="../index.html#license">License</a>.
+    </div>
+  </body>
+</html>
