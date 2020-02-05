@@ -78,7 +78,7 @@ mpirun -np <span class="m">3</span> ../../bin/Pele_mpi control_file --license-di
 <blockquote>
 <div><ul>
 <li><p>Academic Schrodinger</p></li>
-<li><p>PyMol Python API</p>
+<li><p>PyMol Python API (For Global exploration)</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install gcc gcc-c++ kernel-devel python-devel tkinter python-pmw glew-devel
 freeglut-devel libpng-devel freetype-devel libxml2-devel glm-devel
 
@@ -114,10 +114,6 @@ python setup.py install <span class="o">(</span>with same python you will use la
     <span class="nv">PELE_BIN</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/1.5.0.2524-intel-2018a/bin/Pele_mpi&quot;</span>
     <span class="nv">MPIRUN</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/OpenMPI/2.1.2-GCC-6.4.0-2.28/bin/&quot;</span>
     <span class="nv">LICENSE</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/licenses/&quot;</span>
-    <span class="nv">MMSHARE</span> <span class="o">=</span> None
-    <span class="c1"># Provisional workaround until best_struct.py is fixed</span>
-    <span class="nv">ACCEPTED_STEPS_NAME</span> <span class="o">=</span> <span class="s2">&quot;numberOfAcceptedPeleSteps&quot;</span>
-    <span class="nv">CRITERIA</span> <span class="o">=</span> <span class="s2">&quot;sasaLig&quot;</span>
 </pre></div>
 </div>
 </div></blockquote>
