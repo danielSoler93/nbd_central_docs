@@ -13,6 +13,8 @@ The NBD's main technologies are:
 
 - PELE++ ( `PELE docs <../PELE/index.html>`_ )
 
+- PELE Platform (`PELE Platform <https://nostrumbiodiscovery.github.io/pele_platform/>`_ )
+
 - Adaptive PELE Simulation (`Adaptive PELE docs <https://adaptivepele.github.io/AdaptivePELE/>`_)
 
 - Frag PELE Simulation (`FrAG PELE docs <https://carlesperez94.github.io/frag_pele/>`_)
@@ -31,6 +33,9 @@ The NBD's main technologies are:
 
 .. toctree::
    pele/documentation
+
+.. toctree::
+   peleplatform/documentation
 
 .. toctree::
    adaptive/documentation

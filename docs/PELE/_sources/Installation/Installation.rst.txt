@@ -2,8 +2,8 @@
 Installation
 ############################
 
-Here we will go through the installation of PELE/AdaptivePELE and
-the preparation scripts need it for PELE.
+Here we will go through the installation of PELE 
+and all its features.
 
 
 PELE
@@ -26,8 +26,73 @@ Test PELE installation
 (you may have to set some environment variables by exporting LD_LIBRARY_PATH)
 
 
+
+PelePlatform
+++++++++++++++
+
+0) ExternalRequirements:
+
+  - Academic Schrodinger
+
+  - PyMol Python API
+    
+    .. code-block:: bash
+
+        yum install gcc gcc-c++ kernel-devel python-devel tkinter python-pmw glew-devel
+        freeglut-devel libpng-devel freetype-devel libxml2-devel glm-devel
+        
+        git clone https://github.com/schrodinger/pymol-open-source.git
+        
+        cd pymol-open-source
+        
+        python setup.py install (with same python you will use later)
+
+
+1) Installation:
+   
+   - From Pypi: ``pip install pele_platform`` (with the right python as it will compile cython extensions) --> numpy and cython need to be installed.
+
+   - From Conda: ``conda install -c NostrumBioDiscovery -c conda-forge pele_platform``
+
+   - From Source code: 
+     
+        ``git clone https://github.com/NostrumBioDiscovery/pele_platform.git``
+
+        ``cd pele_platform``
+
+        ``python setup.py install``
+
+2) go to ``lib/pythonX/site-packages/pele_platform/constants/constants.py`` and manually change this paragraph inside the  constants.py file
+
+    .. code-block:: bash
+    
+      else:
+          SCHRODINGER = "/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/"
+          PELE = "/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/1.5.0.2524/"
+          PELE_BIN = "/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/1.5.0.2524-intel-2018a/bin/Pele_mpi"
+          MPIRUN = "/sNow/easybuild/centos/7.4.1708/Skylake/software/OpenMPI/2.1.2-GCC-6.4.0-2.28/bin/"
+          LICENSE = "/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/licenses/"
+          MMSHARE = None
+          # Provisional workaround until best_struct.py is fixed
+          ACCEPTED_STEPS_NAME = "numberOfAcceptedPeleSteps"
+          CRITERIA = "sasaLig"
+
+
+Test PelePlatform installation
+`````````````````````````````````
+.. code-block:: bash
+
+  git clone https://github.com/NostrumBioDiscovery/pele_platform.git
+  cd pele_platform/test
+  pytest 
+
+
+
 Adaptive-PELE
 ++++++++++++++++++++++++++
+
+**Important note: If you installed PelePlatform you
+should already have installed AdaptivePELE and you can skip this section.**
 
 
 1)  - From Pypi: ``pip install AdaptivePELE`` (with the right python as it will compile cython extensions) --> numpy and cython need to be installed.

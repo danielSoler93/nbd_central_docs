@@ -51,8 +51,8 @@
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>Here we will go through the installation of PELE/AdaptivePELE and
-the preparation scripts need it for PELE.</p>
+<p>Here we will go through the installation of PELE
+and all its features.</p>
 <div class="section" id="pele">
 <h2>PELE<a class="headerlink" href="#pele" title="Permalink to this headline">¶</a></h2>
 <p>Send an e-mail to <a class="reference external" href="mailto:daniel&#46;soler&#37;&#52;&#48;nostrumbiodiscovery&#46;com">daniel<span>&#46;</span>soler<span>&#64;</span>nostrumbiodiscovery<span>&#46;</span>com</a> if you are interested on receiving the commercial software.
@@ -70,8 +70,72 @@ mpirun -np <span class="m">3</span> ../../bin/Pele_mpi control_file --license-di
 <p>(you may have to set some environment variables by exporting LD_LIBRARY_PATH)</p>
 </div>
 </div>
+<div class="section" id="peleplatform">
+<h2>PelePlatform<a class="headerlink" href="#peleplatform" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple" start="0">
+<li><p>ExternalRequirements:</p></li>
+</ol>
+<blockquote>
+<div><ul>
+<li><p>Academic Schrodinger</p></li>
+<li><p>PyMol Python API</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install gcc gcc-c++ kernel-devel python-devel tkinter python-pmw glew-devel
+freeglut-devel libpng-devel freetype-devel libxml2-devel glm-devel
+
+git clone https://github.com/schrodinger/pymol-open-source.git
+
+<span class="nb">cd</span> pymol-open-source
+
+python setup.py install <span class="o">(</span>with same python you will use later<span class="o">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic">
+<li><p>Installation:</p>
+<ul>
+<li><p>From Pypi: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pele_platform</span></code> (with the right python as it will compile cython extensions) –&gt; numpy and cython need to be installed.</p></li>
+<li><p>From Conda: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">NostrumBioDiscovery</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">pele_platform</span></code></p></li>
+<li><p>From Source code:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/NostrumBioDiscovery/pele_platform.git</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">pele_platform</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code></p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>go to <code class="docutils literal notranslate"><span class="pre">lib/pythonX/site-packages/pele_platform/constants/constants.py</span></code> and manually change this paragraph inside the  constants.py file</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">else</span>:
+    <span class="nv">SCHRODINGER</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/&quot;</span>
+    <span class="nv">PELE</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/1.5.0.2524/&quot;</span>
+    <span class="nv">PELE_BIN</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/1.5.0.2524-intel-2018a/bin/Pele_mpi&quot;</span>
+    <span class="nv">MPIRUN</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/OpenMPI/2.1.2-GCC-6.4.0-2.28/bin/&quot;</span>
+    <span class="nv">LICENSE</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/licenses/&quot;</span>
+    <span class="nv">MMSHARE</span> <span class="o">=</span> None
+    <span class="c1"># Provisional workaround until best_struct.py is fixed</span>
+    <span class="nv">ACCEPTED_STEPS_NAME</span> <span class="o">=</span> <span class="s2">&quot;numberOfAcceptedPeleSteps&quot;</span>
+    <span class="nv">CRITERIA</span> <span class="o">=</span> <span class="s2">&quot;sasaLig&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<div class="section" id="test-peleplatform-installation">
+<h3>Test PelePlatform installation<a class="headerlink" href="#test-peleplatform-installation" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NostrumBioDiscovery/pele_platform.git
+<span class="nb">cd</span> pele_platform/test
+pytest
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="adaptive-pele">
 <h2>Adaptive-PELE<a class="headerlink" href="#adaptive-pele" title="Permalink to this headline">¶</a></h2>
+<p><strong>Important note: If you installed PelePlatform you
+should already have installed AdaptivePELE and you can skip this section.</strong></p>
 <ol class="arabic simple">
 <li><ul class="simple">
 <li><p>From Pypi: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">AdaptivePELE</span></code> (with the right python as it will compile cython extensions) –&gt; numpy and cython need to be installed.</p></li>
@@ -193,6 +257,10 @@ python -m Helpers.randomize 1_3ZON_complex.pdb IK1 --poses <span class="m">2</sp
 <li><a class="reference internal" href="#">Installation</a><ul>
 <li><a class="reference internal" href="#pele">PELE</a><ul>
 <li><a class="reference internal" href="#test-pele-installation">Test PELE installation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#peleplatform">PelePlatform</a><ul>
+<li><a class="reference internal" href="#test-peleplatform-installation">Test PelePlatform installation</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#adaptive-pele">Adaptive-PELE</a><ul>
