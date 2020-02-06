@@ -81,6 +81,43 @@
 <h2>How perturbation of the ligand works<a class="headerlink" href="#how-perturbation-of-the-ligand-works" title="Permalink to this headline">¶</a></h2>
 <p>The perturbation block controls the perturbation of the ligand. The ligand, formed by a rigid core (at least one atom) and a set of side chains, is perturbed by translating and rotating it, relieving any existing clash that may appear (<a class="reference internal" href="../references.html#borrelli-2010" id="id1"><span>[borrelli:2010]</span></a>). PELE creates a list of perturbation poses (typically configured to be between 1 and 20; see <a class="reference internal" href="#sec-perturbation-parameters-numberoftrials"><span class="std std-ref">numberOfTrials</span></a>), and then chooses the one with the lowest system energy. Each perturbation pose is generated through a random procedure, where a number of translations and rotations are tried (see <a class="reference internal" href="#sec-perturbation-parameters-numberofsterictrials"><span class="std std-ref">numberOfStericTrials</span></a>), until a combination is found that doesn’t show any steric clashes after the clash relieving process. To allow the macromolecule to adapt to the new ligand position, clashes of up to 30% of the van der Waals interatomic distance between atoms are allowed (see <a class="reference internal" href="#sec-perturbation-parameters-overlapfactor"><span class="std std-ref">overlapFactor</span></a>), since the relaxation phase will probably relieve them. When searching the binding site, large translations are tried (around <span class="math notranslate nohighlight">\(6 \AA{}\)</span>), while once in the binding site, small adjusments of less than <span class="math notranslate nohighlight">\(1 \AA{}\)</span> are used (see <a class="reference internal" href="#sec-perturbation-parameters-translationrange"><span class="std std-ref">translationRange</span></a>). In addition, to allow the sampling of rare events, it is possible to force the translational vector to follow a randomly selected direction (what would be a steering vector) a given number of simulation steps, giving room to some small deviations (within <span class="math notranslate nohighlight">\(10^{\circ}\)</span> to <span class="math notranslate nohighlight">\(30^{\circ}\)</span>); in case of not finding a non-clashing translation, or after the round is finished, the steering vector is changed by a new one (see <a class="reference internal" href="#sec-perturbation-steering"><span class="std std-ref">Steering</span></a>). Also, for those simulations that require exploring a restricted volume of the search space (as it is done in binding pose refinement), all ligand perturbations that place the ligand center of mass outside a predefined box are rejected (see <a class="reference internal" href="../Boxes/Boxes.html#sec-boxes"><span class="std std-ref">Boxes</span></a>).</p>
 <p>The clash relieving process consists of trying different conformations on the flexible side chains of the ligand and macromolecule. If a clash exists between the cores of the ligand and receptor, then the pose is discarded. Otherwise, while there exists any clash around the ligand, a clashing residue (or the ligand) is randomly chosen, and a new conformation for its side chains is tried.</p>
+<p>The time of a perturbation can vary depending on the number of rotable bonds and the resolution. To avoid large computational times, and even not having the amount of memory needed to perform a big number of combinations, PELE automatically does a random combination of the rotable bonds.</p>
+<p>When you create a LIG.rot.assign file (see <a class="reference internal" href="../molecularParameters.html#sec-molecularparameters"><span class="std std-ref">PELE Molecular Parameters</span></a>), PELE has the following criteria to select the rotatable bonds <strong>in each group</strong>:</p>
+<ul class="simple">
+<li><p>If there are less or equal than <strong>3</strong> rotatable bonds, all of them will be selected to rotate regardless of the resolution.</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>If there are more than 3 rotatable bonds, and if it exists any resolution lower than <span class="math notranslate nohighlight">\(30^{\circ}\)</span>, the maximum number or rotatable bonds to rotate in each steric try will be <strong>3</strong>.</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>If all resolutions are <span class="math notranslate nohighlight">\(30^{\circ}\)</span> or higher, the maximum number or rotatable bonds to rotate in each steric try will be <strong>5</strong>.</p></li>
+</ul>
+<p>The probability of selection will vary, being the inner ones more likely to be selected than the outer ones.
+Right now, the values of the weights are asigned to each rotamer bond, starting from 10 in the most inner bond, and descending from 1 to 1 until the last one. If it has more than 10 rotatable bonds, the last ones will be keep with weight 1.</p>
+<p>For example, given this case of an oleic acid:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rot</span> <span class="n">assign</span> <span class="n">res</span> <span class="n">OLC</span> <span class="o">&amp;</span>
+  <span class="n">sidelib</span> <span class="n">FREE30</span> <span class="n">_C9_</span> <span class="n">_C8_</span>
+  <span class="n">sidelib</span> <span class="n">FREE30</span> <span class="n">_C8_</span> <span class="n">_C7_</span> <span class="o">&amp;</span>
+  <span class="n">sidelib</span> <span class="n">FREE30</span> <span class="n">_C7_</span> <span class="n">_C6_</span> <span class="o">&amp;</span>
+  <span class="n">sidelib</span> <span class="n">FREE30</span> <span class="n">_C6_</span> <span class="n">_C5_</span> <span class="o">&amp;</span>
+  <span class="n">sidelib</span> <span class="n">FREE30</span> <span class="n">_C5_</span> <span class="n">_C4_</span> <span class="o">&amp;</span>
+  <span class="n">sidelib</span> <span class="n">FREE30</span> <span class="n">_C4_</span> <span class="n">_C3_</span> <span class="o">&amp;</span>
+  <span class="n">sidelib</span> <span class="n">FREE30</span> <span class="n">_C3_</span> <span class="n">_C2_</span> <span class="o">&amp;</span>
+  <span class="n">sidelib</span> <span class="n">FREE30</span> <span class="n">_C2_</span> <span class="n">_C1_</span> <span class="o">&amp;</span>
+    <span class="n">newgrp</span> <span class="o">&amp;</span>
+  <span class="n">sidelib</span> <span class="n">FREE30</span> <span class="n">_C10</span> <span class="n">_C11</span> <span class="o">&amp;</span>
+  <span class="n">sidelib</span> <span class="n">FREE30</span> <span class="n">_C11</span> <span class="n">_C12</span> <span class="o">&amp;</span>
+  <span class="n">sidelib</span> <span class="n">FREE30</span> <span class="n">_C12</span> <span class="n">_C13</span> <span class="o">&amp;</span>
+  <span class="n">sidelib</span> <span class="n">FREE10</span> <span class="n">_C13</span> <span class="n">_C14</span> <span class="o">&amp;</span>
+  <span class="n">sidelib</span> <span class="n">FREE30</span> <span class="n">_C14</span> <span class="n">_C15</span> <span class="o">&amp;</span>
+  <span class="n">sidelib</span> <span class="n">FREE30</span> <span class="n">_C15</span> <span class="n">_C16</span> <span class="o">&amp;</span>
+  <span class="n">sidelib</span> <span class="n">FREE30</span> <span class="n">_C16</span> <span class="n">_C17</span> <span class="o">&amp;</span>
+</pre></div>
+</div>
+<p>In this case, the first group will have 5 random rotatable bonds, and in the second one, 3.
+In the first group, the weight distribution for _C9_ _C8_ would be 10, for _C8_ _C7_ 9, until reaching _C2_ _C1_ with 3.</p>
 <p>To configure the type of perturbation to perform, check <a class="reference internal" href="#sec-perturbation-perturbationselection"><span class="std std-ref">Perturbation selection</span></a> and <a class="reference internal" href="#sec-perturbation-parameters"><span class="std std-ref">Parameters</span></a>.</p>
 </div>
 <div class="section" id="steering">

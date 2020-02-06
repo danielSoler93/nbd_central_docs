@@ -36,6 +36,42 @@ The perturbation block controls the perturbation of the ligand. The ligand, form
 
 The clash relieving process consists of trying different conformations on the flexible side chains of the ligand and macromolecule. If a clash exists between the cores of the ligand and receptor, then the pose is discarded. Otherwise, while there exists any clash around the ligand, a clashing residue (or the ligand) is randomly chosen, and a new conformation for its side chains is tried.
 
+The time of a perturbation can vary depending on the number of rotable bonds and the resolution. To avoid large computational times, and even not having the amount of memory needed to perform a big number of combinations, PELE automatically does a random combination of the rotable bonds.
+
+When you create a LIG.rot.assign file (see :ref:`sec-molecularParameters`), PELE has the following criteria to select the rotatable bonds **in each group**:
+
+-  If there are less or equal than **3** rotatable bonds, all of them will be selected to rotate regardless of the resolution.
+  -  If there are more than 3 rotatable bonds, and if it exists any resolution lower than :math:`30^{\circ}`, the maximum number or rotatable bonds to rotate in each steric try will be **3**.
+-  If all resolutions are :math:`30^{\circ}` or higher, the maximum number or rotatable bonds to rotate in each steric try will be **5**.
+
+The probability of selection will vary, being the inner ones more likely to be selected than the outer ones. 
+Right now, the values of the weights are asigned to each rotamer bond, starting from 10 in the most inner bond, and descending from 1 to 1 until the last one. If it has more than 10 rotatable bonds, the last ones will be keep with weight 1.
+
+For example, given this case of an oleic acid:
+
+::
+
+  rot assign res OLC &
+    sidelib FREE30 _C9_ _C8_	
+    sidelib FREE30 _C8_ _C7_ &
+    sidelib FREE30 _C7_ _C6_ &
+    sidelib FREE30 _C6_ _C5_ &
+    sidelib FREE30 _C5_ _C4_ &
+    sidelib FREE30 _C4_ _C3_ &
+    sidelib FREE30 _C3_ _C2_ &
+    sidelib FREE30 _C2_ _C1_ &
+      newgrp &
+    sidelib FREE30 _C10 _C11 &
+    sidelib FREE30 _C11 _C12 &
+    sidelib FREE30 _C12 _C13 &
+    sidelib FREE10 _C13 _C14 &
+    sidelib FREE30 _C14 _C15 &
+    sidelib FREE30 _C15 _C16 &
+    sidelib FREE30 _C16 _C17 &
+
+In this case, the first group will have 5 random rotatable bonds, and in the second one, 3.
+In the first group, the weight distribution for _C9_ _C8_ would be 10, for _C8_ _C7_ 9, until reaching _C2_ _C1_ with 3.
+
 To configure the type of perturbation to perform, check :ref:`sec-perturbation-perturbationSelection` and :ref:`sec-perturbation-parameters`.
 
 .. _sec-perturbation-steering:
