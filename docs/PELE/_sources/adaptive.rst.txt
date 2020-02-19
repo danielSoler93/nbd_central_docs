@@ -8,4 +8,4 @@ AdaptivePELE (https://github.com/AdaptivePELE/AdaptivePELE) is a Python package,
 
 You can check the documentation on how to install and configure AdaptivePELE at https://adaptivepele.github.io/AdaptivePELE/
 
-
+Paper: https://www.nature.com/articles/s41598-017-08445-5

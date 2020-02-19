@@ -2,9 +2,9 @@
 Release notes
 #############
 
-*************
-Version 1.6.1
-*************
+*******************************
+Version 1.6.1 (pre-release)
+*******************************
 - New algorithm is performed when doing a Ligand Perturbation, if the Ligand has a large number of rotable bonds. The rotable bonds now will be **randomly selected** following a freedom criteria.
 - Behaviour improvements for **WaterMC** in Ligand Perturbation algorithm.
 - Default **Steering Value** changed from 2 to 1.

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Basic Analysis &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
+    <title>Basic Analysis &#8212; PELE 1.6.0 documentation</title>
     <link rel="stylesheet" href="../../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -15,7 +15,7 @@
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Adaptive Method" href="../AdaptiveMethodology/AdaptiveMethodology.html" />
+    <link rel="next" title="Tutorial" href="../../tutorial/tutorial.html" />
     <link rel="prev" title="Simulation" href="../Simulation/Simulation.html" /> 
     <script type="text/javascript" >
     MathJax.Hub.Config({
@@ -35,12 +35,12 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../AdaptiveMethodology/AdaptiveMethodology.html" title="Adaptive Method"
+          <a href="../../tutorial/tutorial.html" title="Tutorial"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="../Simulation/Simulation.html" title="Simulation"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.6.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../intro.html" accesskey="U">Introduction</a> &#187;</li> 
       </ul>
     </div>  
@@ -55,50 +55,45 @@
 <p>The basics on PELE analysis to run after the simulation is finished.</p>
 <div class="section" id="plot-metrics">
 <h2>Plot metrics<a class="headerlink" href="#plot-metrics" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Requirements: Gnuplot is needed. To run inside the results folder.</p></li>
-<li><p>Use: It can be used to plot two different metrics when simulation is finished but also along  simulations that are still running to check everything looks ok.</p></li>
-</ul>
+<p>AdaptivePELE (within the PelePlatform) and Gnuplot is need it. To run from inside the results folder.</p>
 <p>Explanation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span> <span class="k">for</span> <span class="p">[</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="n">processors</span><span class="p">]</span> <span class="s2">&quot;report_file_name&quot;</span><span class="o">.</span><span class="n">i</span> <span class="n">u</span> <span class="n">xcolumn</span><span class="p">:</span><span class="n">ycolumn</span> <span class="n">w</span> <span class="n">l</span>  <span class="n">notitle</span>
-<span class="nb">set</span> <span class="n">xrange</span> <span class="p">[</span><span class="n">xrange</span><span class="p">]</span>
-<span class="nb">set</span> <span class="n">yrange</span> <span class="p">[</span><span class="n">yrange</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">plotAdaptive</span> <span class="n">steps</span> <span class="n">column_x</span> <span class="p">(</span><span class="n">starting</span> <span class="n">by</span> <span class="mi">1</span><span class="p">)</span> <span class="n">column_y</span>  <span class="n">basename_of_report</span> <span class="o">-</span><span class="n">points</span> <span class="o">-</span><span class="n">zcol</span> <span class="n">column_z</span> <span class="p">(</span><span class="n">colorbar</span><span class="p">)</span>  <span class="o">|</span> <span class="n">gnuplot</span> <span class="o">-</span><span class="n">p</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span> <span class="k">for</span> <span class="p">[</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">47</span><span class="p">]</span> <span class="s2">&quot;report_&quot;</span><span class="o">.</span><span class="n">i</span> <span class="n">u</span> <span class="mi">5</span><span class="p">:</span><span class="mi">6</span> <span class="n">w</span> <span class="n">l</span>  <span class="n">notitle</span>
-<span class="nb">set</span> <span class="n">xrange</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span>
-<span class="nb">set</span> <span class="n">yrange</span> <span class="p">[</span><span class="o">-</span><span class="mi">50</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">plotAdaptive</span> <span class="mi">8</span> <span class="mi">5</span> <span class="mi">6</span> <span class="n">run_report_</span> <span class="o">-</span><span class="n">points</span> <span class="o">-</span><span class="n">zcol</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">gnuplot</span> <span class="o">-</span><span class="n">p</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<img alt="../../_images/gnuplot1.png" src="../../_images/gnuplot1.png" />
+<img alt="../../_images/gnuplot.png" src="../../_images/gnuplot.png" />
 </div>
 <div class="section" id="retrieve-the-snapshots-with-best-energy">
 <h2>Retrieve the snapshots with best energy<a class="headerlink" href="#retrieve-the-snapshots-with-best-energy" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Requirements: AdaptivePELE is needed. To run from inside the results folder.</p></li>
-<li><dl class="simple">
-<dt>Use: To retrieve the best energy structures from the finished simulation to be able to visually inspect the best poses. Generally, you will not find only one best pose but several ones, the next are putative strategies to help you discriminate which is the correct one.</dt><dd><ul>
-<li><p>MD of the poses if there is no experimental information</p></li>
-<li><p>Pharmacophore alignment with a previous precursor, peptide, etc…</p></li>
-<li><p>Mutagenesis, SAR, literature information…</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
+<p>AdaptivePELE (within PelePlatform) is need it. To run from inside the results folder.</p>
 <p>Explanation:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">interactivePlot</span>  <span class="n">columny</span> <span class="n">columnx</span> <span class="n">steps</span> <span class="o">-</span><span class="n">o</span> <span class="n">output_folder</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">interactivePlot</span>  <span class="mi">5</span> <span class="mi">6</span> <span class="mi">8</span> <span class="o">-</span><span class="n">o</span> <span class="n">BestStructs</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">interactivePlot</span>  <span class="mi">5</span> <span class="mi">6</span> <span class="mi">8</span> <span class="o">-</span><span class="n">o</span> <span class="n">BestStructs</span>
 </pre></div>
 </div>
-<p>Once the plot is done, mark the structures you wish to download by defining a square on the plot using your left mouse button (see Figure below).</p>
-<img alt="../../_images/interactivePlot1.png" src="../../_images/interactivePlot1.png" />
-<p>This will output all snapshots contained in the square into a folder called BestStructs.</p>
+<p>Once the plot is done with your left button mouse drag a square on the plot containing the structures you want to be downloaded as shown in Figure below.</p>
+<img alt="../../_images/interactivePlot.png" class="align-center" src="../../_images/interactivePlot.png" />
+<p>This will output all snapshots contain in the square in a folder called BestStructs.</p>
+</div>
+<div class="section" id="extract-the-movie-of-your-best-snapshot">
+<h2>Extract the movie of your best snapshot<a class="headerlink" href="#extract-the-movie-of-your-best-snapshot" title="Permalink to this headline">¶</a></h2>
+<p>AdaptivePELE is need it.</p>
+<p>Once you did the interactivePlot you may want to have the entrance path of your best selected structure. For this you must run:</p>
+<p>Explanation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">backtrackAdaptiveTrajectory</span>  <span class="n">epoch</span> <span class="n">trajectory</span> <span class="n">step</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">backtrackAdaptiveTrajectory</span>  <span class="mi">5</span> <span class="mi">123</span> <span class="mi">1</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -113,6 +108,7 @@
 <li><a class="reference internal" href="#">Basic Analysis</a><ul>
 <li><a class="reference internal" href="#plot-metrics">Plot metrics</a></li>
 <li><a class="reference internal" href="#retrieve-the-snapshots-with-best-energy">Retrieve the snapshots with best energy</a></li>
+<li><a class="reference internal" href="#extract-the-movie-of-your-best-snapshot">Extract the movie of your best snapshot</a></li>
 </ul>
 </li>
 </ul>
@@ -121,8 +117,8 @@
   <p class="topless"><a href="../Simulation/Simulation.html"
                         title="previous chapter">Simulation</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../AdaptiveMethodology/AdaptiveMethodology.html"
-                        title="next chapter">Adaptive Method</a></p>
+  <p class="topless"><a href="../../tutorial/tutorial.html"
+                        title="next chapter">Tutorial</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -151,12 +147,12 @@
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../AdaptiveMethodology/AdaptiveMethodology.html" title="Adaptive Method"
+          <a href="../../tutorial/tutorial.html" title="Tutorial"
              >next</a> |</li>
         <li class="right" >
           <a href="../Simulation/Simulation.html" title="Simulation"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.6.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../intro.html" >Introduction</a> &#187;</li> 
       </ul>
     </div>
