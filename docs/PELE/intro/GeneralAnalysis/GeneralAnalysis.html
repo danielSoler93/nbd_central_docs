@@ -57,13 +57,32 @@
 <h2>Plot metrics<a class="headerlink" href="#plot-metrics" title="Permalink to this headline">¶</a></h2>
 <p>AdaptivePELE (within the PelePlatform) and Gnuplot is need it. To run from inside the results folder.</p>
 <p>Explanation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">plotAdaptive</span> <span class="n">steps</span> <span class="n">column_x</span> <span class="p">(</span><span class="n">starting</span> <span class="n">by</span> <span class="mi">1</span><span class="p">)</span> <span class="n">column_y</span>  <span class="n">basename_of_report</span> <span class="o">-</span><span class="n">points</span> <span class="o">-</span><span class="n">zcol</span> <span class="n">column_z</span> <span class="p">(</span><span class="n">colorbar</span><span class="p">)</span>  <span class="o">|</span> <span class="n">gnuplot</span> <span class="o">-</span><span class="n">p</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">plotAdaptive</span> <span class="n">pele_steps</span> <span class="n">column_x</span> <span class="p">(</span><span class="n">starting</span> <span class="n">by</span> <span class="mi">1</span><span class="p">)</span> <span class="n">column_y</span>  <span class="n">basename_of_report</span> <span class="o">-</span><span class="n">points</span> <span class="o">-</span><span class="n">zcol</span> <span class="n">column_z</span> <span class="p">(</span><span class="n">colorbar</span><span class="p">)</span>  <span class="o">|</span> <span class="n">gnuplot</span> <span class="o">-</span><span class="n">p</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">plotAdaptive</span> <span class="mi">8</span> <span class="mi">5</span> <span class="mi">6</span> <span class="n">run_report_</span> <span class="o">-</span><span class="n">points</span> <span class="o">-</span><span class="n">zcol</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">gnuplot</span> <span class="o">-</span><span class="n">p</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">plotAdaptive</span> <span class="mi">8</span> <span class="mi">5</span> <span class="mi">6</span> <span class="n">report_</span> <span class="o">-</span><span class="n">points</span> <span class="o">-</span><span class="n">zcol</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">gnuplot</span> <span class="o">-</span><span class="n">p</span>
 </pre></div>
 </div>
+<p><strong>If you want to limit the axis of the plot</strong></p>
+<blockquote>
+<div><dl class="simple">
+<dt>You can obtain the gnuplot command by doing the next command:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">AdaptivePELE.analysis.plotAdaptive</span> <span class="pre">8</span> <span class="pre">5</span> <span class="pre">6</span> <span class="pre">report_</span> <span class="pre">-points</span> <span class="pre">-zcol</span> <span class="pre">4</span></code></p>
+</dd>
+<dt>To obtain this output:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">cbrange[0:60];</span> <span class="pre">plot</span> <span class="pre">for</span> <span class="pre">[i=1:127]</span> <span class="pre">for</span> <span class="pre">[j=0:60-1]</span> <span class="pre">''.j.'/report_'.i</span> <span class="pre">u</span> <span class="pre">5:8</span> <span class="pre">lt</span> <span class="pre">6</span> <span class="pre">lc</span> <span class="pre">palette</span> <span class="pre">frac</span> <span class="pre">j/60.</span> <span class="pre">notitle</span></code></p>
+</dd>
+</dl>
+<p>Then enter to gnuplot set the xrange/yrange and use the line outputted by the previous command to plot:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gnuplot
+
+    &gt; <span class="nb">set</span> xrange <span class="o">[</span>-9600:-9400<span class="o">]</span>
+
+    &gt; <span class="nb">set</span> yrange <span class="o">[</span>-90:0<span class="o">]</span>
+
+    &gt; <span class="nb">set</span> cbrange<span class="o">[</span><span class="m">0</span>:60<span class="o">]</span><span class="p">;</span> plot <span class="k">for</span> <span class="o">[</span><span class="nv">i</span><span class="o">=</span><span class="m">1</span>:127<span class="o">]</span> <span class="k">for</span> <span class="o">[</span><span class="nv">j</span><span class="o">=</span><span class="m">0</span>:60-1<span class="o">]</span> <span class="s1">&#39;&#39;</span>.j.<span class="s1">&#39;/report_&#39;</span>.i u <span class="m">5</span>:8 lt <span class="m">6</span> lc palette frac j/60. notitle
+</pre></div>
+</div>
+</div></blockquote>
 <p>Output:</p>
 <img alt="../../_images/gnuplot.png" src="../../_images/gnuplot.png" />
 </div>
@@ -71,11 +90,11 @@
 <h2>Retrieve the snapshots with best energy<a class="headerlink" href="#retrieve-the-snapshots-with-best-energy" title="Permalink to this headline">¶</a></h2>
 <p>AdaptivePELE (within PelePlatform) is need it. To run from inside the results folder.</p>
 <p>Explanation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">interactivePlot</span>  <span class="n">columny</span> <span class="n">columnx</span> <span class="n">steps</span> <span class="o">-</span><span class="n">o</span> <span class="n">output_folder</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">interactivePlot</span>  <span class="n">columny</span> <span class="n">columnx</span> <span class="n">pele_steps</span> <span class="o">-</span><span class="n">o</span> <span class="n">output_folder</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">interactivePlot</span>  <span class="mi">5</span> <span class="mi">6</span> <span class="mi">8</span> <span class="o">-</span><span class="n">o</span> <span class="n">BestStructs</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">interactivePlot</span>  <span class="mi">5</span> <span class="mi">6</span> <span class="mi">8</span> <span class="o">-</span><span class="n">o</span> <span class="n">BestStructs</span>
 </pre></div>
 </div>
 <p>Once the plot is done with your left button mouse drag a square on the plot containing the structures you want to be downloaded as shown in Figure below.</p>
@@ -87,11 +106,11 @@
 <p>AdaptivePELE is need it.</p>
 <p>Once you did the interactivePlot you may want to have the entrance path of your best selected structure. For this you must run:</p>
 <p>Explanation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">backtrackAdaptiveTrajectory</span>  <span class="n">epoch</span> <span class="n">trajectory</span> <span class="n">step</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">backtrackAdaptiveTrajectory</span>  <span class="n">epoch</span> <span class="n">trajectory</span> <span class="n">step</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">backtrackAdaptiveTrajectory</span>  <span class="mi">5</span> <span class="mi">123</span> <span class="mi">1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">AdaptivePELE</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">backtrackAdaptiveTrajectory</span>  <span class="mi">5</span> <span class="mi">123</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
