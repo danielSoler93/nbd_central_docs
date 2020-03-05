@@ -1,61 +1,163 @@
 
+
 <!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MgluR5: Pose Prediction on GPCRs &mdash; NBD Docs 1.0.0 documentation</title>
+  
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="utf-8" />
-    <title>MgluR5: Pose Prediction on GPCRs &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
-    <link rel="stylesheet" href="../../_static/naturemodified.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Esterase: Mutant design for cavity creation" href="../Esterases/Esterases.html" />
-    <link rel="prev" title="Hemagglutinin: Pocket Detection" href="../Hemagglutinin/Hemagglutinin.html" /> 
-    <script type="text/javascript" >
-    MathJax.Hub.Config({
-        TeX: { 
-	  Macros: {
-	    AA: '{\\unicode{xC5}}'
-	  }
-	}
-    });
-    </script>
+  
+  
+  
+  
 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../Esterases/Esterases.html" title="Esterase: Mutant design for cavity creation"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../Hemagglutinin/Hemagglutinin.html" title="Hemagglutinin: Pocket Detection"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../tutorial.html" accesskey="U">Tutorial</a> &#187;</li> 
-      </ul>
-    </div>  
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> NBD Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../software/index.html">Software</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../compute_power/index.html">NBD’s insfrastructure</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">NBD Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>MgluR5: Pose Prediction on GPCRs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/PELE/tutorial/MgluR5/MgluR5.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="mglur5-pose-prediction-on-gpcrs">
 <h1>MgluR5: Pose Prediction on GPCRs<a class="headerlink" href="#mglur5-pose-prediction-on-gpcrs" title="Permalink to this headline">¶</a></h1>
 <p>Metabotropic glutamate receptors (mGluRs) are high-profile G-protein coupled receptors drug targets because of their involvement in several neurological disease states, and mGluR5 in particular is a subtype whose controlled allosteric modulation, both positive and negative, can potentially be useful for the treatment of schizophrenia and relief of chronic pain, respectively.</p>
 <div class="figure align-center" id="id1">
-<img alt="../../_images/system3.png" src="../../_images/system3.png" />
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">MgluR5 system</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<img alt="../../../_images/system3.png" src="../../../_images/system3.png" />
+<p class="caption"><span class="caption-text">MgluR5 system</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="objective">
 <h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
@@ -139,118 +241,74 @@ we will set a slight bias towards the orthosteric site.</p>
 <h2>1) Plot the Binding Energies vs RMSD<a class="headerlink" href="#plot-the-binding-energies-vs-rmsd" title="Permalink to this headline">¶</a></h2>
 <p>Plot the Binding Energies vs RMSD to check whether there is a minima at low RSMDs. To know more about the command, check <a class="reference external" href="../../intro/AdaptiveMethodology/GeneralAnalysis/GeneralAnalysis.html#plot-metrics">here</a>.</p>
 <div class="figure align-center" id="id2">
-<img alt="../../_images/entrance_plot.png" src="../../_images/entrance_plot.png" />
-<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Plot Binding Energy (Y-axis), RMSD to native pose (X_axis) and SASA (Z-axis)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<img alt="../../../_images/entrance_plot.png" src="../../../_images/entrance_plot.png" />
+<p class="caption"><span class="caption-text">Plot Binding Energy (Y-axis), RMSD to native pose (X_axis) and SASA (Z-axis)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="extract-the-best-structures-in-terms-of-be-and-rmsd">
 <h2>2) Extract the best structures in terms of BE and RMSD<a class="headerlink" href="#extract-the-best-structures-in-terms-of-be-and-rmsd" title="Permalink to this headline">¶</a></h2>
 <p>Extract the best snapshots. For more on extracting the best snapshots with InteractivePlot, plese refere <a class="reference external" href="../../intro/AdaptiveMethodology/GeneralAnalysis/GeneralAnalysis.html#extract-the-best-structures-in-terms-of-be-and-rmsd">here</a>.</p>
 <div class="figure align-center" id="id3">
-<img alt="../../_images/entrance_pose.png" src="../../_images/entrance_pose.png" />
-<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">In blue we have the crystal structure and in brown the pose predicted by PELE</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<img alt="../../../_images/entrance_pose.png" src="../../../_images/entrance_pose.png" />
+<p class="caption"><span class="caption-text">In blue we have the crystal structure and in brown the pose predicted by PELE</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="extract-a-movie-from-the-best-structure">
 <h2>3) Extract a movie from the best structure<a class="headerlink" href="#extract-a-movie-from-the-best-structure" title="Permalink to this headline">¶</a></h2>
 <p>To map the movement of residues along the ligand exit pathway, make a movie as described <a class="reference external" href="../../intro/AdaptiveMethodology/GeneralAnalysis/GeneralAnalysis.html#extract-the-movie-of-your-best-snapshot">here</a> and display all the residues close to the ligand in one Figure to see their fluctuations (see below).</p>
 <div class="figure align-center" id="id4">
-<img alt="../../_images/entrance_path.png" src="../../_images/entrance_path.png" />
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Movie of the entrance path of the best structure in terms of binding energy</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<img alt="../../../_images/entrance_path.png" src="../../../_images/entrance_path.png" />
+<p class="caption"><span class="caption-text">Movie of the entrance path of the best structure in terms of binding energy</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="comparison-with-pele-simulation">
 <h2>4) Comparison with PELE simulation<a class="headerlink" href="#comparison-with-pele-simulation" title="Permalink to this headline">¶</a></h2>
 <p>As we can see in the figure below Adaptive explores much more around the binding site area but also undersamples other parts of the energy landscape. Despite of having much more exploration in the binding site the energies are not so high as in the PELE simulation due to Adaptive clustering (At the end of the simulation we cannot create more clusters and we always repite the same steps). Finally, adaptive got to the binding sit in 20 min while PELE took 3-4h. Hence, if we know the binding site of the ligand we should use AdaptivePELE to reach the area and add a final induced fit PELE simulation to get the best possible energy.</p>
 <div class="figure align-center" id="id5">
-<img alt="../../_images/pele_adaptive.png" src="../../_images/pele_adaptive.png" />
-<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Comparison between PELE and AdaptivePELE simulation</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<img alt="../../../_images/pele_adaptive.png" src="../../../_images/pele_adaptive.png" />
+<p class="caption"><span class="caption-text">Comparison between PELE and AdaptivePELE simulation</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
 
 
+           </div>
+           
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">MgluR5: Pose Prediction on GPCRs</a><ul>
-<li><a class="reference internal" href="#objective">Objective</a></li>
-<li><a class="reference internal" href="#preparation">Preparation</a><ul>
-<li><a class="reference internal" href="#receptor">Receptor</a></li>
-<li><a class="reference internal" href="#ligand">Ligand</a></li>
-<li><a class="reference internal" href="#template-of-ligand">Template of ligand</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#procedure-adaptivepele-local-exploration">Procedure: AdaptivePELE Local Exploration</a><ul>
-<li><a class="reference internal" href="#main-charachteristic-of-the-simulation">Main Charachteristic of the simulation</a></li>
-<li><a class="reference internal" href="#controlfile-specifics">ControlFile specifics</a><ul>
-<li><a class="reference internal" href="#slight-bias-towards-the-orthosteric-site">Slight bias towards the orthosteric site</a></li>
-<li><a class="reference internal" href="#box-definition">Box definition</a></li>
-<li><a class="reference internal" href="#distances-to-monitor">Distances to monitor</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#results">Results</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#plot-the-binding-energies-vs-rmsd">1) Plot the Binding Energies vs RMSD</a></li>
-<li><a class="reference internal" href="#extract-the-best-structures-in-terms-of-be-and-rmsd">2) Extract the best structures in terms of BE and RMSD</a></li>
-<li><a class="reference internal" href="#extract-a-movie-from-the-best-structure">3) Extract a movie from the best structure</a></li>
-<li><a class="reference internal" href="#comparison-with-pele-simulation">4) Comparison with PELE simulation</a></li>
-</ul>
-</li>
-</ul>
+          <footer>
+  
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="../Hemagglutinin/Hemagglutinin.html"
-                        title="previous chapter">Hemagglutinin: Pocket Detection</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../Esterases/Esterases.html"
-                        title="next chapter">Esterase: Mutant design for cavity creation</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../_sources/tutorial/MgluR5/MgluR5.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Daniel Soler Viladrich
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../Esterases/Esterases.html" title="Esterase: Mutant design for cavity creation"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../Hemagglutinin/Hemagglutinin.html" title="Hemagglutinin: Pocket Detection"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../tutorial.html" >Tutorial</a> &#187;</li> 
-      </ul>
-    </div>
-    <div class="footer">
-        &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
-    <a href="../../index.html#license">License</a>.
-    </div>
-  </body>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

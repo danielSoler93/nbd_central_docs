@@ -14,7 +14,8 @@ PELE
 Full documentation
 --------------------
 
-`PELE docs <../../PELE/index.html>`_
+.. toctree::
+   ../../PELE/index.rst
 
 Compilation
 --------------

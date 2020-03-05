@@ -1,61 +1,163 @@
 
+
 <!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Esterase: Mutant design for cavity creation &mdash; NBD Docs 1.0.0 documentation</title>
+  
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="utf-8" />
-    <title>Esterase: Mutant design for cavity creation &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
-    <link rel="stylesheet" href="../../_static/naturemodified.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lacasses: Mutant design for ligand fitting" href="../Lacasses/Lacasses.html" />
-    <link rel="prev" title="MgluR5: Pose Prediction on GPCRs" href="../MgluR5/MgluR5.html" /> 
-    <script type="text/javascript" >
-    MathJax.Hub.Config({
-        TeX: { 
-	  Macros: {
-	    AA: '{\\unicode{xC5}}'
-	  }
-	}
-    });
-    </script>
+  
+  
+  
+  
 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../Lacasses/Lacasses.html" title="Lacasses: Mutant design for ligand fitting"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../MgluR5/MgluR5.html" title="MgluR5: Pose Prediction on GPCRs"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../tutorial.html" accesskey="U">Tutorial</a> &#187;</li> 
-      </ul>
-    </div>  
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> NBD Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../software/index.html">Software</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../compute_power/index.html">NBD’s insfrastructure</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">NBD Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Esterase: Mutant design for cavity creation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/PELE/tutorial/Esterases/Esterases.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="esterase-mutant-design-for-cavity-creation">
 <h1>Esterase: Mutant design for cavity creation<a class="headerlink" href="#esterase-mutant-design-for-cavity-creation" title="Permalink to this headline">¶</a></h1>
 <p>Cavity creation to increase substrate promiscuity: Esterases are hydrolytic enzymes with a huge variety of industrial applications. These enzymes work with the catalytic triad system, where three residues (Ser/His/Asp) and water can break the ester bond, releasing the corresponding acid and alcohol (Figure 1).</p>
 <div class="figure align-center" id="id1">
-<img alt="../../_images/system.png" src="../../_images/system.png" />
-<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Catalytic triad mechanism</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<img alt="../../../_images/system.png" src="../../../_images/system.png" />
+<p class="caption"><span class="caption-text">Catalytic triad mechanism</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="objective">
 <h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
@@ -136,95 +238,56 @@
 <p>The resulting output of the simulations will be very different for both variants. In the wild type the ligand will be stick in the enzyme surface. The binding energies will be bad and the SASA high due to the exposition of the ligand.</p>
 <p>In the other hand the mutant variant has a medium-size open cavity due to the mutations included to the protein. The binding energies are significantly better and the SASA extremely low due to the new cavity.</p>
 <div class="figure align-center" id="id2">
-<img alt="../../_images/result_esterases.png" src="../../_images/result_esterases.png" />
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Binding Energy and SASA against the catalytic distance for the wild-type and the mutant variant.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<img alt="../../../_images/result_esterases.png" src="../../../_images/result_esterases.png" />
+<p class="caption"><span class="caption-text">Binding Energy and SASA against the catalytic distance for the wild-type and the mutant variant.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>Here we depict the produced cavity:</p>
 <div class="figure align-center" id="id3">
-<img alt="../../_images/cavity_esterases.png" src="../../_images/cavity_esterases.png" />
-<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Representation of the enzyme-ligand interaction</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<img alt="../../../_images/cavity_esterases.png" src="../../../_images/cavity_esterases.png" />
+<p class="caption"><span class="caption-text">Representation of the enzyme-ligand interaction</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
 </div>
 
 
+           </div>
+           
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Esterase: Mutant design for cavity creation</a><ul>
-<li><a class="reference internal" href="#objective">Objective</a></li>
-<li><a class="reference internal" href="#preparation">Preparation</a><ul>
-<li><a class="reference internal" href="#receptor">Receptor</a></li>
-<li><a class="reference internal" href="#ligand">Ligand</a></li>
-<li><a class="reference internal" href="#template-of-ligand">Template of ligand</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#procedure-pele-local-exploration">Procedure: PELE Local Exploration</a><ul>
-<li><a class="reference internal" href="#main-charachteristic-of-the-simulation">Main Charachteristic of the simulation</a></li>
-<li><a class="reference internal" href="#controlfile-specifics">ControlFile specifics</a><ul>
-<li><a class="reference internal" href="#box-definition">Box definition</a></li>
-<li><a class="reference internal" href="#distances-to-monitor">Distances to monitor</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#results">Results</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+          <footer>
+  
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="../MgluR5/MgluR5.html"
-                        title="previous chapter">MgluR5: Pose Prediction on GPCRs</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../Lacasses/Lacasses.html"
-                        title="next chapter">Lacasses: Mutant design for ligand fitting</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../_sources/tutorial/Esterases/Esterases.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Daniel Soler Viladrich
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../Lacasses/Lacasses.html" title="Lacasses: Mutant design for ligand fitting"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../MgluR5/MgluR5.html" title="MgluR5: Pose Prediction on GPCRs"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../tutorial.html" >Tutorial</a> &#187;</li> 
-      </ul>
-    </div>
-    <div class="footer">
-        &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.2.
-    <a href="../../index.html#license">License</a>.
-    </div>
-  </body>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
