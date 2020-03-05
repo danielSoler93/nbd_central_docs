@@ -2,34 +2,6 @@
 Release notes
 #############
 
-*******************************
-Version 1.6.1 (pre-release)
-*******************************
-- New algorithm is performed when doing a Ligand Perturbation, if the Ligand has a large number of rotable bonds. The rotable bonds now will be **randomly selected** following a freedom criteria.
-- Behaviour improvements for **WaterMC** in Ligand Perturbation algorithm.
-- Default **Steering Value** changed from 2 to 1.
-- Default **Steric Trial** value changed from 1000 to 50.
-- Fixed and refactored Tests.
-- Fixed some errors with Simbolic Link creation in MNIV and NORD3.
-- Some errors now are printed properly trhough cerr and not cout.
-
-***********
-Version 1.6
-***********
-- **Cylindrical boxes** can be defined for the ligand perturbation with the new *CylindricalBox* option.
-- **Multiple spherical** boxes can also be defined for the ligand perturbation with the new *MultiSphericalBox* option.
-- New **WaterPerturbation** (wMC) step is included in the PELE algorithm to explore water sites along the simulation with a Metropolis Monte Carlo approach.
-- **WaterSites** are regions where the user can specify explicit water molecules that need to be perturbed inside a certain spherical box in the wMC step.
-- **LigandPerturbation** algorithms are changed to allow the ligand to be placed over explicit water molecules that are perturbed in the wMC step.
-- New **verbose mode** allow the user to chose between an extended or a condensed logfile.
-- Some repeated and useless lines were removed from **logfile ouputs**.
-- **Symbolic links** to Data and Documents folders are automatically created when PELE initiates.
-- In case the **output folder** does not exist, it will be created when PELE initiates.
-- Several issues with **PELE tests** were solved in this release.
-- Now when a atom is not found, instead printing **"total mass is too small: 0"** tells which atom and where is located.
-- When running PELE in serial mode, **Complex keyword failure** has a better error description.
-- Many **other minor changes** are introduced to improve the performance of PELE and to fix small issues.
-
 ********
 rev12510
 ********

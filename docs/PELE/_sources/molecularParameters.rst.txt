@@ -242,4 +242,6 @@ If you have the template file for your molecule, but not the rotamer file, you c
 
 As before (for the template and rotamer files generation), you can place your rotamer file inside :file:`./DataLocal/LigandRotamerLibs/`; use :file:`Data/` instead of :file:`./DataLocal/` if you are updating the central database.
 
+It is important that you review the rotamer library file generated, since PELE will become inefficient with side chains of over 5 or 6 rotatable bonds. It will usually be safe to remove the last rotatable bonds in each side chain (each group in the rotamer library file); these terminal groups are usually alcohol or methyl groups whose flexibility is not very important to be completely modeled as rotamers during a PELE simulation, since the most suitable conformation for those atoms will probably be found during the minimizations performed by PELE. If you still have many rotamers, you may try that :program:`PlopRotTemp.py` chooses the rotatable bonds for you, or you may remove the ``sidelib`` lines in the file that represent the rotatable bonds that you may sacrifice for your simulation.
+
 

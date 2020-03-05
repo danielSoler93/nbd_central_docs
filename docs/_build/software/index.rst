@@ -6,7 +6,7 @@
 Software
 =========
 
-Programs
+Summary
 ----------
 
 The NBD's main technologies are:
@@ -29,7 +29,10 @@ The NBD's main technologies are:
 
 - schordingers platform ( `schrodinger docs  <https://www.schrodinger.com/>`_) 
 
+PELE
+---------
 
+Pele is our in-house comercial software that we sell and use for speeding up DD projects
 
 .. toctree::
    pele/documentation
@@ -40,8 +43,26 @@ The NBD's main technologies are:
 .. toctree::
    adaptive/documentation
 
+NAMD
+----------
+
+NAMD is used to perform molecular dynamics over several system to study its dynamics along time
+
 .. toctree::
    MD/documentation
+
+Schrodinger
+------------------
+
+Schrodinger is used for virtual screening purposes and system preparation. 
+
+.. toctree::
+   Schrodinger/documentation
+
+Python packages
+---------------------
+
+A micelaneous of several Python Packages built along the years
 
 .. toctree::
    python/packages

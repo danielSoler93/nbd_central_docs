@@ -10,7 +10,12 @@ Contents:
 
   Software/Software
 
+  SystemPreparation/SystemPreparation
+
   Simulation/Simulation
 
   GeneralAnalysis/GeneralAnalysis
+
+  AdaptiveMethodology/AdaptiveMethodology
+
 
