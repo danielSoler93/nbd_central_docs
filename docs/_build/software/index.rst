@@ -11,7 +11,7 @@ Summary
 
 The NBD's main technologies are:
 
-- PELE++ ( `PELE docs <../PELE/index.html>`_ )
+- PELE++ ( `PELE docs <https://eapm-bsc.github.io/PELE-repo/>`_ )
 
 - PELE Platform (`PELE Platform <https://nostrumbiodiscovery.github.io/pele_platform/>`_ )
 

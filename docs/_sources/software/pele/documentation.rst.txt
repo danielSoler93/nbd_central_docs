@@ -14,7 +14,7 @@ PELE
 Full documentation
 --------------------
 
-`PELE docs <../../PELE/index.html>`_
+https://eapm-bsc.github.io/PELE-repo/
 
 Compilation
 --------------

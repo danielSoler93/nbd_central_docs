@@ -14,8 +14,7 @@ PELE
 Full documentation
 --------------------
 
-.. toctree::
-   ../../PELE/index.rst
+https://eapm-bsc.github.io/PELE-repo/
 
 Compilation
 --------------
