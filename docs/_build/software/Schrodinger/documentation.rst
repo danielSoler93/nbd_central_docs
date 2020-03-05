@@ -17,7 +17,7 @@ Launch
 Reactivate License
 -----------------------
 
-1) If the license fil has been automatically updated under "/opt/schordinger/licences/license.lic" 
+1) If the license file has been automatically updated under "/opt/schordinger/licences/license.lic" 
 and /opt/schrodinger2020-1/utilities/configure says it has a valid license file please do:
 
     - /opt/schrodinger2020-1/licadmin STOP
