@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Installation &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
+    <title>Installation &#8212; PELE 1.6.0 documentation</title>
     <link rel="stylesheet" href="../_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Introduction" href="../intro/intro.html" />
-    <link rel="prev" title="PELE 1.5 documentation" href="../index.html" /> 
+    <link rel="prev" title="PELE 1.6 documentation" href="../index.html" /> 
     <script type="text/javascript" >
     MathJax.Hub.Config({
         TeX: { 
@@ -38,9 +38,9 @@
           <a href="../intro/intro.html" title="Introduction"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../index.html" title="PELE 1.5 documentation"
+          <a href="../index.html" title="PELE 1.6 documentation"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">PELE 1.6.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -51,10 +51,15 @@
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>Here we will go through the installation of PELE/AdaptivePELE and
-the preparation scripts need it for PELE.</p>
+<p>In this section we will install the next software:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>PELE++ (The main C++ source code)</p></li>
+<li><p>PELE Platform (Python features on top of the C++)</p></li>
+</ol>
+</div></blockquote>
 <div class="section" id="pele">
-<h2>PELE<a class="headerlink" href="#pele" title="Permalink to this headline">¶</a></h2>
+<h2>PELE++<a class="headerlink" href="#pele" title="Permalink to this headline">¶</a></h2>
 <p>Send an e-mail to <a class="reference external" href="mailto:daniel&#46;soler&#37;&#52;&#48;nostrumbiodiscovery&#46;com">daniel<span>&#46;</span>soler<span>&#64;</span>nostrumbiodiscovery<span>&#46;</span>com</a> if you are interested on receiving the commercial software.
 After revision of your application, we will send you a form to fill in with your machine specifications.
 Then, you will recieve the PELE (pele.zip) binary containing the licenses to run and a test case to check the installation.</p>
@@ -67,91 +72,19 @@ chmod -R u+wrx .
 mpirun -np <span class="m">3</span> ../../bin/Pele_mpi control_file --license-directory ../../licenses
 </pre></div>
 </div>
-<p>(you may have to set some environment variables by exporting LD_LIBRARY_PATH)</p>
+<p>(You may have to set some environment variables by exporting LD_LIBRARY_PATH)</p>
 </div>
 </div>
-<div class="section" id="adaptive-pele">
-<h2>Adaptive-PELE<a class="headerlink" href="#adaptive-pele" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><ul class="simple">
-<li><p>From Pypi: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">AdaptivePELE</span></code> (with the right python as it will compile cython extensions) –&gt; numpy and cython need to be installed.</p></li>
-<li><p>From Conda: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">NostrumBioDiscovery</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">adaptive_pele</span></code></p></li>
-</ul>
-</li>
-<li><p>go to <code class="docutils literal notranslate"><span class="pre">lib/pythonX/site-packages/AdaptivePELE/constants/constants.py</span></code> and manually change this paragraph inside the  constants.py file</p></li>
+<div class="section" id="peleplatform">
+<h2>PelePlatform<a class="headerlink" href="#peleplatform" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple" start="0">
+<li><p>ExternalRequirements:</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">else</span>:
- <span class="nv">PELE_EXECUTABLE</span> <span class="o">=</span> None
- <span class="nv">DATA_FOLDER</span> <span class="o">=</span> None
- <span class="nv">DOCUMENTS_FOLDER</span> <span class="o">=</span> None
-</pre></div>
-</div>
-<p>to the path on your machine. (example below)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">else</span>:
- <span class="nv">PELE_EXECUTABLE</span> <span class="o">=</span> <span class="s2">&quot;/home/dsoler/PELE/PELE-1.5/bin/PELE-1.5_mpi&quot;</span>
- <span class="nv">DATA_FOLDER</span> <span class="o">=</span> <span class="s2">&quot;/home/dsoler/PELE/PELE-1.5/Data&quot;</span>
- <span class="nv">DOCUMENTS_FOLDER</span> <span class="o">=</span> <span class="s2">&quot;/home/dsoler/PELE/PELE-1.5/Documents&quot;</span>
-</pre></div>
-</div>
-<div class="section" id="test-adaptivepele-installation">
-<h3>Test AdaptivePELE installation<a class="headerlink" href="#test-adaptivepele-installation" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NostrumBioDiscovery/pele_preparation.git
-<span class="nb">cd</span> pele_preparation/tests/test_adaptive
-tar vxf test.tar
-<span class="nb">cd</span> <span class="nb">test</span>
-manually change the license path inside the file test/pele.conf <span class="o">(</span>line <span class="m">2</span><span class="o">)</span> into the /opt/PELE/licenses/  in your machine : <span class="s2">&quot;licenseDirectoryPath&quot;</span> : <span class="s2">&quot;/home/ywest/&quot;</span>, to <span class="s2">&quot;licenseDirectoryPath&quot;</span> : <span class="s2">&quot;//path/to/PELE/licenses/&quot;</span>,
-python -m AdaptivePELE.adaptiveSampling out_in_adaptive.conf
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="fragpele">
-<h2>FragPELE<a class="headerlink" href="#fragpele" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><ul class="simple">
-<li><p>From Pypi: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">frag_pele</span></code></p></li>
-<li><p>From conda: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">-c</span> <span class="pre">nostrumbiodiscovery</span> <span class="pre">frag_pele</span></code></p></li>
-</ul>
-</li>
-<li><p>go to <code class="docutils literal notranslate"><span class="pre">../lib/pythonX/site-packages/frag_pele/constants.py</span></code> and manually change this paragraph inside the  constants.py file</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">else</span>:
-    <span class="nv">PATH_TO_PELE</span> <span class="o">=</span> None
-    <span class="nv">PATH_TO_PELE_DATA</span> <span class="o">=</span> None
-    <span class="nv">PATH_TO_PELE_DOCUMENTS</span> <span class="o">=</span> None
-    <span class="nv">PATH_TO_LICENSE</span> <span class="o">=</span> None
-    <span class="nv">SCHRODINGER_PY_PATH</span> <span class="o">=</span> None
-    <span class="nv">ENV_PYTHON</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-</pre></div>
-</div>
-<p>to the path on your machine. (example below)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">else</span>:
-    <span class="nv">PATH_TO_PELE</span> <span class="o">=</span> <span class="s2">&quot;/opt/PELE/bin/PELE-1.5&quot;</span>
-    <span class="nv">PATH_TO_PELE_DATA</span> <span class="o">=</span> <span class="s2">&quot;/opt/PELE/Data&quot;</span>
-    <span class="nv">PATH_TO_PELE_DOCUMENTS</span> <span class="o">=</span> <span class="s2">&quot;/opt/PELE/Documents&quot;</span>
-    <span class="nv">PATH_TO_LICENSE</span> <span class="o">=</span> <span class="s2">&quot;/home/ywest/&quot;</span>
-    <span class="nv">SCHRODINGER_PY_PATH</span> <span class="o">=</span> <span class="s2">&quot;/opt/schrodinger2018-1/utilities/python&quot;</span>
-    <span class="nv">ENV_PYTHON</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-</pre></div>
-</div>
-<div class="section" id="fragpele-test">
-<h3>FragPELE test<a class="headerlink" href="#fragpele-test" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NostrumBioDiscovery/pele_preparation.git
-<span class="nb">cd</span> pele_preparation/tests/test_frag
-python -m frag_pele.main -cp 1w7h_preparation_structure_2w.pdb -sef serie_file.conf
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="pele-scripts">
-<h2>PELE scripts<a class="headerlink" href="#pele-scripts" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NostrumBioDiscovery/pele_preparation.git
-
-<span class="nb">cd</span> pele_preparation
-
-pip install --ignore-installed .
-
-yum install gcc gcc-c++ kernel-devel python-devel tkinter python-pmw glew-devel
+<blockquote>
+<div><ul>
+<li><p>Academic Schrodinger</p></li>
+<li><p>PyMol Python API (For Global exploration)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install gcc gcc-c++ kernel-devel python-devel tkinter python-pmw glew-devel
 freeglut-devel libpng-devel freetype-devel libxml2-devel glm-devel
 
 git clone https://github.com/schrodinger/pymol-open-source.git
@@ -161,21 +94,41 @@ git clone https://github.com/schrodinger/pymol-open-source.git
 python setup.py install <span class="o">(</span>with same python you will use later<span class="o">)</span>
 </pre></div>
 </div>
-<div class="section" id="pele-scripts-test">
-<h3>PELE scripts test<a class="headerlink" href="#pele-scripts-test" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> tests/test_helpers
-
-python -m PPP.main -ipdb 1w7h_preparation_structure_2w.pdb
-
-python -m Helpers.constraints 1w7h_preparation_structure_2w.pdb constraints.conf
-
-python -m Helpers.randomize 1_3ZON_complex.pdb IK1 --poses <span class="m">2</span>
-
-<span class="nb">export</span> <span class="nv">SCHRODINGER_PYTHONPATH</span><span class="o">=</span><span class="s2">&quot; &quot;</span>
-
-<span class="nb">export</span> <span class="nv">PYTHONNOUSERSITE</span><span class="o">=</span><span class="s2">&quot; &quot;</span>
-
-/opt/schrodinger2017-4/utilities/python ../../PlopRotTemp/main.py lig.mae
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic">
+<li><p>Installation:</p>
+<ul>
+<li><p>From Pypi: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pele_platform</span></code> (with the right python as it will compile cython extensions) –&gt; numpy and cython need to be installed.</p></li>
+<li><p>From Conda: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">NostrumBioDiscovery</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">pele_platform</span></code></p></li>
+<li><p>From Source code:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/NostrumBioDiscovery/pele_platform.git</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">pele_platform</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code></p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>go to <code class="docutils literal notranslate"><span class="pre">lib/pythonX/site-packages/pele_platform/constants/constants.py</span></code> and manually change this paragraph inside the  constants.py file</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">else</span>:
+    <span class="nv">SCHRODINGER</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/&quot;</span>
+    <span class="nv">PELE</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/1.5.0.2524/&quot;</span>
+    <span class="nv">PELE_BIN</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/1.5.0.2524-intel-2018a/bin/Pele_mpi&quot;</span>
+    <span class="nv">MPIRUN</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/OpenMPI/2.1.2-GCC-6.4.0-2.28/bin/&quot;</span>
+    <span class="nv">LICENSE</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/licenses/&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<div class="section" id="test-peleplatform-installation">
+<h3>Test PelePlatform installation<a class="headerlink" href="#test-peleplatform-installation" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NostrumBioDiscovery/pele_platform.git
+<span class="nb">cd</span> pele_platform/test
+pytest
 </pre></div>
 </div>
 </div>
@@ -191,20 +144,12 @@ python -m Helpers.randomize 1_3ZON_complex.pdb IK1 --poses <span class="m">2</sp
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Installation</a><ul>
-<li><a class="reference internal" href="#pele">PELE</a><ul>
+<li><a class="reference internal" href="#pele">PELE++</a><ul>
 <li><a class="reference internal" href="#test-pele-installation">Test PELE installation</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#adaptive-pele">Adaptive-PELE</a><ul>
-<li><a class="reference internal" href="#test-adaptivepele-installation">Test AdaptivePELE installation</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#fragpele">FragPELE</a><ul>
-<li><a class="reference internal" href="#fragpele-test">FragPELE test</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#pele-scripts">PELE scripts</a><ul>
-<li><a class="reference internal" href="#pele-scripts-test">PELE scripts test</a></li>
+<li><a class="reference internal" href="#peleplatform">PelePlatform</a><ul>
+<li><a class="reference internal" href="#test-peleplatform-installation">Test PelePlatform installation</a></li>
 </ul>
 </li>
 </ul>
@@ -213,7 +158,7 @@ python -m Helpers.randomize 1_3ZON_complex.pdb IK1 --poses <span class="m">2</sp
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="../index.html"
-                        title="previous chapter">PELE 1.5 documentation</a></p>
+                        title="previous chapter">PELE 1.6 documentation</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../intro/intro.html"
                         title="next chapter">Introduction</a></p>
@@ -248,9 +193,9 @@ python -m Helpers.randomize 1_3ZON_complex.pdb IK1 --poses <span class="m">2</sp
           <a href="../intro/intro.html" title="Introduction"
              >next</a> |</li>
         <li class="right" >
-          <a href="../index.html" title="PELE 1.5 documentation"
+          <a href="../index.html" title="PELE 1.6 documentation"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">PELE 1.6.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">

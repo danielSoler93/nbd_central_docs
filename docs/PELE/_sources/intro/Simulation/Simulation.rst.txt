@@ -1,256 +1,31 @@
-#############
+###################
 Simulation
-#############
+###################
 
-At this stage, the PELE input is built and the simulation is launched.
 
-**********
-Input
-**********
+Start your own simulation:
+++++++++++++++++++++++++++++++
 
-The input of PELE is called controlFile and you can
-learn more about it in the `controlFile section <../../GeneralStructure/GeneralStructure.html>`__.
+1)  Complex Preparation
 
-To have an idea of the main sections of the input, next we retireve a brief summary:
+Prepare the system with maestro (Protein Preparation Wizard, hydrogen optimization and posterior minimization) and output a complex.pdb.
 
-- General Params: General Params: This section specifies the location of the licenses and the name of the log files (important when debugging). For more details, `top-level section <../../GeneralStructure/GeneralStructure.html#the-top-level-configuration-block>`__.
+Make sure the ligand has:
 
-.. code-block:: json
+    - Unique chain
 
-   {
-   "licenseDirectoryPath": "/opt/apps/PELE",
-   "simulationLogPath" : "$OUTPUT_PATH/logFile.txt",
-   }
+    - No atomnames with spaces or single letter
 
-- Initialization Params: Contains the setup of the system (typically pdb file(s), force field and solvent). For more details, `initialization section <../../Initialization/Initialization.html>`__.
+    - Any residuename except UNK
 
-.. code-block:: json
 
-   {
-   "Initialization" : {
-    "allowMissingTerminals": true,
-    "ForceField" : "OPLS2005",
-    "MultipleComplex" : [ "ref.pdb" ],
-    "Solvent" : { "ionicStrength" : 0.15, "solventType" : "VDGBNP", "useDebyeLength" : true }
-   },
-   }
+2) Prepare the input file input.yml
 
-- Simulation  Params: Set the ligand to be perturbed through the simulation. For more details, `simulation section <../../PELE/PELESimulation.html#sec-pelesimulation>`__.
+For more on the input files and the different types of simulation,
+please, refere to `here <https://nostrumbiodiscovery.github.io/pele_platform/cheatsheet/index.html#input-preparation>`__
 
-.. code-block:: json
 
-    {
-    "commandType" : "peleSimulation",
-    "RandomGenerator" : { "seed" : 32132 },
-    "selectionToPerturb" : { "chains" : { "names" : [ "L" ] } }
-    }
+3) Run the simulation
 
-- Output  Params: Set the name of the report (numerical values of energy & SASA) and the pdb trajectories. For more details,: `output section <../../PELE/PeleOutput.html>`__.
+python -m pele_platform.main input.yml
 
-.. code-block:: json
-
-    {
-    "PELE_Output" : {
-        "savingFrequencyForAcceptedSteps" : 1,
-        "savingMode" : "savingTrajectory",
-        "reportPath" : "$OUTPUT_PATH/run_report",
-        "trajectoryPath" : "$OUTPUT_PATH/run_trajectory.pdb"
-    },
-    }
-
-- PELE  Params: Set the top level parameters for PELE simulation. These are the default parameters we use for a standard PELE simulation. For specific cases such as induced fit simulation or binding site detection, we will fine tune some of the parameters to obtain the best results. The specifics will be explained later on at the tutorial. For more details, `PELE params section <../../PELE/PeleParameters.html>`__.
-
-.. code-block:: json
-    
-    {
-    "PELE_Parameters" : {
-        "anmFrequency" : 4,
-        "sideChainPredictionFrequency" : 1,
-        "minimizationFrequency" : 1,
-        "sideChainPredictionRegionRadius" : 6,
-        "perturbationCOMConstraintConstant" : 1.0,
-        "activateProximityDetection": true,
-        "temperature": 1000,
-        "numberOfPeleSteps": 1000
-    },
-    }
-
-- Constraints  Params: This section applies permanent constraints to specific atoms. For more details, `constraint section <../../PermanentConstraints/PermanentConstraints.html>`__.
-
-Generally, constraints of 0.5kcal/mol are placed on the CA and constraints of 2kcal/mol at the termini to avoid the protein to collapse.
-
-.. code-block:: json
-
-   {
-   "constraints":[
-   {"type":"constrainAtomToPosition","springConstant":2,"equilibriumDistance":0,"constrainThisAtom":"A:328:_CA_"},
-   {"type":"constrainAtomToPosition","springConstant":2,"equilibriumDistance":0,"constrainThisAtom":"A:358:_CA_"},
-   {"type":"constrainAtomToPosition","springConstant":2,"equilibriumDistance":0,"constrainThisAtom":"A:362:_CA_"},
-   {"type":"constrainAtomToPosition","springConstant":2,"equilibriumDistance":0,"constrainThisAtom":"A:612:_CA_"} 
-   ],
-   }
-
-
-- Perturbation Params: This section defines the exploration volume and several other characteristics: For more details, check the `Perturbation section <../../Perturbation/Perturbation.html>`__.
-
-**The box params are of utmost importance as they define the space to explore.**
-
-
-.. code-block:: json
-
-    {
-    "Perturbation": {
-    "Box" : { "radius" : 35,
-    "fixedCenter": [ 14,13,41 ],
-     "type" : "sphericalBox" },
-    "perturbationType":"naive",
-    "translationDirection": "random",
-    "rotationAngles": "nonCoupled",
-    "parameters": {
-        "numberOfStericTrials": 200,
-        "steeringUpdateFrequency": 0,
-        "overlapFactor": 0.65
-    }
-    },
-    }
-
-- ANM Params: This section defines the anisotropic network model parameters. The lowest eigenvalues are normally used as it is well define in the literature that are the ones contributing the most to the bioactive conformation of the complex. However, only harmonic movements will be captured with this method. Check the `PCA chapter <../../pca.html>`__ to characterize other types of movements from X-ray structures or MDs. For more information on ANM, check the: `ANM section <../../ANM/Anm.html>`__.
-
-.. code-block:: json
-
-    {
-    "ANM" : {
-    "algorithm": "CARTESIANS", "nodes": { "atoms": { "names": [ "_CA_" ]} },
-    "ANMMinimizer" : {
-       "algorithm" : "TruncatedNewton",
-       "parameters" : {
-          "MaximumMinimizationIterations" : 1,
-          "MaximumNewtonIterations" : 25,
-          "MinimumRMS" : 0.1,
-          "alphaUpdated" : false,
-          "nonBondingListUpdatedEachMinStep" : false
-       }
-    },
-    "options" : {
-        "directionGeneration" : "random",
-        "modesMixingOption" : "mixMainModeWithOthersModes",
-        "pickingCase" : "RANDOM_MODE"
-    },
-    "parameters" : {
-        "displacementFactor" : 0.75,
-        "eigenUpdateFrequency" : 1000000,
-        "mainModeWeightForMixModes" : 0.75,
-        "modesChangeFrequency" : 3,
-        "numberOfModes": 6 ,
-        "relaxationSpringConstant" : 0.5
-    }
-    },
-    }
-
-- SideChain Prediction Params: This section defines the side chain sampling params. Change the sidechain resolution to 30-60 if you have a high number of rotatable bonds (4-5 connected rotatable bonds).  For more details,: `sidechain prediction section <../../SideChainPrediction/SideChainPrediction.html>`__.
-
-
-.. code-block:: json
-
-   {
-   "SideChainPrediction" : {
-           "algorithm" : "zhexin",
-               "parameters" : { "discardHighEnergySolutions" : false, "resolution": 10, "randomize" : false }
-   },
-   }
-
-- Minimization Params: This section defines the minimization algorithm. Increase the "MinimumRMS” field to 0.5 if you want to have a faster but less converged minimization.  For more details,: `minimization section <../../Minimization/Minimization.html>`__.
-
-.. code-block:: json
-
-   {
-    "Minimizer" : {
-        "algorithm" : "TruncatedNewton",
-        "parameters" : { "MinimumRMS" : 0.1, "alphaUpdated" : false, "nonBondingListUpdatedEachMinStep" : true }
-   },
-   }
-
-
-- Metrics: This section specifies the metrics to be calculated along the simulation. Always calculate Binding Energy and SASA. Apart from these ones, the most useful  metrics are:
-
-1. Distance of the ligand to a catalytic residue or point
-
-.. code-block:: json
-
-             {
-             "type":"distanceToPoint",
-             "point": [15.32, -17, -16],
-             "atoms": {
-                 "links" : { "ids":["L:900"]}
-             }
-
-
-2. RMSD to a native pdb
-
-.. code-block:: json
-
-    { "type": "rmsd", 
-      "Native":{ "path": "ref.pdb"},
-      "selection": { "chains":{ "names": ["L"]} },
-      "superpositionSelection": { "atoms": {"names": ["_CA_"] } },
-      "includeHydrogens": false,
-      "tag": "rmsd_ligand" }
-
-To read more about metrics, check the: `metrics section <Sensors/MetricTypes.html>`__.
-
-
-- Parameter Changes: This section specifies the translation and rotation range of the ligand along the simulation. For more details,: `parameter changes section <PELEDynamicChangesInSimulationParameters/PELEDynamicChangesInSimulationParameters.html>`__.
-
-
-.. code-block:: json
-
-     { "ifAnyIsTrue": [ "rand1 >= 0.5" ],
-         "doThesechanges": { "Perturbation::parameters": { "translationRange": 0.5, "numberOfTrials" : 8 } },
-         "otherwise": { "Perturbation::parameters": { "translationRange": 1.0, "numberOfTrials" : 8 } }
-     }
-
-
-
-************
-Launch PELE
-************
-
-===================
-From command line:
-===================
-
-Command::
-
-    mpirun -np 3 /opt/PELE/bin/Pele_mpi controlfile
-
-
-===================
-From queue system:
-===================
-
-Place the command in a .sh file. Include the charachteristic of your queue system and launch the file.
-
-Example slurm file::
-
-    #!/bin/bash
-    #SBATCH -J PELE_MPI
-    #SBATCH --output=mpi_%j.out
-    #SBATCH --error=mpi_%j.err
-    #SBATCH --ntasks=48
-    #SBATCH --mem-per-cpu=1G
-    
-    
-    module purge
-    
-    module load Python PELE/1.5.0.2524
-    
-    ln -s /sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/1.5.0.2524/bin/Pele_mpi/Data Data
-    ln -s /sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/1.5.0.2524/bin/Pele_mpi/Documents Documents
-    
-    mpirun -np 48 Pele_mpi contol_file.conf
-
-Command to launch the job with slurm queue system:
-
-::    
-
-    sbatch slurm.sh

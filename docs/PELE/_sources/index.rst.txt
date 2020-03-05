@@ -1,5 +1,5 @@
 ======================
-PELE 1.5 documentation
+PELE 1.6 documentation
 ======================
 
 Contents:
@@ -13,7 +13,10 @@ Contents:
   CheatSheet/CheatSheet
   theory/theory
   molecularParameters
+  pelePlatform
   adaptive
+  fragpele
+  msm
   referenceManual
   howToContributeToDocs
   references

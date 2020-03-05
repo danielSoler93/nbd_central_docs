@@ -2,11 +2,14 @@
 Installation
 ############################
 
-Here we will go through the installation of PELE/AdaptivePELE and
-the preparation scripts need it for PELE.
+In this section we will install the next software:
+
+    1) PELE++ (The main C++ source code)
+
+    2) PELE Platform (Python features on top of the C++)
 
 
-PELE
+PELE++
 +++++++++++++++++++++++++
 
 Send an e-mail to daniel.soler@nostrumbiodiscovery.com if you are interested on receiving the commercial software. 
@@ -23,130 +26,64 @@ Test PELE installation
     chmod -R u+wrx .
     mpirun -np 3 ../../bin/Pele_mpi control_file --license-directory ../../licenses
 
-(you may have to set some environment variables by exporting LD_LIBRARY_PATH)
+(You may have to set some environment variables by exporting LD_LIBRARY_PATH)
 
 
-Adaptive-PELE
-++++++++++++++++++++++++++
 
+PelePlatform
+++++++++++++++
 
-1)  - From Pypi: ``pip install AdaptivePELE`` (with the right python as it will compile cython extensions) --> numpy and cython need to be installed.
+0) ExternalRequirements:
+
+  - Academic Schrodinger
+
+  - PyMol Python API (For Global exploration)
     
-    - From Conda: ``conda install -c NostrumBioDiscovery -c conda-forge adaptive_pele`` 
+    .. code-block:: bash
 
-2) go to ``lib/pythonX/site-packages/AdaptivePELE/constants/constants.py`` and manually change this paragraph inside the  constants.py file
+        yum install gcc gcc-c++ kernel-devel python-devel tkinter python-pmw glew-devel
+        freeglut-devel libpng-devel freetype-devel libxml2-devel glm-devel
+        
+        git clone https://github.com/schrodinger/pymol-open-source.git
+        
+        cd pymol-open-source
+        
+        python setup.py install (with same python you will use later)
 
+
+1) Installation:
+   
+   - From Pypi: ``pip install pele_platform`` (with the right python as it will compile cython extensions) --> numpy and cython need to be installed.
+
+   - From Conda: ``conda install -c NostrumBioDiscovery -c conda-forge pele_platform``
+
+   - From Source code: 
+     
+        ``git clone https://github.com/NostrumBioDiscovery/pele_platform.git``
+
+        ``cd pele_platform``
+
+        ``python setup.py install``
+
+2) go to ``lib/pythonX/site-packages/pele_platform/constants/constants.py`` and manually change this paragraph inside the  constants.py file
+
+    .. code-block:: bash
+    
+      else:
+          SCHRODINGER = "/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/"
+          PELE = "/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/1.5.0.2524/"
+          PELE_BIN = "/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/1.5.0.2524-intel-2018a/bin/Pele_mpi"
+          MPIRUN = "/sNow/easybuild/centos/7.4.1708/Skylake/software/OpenMPI/2.1.2-GCC-6.4.0-2.28/bin/"
+          LICENSE = "/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/licenses/"
+
+
+Test PelePlatform installation
+`````````````````````````````````
 .. code-block:: bash
 
-    else:
-     PELE_EXECUTABLE = None
-     DATA_FOLDER = None
-     DOCUMENTS_FOLDER = None
+  git clone https://github.com/NostrumBioDiscovery/pele_platform.git
+  cd pele_platform/test
+  pytest 
 
-to the path on your machine. (example below)
-
-.. code-block:: bash
-
-    else:
-     PELE_EXECUTABLE = "/home/dsoler/PELE/PELE-1.5/bin/PELE-1.5_mpi"
-     DATA_FOLDER = "/home/dsoler/PELE/PELE-1.5/Data"
-     DOCUMENTS_FOLDER = "/home/dsoler/PELE/PELE-1.5/Documents" 
-
-
-Test AdaptivePELE installation
-``````````````````````````````
-.. code-block:: bash
-
-    git clone https://github.com/NostrumBioDiscovery/pele_preparation.git
-    cd pele_preparation/tests/test_adaptive
-    tar vxf test.tar
-    cd test
-    manually change the license path inside the file test/pele.conf (line 2) into the /opt/PELE/licenses/  in your machine : "licenseDirectoryPath" : "/home/ywest/", to "licenseDirectoryPath" : "//path/to/PELE/licenses/",
-    python -m AdaptivePELE.adaptiveSampling out_in_adaptive.conf
-
-
-FragPELE
-+++++++++++++
-
-1) - From Pypi: ``pip install frag_pele`` 
-
-   - From conda: ``conda install -c conda-forge -c nostrumbiodiscovery frag_pele``
-
-
-2) go to ``../lib/pythonX/site-packages/frag_pele/constants.py`` and manually change this paragraph inside the  constants.py file
-
-.. code-block:: bash
-
-    else:
-        PATH_TO_PELE = None
-        PATH_TO_PELE_DATA = None
-        PATH_TO_PELE_DOCUMENTS = None
-        PATH_TO_LICENSE = None
-        SCHRODINGER_PY_PATH = None
-        ENV_PYTHON = ""
-
-to the path on your machine. (example below)
-
-.. code-block:: bash
-
-    else:
-        PATH_TO_PELE = "/opt/PELE/bin/PELE-1.5"
-        PATH_TO_PELE_DATA = "/opt/PELE/Data"
-        PATH_TO_PELE_DOCUMENTS = "/opt/PELE/Documents"
-        PATH_TO_LICENSE = "/home/ywest/"
-        SCHRODINGER_PY_PATH = "/opt/schrodinger2018-1/utilities/python"
-        ENV_PYTHON = ""
-
-FragPELE test
-``````````````````````````````
-
-.. code-block:: bash
-
-    git clone https://github.com/NostrumBioDiscovery/pele_preparation.git
-    cd pele_preparation/tests/test_frag
-    python -m frag_pele.main -cp 1w7h_preparation_structure_2w.pdb -sef serie_file.conf
-
-
-
-
-PELE scripts
-+++++++++++++++++
-
-.. code-block:: bash
-
-    git clone https://github.com/NostrumBioDiscovery/pele_preparation.git
-    
-    cd pele_preparation
-    
-    pip install --ignore-installed .
-    
-    yum install gcc gcc-c++ kernel-devel python-devel tkinter python-pmw glew-devel
-    freeglut-devel libpng-devel freetype-devel libxml2-devel glm-devel
-    
-    git clone https://github.com/schrodinger/pymol-open-source.git
-    
-    cd pymol-open-source
-    
-    python setup.py install (with same python you will use later)
-
-
-PELE scripts test
-``````````````````````````````
-
-.. code-block:: bash
-
-    cd tests/test_helpers
-    
-    python -m PPP.main -ipdb 1w7h_preparation_structure_2w.pdb
-    
-    python -m Helpers.constraints 1w7h_preparation_structure_2w.pdb constraints.conf
-    
-    python -m Helpers.randomize 1_3ZON_complex.pdb IK1 --poses 2
-    
-    export SCHRODINGER_PYTHONPATH=" "
-    
-    export PYTHONNOUSERSITE=" "
-    
-    /opt/schrodinger2017-4/utilities/python ../../PlopRotTemp/main.py lig.mae
 
 

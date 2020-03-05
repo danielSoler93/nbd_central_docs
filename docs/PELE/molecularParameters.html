@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>PELE Molecular Parameters &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
+    <title>PELE Molecular Parameters &#8212; PELE 1.6.0 documentation</title>
     <link rel="stylesheet" href="_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="theory/energyFunction.html" title="Energy Function"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PELE 1.6.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -252,7 +252,6 @@
 </pre></div>
 </div>
 <p>As before (for the template and rotamer files generation), you can place your rotamer file inside <code class="file docutils literal notranslate"><span class="pre">./DataLocal/LigandRotamerLibs/</span></code>; use <code class="file docutils literal notranslate"><span class="pre">Data/</span></code> instead of <code class="file docutils literal notranslate"><span class="pre">./DataLocal/</span></code> if you are updating the central database.</p>
-<p>It is important that you review the rotamer library file generated, since PELE will become inefficient with side chains of over 5 or 6 rotatable bonds. It will usually be safe to remove the last rotatable bonds in each side chain (each group in the rotamer library file); these terminal groups are usually alcohol or methyl groups whose flexibility is not very important to be completely modeled as rotamers during a PELE simulation, since the most suitable conformation for those atoms will probably be found during the minimizations performed by PELE. If you still have many rotamers, you may try that <strong class="program">PlopRotTemp.py</strong> chooses the rotatable bonds for you, or you may remove the <code class="docutils literal notranslate"><span class="pre">sidelib</span></code> lines in the file that represent the rotatable bonds that you may sacrifice for your simulation.</p>
 </div>
 </div>
 
@@ -322,7 +321,7 @@
         <li class="right" >
           <a href="theory/energyFunction.html" title="Energy Function"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PELE 1.6.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">

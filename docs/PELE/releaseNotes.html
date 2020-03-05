@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Release notes &#8212; PELE 1.5.${BUILD_TAG} documentation</title>
+    <title>Release notes &#8212; PELE 1.6.0 documentation</title>
     <link rel="stylesheet" href="_static/naturemodified.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -36,7 +36,7 @@
         <li class="right" >
           <a href="references.html" title="References"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PELE 1.6.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -47,6 +47,36 @@
             
   <div class="section" id="release-notes">
 <h1>Release notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="version-1-6-1-pre-release">
+<h2>Version 1.6.1 (pre-release)<a class="headerlink" href="#version-1-6-1-pre-release" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New algorithm is performed when doing a Ligand Perturbation, if the Ligand has a large number of rotable bonds. The rotable bonds now will be <strong>randomly selected</strong> following a freedom criteria.</p></li>
+<li><p>Behaviour improvements for <strong>WaterMC</strong> in Ligand Perturbation algorithm.</p></li>
+<li><p>Default <strong>Steering Value</strong> changed from 2 to 1.</p></li>
+<li><p>Default <strong>Steric Trial</strong> value changed from 1000 to 50.</p></li>
+<li><p>Fixed and refactored Tests.</p></li>
+<li><p>Fixed some errors with Simbolic Link creation in MNIV and NORD3.</p></li>
+<li><p>Some errors now are printed properly trhough cerr and not cout.</p></li>
+</ul>
+</div>
+<div class="section" id="version-1-6">
+<h2>Version 1.6<a class="headerlink" href="#version-1-6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Cylindrical boxes</strong> can be defined for the ligand perturbation with the new <em>CylindricalBox</em> option.</p></li>
+<li><p><strong>Multiple spherical</strong> boxes can also be defined for the ligand perturbation with the new <em>MultiSphericalBox</em> option.</p></li>
+<li><p>New <strong>WaterPerturbation</strong> (wMC) step is included in the PELE algorithm to explore water sites along the simulation with a Metropolis Monte Carlo approach.</p></li>
+<li><p><strong>WaterSites</strong> are regions where the user can specify explicit water molecules that need to be perturbed inside a certain spherical box in the wMC step.</p></li>
+<li><p><strong>LigandPerturbation</strong> algorithms are changed to allow the ligand to be placed over explicit water molecules that are perturbed in the wMC step.</p></li>
+<li><p>New <strong>verbose mode</strong> allow the user to chose between an extended or a condensed logfile.</p></li>
+<li><p>Some repeated and useless lines were removed from <strong>logfile ouputs</strong>.</p></li>
+<li><p><strong>Symbolic links</strong> to Data and Documents folders are automatically created when PELE initiates.</p></li>
+<li><p>In case the <strong>output folder</strong> does not exist, it will be created when PELE initiates.</p></li>
+<li><p>Several issues with <strong>PELE tests</strong> were solved in this release.</p></li>
+<li><p>Now when a atom is not found, instead printing <strong>“total mass is too small: 0”</strong> tells which atom and where is located.</p></li>
+<li><p>When running PELE in serial mode, <strong>Complex keyword failure</strong> has a better error description.</p></li>
+<li><p>Many <strong>other minor changes</strong> are introduced to improve the performance of PELE and to fix small issues.</p></li>
+</ul>
+</div>
 <div class="section" id="rev12510">
 <h2>rev12510<a class="headerlink" href="#rev12510" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -247,6 +277,8 @@
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Release notes</a><ul>
+<li><a class="reference internal" href="#version-1-6-1-pre-release">Version 1.6.1 (pre-release)</a></li>
+<li><a class="reference internal" href="#version-1-6">Version 1.6</a></li>
 <li><a class="reference internal" href="#rev12510">rev12510</a></li>
 <li><a class="reference internal" href="#rev12489">rev12489</a></li>
 <li><a class="reference internal" href="#rev12455">rev12455</a></li>
@@ -304,7 +336,7 @@
         <li class="right" >
           <a href="references.html" title="References"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PELE 1.5.${BUILD_TAG} documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">PELE 1.6.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer">
