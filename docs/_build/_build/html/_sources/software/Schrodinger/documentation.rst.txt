@@ -24,4 +24,4 @@ From nbdcalc01 (office machine):
 
     bash /scratch/reactivate_schrodinger.sh
 
-If when openning maestro as for a writing directory please specify: /scratch/
+If when openning maestro, it asks for setting a writing directory please specify: /scratch/
