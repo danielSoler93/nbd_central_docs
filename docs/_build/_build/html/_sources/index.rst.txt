@@ -33,6 +33,16 @@ project
    compute_power/index.rst
 
 
+Articles
+=============
+
+All articles released along the journey of the company. They are divided the three main sections
+of the company: Drug Discovery, Enzime Engineering and Software Development.
+
+.. toctree::
+   papers/index.rst
+
+
 For the IT Manager
 =========================
 

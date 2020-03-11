@@ -1,4 +1,4 @@
-NBD's insfrastructure
+IT infrastructure
 =======================
 
 Private Cluster
