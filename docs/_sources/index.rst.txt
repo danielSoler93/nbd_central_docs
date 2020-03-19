@@ -14,6 +14,15 @@ NBD combines powerful in-house innovative technologies with deep industrial expe
 
 .. centered:: `Nostrum BioDiscovery website <http://nostrumbiodiscovery.com/>`_
 
+
+Compound DataBases
+====================
+
+A miscellaneous of private and public databases
+
+.. toctree::
+   databases/index.rst
+
 Technologies
 ===============
 Our competitive advantage relies on combining supercomputing with both proprietary and best-of-market software technologies, which we have optimized for industrial needs in biomolecular modelling.
