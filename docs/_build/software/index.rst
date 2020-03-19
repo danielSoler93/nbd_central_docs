@@ -29,6 +29,12 @@ The NBD's main technologies are:
 
 - schordingers platform ( `schrodinger docs  <https://www.schrodinger.com/>`_) 
 
+Job launching Templates
+-------------------------
+
+.. toctree::
+   templates/documentation
+
 PELE
 ---------
 
