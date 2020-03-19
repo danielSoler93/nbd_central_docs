@@ -36,12 +36,3 @@ To use any of these scripts in nbdcalc01 refer to:
 
 - /data/software/python_scripts/launch_all_pythons_README.txt [ **modtox section** ]
 
-
-Pele Platform
------------------
-
-Docs: ongoing
-
-To automatically set & launch PELE jobs refer to:
-
-    - work ongoing

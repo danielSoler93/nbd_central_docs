@@ -1,6 +1,6 @@
 ==================================
 Launching Templates
-===============================
+==================================
 
 .. toctree::
    :maxdepth: 2
@@ -28,8 +28,8 @@ AnalogsSearch (Office)
 
 Launch with: `bash analogs.sh`
 
-MDPocket
------------
+MDPocket (Office)
+--------------------
 
 `/data/software/MDpocket/mdpocket_readme_suwipa/README_MDpocket`
 
