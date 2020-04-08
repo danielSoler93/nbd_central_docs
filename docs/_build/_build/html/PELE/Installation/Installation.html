@@ -169,6 +169,7 @@
 </div></blockquote>
 <div class="section" id="pele">
 <h2>PELE++<a class="headerlink" href="#pele" title="Permalink to this headline">¶</a></h2>
+<p>External Requirements: OpenMPI</p>
 <p>Send an e-mail to <a class="reference external" href="mailto:daniel&#46;soler&#37;&#52;&#48;nostrumbiodiscovery&#46;com">daniel<span>&#46;</span>soler<span>&#64;</span>nostrumbiodiscovery<span>&#46;</span>com</a> if you are interested on receiving the commercial software.
 After revision of your application, we will send you a form to fill in with your machine specifications.
 Then, you will recieve the PELE (pele.zip) binary containing the licenses to run and a test case to check the installation.</p>
@@ -176,8 +177,10 @@ Then, you will recieve the PELE (pele.zip) binary containing the licenses to run
 <h3>Test PELE installation<a class="headerlink" href="#test-pele-installation" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unzip PELE-1.6.zip
 tar -xvf PELE-1.6.tgz
+mv /path/to/pele_licenses PELE-1.6/licenses/
 <span class="nb">cd</span> PELE-1.6/samples/aspirin
 chmod -R u+wrx .
+<span class="c1">#mpirun must be in PATH</span>
 mpirun -np <span class="m">3</span> ../../bin/Pele_mpi control_file --license-directory ../../licenses
 </pre></div>
 </div>
@@ -191,60 +194,21 @@ and execute again</p>
 </div>
 <div class="section" id="peleplatform">
 <h2>PelePlatform<a class="headerlink" href="#peleplatform" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple" start="0">
-<li><p>ExternalRequirements:</p></li>
-</ol>
+<p>ExternalRequirements:</p>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><p>Academic Schrodinger</p></li>
-<li><p>PyMol Python API (For Global exploration)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install gcc gcc-c++ kernel-devel python-devel tkinter python-pmw glew-devel
-freeglut-devel libpng-devel freetype-devel libxml2-devel glm-devel
-
-git clone https://github.com/schrodinger/pymol-open-source.git
-
-<span class="nb">cd</span> pymol-open-source
-
-python setup.py install <span class="o">(</span>with same python you will use later<span class="o">)</span>
-</pre></div>
-</div>
-</li>
 </ul>
 </div></blockquote>
-<ol class="arabic">
-<li><p>Installation:</p>
-<ul>
-<li><p>From Pypi: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pele_platform</span></code> (with the right python as it will compile cython extensions) –&gt; numpy and cython need to be installed.</p></li>
-<li><p>From Conda: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">NostrumBioDiscovery</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">pele_platform</span></code></p></li>
-<li><p>From Source code:</p>
+<p>Installation:</p>
 <blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/NostrumBioDiscovery/pele_platform.git</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">pele_platform</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code></p>
+<div><p><a class="reference external" href="https://nostrumbiodiscovery.github.io/pele_platform/installation/index.html">https://nostrumbiodiscovery.github.io/pele_platform/installation/index.html</a></p>
 </div></blockquote>
-</li>
-</ul>
-</li>
-<li><p>go to <code class="docutils literal notranslate"><span class="pre">lib/pythonX/site-packages/pele_platform/constants/constants.py</span></code> and manually change this paragraph inside the  constants.py file</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">else</span>:
-    <span class="nv">SCHRODINGER</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/&quot;</span>
-    <span class="nv">PELE</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/1.5.0.2524/&quot;</span>
-    <span class="nv">PELE_BIN</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/1.5.0.2524-intel-2018a/bin/Pele_mpi&quot;</span>
-    <span class="nv">MPIRUN</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/OpenMPI/2.1.2-GCC-6.4.0-2.28/bin/&quot;</span>
-    <span class="nv">LICENSE</span> <span class="o">=</span> <span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/PELE/licenses/&quot;</span>
-</pre></div>
-</div>
-</div></blockquote>
-</li>
-</ol>
 <div class="section" id="test-peleplatform-installation">
 <h3>Test PelePlatform installation<a class="headerlink" href="#test-peleplatform-installation" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NostrumBioDiscovery/pele_platform.git
-<span class="nb">cd</span> pele_platform/test
-pytest
-</pre></div>
-</div>
+<blockquote>
+<div><p><a class="reference external" href="https://nostrumbiodiscovery.github.io/pele_platform/installation/index.html#test-it-works">https://nostrumbiodiscovery.github.io/pele_platform/installation/index.html#test-it-works</a></p>
+</div></blockquote>
 </div>
 </div>
 </div>
