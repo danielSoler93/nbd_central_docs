@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sensors Block in Pele++ control file &mdash; NBD Docs 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Metrics block in Pele++ control file" href="MetricTypes.html" />
+    <link rel="prev" title="Permanent constraints in Pele++ control file" href="../PermanentConstraints/PermanentConstraints.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> NBD Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../databases/index.html">Compound DataBases</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#job-launching-templates">Job launching Templates</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#pele">PELE</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../documentation.html">PELE</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../documentation.html#full-documentation">Full documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation.html#compilation">Compilation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation.html#tutorial">Tutorial</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation.html#templates-for-launching">Templates for launching</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation.html#templates-for-analysis">Templates for analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation.html#create-licenses">Create licenses</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peleplatform/documentation.html">PELE Platfom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../adaptive/documentation.html">AdaptivePELE</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#namd">NAMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#schrodinger">Schrodinger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#python-packages">Python packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#nice-dcv">Nice DCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#tests">Tests</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../compute_power/index.html">IT infrastructure</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../papers/index.html">Articles</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">NBD Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../documentation.html">PELE</a> &raquo;</li>
+        
+          <li><a href="../index.html">PELE 1.6 documentation</a> &raquo;</li>
+        
+          <li><a href="../referenceManual.html">Reference Manual</a> &raquo;</li>
+        
+          <li><a href="../PELE/PELESimulation_index.html">PELESimulation command</a> &raquo;</li>
+        
+      <li>Sensors Block in Pele++ control file</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/software/pele/Sensors/Sensors.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sensors-block-in-pele-control-file">
+<span id="sec-sensors"></span><h1>Sensors Block in Pele++ control file<a class="headerlink" href="#sensors-block-in-pele-control-file" title="Permalink to this headline">¶</a></h1>
+<p>Pele++ sensors measure the value of different observable variables in
+the landscape that is being explored.</p>
+<p>Depending on what they observe, Pele++ sensors can be classified in two
+groups:</p>
+<ul class="simple">
+<li><p>Metrics: They measure the value of external observable variables,
+such as, binding energy, rmsd, distance, etc.</p></li>
+<li><p>StateTrackers: They track the value of internal simulation variables,
+such as, steps, accepted steps, current energy, etc.</p></li>
+</ul>
+<p>Each type of sensors has its own configuration block in the
+configuration file which are defined at Pele task level, so you can
+observe, if you wish, different variables in each different Pele task.</p>
+<p>The values measured by any Sensor can be used in any logical condition
+as long as the Sensors have been previously tagged (check the following
+examples). To refer to the sensors, the tag name is used (in StateTrackers, this corresponds to the variable name). Notice that the tag name is also used in the metrics file as the header for that metric, unless it is not specified, in which case a standard description for the metric is used.</p>
+<p>To learn how to write logical conditions based on Sensor measurements
+see <a class="reference internal" href="../LogicalConditions/ConditionsByExample.html#sec-conditionsbyexample"><span class="std std-ref">Conditions By Example</span></a>,</p>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MetricTypes.html">Metrics block in Pele++ control file</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MetricTypes.html#metrics-block-example">Metrics block example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MetricTypes.html#metric-types">Metric types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="StateTrackerTypes.html">StateTracker types in Pele++ control file</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="StateTrackerTypes.html#current-energy">Current energy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StateTrackerTypes.html#steps-since-last-accepted">Steps since last accepted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StateTrackerTypes.html#current-step">Current step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StateTrackerTypes.html#number-of-accepted-pele-steps">Number of accepted PELE steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StateTrackerTypes.html#statetrackers-block-example">StateTrackers block example</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MetricTypes.html" class="btn btn-neutral float-right" title="Metrics block in Pele++ control file" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../PermanentConstraints/PermanentConstraints.html" class="btn btn-neutral float-left" title="Permanent constraints in Pele++ control file" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Daniel Soler Viladrich
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

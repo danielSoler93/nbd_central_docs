@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>General description &mdash; NBD Docs 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Complex Block in Pele++ control file" href="../Complex/Complex.html" />
+    <link rel="prev" title="Initialization Block in Pele++ control file" href="Initialization.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> NBD Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../databases/index.html">Compound DataBases</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#job-launching-templates">Job launching Templates</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#pele">PELE</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../documentation.html">PELE</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../documentation.html#full-documentation">Full documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation.html#compilation">Compilation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation.html#tutorial">Tutorial</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation.html#templates-for-launching">Templates for launching</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation.html#templates-for-analysis">Templates for analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation.html#create-licenses">Create licenses</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../peleplatform/documentation.html">PELE Platfom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../adaptive/documentation.html">AdaptivePELE</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#namd">NAMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#schrodinger">Schrodinger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#python-packages">Python packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#nice-dcv">Nice DCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#tests">Tests</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../compute_power/index.html">IT infrastructure</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../papers/index.html">Articles</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">NBD Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Software</a> &raquo;</li>
+        
+          <li><a href="../documentation.html">PELE</a> &raquo;</li>
+        
+          <li><a href="../index.html">PELE 1.6 documentation</a> &raquo;</li>
+        
+          <li><a href="../referenceManual.html">Reference Manual</a> &raquo;</li>
+        
+          <li><a href="Initialization.html">Initialization Block in Pele++ control file</a> &raquo;</li>
+        
+      <li>General description</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/software/pele/Initialization/Initialization_general.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="general-description">
+<span id="sec-initialization-general"></span><h1>General description<a class="headerlink" href="#general-description" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="location">
+<h2>Location<a class="headerlink" href="#location" title="Permalink to this headline">¶</a></h2>
+<p>Outermost layer, typically at the beginning of the document.</p>
+<p>Example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+   &quot;Initialization&quot; : {
+          &quot;fixTrees&quot;: true,
+          &quot;fixChainNames&quot;: false,
+      &quot;allowMissingTerminals&quot;: false,
+      &quot;Complex&quot; : {
+         &quot;files&quot; : [
+            {
+               &quot;path&quot;: &quot;pdbs/ain_fixed.pdb&quot;
+            }
+         ]
+      },
+      &quot;ForceField&quot; : &quot;OPLS2005&quot;,
+      &quot;Solvent&quot; : {
+         &quot;ionicStrength&quot; : 0.250,
+         &quot;solventType&quot; : &quot;VDGBNP&quot;,
+         &quot;useDebyeLength&quot; : true
+      }
+   },
+   &quot;commands&quot; : [ ... ]
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="options-and-parameters">
+<h2>Options and parameters<a class="headerlink" href="#options-and-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fixtrees">
+<h3>fixTrees<a class="headerlink" href="#fixtrees" title="Permalink to this headline">¶</a></h3>
+<p>Use: Bolean. When it is set to true, for any complex being built,
+it builds the trees equal to Plop.</p>
+<p>Note for developers: Used in generateAtomsTrees</p>
+<p>Default value: true</p>
+</div>
+<div class="section" id="fixchainnames">
+<h3>fixChainNames<a class="headerlink" href="#fixchainnames" title="Permalink to this headline">¶</a></h3>
+<p>Use: Boolean. When true, for any complex being built,
+it renames all chains starting at ‘A’ through ‘Z’ and then ‘1’ through ‘0’.</p>
+<p>Notice that if you have many molecules (such as water molecules) you may
+run out of chain identifiers. In such a case, chain ids will get reused
+(it will restart from ‘A’ again).</p>
+<p>Note for developers: Used in
+ComplexBuilder::createComplexBuilder.</p>
+<p>Default value: false</p>
+</div>
+<div class="section" id="allowmissingterminals">
+<span id="sec-initialization-general-allowmissingterminals"></span><h3>allowMissingTerminals<a class="headerlink" href="#allowmissingterminals" title="Permalink to this headline">¶</a></h3>
+<p>Use: Boolean. When true, when reading a complex, if a terminal residue in a chain does not have the atoms of the terminal type for that residue, then it is treated as a normal internal/middle residue. If this does not work either, then PELE fails as usual, since it is not able to assign the right template. Notice that this is valid for any chain, though only proteins and nucleic acids actually have terminal types of residues.</p>
+<p>This option is useful if you have gaps in your structure. In such a case, you mark the gaps with TER records, and instruct PELE to interpret the terminal residues at the gaps (which must not have terminal atoms such as OXT) as normal internal residues.</p>
+<p>Notice that, being internal residues, they will be treated as such in all parts of PELE. For example, in the VDGBNP case, those residues will be treated as internal as for the dielectric assignment.</p>
+<p>Default value: false</p>
+</div>
+<div class="section" id="complex">
+<h3>Complex<a class="headerlink" href="#complex" title="Permalink to this headline">¶</a></h3>
+<p>See <a class="reference internal" href="../Complex/Complex.html#sec-complex"><span class="std std-ref">Complex</span></a></p>
+</div>
+<div class="section" id="multiplecomplex">
+<h3>MultipleComplex<a class="headerlink" href="#multiplecomplex" title="Permalink to this headline">¶</a></h3>
+<p>See
+<a class="reference internal" href="../PELEinMulticorePlatforms/AdditionalFeaturesUsingMPI.html#sec-additionalfeaturesusingmpi"><span class="std std-ref">AdditionalFeaturesUsingMPI</span></a></p>
+</div>
+<div class="section" id="solvent">
+<span id="sec-initialization-general-solvent"></span><h3>Solvent<a class="headerlink" href="#solvent" title="Permalink to this headline">¶</a></h3>
+<p>See <a class="reference internal" href="../Solvent/Solvent.html#sec-solvent"><span class="std std-ref">Solvent</span></a></p>
+</div>
+<div class="section" id="forcefield">
+<span id="sec-initialization-general-forcefield"></span><h3>ForceField<a class="headerlink" href="#forcefield" title="Permalink to this headline">¶</a></h3>
+<p>Parameter: enum PotentialParameterization</p>
+<p>Use: Sets the force field to be used throughout the simulation</p>
+<p>Note for developers: Used in SgbAlphaSasaUpdater,
+NonBondingTermCalculator, EnergyAlgorithm and
+BindingEnergyMetricsBuilder.</p>
+<p>Note: The force field parameter files are found under <code class="file docutils literal notranslate"><span class="pre">Data/Templates/</span></code></p>
+<p>Possible options:</p>
+<ul class="simple">
+<li><p>“OPLS2005”</p></li>
+<li><p>“AMBER99sb” (not thouroghly tested in production, but it should work)</p></li>
+<li><p>“AMBER99” (not thoroughly tested in production, but it should work)</p></li>
+<li><p>“AMBER99sbBSC0”</p></li>
+</ul>
+<p>Defalut value: None, it must be specified</p>
+<p>Plop info: No correspondence, it just uses OPLS2005.</p>
+</div>
+<div class="section" id="usegpu">
+<h3>useGPU<a class="headerlink" href="#usegpu" title="Permalink to this headline">¶</a></h3>
+<p>Use: Boolean that enables the use of GPUs. We remind that its in an
+experimental stage.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Complex/Complex.html" class="btn btn-neutral float-right" title="Complex Block in Pele++ control file" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Initialization.html" class="btn btn-neutral float-left" title="Initialization Block in Pele++ control file" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Daniel Soler Viladrich
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

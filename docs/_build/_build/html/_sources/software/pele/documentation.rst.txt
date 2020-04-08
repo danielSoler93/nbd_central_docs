@@ -18,7 +18,8 @@ You can find the full documentation in any of these links:
 
 - https://eapm-bsc.github.io/PELE-repo/
 
-- https://nostrumbiodiscovery.github.io/nbd_central_docs/PELE/index.html
+.. toctree::
+   index.rst
 
 Compilation
 --------------
