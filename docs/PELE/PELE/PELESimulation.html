@@ -170,17 +170,17 @@
 <div class="section" id="algorithms">
 <h2>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">¶</a></h2>
 <p>Pele must have the following algorithms defined:
-<a class="reference internal" href="../Perturbation/Perturbation.html#sec-perturbation"><span class="std std-ref">Perturbation</span></a>,
-<a class="reference internal" href="../ANM/Anm.html#sec-anm"><span class="std std-ref">ANM</span></a>, <a class="reference internal" href="../SideChainPrediction/SideChainPrediction.html#sec-sidechainprediction"><span class="std std-ref">Side Chain
+<a class="reference internal" href="../../software/pele/Perturbation/Perturbation.html#sec-perturbation"><span class="std std-ref">Perturbation</span></a>,
+<a class="reference internal" href="../../software/pele/ANM/Anm.html#sec-anm"><span class="std std-ref">ANM</span></a>, <a class="reference internal" href="../../software/pele/SideChainPrediction/SideChainPrediction.html#sec-sidechainprediction"><span class="std std-ref">Side Chain
 Prediction</span></a> and
-<a class="reference internal" href="../Minimization/Minimization.html#sec-minimization"><span class="std std-ref">Minimization</span></a>. If an algorithm is
+<a class="reference internal" href="../../software/pele/Minimization/Minimization.html#sec-minimization"><span class="std std-ref">Minimization</span></a>. If an algorithm is
 defined at peleSimulation level it is going to be used throughout the
 whole simulation, unless it is overriden in a task by defining a new
 one.</p>
 </div>
 <div class="section" id="randomgenerator">
 <h2>RandomGenerator<a class="headerlink" href="#randomgenerator" title="Permalink to this headline">¶</a></h2>
-<p>For more information, check <a class="reference internal" href="../RandomGenerator/RandomGenerator.html#sec-randomgenerator"><span class="std std-ref">random generator</span></a>.</p>
+<p>For more information, check <a class="reference internal" href="../../software/pele/RandomGenerator/RandomGenerator.html#sec-randomgenerator"><span class="std std-ref">random generator</span></a>.</p>
 <div class="section" id="example">
 <h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;RandomGenerator&quot;: {
@@ -193,7 +193,7 @@ one.</p>
 <div class="section" id="selectiontoperturb">
 <h2>selectionToPerturb<a class="headerlink" href="#selectiontoperturb" title="Permalink to this headline">¶</a></h2>
 <p>Selects the ligands to be perturbed in the ligand perturbation. If no perturbation is performed (that is, the <code class="docutils literal notranslate"><span class="pre">Perturbation</span></code> block is empty), then the selection to perturb is empty for all purposes, and this parameter will be ignored.</p>
-<p>If the <code class="docutils literal notranslate"><span class="pre">Perturbation</span></code> block (<a class="reference internal" href="../Perturbation/Perturbation.html#sec-perturbation"><span class="std std-ref">Perturbation Block in Pele++ control file</span></a>) is non-empty (that is, perturbation is active), then you must provide this parameter, since it has no default value.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">Perturbation</span></code> block (<a class="reference internal" href="../../software/pele/Perturbation/Perturbation.html#sec-perturbation"><span class="std std-ref">Perturbation Block in Pele++ control file</span></a>) is non-empty (that is, perturbation is active), then you must provide this parameter, since it has no default value.</p>
 <p>The selection is done for whole chains.</p>
 <div class="section" id="id1">
 <h3>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
@@ -212,8 +212,8 @@ cannot use different options for different perturb chains; besides, the
 steering vector is shared between all perturb chains). By knowing which
 chain is perturbed at each PELE step (see below), you can change the
 perturbation parameters using the “parametersChanges” block (see
-<a class="reference internal" href="../PELEDynamicChangesInSimulationParameters/PELEDynamicChangesInSimulationParameters.html#sec-peledynamicchangesinsimulationparameters"><span class="std std-ref">PELEDynamicChangesInSimulationParameters</span></a>)
-and a counter-based condition (see <a class="reference internal" href="../LogicalConditions/ConditionsByExample.html#sec-conditionsbyexample-example9"><span class="std std-ref">example 9 of
+<a class="reference internal" href="../../software/pele/PELEDynamicChangesInSimulationParameters/PELEDynamicChangesInSimulationParameters.html#sec-peledynamicchangesinsimulationparameters"><span class="std std-ref">PELEDynamicChangesInSimulationParameters</span></a>)
+and a counter-based condition (see <a class="reference internal" href="../../software/pele/LogicalConditions/ConditionsByExample.html#sec-conditionsbyexample-example9"><span class="std std-ref">example 9 of
 Conditions</span></a>).</p>
 <p>If you specify more than one chain, then PELE will cycle through them
 perturbing only one of them at each PELE step. The order in which
@@ -236,30 +236,30 @@ perturb “M”, and so on.</p>
 <p>Configuration of the algorithm for non-bonding energy-related terms
 calculation.</p>
 <p>For more details see
-<a class="reference internal" href="../NonBonding/NonBondingAlgorithms.html#sec-nonbondingalgorithms"><span class="std std-ref">NonBonding</span></a>.</p>
+<a class="reference internal" href="../../software/pele/NonBonding/NonBondingAlgorithms.html#sec-nonbondingalgorithms"><span class="std std-ref">NonBonding</span></a>.</p>
 </div>
 <div class="section" id="pele-parameters">
 <h2>Pele_parameters<a class="headerlink" href="#pele-parameters" title="Permalink to this headline">¶</a></h2>
 <p>Parameters used by the Pele algorithm. They can be defined at
 PeleSimulation or PeleTask level.</p>
-<p>For more details see <a class="reference internal" href="PeleParameters.html#sec-peleparameters"><span class="std std-ref">Pele Parameters</span></a>.</p>
+<p>For more details see <a class="reference internal" href="../../software/pele/PELE/PeleParameters.html#sec-peleparameters"><span class="std std-ref">Pele Parameters</span></a>.</p>
 </div>
 <div class="section" id="pele-output">
 <h2>Pele_Output<a class="headerlink" href="#pele-output" title="Permalink to this headline">¶</a></h2>
 <p>Parameters related to the output files generated in the simulation. They
 must be defined at the PeleSimulation level.</p>
-<p>For more details see <a class="reference internal" href="PeleOutput.html#sec-peleoutput"><span class="std std-ref">Pele Output Parameters</span></a>.</p>
+<p>For more details see <a class="reference internal" href="../../software/pele/PELE/PeleOutput.html#sec-peleoutput"><span class="std std-ref">Pele Output Parameters</span></a>.</p>
 </div>
 <div class="section" id="constraints">
 <h2>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h2>
 <p>Constraints applied in all minimizations during a Pele simulation. Check
-the <a class="reference internal" href="../PermanentConstraints/PermanentConstraints.html#sec-permanentconstraints"><span class="std std-ref">Constraints section</span></a>.</p>
+the <a class="reference internal" href="../../software/pele/PermanentConstraints/PermanentConstraints.html#sec-permanentconstraints"><span class="std std-ref">Constraints section</span></a>.</p>
 </div>
 <div class="section" id="peletasks">
 <h2>PeleTasks<a class="headerlink" href="#peletasks" title="Permalink to this headline">¶</a></h2>
 <p>Serie of tasks that Pele has to carry out before a command (and usually
 a simulation) is considered to be finished.</p>
-<p>For more information check the <a class="reference internal" href="PeleTasks.html#sec-peletasks"><span class="std std-ref">Pele Tasks section</span></a>.</p>
+<p>For more information check the <a class="reference internal" href="../../software/pele/PELE/PeleTasks.html#sec-peletasks"><span class="std std-ref">Pele Tasks section</span></a>.</p>
 </div>
 </div>
 

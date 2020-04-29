@@ -35,9 +35,7 @@
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Introduction" href="../intro/intro.html" />
-    <link rel="prev" title="PELE 1.6 documentation" href="../index.html" /> 
+    <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,31 +86,8 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../databases/index.html">Compound DataBases</a></li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Software</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../index.html#summary">Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../index.html#job-launching-templates">Job launching Templates</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#pele">PELE</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../documentation.html">PELE</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../documentation.html#full-documentation">Full documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation.html#compilation">Compilation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation.html#tutorial">Tutorial</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation.html#templates-for-launching">Templates for launching</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation.html#templates-for-analysis">Templates for analysis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation.html#create-licenses">Create licenses</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../peleplatform/documentation.html">PELE Platfom</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../adaptive/documentation.html">AdaptivePELE</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../index.html#namd">NAMD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../index.html#schrodinger">Schrodinger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../index.html#python-packages">Python packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../index.html#nice-dcv">Nice DCV</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../index.html#tests">Tests</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Software</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../compute_power/index.html">IT infrastructure</a></li>
@@ -164,12 +139,6 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../index.html">Software</a> &raquo;</li>
-        
-          <li><a href="../documentation.html">PELE</a> &raquo;</li>
-        
-          <li><a href="../index.html">PELE 1.6 documentation</a> &raquo;</li>
-        
       <li>Installation</li>
     
     
@@ -198,14 +167,34 @@
 <li><p>PELE Platform (Python features on top of the C++)</p></li>
 </ol>
 </div></blockquote>
+<div class="section" id="option-1-singularity-recommended">
+<h2>Option 1 - Singularity - (Recommended)<a class="headerlink" href="#option-1-singularity-recommended" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NostrumBioDiscovery/pele_platform.git
+
+<span class="nb">cd</span> pele_platform/singularity/
+
+bash create_pele_image.sh <span class="o">(</span>You will need acces to PELE dockerhub<span class="o">)</span>
+
+<span class="nb">cd</span> test/
+
+<span class="c1">#Change the licenses and folders inside singularity.sl (IT section)</span>
+
+bash singularity.sl  <span class="c1">#If not queue system</span>
+
+sbatch singularity.sl  <span class="c1">#If slurm queue system</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="option-2-manual">
+<h2>Option 2 - Manual<a class="headerlink" href="#option-2-manual" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="pele">
-<h2>PELE++<a class="headerlink" href="#pele" title="Permalink to this headline">¶</a></h2>
+<h3>PELE++<a class="headerlink" href="#pele" title="Permalink to this headline">¶</a></h3>
 <p>External Requirements: OpenMPI</p>
 <p>Send an e-mail to <a class="reference external" href="mailto:daniel&#46;soler&#37;&#52;&#48;nostrumbiodiscovery&#46;com">daniel<span>&#46;</span>soler<span>&#64;</span>nostrumbiodiscovery<span>&#46;</span>com</a> if you are interested on receiving the commercial software.
 After revision of your application, we will send you a form to fill in with your machine specifications.
 Then, you will recieve the PELE (pele.zip) binary containing the licenses to run and a test case to check the installation.</p>
 <div class="section" id="test-pele-installation">
-<h3>Test PELE installation<a class="headerlink" href="#test-pele-installation" title="Permalink to this headline">¶</a></h3>
+<h4>Test PELE installation<a class="headerlink" href="#test-pele-installation" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unzip PELE-1.6.zip
 tar -xvf PELE-1.6.tgz
 mv /path/to/pele_licenses PELE-1.6/licenses/
@@ -224,7 +213,7 @@ and execute again</p>
 </div>
 </div>
 <div class="section" id="peleplatform">
-<h2>PelePlatform<a class="headerlink" href="#peleplatform" title="Permalink to this headline">¶</a></h2>
+<h3>PelePlatform<a class="headerlink" href="#peleplatform" title="Permalink to this headline">¶</a></h3>
 <p>ExternalRequirements:</p>
 <blockquote>
 <div><ul class="simple">
@@ -236,10 +225,11 @@ and execute again</p>
 <div><p><a class="reference external" href="https://nostrumbiodiscovery.github.io/pele_platform/installation/index.html">https://nostrumbiodiscovery.github.io/pele_platform/installation/index.html</a></p>
 </div></blockquote>
 <div class="section" id="test-peleplatform-installation">
-<h3>Test PelePlatform installation<a class="headerlink" href="#test-peleplatform-installation" title="Permalink to this headline">¶</a></h3>
+<h4>Test PelePlatform installation<a class="headerlink" href="#test-peleplatform-installation" title="Permalink to this headline">¶</a></h4>
 <blockquote>
 <div><p><a class="reference external" href="https://nostrumbiodiscovery.github.io/pele_platform/installation/index.html#test-it-works">https://nostrumbiodiscovery.github.io/pele_platform/installation/index.html#test-it-works</a></p>
 </div></blockquote>
+</div>
 </div>
 </div>
 </div>
@@ -249,15 +239,6 @@ and execute again</p>
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../intro/intro.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../index.html" class="btn btn-neutral float-left" title="PELE 1.6 documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

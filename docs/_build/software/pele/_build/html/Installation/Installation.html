@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Installation &#8212; PELE 1.6.0 documentation</title>
@@ -58,14 +58,34 @@
 <li><p>PELE Platform (Python features on top of the C++)</p></li>
 </ol>
 </div></blockquote>
+<div class="section" id="option-1-singularity-recommended">
+<h2>Option 1 - Singularity - (Recommended)<a class="headerlink" href="#option-1-singularity-recommended" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NostrumBioDiscovery/pele_platform.git
+
+<span class="nb">cd</span> pele_platform/singularity/
+
+bash create_pele_image.sh <span class="o">(</span>You will need acces to PELE dockerhub<span class="o">)</span>
+
+<span class="nb">cd</span> test/
+
+<span class="c1">#Change the licenses and folders inside singularity.sl (IT section)</span>
+
+bash singularity.sl  <span class="c1">#If not queue system</span>
+
+sbatch singularity.sl  <span class="c1">#If slurm queue system</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="option-2-manual">
+<h2>Option 2 - Manual<a class="headerlink" href="#option-2-manual" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="pele">
-<h2>PELE++<a class="headerlink" href="#pele" title="Permalink to this headline">¶</a></h2>
+<h3>PELE++<a class="headerlink" href="#pele" title="Permalink to this headline">¶</a></h3>
 <p>External Requirements: OpenMPI</p>
 <p>Send an e-mail to <a class="reference external" href="mailto:daniel&#46;soler&#37;&#52;&#48;nostrumbiodiscovery&#46;com">daniel<span>&#46;</span>soler<span>&#64;</span>nostrumbiodiscovery<span>&#46;</span>com</a> if you are interested on receiving the commercial software.
 After revision of your application, we will send you a form to fill in with your machine specifications.
 Then, you will recieve the PELE (pele.zip) binary containing the licenses to run and a test case to check the installation.</p>
 <div class="section" id="test-pele-installation">
-<h3>Test PELE installation<a class="headerlink" href="#test-pele-installation" title="Permalink to this headline">¶</a></h3>
+<h4>Test PELE installation<a class="headerlink" href="#test-pele-installation" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unzip PELE-1.6.zip
 tar -xvf PELE-1.6.tgz
 mv /path/to/pele_licenses PELE-1.6/licenses/
@@ -84,7 +104,7 @@ and execute again</p>
 </div>
 </div>
 <div class="section" id="peleplatform">
-<h2>PelePlatform<a class="headerlink" href="#peleplatform" title="Permalink to this headline">¶</a></h2>
+<h3>PelePlatform<a class="headerlink" href="#peleplatform" title="Permalink to this headline">¶</a></h3>
 <p>ExternalRequirements:</p>
 <blockquote>
 <div><ul class="simple">
@@ -96,10 +116,11 @@ and execute again</p>
 <div><p><a class="reference external" href="https://nostrumbiodiscovery.github.io/pele_platform/installation/index.html">https://nostrumbiodiscovery.github.io/pele_platform/installation/index.html</a></p>
 </div></blockquote>
 <div class="section" id="test-peleplatform-installation">
-<h3>Test PelePlatform installation<a class="headerlink" href="#test-peleplatform-installation" title="Permalink to this headline">¶</a></h3>
+<h4>Test PelePlatform installation<a class="headerlink" href="#test-peleplatform-installation" title="Permalink to this headline">¶</a></h4>
 <blockquote>
 <div><p><a class="reference external" href="https://nostrumbiodiscovery.github.io/pele_platform/installation/index.html#test-it-works">https://nostrumbiodiscovery.github.io/pele_platform/installation/index.html#test-it-works</a></p>
 </div></blockquote>
+</div>
 </div>
 </div>
 </div>
@@ -113,12 +134,16 @@ and execute again</p>
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#option-1-singularity-recommended">Option 1 - Singularity - (Recommended)</a></li>
+<li><a class="reference internal" href="#option-2-manual">Option 2 - Manual</a><ul>
 <li><a class="reference internal" href="#pele">PELE++</a><ul>
 <li><a class="reference internal" href="#test-pele-installation">Test PELE installation</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#peleplatform">PelePlatform</a><ul>
 <li><a class="reference internal" href="#test-peleplatform-installation">Test PelePlatform installation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -169,7 +194,7 @@ and execute again</p>
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.4.0.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.0.1.
     <a href="../index.html#license">License</a>.
     </div>
   </body>

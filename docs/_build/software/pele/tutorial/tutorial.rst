@@ -6,9 +6,6 @@ Contents:
 
 .. toctree::
   :maxdepth: 2
-  
-
-  
  
   RoRGamma/RoRGamma.rst
 
@@ -16,6 +13,4 @@ Contents:
 
   MgluR5/MgluR5.rst
 
-  Esterases/Esterases.rst
-
-  Lacasses/Lacasses.rst
+  PRNHR/PR.rst

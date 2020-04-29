@@ -35,9 +35,7 @@
   <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Esterase: Mutant design for cavity creation" href="../Esterases/Esterases.html" />
-    <link rel="prev" title="Hemagglutinin: Pocket Detection" href="../Hemagglutinin/Hemagglutinin.html" /> 
+    <link rel="search" title="Search" href="../../../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,31 +86,8 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../databases/index.html">Compound DataBases</a></li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Software</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../index.html#summary">Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../index.html#job-launching-templates">Job launching Templates</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html#pele">PELE</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../../documentation.html">PELE</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../../documentation.html#full-documentation">Full documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../documentation.html#compilation">Compilation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../documentation.html#tutorial">Tutorial</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../documentation.html#templates-for-launching">Templates for launching</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../documentation.html#templates-for-analysis">Templates for analysis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../documentation.html#create-licenses">Create licenses</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../peleplatform/documentation.html">PELE Platfom</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptive/documentation.html">AdaptivePELE</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../index.html#namd">NAMD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../index.html#schrodinger">Schrodinger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../index.html#python-packages">Python packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../index.html#nice-dcv">Nice DCV</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../index.html#tests">Tests</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Software</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../compute_power/index.html">IT infrastructure</a></li>
@@ -164,14 +139,6 @@
     
       <li><a href="../../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../index.html">Software</a> &raquo;</li>
-        
-          <li><a href="../../documentation.html">PELE</a> &raquo;</li>
-        
-          <li><a href="../../index.html">PELE 1.6 documentation</a> &raquo;</li>
-        
-          <li><a href="../tutorial.html">Tutorial</a> &raquo;</li>
-        
       <li>MgluR5: Pose Prediction on GPCRs</li>
     
     
@@ -195,7 +162,7 @@
 <h1>MgluR5: Pose Prediction on GPCRs<a class="headerlink" href="#mglur5-pose-prediction-on-gpcrs" title="Permalink to this headline">¶</a></h1>
 <p>Metabotropic glutamate receptors (mGluRs) are high-profile G-protein coupled receptors drug targets because of their involvement in several neurological disease states, and mGluR5 in particular is a subtype whose controlled allosteric modulation, both positive and negative, can potentially be useful for the treatment of schizophrenia and relief of chronic pain, respectively.</p>
 <div class="figure align-center" id="id1">
-<img alt="../../../../_images/system8.png" src="../../../../_images/system8.png" />
+<img alt="../../../../_images/system6.png" src="../../../../_images/system6.png" />
 <p class="caption"><span class="caption-text">MgluR5 system</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="objective">
@@ -204,18 +171,10 @@
 </div>
 <div class="section" id="preparation">
 <h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
-<p>To start the simulation we need complex, ligand, ligand parameters and the input controlfile.</p>
+<p>To start the simulation we need complex.pdb and input.yaml</p>
 <div class="section" id="receptor">
 <h3>Receptor<a class="headerlink" href="#receptor" title="Permalink to this headline">¶</a></h3>
 <p>PDB: 5cgc. The holo structure with the ligand crystal at the entrance of the GPCR was processed with Protein Preparation Wizard at pH 7.4 (Schrodinger).</p>
-</div>
-<div class="section" id="ligand">
-<h3>Ligand<a class="headerlink" href="#ligand" title="Permalink to this headline">¶</a></h3>
-<p>Calculate protonation state at pH 7.4±0.5 with the default OPLS2005 charges.</p>
-</div>
-<div class="section" id="template-of-ligand">
-<h3>Template of ligand<a class="headerlink" href="#template-of-ligand" title="Permalink to this headline">¶</a></h3>
-<p>Output a mae file only cointaining the ligand, then run that one through PlopRotTemp.py as explain <a class="reference external" href="../../intro/SystemPreparation/SystemPreparation.html#ligand-preparation">here</a> to obtain the parameters and rotamers of the ligand and place them on the DataLocal Folder as specified <a class="reference external" href="../../molecularParameters.html#adding-the-generated-template-and-rotamer-library-files-to-pele">here</a>.</p>
 </div>
 </div>
 <div class="section" id="procedure-adaptivepele-local-exploration">
@@ -232,43 +191,17 @@
 <div class="section" id="controlfile-specifics">
 <h3>ControlFile specifics<a class="headerlink" href="#controlfile-specifics" title="Permalink to this headline">¶</a></h3>
 <p>Special required parameters for this simulation are:</p>
-<div class="section" id="slight-bias-towards-the-orthosteric-site">
-<h4>Slight bias towards the orthosteric site<a class="headerlink" href="#slight-bias-towards-the-orthosteric-site" title="Permalink to this headline">¶</a></h4>
-<p>As we know these compunds should bing on a Class A GPCR fashion
-we will set a slight bias towards the orthosteric site.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;spawning&quot;</span> <span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;epsilon&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;reportFilename&quot;</span> <span class="p">:</span> <span class="s2">&quot;run_report&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;metricColumnInReport&quot;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-        <span class="nt">&quot;epsilon&quot;</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">,</span>
-        <span class="nt">&quot;T&quot;</span><span class="p">:</span><span class="mi">1000</span>
-<span class="p">},}</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">system</span><span class="p">:</span> <span class="s">&#39;5CGC_entrance.pdb&#39;</span> <span class="c1">#Input pdb with ligand-protein in the desired initial structure</span>
+<span class="nt">chain</span><span class="p">:</span> <span class="s">&#39;C&#39;</span> <span class="c1">#Ligand chain</span>
+<span class="nt">resname</span><span class="p">:</span> <span class="s">&#39;CGC&#39;</span> <span class="c1">#Ligand residue name</span>
+<span class="nt">box_radius</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30.0</span> <span class="c1">#Radius of the box to explore with PELE</span>
+<span class="nt">seed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12345</span> <span class="c1">#Seed of the job</span>
+<span class="nt">bias_sim</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span> <span class="c1">#This will create a bias the specified column of the report. IN thins case interaction energy</span>
+<span class="nt">bias_column</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span> <span class="c1">#Column of the report to make the bias to</span>
+<span class="nt">traj_name</span><span class="p">:</span> <span class="s">&#39;trajectory.xtc&#39;</span> <span class="c1">#Output files with xtc format and trajectory as name</span>
+<span class="nt">rmsd_pdb</span><span class="p">:</span> <span class="s">&#39;5CGC_native.pdb&#39;</span> <span class="c1">#At each PELE step generate the RMSD of the ligand in respect to the mentioned pdb</span>
+<span class="nt">cpus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span> <span class="c1">#Number of cpus. You will obtain as many trajectories as cpus-1</span>
 </pre></div>
-</div>
-</div>
-<div class="section" id="box-definition">
-<h4>Box definition<a class="headerlink" href="#box-definition" title="Permalink to this headline">¶</a></h4>
-<p>Since we hyphotesize the binding site is in between the TMs the box will contain the extracellular loops + the TM domain.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;Box&quot;</span><span class="p">:</span> <span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sphericalBox&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;radius&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
-   <span class="nt">&quot;fixedCenter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">-24.84</span><span class="p">,</span> <span class="mf">6.36</span><span class="p">,</span> <span class="mf">39.73</span><span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="distances-to-monitor">
-<h4>Distances to monitor<a class="headerlink" href="#distances-to-monitor" title="Permalink to this headline">¶</a></h4>
-<p>We monitor the RMSD to the native pose along the simulation</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;rmsd&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;Native&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;NOSTRUM/GPCRnew/5CGC/5CGC_native.pdb&quot;</span> <span class="p">},</span>
-      <span class="nt">&quot;selection&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;chains&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;C&quot;</span> <span class="p">]</span> <span class="p">}</span> <span class="p">},</span>
-      <span class="nt">&quot;includeHydrogens&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nt">&quot;doSuperposition&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nt">&quot;tag&quot;</span> <span class="p">:</span> <span class="s2">&quot;rmsd_lig&quot;</span>
- <span class="p">}</span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="results">
@@ -315,15 +248,6 @@ we will set a slight bias towards the orthosteric site.</p>
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../Esterases/Esterases.html" class="btn btn-neutral float-right" title="Esterase: Mutant design for cavity creation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../Hemagglutinin/Hemagglutinin.html" class="btn btn-neutral float-left" title="Hemagglutinin: Pocket Detection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

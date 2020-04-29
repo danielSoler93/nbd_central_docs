@@ -161,7 +161,7 @@
   <div class="section" id="metrics-block-in-pele-control-file">
 <span id="sec-metrictypes"></span><h1>Metrics block in Pele++ control file<a class="headerlink" href="#metrics-block-in-pele-control-file" title="Permalink to this headline">¶</a></h1>
 <p>Pele++ has different types of Metrics. Metrics are a type of Sensor,
-(see <a class="reference internal" href="Sensors.html#sec-sensors"><span class="std std-ref">Sensors</span></a>).</p>
+(see <a class="reference internal" href="../../software/pele/Sensors/Sensors.html#sec-sensors"><span class="std std-ref">Sensors</span></a>).</p>
 <p>In general a Metric declaration in the control file is comprised of
 three parts:</p>
 <ul class="simple">
@@ -169,7 +169,7 @@ three parts:</p>
 <li><p>The specific parameters for that type of Metric (each metric has its
 own parameters).</p></li>
 <li><p>A tag which is a name to identify the Metric in logical conditions
-(see <a class="reference internal" href="../LogicalConditions/ConditionsByExample.html#sec-conditionsbyexample"><span class="std std-ref">Conditions By Example</span></a>). The tag
+(see <a class="reference internal" href="../../software/pele/LogicalConditions/ConditionsByExample.html#sec-conditionsbyexample"><span class="std std-ref">Conditions By Example</span></a>). The tag
 cannot contain spaces. This part is optional; if present, it is used
 to identify the metric in the report file; otherwise, a generic
 description is used.</p></li>
@@ -271,12 +271,12 @@ list, check below.</p>
 their names and specific parameters.</p>
 <p>The currently available metrics are:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#sec-metrictypes-bindingenergy"><span class="std std-ref">Binding energy</span></a></p></li>
-<li><p><a class="reference internal" href="#sec-metrictypes-comdistance"><span class="std std-ref">Distance bewteen centers of mass</span></a></p></li>
-<li><p><a class="reference internal" href="#sec-metrictypes-sasa"><span class="std std-ref">SASA</span></a></p></li>
-<li><p><a class="reference internal" href="#sec-metrictypes-distancetopoint"><span class="std std-ref">Distance to point</span></a></p></li>
-<li><p><a class="reference internal" href="#sec-metrictypes-randomnumber"><span class="std std-ref">Random number</span></a></p></li>
-<li><p><a class="reference internal" href="#sec-metrictypes-rmsd"><span class="std std-ref">RMSD</span></a></p></li>
+<li><p><a class="reference internal" href="../../software/pele/Sensors/MetricTypes.html#sec-metrictypes-bindingenergy"><span class="std std-ref">Binding energy</span></a></p></li>
+<li><p><a class="reference internal" href="../../software/pele/Sensors/MetricTypes.html#sec-metrictypes-comdistance"><span class="std std-ref">Distance bewteen centers of mass</span></a></p></li>
+<li><p><a class="reference internal" href="../../software/pele/Sensors/MetricTypes.html#sec-metrictypes-sasa"><span class="std std-ref">SASA</span></a></p></li>
+<li><p><a class="reference internal" href="../../software/pele/Sensors/MetricTypes.html#sec-metrictypes-distancetopoint"><span class="std std-ref">Distance to point</span></a></p></li>
+<li><p><a class="reference internal" href="../../software/pele/Sensors/MetricTypes.html#sec-metrictypes-randomnumber"><span class="std std-ref">Random number</span></a></p></li>
+<li><p><a class="reference internal" href="../../software/pele/Sensors/MetricTypes.html#sec-metrictypes-rmsd"><span class="std std-ref">RMSD</span></a></p></li>
 </ul>
 <div class="section" id="binding-energy">
 <span id="sec-metrictypes-bindingenergy"></span><h3>Binding energy<a class="headerlink" href="#binding-energy" title="Permalink to this headline">¶</a></h3>
@@ -293,7 +293,7 @@ their names and specific parameters.</p>
 </div>
 <p>In this example, we are indicating that we want to compute the binding
 energy of the ligand “L”. The “boundPartSelection” parameter is a
-selection block, see <a class="reference internal" href="../Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a> to see different
+selection block, see <a class="reference internal" href="../../software/pele/Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a> to see different
 examples of selection blocks. The calculation is done by dividing the
 system into two parts: that selected by the “boundPartSelection”
 selection, and the rest. The “boundPartSelection” must be a single
@@ -305,7 +305,7 @@ to.</p>
 <span id="sec-metrictypes-comdistance"></span><h3>Distance between centers of mass<a class="headerlink" href="#distance-between-centers-of-mass" title="Permalink to this headline">¶</a></h3>
 <p>It computes the distance between the center of masses of two groups of
 atoms. Each group of atoms is defined by a selection block, see
-<a class="reference internal" href="../Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a> to see
+<a class="reference internal" href="../../software/pele/Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a> to see
 different examples of selection blocks.</p>
 <div class="section" id="id1">
 <h4>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
@@ -353,7 +353,7 @@ atoms.</p>
 <span id="sec-metrictypes-distancetopoint"></span><h3>Distance to point<a class="headerlink" href="#distance-to-point" title="Permalink to this headline">¶</a></h3>
 <p>It computes the distance from a fixed point to the center of mass of a
 group of atoms. The group of atoms is defined used a selection block,
-see <a class="reference internal" href="../Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a> to
+see <a class="reference internal" href="../../software/pele/Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a> to
 see different examples of selection blocks, whereas the point is given
 as a list of coordinates.</p>
 <div class="section" id="id3">
@@ -402,12 +402,12 @@ right.</p>
 <h4>Native<a class="headerlink" href="#native" title="Permalink to this headline">¶</a></h4>
 <p>A section with a “path” element with the path to the PDB file containing
 the native structure.</p>
-<p>See <a class="reference internal" href="#sec-metrictypes-rmsd-example1"><span class="std std-ref">example</span></a>.</p>
+<p>See <a class="reference internal" href="../../software/pele/Sensors/MetricTypes.html#sec-metrictypes-rmsd-example1"><span class="std std-ref">example</span></a>.</p>
 </div>
 <div class="section" id="selection">
 <h4>selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h4>
 <p>A selection of the atoms to use for doing the RMSD calculation (see
-<a class="reference internal" href="../Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a>).</p>
+<a class="reference internal" href="../../software/pele/Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a>).</p>
 <p>If the “doSuperposition” parameter is true, then an RMSD calculation
 with superposition is performed.</p>
 <p>If “includeHydrogens” is false, then only non-hydrogen atoms of the
@@ -418,13 +418,13 @@ residue name, residue sequence number and atom name in both the native
 and the non-native structure.</p>
 <p>It is an error to have an actual selection of no atoms (since at least
 one atom is needed for the metric calculation).</p>
-<p>See <a class="reference internal" href="#sec-metrictypes-rmsd-example2"><span class="std std-ref">example</span></a>.</p>
+<p>See <a class="reference internal" href="../../software/pele/Sensors/MetricTypes.html#sec-metrictypes-rmsd-example2"><span class="std std-ref">example</span></a>.</p>
 <p>Default value: all atoms comprise the selection.</p>
 </div>
 <div class="section" id="superpositionselection">
 <h4>superpositionSelection<a class="headerlink" href="#superpositionselection" title="Permalink to this headline">¶</a></h4>
 <p>A selection of the atoms to use for doing the superposition before doing
-the actual RMSD calculation (see <a class="reference internal" href="../Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a>).</p>
+the actual RMSD calculation (see <a class="reference internal" href="../../software/pele/Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a>).</p>
 <p>This parameter will only be used if the “doSuperposition” parameter is
 true.</p>
 <p>If “includeHydrogens” is false, then only non-hydrogen atoms of the
@@ -434,7 +434,7 @@ residue name, residue sequence number and atom name in both the native
 and the non-native structure.</p>
 <p>It is an error to have an actual superposition of less than 3 atoms
 (since otherwise there will be rotation ambiguity).</p>
-<p>See <a class="reference internal" href="#sec-metrictypes-rmsd-example2"><span class="std std-ref">example</span></a>.</p>
+<p>See <a class="reference internal" href="../../software/pele/Sensors/MetricTypes.html#sec-metrictypes-rmsd-example2"><span class="std std-ref">example</span></a>.</p>
 <p>Default value: the same atoms as in selection.</p>
 </div>
 <div class="section" id="dosuperposition">
@@ -446,7 +446,7 @@ the RMSD calculation and does not affect the simulation coordinates.</p>
 “includeHydrogens” is true) are used to perform the superposition;
 notice that, by default, “superpositionSelection” is the same as
 “selection”.</p>
-<p>See <a class="reference internal" href="#sec-metrictypes-rmsd-example3"><span class="std std-ref">example</span></a>.</p>
+<p>See <a class="reference internal" href="../../software/pele/Sensors/MetricTypes.html#sec-metrictypes-rmsd-example3"><span class="std std-ref">example</span></a>.</p>
 <p>Range: true or false</p>
 <p>Default value: true</p>
 </div>

@@ -160,20 +160,20 @@
             
   <div class="section" id="real-time-control-of-pele-simulations-experimental">
 <span id="sec-realtimecontrol"></span><h1>Real Time Control of PELE simulations (experimental)<a class="headerlink" href="#real-time-control-of-pele-simulations-experimental" title="Permalink to this headline">¶</a></h1>
-<p>This is an experimental feature to allow real time control of an already started PELE simulation, in a similar way to <a class="reference internal" href="PELEDynamicChangesInSimulationParameters/ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">Changeable Parameters</span></a>, but this time performing the change of parameters at the moment the user decides to issue the command. This feature is intended to be used indirectly by the user, with a middleware that will understand the user control commands and transform them into the low-level way of interacting with the PELE simulation.</p>
+<p>This is an experimental feature to allow real time control of an already started PELE simulation, in a similar way to <a class="reference internal" href="../software/pele/PELEDynamicChangesInSimulationParameters/ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">Changeable Parameters</span></a>, but this time performing the change of parameters at the moment the user decides to issue the command. This feature is intended to be used indirectly by the user, with a middleware that will understand the user control commands and transform them into the low-level way of interacting with the PELE simulation.</p>
 <p>This feature is currently only available for MPI simulations; in those cases, only PELE simulation commands can be executed.</p>
 <p>The following commands are available:</p>
 <ul class="simple">
 <li><p>PAUSE: Pause the simulation.</p></li>
 <li><p>RESUME: Resume a paused simulation.</p></li>
 <li><p>TERMINATE: Terminate a simulation.</p></li>
-<li><p>CHANGE_PARAMETERS: Change simulation parameters (the same that can be changed in <a class="reference internal" href="PELEDynamicChangesInSimulationParameters/ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">Changeable Parameters</span></a>).</p></li>
+<li><p>CHANGE_PARAMETERS: Change simulation parameters (the same that can be changed in <a class="reference internal" href="../software/pele/PELEDynamicChangesInSimulationParameters/ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">Changeable Parameters</span></a>).</p></li>
 <li><p>NOOP: No-operation (command without effect).</p></li>
 </ul>
 <p>To use real time control of a PELE simulation, you must enable this through the control file. Then, you must write commands to the command input file, while you can see how the commands are processed at the command output file.</p>
 <div class="section" id="configure-real-time-control-of-a-pele-simulation">
 <h2>Configure real time control of a PELE simulation<a class="headerlink" href="#configure-real-time-control-of-a-pele-simulation" title="Permalink to this headline">¶</a></h2>
-<p>To enable real time control of a PELE simulation, you must add the <code class="docutils literal notranslate"><span class="pre">commandFilePath</span></code> and <code class="docutils literal notranslate"><span class="pre">commandOutputFilePath</span></code> configuration variables to the top level of the control file (see <a class="reference internal" href="GeneralStructure/GeneralStructure.html#sec-generalstructure-commandfilepath"><span class="std std-ref">commandFilePath</span></a> and <a class="reference internal" href="GeneralStructure/GeneralStructure.html#sec-generalstructure-commandoutputfilepath"><span class="std std-ref">commandOutputFilePath</span></a>).</p>
+<p>To enable real time control of a PELE simulation, you must add the <code class="docutils literal notranslate"><span class="pre">commandFilePath</span></code> and <code class="docutils literal notranslate"><span class="pre">commandOutputFilePath</span></code> configuration variables to the top level of the control file (see <a class="reference internal" href="../software/pele/GeneralStructure/GeneralStructure.html#sec-generalstructure-commandfilepath"><span class="std std-ref">commandFilePath</span></a> and <a class="reference internal" href="../software/pele/GeneralStructure/GeneralStructure.html#sec-generalstructure-commandoutputfilepath"><span class="std std-ref">commandOutputFilePath</span></a>).</p>
 <p>For example:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
  &quot;commandFilePath&quot;: &quot;commands.txt&quot;,
@@ -197,7 +197,7 @@
 <ul class="simple">
 <li><p>commandId: A numeric identifier to match command output in the <code class="docutils literal notranslate"><span class="pre">commandOutputFilePath</span></code> to a given input command.</p></li>
 <li><p>commandType: The type of command. One of the allowed ones (see above, in the introduction section).</p></li>
-<li><p>commandData: The actual contents of the command, as a string. It will contain a JSON object (codified as a string, so quote symbols must be escaped, and backslashes also must be escaped). It will contain a set of parameter change instructions, as in <a class="reference internal" href="PELEDynamicChangesInSimulationParameters/ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">Changeable Parameters</span></a>.</p></li>
+<li><p>commandData: The actual contents of the command, as a string. It will contain a JSON object (codified as a string, so quote symbols must be escaped, and backslashes also must be escaped). It will contain a set of parameter change instructions, as in <a class="reference internal" href="../software/pele/PELEDynamicChangesInSimulationParameters/ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">Changeable Parameters</span></a>.</p></li>
 </ul>
 <p>A PELE simulation, regarding real time control, can be in one of two states:</p>
 <ul class="simple">

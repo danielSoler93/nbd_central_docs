@@ -35,9 +35,7 @@
   <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="MgluR5: Pose Prediction on GPCRs" href="../MgluR5/MgluR5.html" />
-    <link rel="prev" title="RoRγ: Dissociation Pathway to guide unbiased binding simulation" href="../RoRGamma/RoRGamma.html" /> 
+    <link rel="search" title="Search" href="../../../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,31 +86,8 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../databases/index.html">Compound DataBases</a></li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Software</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../index.html#summary">Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../index.html#job-launching-templates">Job launching Templates</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html#pele">PELE</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../../documentation.html">PELE</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../../documentation.html#full-documentation">Full documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../documentation.html#compilation">Compilation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../documentation.html#tutorial">Tutorial</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../documentation.html#templates-for-launching">Templates for launching</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../documentation.html#templates-for-analysis">Templates for analysis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../documentation.html#create-licenses">Create licenses</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../peleplatform/documentation.html">PELE Platfom</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptive/documentation.html">AdaptivePELE</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../index.html#namd">NAMD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../index.html#schrodinger">Schrodinger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../index.html#python-packages">Python packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../index.html#nice-dcv">Nice DCV</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../index.html#tests">Tests</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Software</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../compute_power/index.html">IT infrastructure</a></li>
@@ -164,14 +139,6 @@
     
       <li><a href="../../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../index.html">Software</a> &raquo;</li>
-        
-          <li><a href="../../documentation.html">PELE</a> &raquo;</li>
-        
-          <li><a href="../../index.html">PELE 1.6 documentation</a> &raquo;</li>
-        
-          <li><a href="../tutorial.html">Tutorial</a> &raquo;</li>
-        
       <li>Hemagglutinin: Pocket Detection</li>
     
     
@@ -195,9 +162,9 @@
 <h1>Hemagglutinin: Pocket Detection<a class="headerlink" href="#hemagglutinin-pocket-detection" title="Permalink to this headline">¶</a></h1>
 <p>3- Flu hemagglutinin: It is one of the two proteins found on the surface of the influenza viruses. Hemagglutinin A (HA) is an antigenic glycoprotein assembled as a homo-trimer of identical subunits that are formed of two disulfide-linked polypeptides: membrane-distal HA1 and the smaller, membrane-proximal, HA2. HA is responsible for host cell binding and subsequent fusion of viral and host membranes in the endosome after the virus has been taken up by endocytosis.</p>
 <p>Cyclic and linear inhibitors that bind to the surface of hemagglutinin have been identified. Structural information on the antibody-bound target is also available (Fig. 1).</p>
-<div class="figure align-center" id="id3">
-<img alt="../../../../_images/system6.png" src="../../../../_images/system6.png" />
-<p class="caption"><span class="caption-text">Hemagglutinin system</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<div class="figure align-center" id="id1">
+<img alt="../../../../_images/system5.png" src="../../../../_images/system5.png" />
+<p class="caption"><span class="caption-text">Hemagglutinin system</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="objective">
 <h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
@@ -210,17 +177,9 @@
 <p>5W6T processed with Protein Preparation Wizard (Schrodinger).
 Of note, no crystal structure of the protein with JNJ4796 bound is available in the pdb, so the reference interactions were defined in terms of distance to the residues that are pictured in Fig 1.</p>
 </div>
-<div class="section" id="ligand">
-<h3>Ligand<a class="headerlink" href="#ligand" title="Permalink to this headline">¶</a></h3>
-<p>Processed with LigPrep. Calculate protonation state at pH 7.4±0.5 + ESP charges obtained with Jaguar single-point (DFT/M06) calculation. Of note, the C-ring is predicted to be neutral.</p>
 </div>
-<div class="section" id="template-of-ligand">
-<h3>Template of ligand<a class="headerlink" href="#template-of-ligand" title="Permalink to this headline">¶</a></h3>
-<p>Output a mae file only cointaining the ligand, then run that one through PlopRotTemp.py as explain <a class="reference external" href="../../intro/SystemPreparation/SystemPreparation.html#ligand-preparation">here</a> to obtain the parameters and rotamers of the ligand and place them on the DataLocal Folder as specified <a class="reference external" href="../../molecularParameters.html#adding-the-generated-template-and-rotamer-library-files-to-pele">here</a>.</p>
-</div>
-</div>
-<div class="section" id="procedure-part1-pele-global-exploration">
-<h2>Procedure-Part1: PELE Global Exploration<a class="headerlink" href="#procedure-part1-pele-global-exploration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="procedure-pele-global-exploration">
+<h2>Procedure: PELE Global Exploration<a class="headerlink" href="#procedure-pele-global-exploration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="main-simulation-characteristics">
 <h3>Main simulation characteristics<a class="headerlink" href="#main-simulation-characteristics" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -231,145 +190,27 @@ Of note, no crystal structure of the protein with JNJ4796 bound is available in 
 <li><p>Processors: 250</p></li>
 <li><p>Compute time: 12-15h</p></li>
 </ul>
-<div class="figure align-center" id="id4">
-<img alt="../../../../_images/initial_poses1.png" src="../../../../_images/initial_poses1.png" />
-<p class="caption"><span class="caption-text">Initial poses for AdaptivePELE</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
 </div>
 <div class="section" id="controlfile-specifics">
 <h3>ControlFile specifics<a class="headerlink" href="#controlfile-specifics" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="generalparams">
-<h4>generalParams<a class="headerlink" href="#generalparams" title="Permalink to this headline">¶</a></h4>
-<p>The initial complexes must all be around the protein surface as in Figure 2.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="nt">&quot;generalParams&quot;</span> <span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;restart&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="nt">&quot;debug&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="nt">&quot;outputPath&quot;</span><span class="p">:</span><span class="s2">&quot;output_40initial_VG&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;initialStructures&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;GlobalExp_JNJ_5W6T_40_initial/input1.pdb&quot;</span><span class="p">,</span> <span class="s2">&quot;GlobalExp_JNJ_5W6T_40_initial/input2.pdb&quot;</span><span class="p">,</span> <span class="s2">&quot;GlobalExp_JNJ_5W6T_40_initial/input3.pdb&quot;</span><span class="p">,</span> <span class="s2">&quot;GlobalExp_JNJ_5W6T_40_initial/input4.pdb&quot;</span><span class="p">,</span> <span class="s2">&quot;GlobalExp_JNJ_5W6T_40_initial/input40.pdb&quot;</span> <span class="p">],</span>
-    <span class="nt">&quot;writeAllClusteringStructures&quot;</span><span class="p">:</span> <span class="kc">false</span>
-<span class="p">},</span>
-<span class="p">}</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">system</span><span class="p">:</span> <span class="s">&#39;input_0.pdb&#39;</span> <span class="c1">#Input ligand-protein pdb</span>
+<span class="nt">chain</span><span class="p">:</span> <span class="s">&#39;L&#39;</span> <span class="c1">#Ligand chain name</span>
+<span class="nt">resname</span><span class="p">:</span> <span class="s">&#39;JNJ&#39;</span> <span class="c1">#Ligand residue name</span>
+<span class="nt">seed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12345</span>
+<span class="nt">ppi</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span> <span class="c1">#Run a global exploration + clustering + inducedfit</span>
+<span class="nt">cpus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span> <span class="c1">#Number of cpus</span>
+<span class="nt">atom_dist</span><span class="p">:</span> <span class="c1">#Check the distance between this atoms</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">L:1:O3</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">A:315:CA</span>
 </pre></div>
-</div>
-</div>
-<div class="section" id="spawning">
-<h4>spawning<a class="headerlink" href="#spawning" title="Permalink to this headline">¶</a></h4>
-<p>With the InverselyProportional type,  the next iteration of PELE will start from the less represented clusters. Together with continuos density which assigns increasing densities for an increasing number of contacts, <strong>we will emphasize unexplored areas with high numbers of contacts</strong>.  Finally, set the temperature to 1000 to have a standard Monte Carlo acceptance of 30-40%.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;inverselyProportional&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;reportFilename&quot;</span> <span class="p">:</span> <span class="s2">&quot;run_report&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;T&quot;</span><span class="p">:</span><span class="mi">1000</span>
-    <span class="s2">&quot;density&quot;</span> <span class="p">:{</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;continuous&quot;</span>
-    <span class="p">}</span>
-<span class="p">},</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="simulation">
-<h4>simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h4>
-<p>Set a long simulation (iterations:100)  with just a few pele steps per iteration (peleSteps: 4). As we are not interested in an induce fit (many more steps) but in jumping from one area to the other as fast as possible to explore the complete energy landscape. Set a large number of processors (processors: 250) to ensure enough exploration.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;simulation&quot;</span><span class="p">:</span> <span class="p">{</span>
-
-    <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;iterations&quot;</span> <span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-        <span class="nt">&quot;peleSteps&quot;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-        <span class="nt">&quot;processors&quot;</span> <span class="p">:</span> <span class="mi">250</span><span class="p">,</span>
-         <span class="nt">&quot;seed&quot;</span><span class="p">:</span> <span class="mi">123456</span><span class="p">,</span>
-        <span class="nt">&quot;controlFile&quot;</span> <span class="p">:</span> <span class="s2">&quot;./pele_VG.conf&quot;</span>
-    <span class="p">}},}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="clustering">
-<h4>clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h4>
-<p>In that paragraph of the control file we need to pay attention to the values and conditions of the cluster. We want to have a big value of rmsd for low contacts (values [10] when conditions between [0.0-0.6]), a fairly generous rmsd when having some contacts (values [5] when  conditions between [0.6-1]), and a low rmsd when having many contacts (values [2.5] when conditions &gt;1]. This means that we will have less but bigger clusters at the areas with no contacts and many  more at the areas with high number of contacts.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="nt">&quot;clustering&quot;</span> <span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;rmsd&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
-       <span class="nt">&quot;ligandResname&quot;</span> <span class="p">:</span> <span class="s2">&quot;JNJ&quot;</span><span class="p">,</span>
-       <span class="nt">&quot;contactThresholdDistance&quot;</span> <span class="p">:</span> <span class="mi">8</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;thresholdCalculator&quot;</span> <span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;heaviside&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
-          <span class="nt">&quot;values&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
-          <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="results">
 <h3>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
-<p>The energy profile for this initial induced-fit exploration on the whole of the surface of hamagglutinin is found in Fig. 4. As it can be seen, the exploration generates 7 minima, with one of them (point 1) being quite close (ca. 2 Angstroms) to T318. That is, the initial exploration locates the binding site as one of the probable hotspots on the surface of hemagglutinin.</p>
-<div class="figure align-center" id="id5">
-<img alt="../../../../_images/plot_global1.png" src="../../../../_images/plot_global1.png" />
-<p class="caption"><span class="caption-text">Binding energy plot against distance to T318 (one of the key residues anchoring JNJ4796.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
-<p>The 7 minima highlighted in Figure 3, which are far apart from one another, were then subjected to a second round of PELE simulations, now in local exploration mode (Fig. 4)</p>
-<div class="figure align-center" id="id6">
-<img alt="../../../../_images/input_local1.png" src="../../../../_images/input_local1.png" />
-<p class="caption"><span class="caption-text">Global expoloration minimas &amp; local exploration inputs</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
-<div class="section" id="procedure-part2-pele-induced-fit">
-<h2>Procedure-Part2: PELE Induced Fit<a class="headerlink" href="#procedure-part2-pele-induced-fit" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="main-charachteristic-of-the-simulation">
-<h3>Main Charachteristic of the simulation<a class="headerlink" href="#main-charachteristic-of-the-simulation" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Spawning type: “InverselyProportional”. Emphasize clusters with low representation</p></li>
-<li><p>Iterations: 4</p></li>
-<li><p>PeleSteps: 10. High number of steps per iteration to have enough conformational sampling</p></li>
-<li><p>Processors: 175</p></li>
-<li><p>Computate time: 1h</p></li>
-</ul>
-</div>
-<div class="section" id="id1">
-<h3>ControlFile Specifics<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="ligand-perturbation">
-<h4>Ligand Perturbation<a class="headerlink" href="#ligand-perturbation" title="Permalink to this headline">¶</a></h4>
-<p>Small rotations (0.05, 0.1 radians) and small translations [0.5-1A] with a medium number of trials to find the best energy direction.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;ifAnyIsTrue&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;rand1 &gt;= 0.5&quot;</span> <span class="p">],</span>
-    <span class="nt">&quot;doThesechanges&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;Perturbation::parameters&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;rotationScalingFactor&quot;</span><span class="p">:</span> <span class="mf">0.05</span> <span class="p">}</span> <span class="p">},</span>
-    <span class="nt">&quot;otherwise&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;Perturbation::parameters&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;rotationScalingFactor&quot;</span><span class="p">:</span> <span class="mf">0.1</span> <span class="p">}</span> <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;ifAnyIsTrue&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;rand1 &gt;= 0.5&quot;</span> <span class="p">],</span>
-     <span class="nt">&quot;doThesechanges&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;Perturbation::parameters&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;translationRange&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nt">&quot;numberOfTrials&quot;</span> <span class="p">:</span> <span class="mi">8</span> <span class="p">}</span> <span class="p">},</span>
-     <span class="nt">&quot;otherwise&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;Perturbation::parameters&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;translationRange&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="nt">&quot;numberOfTrials&quot;</span> <span class="p">:</span> <span class="mi">8</span> <span class="p">}</span> <span class="p">}</span>
- <span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="sidechain-sampling">
-<h4>SideChain Sampling<a class="headerlink" href="#sidechain-sampling" title="Permalink to this headline">¶</a></h4>
-<p>High number of steric trials to improve the probability of finding a better induced fit pose</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;numberOfStericTrials&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-    <span class="nt">&quot;steeringUpdateFrequency&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="nt">&quot;overlapFactor&quot;</span><span class="p">:</span> <span class="mf">0.65</span>
-<span class="p">},</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="id2">
-<h3>Results<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>The energy profile for the refinement of the 7 poses can be found in Fig. 5. The two lowest energy minima are highlighted. The lowest energy pose with an H-bond to T318 (Fig. 6) is the one with the lowest interaction energy (-50 kcal/mol) as predicted by PELE (Fig. 5). This pose is very close to the binding mode described by Kadam et al., 2017.</p>
-<div class="figure align-center" id="id7">
+<div class="figure align-center" id="id2">
 <img alt="../../../../_images/result_local1.png" src="../../../../_images/result_local1.png" />
-<p class="caption"><span class="caption-text">Binding energy plot against distance to T318 (one of the key residues anchoring JNJ4796) for the 7 poses generated with the initial global exploration. The two minima which are highlighted with green and cyan circles are the ones represented in Fig. 7 below.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Binding energy plot against distance to T318 (one of the key residues anchoring JNJ4796) for the 7 poses generated with the initial global exploration. The two minima which are highlighted with green and cyan circles are the ones represented in Fig. 7 below.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center">
 <img alt="../../../../_images/poses_local1.png" src="../../../../_images/poses_local1.png" />
@@ -383,15 +224,6 @@ Of note, no crystal structure of the protein with JNJ4796 bound is available in 
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../MgluR5/MgluR5.html" class="btn btn-neutral float-right" title="MgluR5: Pose Prediction on GPCRs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../RoRGamma/RoRGamma.html" class="btn btn-neutral float-left" title="RoRγ: Dissociation Pathway to guide unbiased binding simulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

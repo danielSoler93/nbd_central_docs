@@ -160,12 +160,12 @@
             
   <div class="section" id="pca-for-the-perturbation-phase-of-pele">
 <span id="sec-pca"></span><h1>PCA for the perturbation phase of PELE<a class="headerlink" href="#pca-for-the-perturbation-phase-of-pele" title="Permalink to this headline">¶</a></h1>
-<p>You can do a PCA (Principal Component Analysis) of a set of structures, so that the eigenvalues and eigenvectors representing the principal components of the variation in the conformation of the macromolecular structure in the set can be used as the eigenvalues and eigenvectors directing the perturbation moves for the macromolecule in PELE (see <a class="reference internal" href="ANM/Anm.html#sec-anm"><span class="std std-ref">ANM Block in Pele++ control file</span></a>).</p>
+<p>You can do a PCA (Principal Component Analysis) of a set of structures, so that the eigenvalues and eigenvectors representing the principal components of the variation in the conformation of the macromolecular structure in the set can be used as the eigenvalues and eigenvectors directing the perturbation moves for the macromolecule in PELE (see <a class="reference internal" href="../software/pele/ANM/Anm.html#sec-anm"><span class="std std-ref">ANM Block in Pele++ control file</span></a>).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>When running the script, you input PDB files may be modified, since they are rewritten in a PDB format consistent to that used by ProDy, and the HIE and HID residues are renamed as HIS residues.</p>
 </div>
-<p>To do so, you need an NMD file (see <a class="reference internal" href="fileFormats.html#sec-fileformats-nmd"><span class="std std-ref">Normal modes file format (NMD)</span></a>) codifying the eigenvalues and eigenvectors. To ease the generation of this file, you can use the script <code class="file docutils literal notranslate"><span class="pre">scripts/pca/calculatePCA4PELE.py</span></code>, which has been provided by Christoph Grebner, from AstraZeneca. You will need Python 2.7 installed, with the ProDy Python package also installed (<a class="reference external" href="http://prody.csb.pitt.edu/index.html">http://prody.csb.pitt.edu/index.html</a>).</p>
+<p>To do so, you need an NMD file (see <a class="reference internal" href="../software/pele/fileFormats.html#sec-fileformats-nmd"><span class="std std-ref">Normal modes file format (NMD)</span></a>) codifying the eigenvalues and eigenvectors. To ease the generation of this file, you can use the script <code class="file docutils literal notranslate"><span class="pre">scripts/pca/calculatePCA4PELE.py</span></code>, which has been provided by Christoph Grebner, from AstraZeneca. You will need Python 2.7 installed, with the ProDy Python package also installed (<a class="reference external" href="http://prody.csb.pitt.edu/index.html">http://prody.csb.pitt.edu/index.html</a>).</p>
 <p>To see how to use the script, you will perform some calculations with the data in <code class="file docutils literal notranslate"><span class="pre">samples/aspirin/</span></code>. This example contains a subdirectory <code class="file docutils literal notranslate"><span class="pre">normalModes/</span></code>, with a generated trajectory from which to do the PCA study.</p>
 <p>Go to that directory, and run the <strong class="program">calculatePCA4PELE.py</strong> script:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> samples/aspirin/normalModes
@@ -196,7 +196,7 @@
 </pre></div>
 </div>
 <p>You will observe the report and trajectory generated under the <code class="file docutils literal notranslate"><span class="pre">results/</span></code> subdirectory (you must previously create it if it doesn’t exist).</p>
-<p>For more information on how to configure the control file of PELE to include precalculated normal modes, see <a class="reference internal" href="ANM/Anm.html#sec-anm-preloadedmodesin"><span class="std std-ref">preloadedModesIn</span></a>.</p>
+<p>For more information on how to configure the control file of PELE to include precalculated normal modes, see <a class="reference internal" href="../software/pele/ANM/Anm.html#sec-anm-preloadedmodesin"><span class="std std-ref">preloadedModesIn</span></a>.</p>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python /path/to/scripts/pca/calculatePCA4PELE.py --help

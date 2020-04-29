@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>RoRγ: Dissociation Pathway to guide unbiased binding simulation &#8212; PELE 1.6.0 documentation</title>
@@ -56,9 +56,9 @@
 <dt>The Retinoic-acid related-orphan-receptor-C (RORC or RORγ) belongs to the nuclear hormone receptor (NHR) superfamily. It plays a fundamental role in the maturation of IL-17 producing Th17 cells is thus an attractive target for a variety of autoimmune diseases such as psoriasis and rheumatoid arthritis. RORγ features a multidomain structure characterized by an N-terminal DNA binding domain (DBD) and a C-terminal ligand-binding domain (LBD) capable of binding ligands and recruiting co-activator or co-repressor proteins. The LBD is a compact globular structure rich in α-helices. Its ligand-binding site is located deeply at the core of the domain. Inspection of all co-crystal structures does not reveal an obvious entry path into this deep buried site. An interesting and unresolved question remains related to how compounds active on RORγ-LBD</dt><dd><p>diffuse in and out of the binding site, which is at the core of the LBD.</p>
 </dd>
 </dl>
-<div class="figure align-center" id="id5">
-<img alt="../../_images/system4.png" src="../../_images/system4.png" />
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">RoRγ system</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/system2.png" src="../../_images/system2.png" />
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">RoRγ system</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="objective">
 <h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
@@ -66,18 +66,10 @@
 </div>
 <div class="section" id="preparation">
 <h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
-<p>To start the simulation, we need the complex, the ligand, the ligand parameters, and the input control file.</p>
+<p>To start the simulation, we need the complex.pdb an the input.yaml</p>
 <div class="section" id="receptor">
 <h3>Receptor<a class="headerlink" href="#receptor" title="Permalink to this headline">¶</a></h3>
 <p>Process the protein complex (PDB id: 5VB7) with Protein Preparation Wizard (Schrodinger Program Suite) at pH 7.4 ± 0.5 to assign the protonation state to all ionizable residue as well as optimize the H-bond network.</p>
-</div>
-<div class="section" id="ligand">
-<h3>Ligand<a class="headerlink" href="#ligand" title="Permalink to this headline">¶</a></h3>
-<p>Process with LigPrep module in Schrodinger Program Suite to assign protonation state at pH 7.4 ± 0.5 and tautomerization of the molecule. ESP charges is obtained from single-point calculation at MO6/6-31G** level of theory calculation within Jaguar software.</p>
-</div>
-<div class="section" id="template-of-ligand">
-<h3>Template of ligand<a class="headerlink" href="#template-of-ligand" title="Permalink to this headline">¶</a></h3>
-<p>Output a mae file that cointains the ligand only, then run that one through PlopRotTemp.py as explain <a class="reference external" href="../../intro/SystemPreparation/SystemPreparation.html#ligand-preparation">here</a> to obtain the parameters and rotamers of the ligand and place them in the DataLocal Folder as specified <a class="reference external" href="../../molecularParameters.html#adding-the-generated-template-and-rotamer-library-files-to-pele">here</a>.</p>
 </div>
 </div>
 <div class="section" id="procedure-part-1-pele-exit-path">
@@ -91,87 +83,29 @@
 <li><p>Compute time: 1-2 hours</p></li>
 </ul>
 </div>
-<div class="section" id="controlfile-specifics">
-<h3>ControlFile specifics<a class="headerlink" href="#controlfile-specifics" title="Permalink to this headline">¶</a></h3>
-<p>Special required parameters for exit simulation are:</p>
-<div class="section" id="unbinding-mode-and-exit-condition">
-<h4>Unbinding Mode and Exit Condition<a class="headerlink" href="#unbinding-mode-and-exit-condition" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="nt">&quot;simulation&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;pele&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;iterations&quot;</span> <span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
-        <span class="nt">&quot;processors&quot;</span> <span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-        <span class="nt">&quot;peleSteps&quot;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-        <span class="nt">&quot;seed&quot;</span><span class="p">:</span> <span class="mi">67890</span><span class="p">,</span>
-        <span class="nt">&quot;controlFile&quot;</span> <span class="p">:</span> <span class="s2">&quot;pele.conf&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;runEquilibration&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nt">&quot;modeMovingBox&quot;</span> <span class="p">:</span> <span class="s2">&quot;unbinding&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;exitCondition&quot;</span> <span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;metricMultipleTrajectories&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;metricCol&quot;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-                <span class="nt">&quot;exitValue&quot;</span> <span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
-                <span class="nt">&quot;condition&quot;</span> <span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;numberTrajectories&quot;</span> <span class="p">:</span> <span class="mi">5</span>
-<span class="p">}}}},</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Where:</p>
-<p>“runEquilibration”: true is a keyword to run equilibration before  starting the exit simulation by means of a short minimization involving all the residues and sidechain within 4 Å from the ligand.</p>
-<p>“modeMovingBox” : “unbinding” is a keyword to define a type of “box” as unbinding type. This “box” is defined to limit ligand perturbation within 7 Å from the center-of-mass of the ligand and is dynamically moved along the ligand path during exit simulation.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="nt">&quot;exitCondition&quot;</span> <span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;metricMultipleTrajectories&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;metricCol&quot;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-      <span class="nt">&quot;exitValue&quot;</span> <span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
-      <span class="nt">&quot;condition&quot;</span> <span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;numberTrajectories&quot;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
-      <span class="p">},</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>These parameters define the exit condition: where to stop the simulation if at least 5 trajectories (“numberTrajectories”: 5) have the SASA value of ligand more than 0.9 (metricCol” : 6 defined as the matrix column number 6 in the “pele.cof”, “conditiodn” : “&gt;”, “exitValue” : 0.9).</p>
-</div>
-<div class="section" id="clutering">
-<h4>Clutering<a class="headerlink" href="#clutering" title="Permalink to this headline">¶</a></h4>
-<p>We set the parameter “alternativeStructure” to true to start from
-multiple different conformations of the same cluster and not only the
-representative one.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
-           <span class="nt">&quot;alternativeStructure&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-           <span class="nt">&quot;ligandResname&quot;</span> <span class="p">:</span> <span class="s2">&quot;AGO&quot;</span><span class="p">,</span>
-           <span class="nt">&quot;contactThresholdDistance&quot;</span> <span class="p">:</span> <span class="mi">8</span>
-       <span class="p">},}</span>
+<div class="section" id="control-file-specifics">
+<h3>Control File Specifics<a class="headerlink" href="#control-file-specifics" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">system</span><span class="p">:</span> <span class="s">&#39;5vb7_prw.pdb&#39;</span> <span class="c1"># Complex input</span>
+<span class="nt">chain</span><span class="p">:</span> <span class="s">&#39;Z&#39;</span> <span class="c1">#Ligand chain</span>
+<span class="nt">resname</span><span class="p">:</span> <span class="s">&#39;AGO&#39;</span> <span class="c1">#Ligand resname</span>
+<span class="nt">seed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12345</span> <span class="c1">#Seed</span>
+<span class="nt">in_out</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span> <span class="c1">#  This will set the box on the COM of the ligand and make small succesive simulations that start from the outputs with biggest SASA of the previous simulation</span>
+<span class="nt">cpus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span> <span class="c1">#Number of CPUS. You will obtain cpus-1 montecarlo trajectories</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="metrics">
-<h4>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h4>
-<p>Distance between the atoms of the important residue HID479:NE2 and the ligand O2 is tracked.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="nt">&quot;metrics&quot;</span> <span class="p">:</span> <span class="p">[</span>
-<span class="p">{</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;com_distance&quot;</span><span class="p">,</span>
-<span class="nt">&quot;selection_group_1&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;atoms&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A:479:_NE2&quot;</span><span class="p">]</span> <span class="p">}</span> <span class="p">},</span>
-<span class="nt">&quot;selection_group_2&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;atoms&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;L:602:_O2_&quot;</span><span class="p">]</span> <span class="p">}</span> <span class="p">},</span>
-<span class="nt">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;distance&quot;</span>
-<span class="p">},</span>
-<span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
+<div class="section" id="launch-command">
+<h3>Launch Command<a class="headerlink" href="#launch-command" title="Permalink to this headline">¶</a></h3>
+<p>python -m pele_platform.main input.yaml</p>
 </div>
 <div class="section" id="results">
 <h3>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="exit-plot">
 <h4>Exit Plot<a class="headerlink" href="#exit-plot" title="Permalink to this headline">¶</a></h4>
 <p>To monitor the exit path we plot the SASA vs the number of steps</p>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id2">
 <img alt="../../_images/exit_plot.png" src="../../_images/exit_plot.png" />
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Plot of Pele steps (X-axis) SASA (Y-axis) and Binding Energy (Z-axis).</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Plot of Pele steps (X-axis) SASA (Y-axis) and Binding Energy (Z-axis).</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="important-residues-in-exit-path">
@@ -179,81 +113,9 @@ representative one.</p>
 <p>To map the residues movement along the ligand exit pathway from the trajectory
 make the movie as described <a class="reference external" href="../../intro/AdaptiveMethodology/GeneralAnalysis/GeneralAnalysis.html#extract-the-movie-of-your-best-snapshot">here</a> and plot all the residues close to the ligand of all snapshots together to see their fluctuation as seen in the Figure below.</p>
 <p>To map the movement of residues along the ligand exit pathway, make a movie as described <a class="reference external" href="../../intro/AdaptiveMethodology/GeneralAnalysis/GeneralAnalysis.html#extract-the-movie-of-your-best-snapshot">here</a> and display all the residues close to the ligand in one Figure to see their fluctuations (see below).</p>
-<div class="figure align-center" id="id7">
+<div class="figure align-center" id="id3">
 <img alt="../../_images/exit_path.png" src="../../_images/exit_path.png" />
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">The important residues along the dissociation pathway.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="procedure-part-2-pele-entrance-path">
-<h2>Procedure-Part 2: PELE Entrance Path<a class="headerlink" href="#procedure-part-2-pele-entrance-path" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>Main characteristics of the simulation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Manually placed the ligand near the exit path</p></li>
-<li><p>Medium box containing the entry of the pocket and binding site</p></li>
-<li><p>Processors: 250 processors</p></li>
-<li><p>Compute time: 15 hours</p></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3>ControlFile specifics<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p>Special required parameters for exit simulation are:</p>
-<div class="section" id="box-definition">
-<h4>Box definition<a class="headerlink" href="#box-definition" title="Permalink to this headline">¶</a></h4>
-<p>We will set a small box containing entrance path and binding site</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="nt">&quot;Perturbation&quot;</span><span class="p">:</span> <span class="p">{</span>
-           <span class="nt">&quot;Box&quot;</span> <span class="p">:</span> <span class="p">{</span>
-                     <span class="nt">&quot;radius&quot;</span> <span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
-                      <span class="nt">&quot;fixedCenter&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">-1.709</span><span class="p">,</span> <span class="mf">22.433</span><span class="p">,</span> <span class="mf">10.093</span><span class="p">],</span>
-       <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;sphericalBox&quot;</span>
-    <span class="p">},</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="clustering-well-set">
-<h4>Clustering well set<a class="headerlink" href="#clustering-well-set" title="Permalink to this headline">¶</a></h4>
-<p>We must adjust the clustering accordingly to our system looking at the epoch/clustering(summary_clustering.txt) file.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
-
-    <span class="nt">&quot;values&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
-
-    <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
-
-  <span class="p">},}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id3">
-<h4>Metrics<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<p>RMSD to the native pose</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;rmsd&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;Native&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/gpfs/scratch/bsc72/bsc72156/NDB/ROR/PELE/apo/ago/5vb7_prw_processed.pdb&quot;</span> <span class="p">},</span>
-   <span class="nt">&quot;selection&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;chains&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;L&quot;</span> <span class="p">]</span> <span class="p">}</span> <span class="p">},</span>
-   <span class="nt">&quot;includeHydrogens&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-   <span class="nt">&quot;doSuperposition&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-   <span class="nt">&quot;tag&quot;</span> <span class="p">:</span> <span class="s2">&quot;rmsd_lig&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="id4">
-<h3>Results<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="entrance-plot">
-<h4>Entrance Plot<a class="headerlink" href="#entrance-plot" title="Permalink to this headline">¶</a></h4>
-<p>To monitor the ligand entrance progress from its binding site we measure the distance between HID479:NE2 and ligand O2 atoms, as defined in the “com_distance” as “tag”: “distance” (column number 7 in run_report file)</p>
-</div>
-<div class="section" id="entrance-path">
-<h4>Entrance Path<a class="headerlink" href="#entrance-path" title="Permalink to this headline">¶</a></h4>
-<p>To map the movement of residues along the ligand exit pathway, make a movie as described <a class="reference external" href="../../intro/AdaptiveMethodology/GeneralAnalysis/GeneralAnalysis.html#extract-the-movie-of-your-best-snapshot">here</a> and display all the residues close to the ligand in one Figure to see their fluctuations (see below).</p>
-<div class="figure align-center" id="id8">
-<img alt="../../_images/entrance_path1.png" src="../../_images/entrance_path1.png" />
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">The important residues along the entrance pathway.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">The important residues along the dissociation pathway.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -272,36 +134,15 @@ make the movie as described <a class="reference external" href="../../intro/Adap
 <li><a class="reference internal" href="#objective">Objective</a></li>
 <li><a class="reference internal" href="#preparation">Preparation</a><ul>
 <li><a class="reference internal" href="#receptor">Receptor</a></li>
-<li><a class="reference internal" href="#ligand">Ligand</a></li>
-<li><a class="reference internal" href="#template-of-ligand">Template of ligand</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#procedure-part-1-pele-exit-path">Procedure-Part 1: PELE Exit Path</a><ul>
 <li><a class="reference internal" href="#main-characteristics-of-the-simulation">Main characteristics of the simulation</a></li>
-<li><a class="reference internal" href="#controlfile-specifics">ControlFile specifics</a><ul>
-<li><a class="reference internal" href="#unbinding-mode-and-exit-condition">Unbinding Mode and Exit Condition</a></li>
-<li><a class="reference internal" href="#clutering">Clutering</a></li>
-<li><a class="reference internal" href="#metrics">Metrics</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#control-file-specifics">Control File Specifics</a></li>
+<li><a class="reference internal" href="#launch-command">Launch Command</a></li>
 <li><a class="reference internal" href="#results">Results</a><ul>
 <li><a class="reference internal" href="#exit-plot">Exit Plot</a></li>
 <li><a class="reference internal" href="#important-residues-in-exit-path">Important residues in exit path</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#procedure-part-2-pele-entrance-path">Procedure-Part 2: PELE Entrance Path</a><ul>
-<li><a class="reference internal" href="#id1">Main characteristics of the simulation</a></li>
-<li><a class="reference internal" href="#id2">ControlFile specifics</a><ul>
-<li><a class="reference internal" href="#box-definition">Box definition</a></li>
-<li><a class="reference internal" href="#clustering-well-set">Clustering well set</a></li>
-<li><a class="reference internal" href="#id3">Metrics</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id4">Results</a><ul>
-<li><a class="reference internal" href="#entrance-plot">Entrance Plot</a></li>
-<li><a class="reference internal" href="#entrance-path">Entrance Path</a></li>
 </ul>
 </li>
 </ul>
@@ -355,7 +196,7 @@ make the movie as described <a class="reference external" href="../../intro/Adap
     </div>
     <div class="footer">
         &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.4.0.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.0.1.
     <a href="../../index.html#license">License</a>.
     </div>
   </body>

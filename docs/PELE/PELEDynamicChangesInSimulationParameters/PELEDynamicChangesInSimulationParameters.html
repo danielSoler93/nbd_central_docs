@@ -163,10 +163,10 @@
 <p>Some PELE simulation parameters can be changed on the fly based on the
 evaluation of logical conditions that use values measured by PELE
 sensors (metrics and state trackers, see
-<a class="reference internal" href="../Sensors/Sensors.html#sec-sensors"><span class="std std-ref">Sensors</span></a>).</p>
+<a class="reference internal" href="../../software/pele/Sensors/Sensors.html#sec-sensors"><span class="std std-ref">Sensors</span></a>).</p>
 <p>This document explains how to write those logical conditions in a
 configuration file. To see which simulation parameters can be changed,
-see <a class="reference internal" href="ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">ParametersThatCanChange</span></a>.</p>
+see <a class="reference internal" href="../../software/pele/PELEDynamicChangesInSimulationParameters/ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">ParametersThatCanChange</span></a>.</p>
 <p>The key of the block to dynamically change simulation parameters is:
 “parametersChanges”.</p>
 <p>This block is optional, but if you use it, it must be included inside a
@@ -274,7 +274,7 @@ by:</p>
 </div>
 <p>As it says, if any of the conditions in the list (remember in JSON lists
 are defined between square brackets) evaluates to true, the changes will
-take place. To know how to write conditions check <a class="reference internal" href="../LogicalConditions/ConditionsByExample.html#sec-conditionsbyexample"><span class="std std-ref">Conditions By Example</span></a>.</p>
+take place. To know how to write conditions check <a class="reference internal" href="../../software/pele/LogicalConditions/ConditionsByExample.html#sec-conditionsbyexample"><span class="std std-ref">Conditions By Example</span></a>.</p>
 <p>The block that defines the changes that take place when any of the
 previous conditions is true is:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;doThesechanges&quot;: {
@@ -316,7 +316,7 @@ LigandPerturbation, being their new values 0.4 and 3.5, respectively.</p>
 and the “displacementFactor” of the ANM with new values of false and
 1.5, respectively.</p>
 <p>There is a list of which parameters can be changed available in:
-<a class="reference internal" href="ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">Parameters That Can Change</span></a>.</p>
+<a class="reference internal" href="../../software/pele/PELEDynamicChangesInSimulationParameters/ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">Parameters That Can Change</span></a>.</p>
 <p>Finally, there is a block, “otherwise”, that defines the changes that
 take place when none of the previous conditions is true:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;otherwise&quot;: {

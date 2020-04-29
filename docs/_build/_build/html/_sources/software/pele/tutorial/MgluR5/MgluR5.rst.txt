@@ -20,23 +20,12 @@ The aim of this project is to find the binding pose of MgluR5 complexed with a b
 Preparation
 **************
 
-To start the simulation we need complex, ligand, ligand parameters and the input controlfile.
+To start the simulation we need complex.pdb and input.yaml
 
 Receptor
 ==========
 
 PDB: 5cgc. The holo structure with the ligand crystal at the entrance of the GPCR was processed with Protein Preparation Wizard at pH 7.4 (Schrodinger).
-
-
-Ligand
-=========
-
-Calculate protonation state at pH 7.4±0.5 with the default OPLS2005 charges.
-
-Template of ligand
-=====================
-
-Output a mae file only cointaining the ligand, then run that one through PlopRotTemp.py as explain `here <../../intro/SystemPreparation/SystemPreparation.html#ligand-preparation>`__ to obtain the parameters and rotamers of the ligand and place them on the DataLocal Folder as specified `here <../../molecularParameters.html#adding-the-generated-template-and-rotamer-library-files-to-pele>`_.
 
 
 ********************************************
@@ -56,53 +45,18 @@ ControlFile specifics
 
 Special required parameters for this simulation are:
 
-Slight bias towards the orthosteric site
-+++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: yaml
 
-As we know these compunds should bing on a Class A GPCR fashion
-we will set a slight bias towards the orthosteric site.
-
-.. code-block:: json
-
-    {"spawning" : {
-        "type" : "epsilon",
-        "params" : {
-            "reportFilename" : "run_report",
-            "metricColumnInReport" : 5,
-            "epsilon": 0.15,
-            "T":1000
-    },}
-
-
-
-Box definition
-+++++++++++++++++++++++++++++++++++++++
-
-Since we hyphotesize the binding site is in between the TMs the box will contain the extracellular loops + the TM domain.
-
-.. code-block:: json
-
-  {"Box": {
-    "type": "sphericalBox",
-    "radius": 15,
-     "fixedCenter": [-24.84, 6.36, 39.73]
-      }
-  }
-
-
-Distances to monitor
-++++++++++++++++++++++
-
-We monitor the RMSD to the native pose along the simulation
-
-.. code-block:: json
-
-       {    "type": "rmsd",
-             "Native": { "path": "NOSTRUM/GPCRnew/5CGC/5CGC_native.pdb" },
-             "selection": { "chains": { "names": [ "C" ] } },
-             "includeHydrogens": false, "doSuperposition": false, "tag" : "rmsd_lig"
-        }
-
+    system: '5CGC_entrance.pdb' #Input pdb with ligand-protein in the desired initial structure
+    chain: 'C' #Ligand chain
+    resname: 'CGC' #Ligand residue name
+    box_radius: 30.0 #Radius of the box to explore with PELE
+    seed: 12345 #Seed of the job
+    bias_sim: true #This will create a bias the specified column of the report. IN thins case interaction energy
+    bias_column: 5 #Column of the report to make the bias to
+    traj_name: 'trajectory.xtc' #Output files with xtc format and trajectory as name
+    rmsd_pdb: '5CGC_native.pdb' #At each PELE step generate the RMSD of the ligand in respect to the mentioned pdb
+    cpus: 100 #Number of cpus. You will obtain as many trajectories as cpus-1
 
 
 Results

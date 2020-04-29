@@ -8,6 +8,28 @@ In this section we will install the next software:
 
     2) PELE Platform (Python features on top of the C++)
 
+Option 1 - Singularity - (Recommended)
+==========================================
+
+.. code-block:: bash
+
+    git clone https://github.com/NostrumBioDiscovery/pele_platform.git
+    
+    cd pele_platform/singularity/
+    
+    bash create_pele_image.sh (You will need acces to PELE dockerhub)
+    
+    cd test/
+    
+    #Change the licenses and folders inside singularity.sl (IT section)
+    
+    bash singularity.sl  #If not queue system
+    
+    sbatch singularity.sl  #If slurm queue system
+
+
+Option 2 - Manual
+=====================
 
 PELE++
 +++++++++++++++++++++++++

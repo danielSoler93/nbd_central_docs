@@ -182,7 +182,7 @@ is not a general box defined, they will be perturbed in an infinite
 box (no box will be applied to them).</p>
 <p>Note that the frequency with which this algorithm is performed in a Pele
 simulation can be set in the PeleParameters section of the control file.
-See more information about this parameter at <a class="reference internal" href="../PELE/PeleParameters.html#sec-peleparameters-waterperturbationfrequency"><span class="std std-ref">waterPerturbationFrequency</span></a>.</p>
+See more information about this parameter at <a class="reference internal" href="../../software/pele/PELE/PeleParameters.html#sec-peleparameters-waterperturbationfrequency"><span class="std std-ref">waterPerturbationFrequency</span></a>.</p>
 <p>In case of questions or problems regarding the Water Perturbation algorithm
 contact the author at <a class="reference external" href="mailto:marti&#46;municoy&#37;&#52;&#48;bsc&#46;es">marti<span>&#46;</span>municoy<span>&#64;</span>bsc<span>&#46;</span>es</a>.</p>
 <div class="section" id="example">
@@ -190,7 +190,7 @@ contact the author at <a class="reference external" href="mailto:marti&#46;munic
 <p>The WaterPerturbation block can be defined inside the pele simulation
 command block section as next. In this case, a perturbation on four
 different water molecules is defined. However, at each Pele step, only
-to of them will be perturbed (see <a class="reference internal" href="#sec-waterperturbation-waterstoperturbperstep"><span class="std std-ref">watersToPerturbPerStep</span></a>
+to of them will be perturbed (see <a class="reference internal" href="../../software/pele/WaterPerturbation/Waterperturbation.html#sec-waterperturbation-waterstoperturbperstep"><span class="std std-ref">watersToPerturbPerStep</span></a>
 command below). In this example, water molecules are perturbed at three
 different cavities: one is defined through the general box of the water
 perturbation algorithm and the other two through the definition of two
@@ -233,9 +233,9 @@ water site, will use the global box of water perturbation.</p>
 <span id="sec-waterperturbation-waterselection"></span><h2>Global selection of waters to perturb<a class="headerlink" href="#global-selection-of-waters-to-perturb" title="Permalink to this headline">¶</a></h2>
 <p>WaterPerturbation works on a set of selected water molecules. All water
 molecules defined in the global selector will be perturbed inside the
-global perturbation box (see <a class="reference internal" href="#sec-waterperturbation-box"><span class="std std-ref">Global box</span></a>).</p>
+global perturbation box (see <a class="reference internal" href="../../software/pele/WaterPerturbation/Waterperturbation.html#sec-waterperturbation-box"><span class="std std-ref">Global box</span></a>).</p>
 <p>Note that in case that one water molecule is also defined in a water
-site (see <a class="reference internal" href="#sec-waterperturbation-watersites"><span class="std std-ref">waterSites</span></a> for more information),
+site (see <a class="reference internal" href="../../software/pele/WaterPerturbation/Waterperturbation.html#sec-waterperturbation-watersites"><span class="std std-ref">waterSites</span></a> for more information),
 the box of that site would always have precedence over the global box
 as long as it is a finite spherical box.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -245,7 +245,7 @@ as long as it is a finite spherical box.</p>
 </div>
 <ul class="simple">
 <li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">watersToPerturb</span></code></p></li>
-<li><p>Type: Pele links selection (see more details at <a class="reference internal" href="../Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a>)</p></li>
+<li><p>Type: Pele links selection (see more details at <a class="reference internal" href="../../software/pele/Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a>)</p></li>
 </ul>
 </div>
 <div class="section" id="global-box">
@@ -267,7 +267,7 @@ in any protein region indistinctly.</p>
 </div>
 <ul class="simple">
 <li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">Box</span></code></p></li>
-<li><p>Type: Pele box definition (see more details at <a class="reference internal" href="../Boxes/Boxes.html#sec-boxes"><span class="std std-ref">Boxes</span></a>)</p></li>
+<li><p>Type: Pele box definition (see more details at <a class="reference internal" href="../../software/pele/Boxes/Boxes.html#sec-boxes"><span class="std std-ref">Boxes</span></a>)</p></li>
 </ul>
 </div>
 <div class="section" id="watersites">
@@ -310,7 +310,7 @@ as they cannot get outside the perturbation box.</p>
 <p>Selection of the explicit water molecules of each water site.</p>
 <ul class="simple">
 <li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">watersToPerturb</span></code></p></li>
-<li><p>Type: Pele links selection (see more details at <a class="reference internal" href="../Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a>)</p></li>
+<li><p>Type: Pele links selection (see more details at <a class="reference internal" href="../../software/pele/Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a>)</p></li>
 </ul>
 </div>
 <div class="section" id="box">
@@ -318,7 +318,7 @@ as they cannot get outside the perturbation box.</p>
 <p>Definition of the perturbation box of each water site.</p>
 <ul class="simple">
 <li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">Box</span></code></p></li>
-<li><p>Type: Pele box definition (see more details at <a class="reference internal" href="../Boxes/Boxes.html#sec-boxes"><span class="std std-ref">Boxes</span></a>)</p></li>
+<li><p>Type: Pele box definition (see more details at <a class="reference internal" href="../../software/pele/Boxes/Boxes.html#sec-boxes"><span class="std std-ref">Boxes</span></a>)</p></li>
 </ul>
 </div>
 </div>
@@ -358,7 +358,7 @@ the following equation:</p>
 <span id="sec-waterperturbation-overlapfactor"></span><h3>overlapFactor<a class="headerlink" href="#overlapfactor" title="Permalink to this headline">¶</a></h3>
 <p>The overlap factor that is used when looking for initial cavities for perturbed
 water molecules without steric clashes. When this factor gets lower, a higher steric overlap
-is accepted. See <a class="reference internal" href="../SideChainPrediction/SideChainPrediction.html#sec-sidechainprediction-parameters-overlapfactor"><span class="std std-ref">Overlap factor</span></a>
+is accepted. See <a class="reference internal" href="../../software/pele/SideChainPrediction/SideChainPrediction.html#sec-sidechainprediction-parameters-overlapfactor"><span class="std std-ref">Overlap factor</span></a>
 for more information about this parameter.</p>
 <ul class="simple">
 <li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">overlapFactor</span></code></p></li>
@@ -387,7 +387,7 @@ but worse conformations will be generated.</p>
 <p>Number of trials that will be performed to look for steric-clashes-free
 cavities for the perturbed water molecules. For small pockets were
 valid movements are hardly found, you can consider increasing the amount
-of trials. See <a class="reference internal" href="../Perturbation/Perturbation.html#sec-perturbation-parameters-numberofsterictrials"><span class="std std-ref">numberOfStericTrials</span></a>
+of trials. See <a class="reference internal" href="../../software/pele/Perturbation/Perturbation.html#sec-perturbation-parameters-numberofsterictrials"><span class="std std-ref">numberOfStericTrials</span></a>
 for more details.</p>
 <ul class="simple">
 <li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">numberOfStericTrials</span></code></p></li>
