@@ -91,3 +91,10 @@ run on nbdcalc01 computer
 .. toctree::
    tests/index
 
+NewComers
+-------------
+
+Here you will find how to set up your laptop to access NBD facilities
+
+.. toctree::
+   new_comers/index
