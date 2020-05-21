@@ -12,13 +12,14 @@ MAC
 
 1) Install tunnelblick `here <https://tunnelblick.net/downloads.html>`_ (stable version prefered)
 
+2) Download the .ovpn, .cert, .key and other files in a same folder (ask your IT manager)
 
-2) Drag the .ovpn file (ask your IT manager) to tunnelblick icon on the top-right bar of your MAC.
+3) Drag the .ovpn file to tunnelblick icon on the top-right bar of your MAC and enter your username/password (ask IT manager)
 
 .. figure:: tunnelblick.png
     :scale: 50%
     :align: center
 
 
-3) You shoud be able to connect to ``ssh -X username@10.8.0.1`` from commandline
+4) You shoud be able to connect to ``ssh -X username@10.8.0.1`` from commandline
 
