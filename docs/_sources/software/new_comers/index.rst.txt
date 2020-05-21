@@ -20,5 +20,5 @@ MAC
     :align: center
 
 
-3) You shoud be able to connect to 'ssh -X username@10.8.0.1' from commandline
+3) You shoud be able to connect to ``ssh -X username@10.8.0.1`` from commandline
 
