@@ -101,6 +101,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#newcomers">NewComers</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">New to NBD? Set everything up!</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#mac">MAC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windows">Windows</a></li>
 </ul>
 </li>
 </ul>
@@ -197,6 +198,32 @@ have a short guideline on how to do it:</p>
 <ol class="arabic simple" start="4">
 <li><p>You shoud be able to connect to <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-X</span> <span class="pre">username&#64;10.8.0.1</span></code> from commandline</p></li>
 </ol>
+</div>
+<div class="section" id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vpn">
+<h3>vpn<a class="headerlink" href="#vpn" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Install OpenVPN <a class="reference external" href="https://openvpn.net/community-downloads/">here</a> (stable version prefered)</p></li>
+<li><p>Copy the .ovpn, .cert, .key and other files in OpenVPN/config</p></li>
+</ol>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/openvpn1.png"><img alt="../../_images/openvpn1.png" src="../../_images/openvpn1.png" style="width: 923.0px; height: 490.0px;" /></a>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Click the openVPN icon on the low bar of your computer and connect</p></li>
+<li><p>You should be able to  <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-X</span> <span class="pre">username&#64;10.8.0.1</span></code> from the window’s cmd (type cmd on windows search to open it)</p></li>
+</ol>
+</div>
+<div class="section" id="winscp">
+<h3>Winscp<a class="headerlink" href="#winscp" title="Permalink to this headline">¶</a></h3>
+<p>To easily manage files between machines install winscp.</p>
+<ol class="arabic simple">
+<li><p>Install winscp <a class="reference external" href="https://winscp.net/eng/download.php">here</a> (stable version prefered)</p></li>
+<li><p>Open winscp and set the hostname (10.8.0.1) port (22) username (your_username) and password (your password)</p></li>
+<li><p>You will be able to manage files between your laptop and the server. Do the same for the cluster (host: 94.24.113.46 / port: 22022) and the office machine (host: 192.168.1.4 / port: 22)</p></li>
+</ol>
+</div>
 </div>
 </div>
 
