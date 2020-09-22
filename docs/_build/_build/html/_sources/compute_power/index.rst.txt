@@ -13,6 +13,8 @@ Folders:
     - Work: Large storage
     - Home: Transient Files
 
+**To connect**: ``ssh -p 22022 -X username@94.24.113.46``
+
 
 Private OfficeGPU AK40
 --------------------------
@@ -24,6 +26,11 @@ Folders:
     - Home: Transient files or fast calculations
     - Data: Chemolibraries
 
+**To connect**: 
+
+1) ``ssh -X ùsername@10.8.0.1``
+2) ``ssh -X username@nbdcalc01``
+
 Storage Server
 ---------------
 
@@ -34,11 +41,17 @@ Folders:
     - /data/users/user/: Individual storage
     - /data/common/: Shared storaged & Project management
 
+**To connect**: ``ssh -X username@10.8.0.1``
+
+
 RES
 ---------
 The RES grant allows us to use MN4 to run our in house ModTox project. (MD&PELE for academic purposes/publications)
 
 `ModTox project <https://nostrumbiodiscovery.github.io/modtox/>`_
+
+
+**To connect**: You need to ask for an account. Please, talk with daniel.soler@nostrumbiodiscovery.com
 
 Backup
 -------------
