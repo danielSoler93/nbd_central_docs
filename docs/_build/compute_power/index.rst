@@ -16,6 +16,27 @@ Folders:
 **To connect**: ``ssh -p 22022 -X username@94.24.113.46``
 
 
+Queue system
+++++++++++++++
+
+The cluster uses Slurm workload manager to schedule jobs and allocate resources. It is fairly simple to use, you only have to learn a handful of commands:
+
+.. code-block:: bash
+
+    sbatch run.sl # to submit a file to the queue
+    squeue # to see all jobs on the queue
+    scancel job_id # to cancel a job with specific ID, e.g. scancel 10240
+
+If you want to dive in deeper, check out the `official Slurm documentation <https://slurm.schedmd.com/quickstart.html>`_.
+
+You can also run programs in interactive mode, e.g.
+
+.. code-block:: bash
+
+    interactive -n 20 # launch interactive with 20 CPUs available
+    module load module_name # to load a specific module, e.g. module load Python/3.7.0-foss-2018a
+
+
 Private OfficeGPU AK40
 --------------------------
 
