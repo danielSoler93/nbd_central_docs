@@ -28,7 +28,7 @@ MD Tutorial:
 
          
 - 3) Ligand Preparation 
-         - export AMBERHOME=/opt/AmberTools/amber16/
+         - export AMBERHOME=/shared/opt/AmberTools/amber16/
          - $AMBERHOME/bin/antechamber -i input_name.mol2 -fi mol2 -o output_name.prep -fo prepi -nc charge_of_ligand -c charge_model -at atom_types -j processors_to_use  
          - i.e $AMBERHOME/bin/antechamber -i ligand.mol2 -fi mol2 -o ligand.prep -fo prepi -nc -1 -c bcc -at gaff -j 4 
 
@@ -41,7 +41,7 @@ MD Tutorial:
         - $AMBERHOME/bin/parmcheck2 -i ligand.prep -f prepi  -o ligand.frcmod
 
 - 6) AmberTools input
-        - cp /data/software/MD/leap.in  your_directory
+        - cp /shared/data/software/MD/leap.in  your_directory
         - fill in the fields indicated on the file 
 
 - 7) Build Topology & Coordinates file

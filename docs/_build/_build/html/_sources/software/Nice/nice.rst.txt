@@ -6,7 +6,7 @@ To render&visualize GUIs of any software (maestro, vmd, pymol ...) thorugh vpn y
 
 1- Activate the vpn with your password
 
-2- Connect to  https://172.16.1.3:28443/enginframe/vdi/ with your normal useraccount&password
+2- Connect to  https://10.10.2.3:28443/enginframe/vdi/ with your normal useraccount&password
 
 3- On the left panel go to Services>Linux Desktop
 

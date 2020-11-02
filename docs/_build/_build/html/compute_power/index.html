@@ -93,9 +93,10 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">IT infrastructure</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#private-cluster">Private Cluster</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#private-officegpu-ak40">Private OfficeGPU AK40</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#storage-server">Storage Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#private-cluster">Private Cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#queue-system">Queue system</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#res">RES</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#backup">Backup</a></li>
 </ul>
@@ -175,43 +176,31 @@
 xeon Gold Processors, for a total of 156 cores (312 HT threads). Includes 2 GPUs for offloading calculations.</p>
 <dl class="simple">
 <dt>Folders:</dt><dd><ul class="simple">
-<li><p>Scratch: To compute</p></li>
-<li><p>Work: Large storage</p></li>
-<li><p>Home: Transient Files</p></li>
+<li><p>/shared/scratch: To compute</p></li>
+<li><p>/shared/work: Large storage</p></li>
+<li><p>/shared/home-nbdcalc01/: What used to be the office machine (28 cpus)</p></li>
+<li><p>/shared/data-nbdcalc01/: Libraries of compounds (ZINC, fragments…)</p></li>
+<li><p>/shared/data-ndbdata01/users/user/: Individual storage</p></li>
+<li><p>/shared/data-nbddata01/common/: Shared storaged &amp; Project management</p></li>
 </ul>
 </dd>
 </dl>
-<p><strong>To connect</strong>: <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-p</span> <span class="pre">22022</span> <span class="pre">-X</span> <span class="pre">username&#64;94.24.113.46</span></code></p>
+<p><strong>To connect</strong>: <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-X</span> <span class="pre">-p</span> <span class="pre">22022</span> <span class="pre">username&#64;10.10.0.6</span></code></p>
+<div class="section" id="queue-system">
+<h3>Queue system<a class="headerlink" href="#queue-system" title="Permalink to this headline">¶</a></h3>
+<p>The cluster uses Slurm workload manager to schedule jobs and allocate resources. It is fairly simple to use, you only have to learn a handful of commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch run.sl <span class="c1"># to submit a file to the queue</span>
+squeue <span class="c1"># to see all jobs on the queue</span>
+scancel job_id <span class="c1"># to cancel a job with specific ID, e.g. scancel 10240</span>
+</pre></div>
 </div>
-<div class="section" id="private-officegpu-ak40">
-<h2>Private OfficeGPU AK40<a class="headerlink" href="#private-officegpu-ak40" title="Permalink to this headline">¶</a></h2>
-<p>The NBD OfficeGPU consists of 28 nodes for schrodinger calculations as well as general analysis tools.</p>
-<dl class="simple">
-<dt>Folders:</dt><dd><ul class="simple">
-<li><p>Scratch: Long calculation</p></li>
-<li><p>Home: Transient files or fast calculations</p></li>
-<li><p>Data: Chemolibraries</p></li>
-</ul>
-</dd>
-</dl>
-<p><strong>To connect</strong>:</p>
-<ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-X</span> <span class="pre">ùsername&#64;10.8.0.1</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-X</span> <span class="pre">username&#64;nbdcalc01</span></code></p></li>
-</ol>
+<p>If you want to dive in deeper, check out the <a class="reference external" href="https://slurm.schedmd.com/quickstart.html">official Slurm documentation</a>.</p>
+<p>You can also run programs in interactive mode, e.g.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>interactive -n <span class="m">20</span> <span class="c1"># launch interactive with 20 CPUs available</span>
+module load module_name <span class="c1"># to load a specific module, e.g. module load Python/3.7.0-foss-2018a</span>
+</pre></div>
 </div>
-<div class="section" id="storage-server">
-<h2>Storage Server<a class="headerlink" href="#storage-server" title="Permalink to this headline">¶</a></h2>
-<p>The NBD Server contains 7T of personal storage
-and 7 more for daily back ups of all other machines</p>
-<dl class="simple">
-<dt>Folders:</dt><dd><ul class="simple">
-<li><p>/data/users/user/: Individual storage</p></li>
-<li><p>/data/common/: Shared storaged &amp; Project management</p></li>
-</ul>
-</dd>
-</dl>
-<p><strong>To connect</strong>: <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-X</span> <span class="pre">username&#64;10.8.0.1</span></code></p>
+</div>
 </div>
 <div class="section" id="res">
 <h2>RES<a class="headerlink" href="#res" title="Permalink to this headline">¶</a></h2>
@@ -222,8 +211,8 @@ and 7 more for daily back ups of all other machines</p>
 <div class="section" id="backup">
 <h2>Backup<a class="headerlink" href="#backup" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>A daily backup is done from NBDCALC01 to NAS Synology in /home and /data.</p></li>
-<li><p>A daily backup is done from NBDDATA01 to NAS Synology in /data</p></li>
+<li><p>A daily backup is done from /shared/home-nbdcalc01/ and /shared/data-nbdcalc01/ to NAS Synology.</p></li>
+<li><p>A daily backup is done /shared/data-nbddata01/ to NAS Synology</p></li>
 <li><p>The backup is automatically done at 00:00 sending a daily report to support</p></li>
 </ul>
 <p>The backup keeps:</p>

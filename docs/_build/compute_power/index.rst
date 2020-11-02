@@ -9,11 +9,14 @@ xeon Gold Processors, for a total of 156 cores (312 HT threads). Includes 2 GPUs
 
 
 Folders:
-    - Scratch: To compute
-    - Work: Large storage
-    - Home: Transient Files
+    - /shared/scratch: To compute
+    - /shared/work: Large storage
+    - /shared/home-nbdcalc01/: What used to be the office machine (28 cpus)
+    - /shared/data-nbdcalc01/: Libraries of compounds (ZINC, fragments...)
+    - /shared/data-ndbdata01/users/user/: Individual storage
+    - /shared/data-nbddata01/common/: Shared storaged & Project management
 
-**To connect**: ``ssh -p 22022 -X username@94.24.113.46``
+**To connect**: ``ssh -X -p 22022 username@10.10.0.6``
 
 
 Queue system
@@ -37,34 +40,6 @@ You can also run programs in interactive mode, e.g.
     module load module_name # to load a specific module, e.g. module load Python/3.7.0-foss-2018a
 
 
-Private OfficeGPU AK40
---------------------------
-
-The NBD OfficeGPU consists of 28 nodes for schrodinger calculations as well as general analysis tools.
-
-Folders:
-    - Scratch: Long calculation
-    - Home: Transient files or fast calculations
-    - Data: Chemolibraries
-
-**To connect**: 
-
-1) ``ssh -X ùsername@10.8.0.1``
-2) ``ssh -X username@nbdcalc01``
-
-Storage Server
----------------
-
-The NBD Server contains 7T of personal storage
-and 7 more for daily back ups of all other machines
-
-Folders:
-    - /data/users/user/: Individual storage
-    - /data/common/: Shared storaged & Project management
-
-**To connect**: ``ssh -X username@10.8.0.1``
-
-
 RES
 ---------
 The RES grant allows us to use MN4 to run our in house ModTox project. (MD&PELE for academic purposes/publications)
@@ -77,8 +52,8 @@ The RES grant allows us to use MN4 to run our in house ModTox project. (MD&PELE 
 Backup
 -------------
 
-- A daily backup is done from NBDCALC01 to NAS Synology in /home and /data.
-- A daily backup is done from NBDDATA01 to NAS Synology in /data
+- A daily backup is done from /shared/home-nbdcalc01/ and /shared/data-nbdcalc01/ to NAS Synology.
+- A daily backup is done /shared/data-nbddata01/ to NAS Synology
 - The backup is automatically done at 00:00 sending a daily report to support
 
 The backup keeps:

@@ -15,7 +15,7 @@ Docs: https://nostrumbiodiscovery.github.io/analogs_finder/
 
 To run similarity queries of a molecule in a database in nbdcalc01 refer to:
 
-    - /data/software/python_scripts/launch_all_pythons_README.txt [ **analogs_finder section** ]
+    -  /shared/data-nbdcalc01/software/python_scripts/launch_all_pythons_README.txt [ **analogs_finder section** ]
 
 ModTox
 ------------
@@ -24,7 +24,7 @@ Docs: https://nostrumbiodiscovery.github.io/modtox/
 
 To automatically analyse MD trajectories and run ensemble docking in nbdcalc01 refer to:
 
-    - /data/software/python_scripts/launch_all_pythons_README.txt [ **miscellaneous section** ]
+    -  /shared/data-nbdcalc01/software/python_scripts/launch_all_pythons_README.txt [ **miscellaneous section** ]
 
 
 Miscellaneous Python Scripts
@@ -34,5 +34,5 @@ Docs: https://nostrumbiodiscovery.github.io/miscellaneous/
 
 To use any of these scripts in nbdcalc01 refer to:
 
-- /data/software/python_scripts/launch_all_pythons_README.txt [ **modtox section** ]
+-  /shared/data-nbdcalc01/software/python_scripts/launch_all_pythons_README.txt [ **modtox section** ]
 

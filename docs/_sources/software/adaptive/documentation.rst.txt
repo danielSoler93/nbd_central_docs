@@ -27,12 +27,12 @@ Templates for launching
 
 You can find an AdaptivePELE input (.conf) and a launching file (.sl) for the NBD cluster under:
 
--  **/work/NBD_Utilities/PELE/PELE_Templates/Adaptive_intel/**
+-  **/shared/work/NBD_Utilities/PELE/PELE_Templates/Adaptive_intel/**
 
 Templates for analysis
 ----------------------
 
 You can find an analysis file with everything explain inside under:
 
--  **/work/NBD_Utilities/PELE/PELE_Templates/analisis.sl**
+-  **/shared/work/NBD_Utilities/PELE/PELE_Templates/analisis.sl**
 

@@ -19,6 +19,6 @@ Templates for launching
 
 You can find a PelePlatform input (.yml) and a launching file (.sl) for the NBD cluster under:
 
--  **/work/NBD_Utilities/PELE/PELE_Templates/PelePlatform/**
+-  **/shared/work/NBD_Utilities/PELE/PELE_Templates/PelePlatform/**
 
 

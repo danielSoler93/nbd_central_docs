@@ -12,7 +12,7 @@ All databases are in the office machine
 DrugBank
 ------------
 
-- Path: /data/BigLibraries/DrugBank/ligprep_DrugBankALL
+- Path:  /shared/data-nbdcalc01/BigLibraries/DrugBank/ligprep_DrugBankALL
 
 - Compounds: 6837
 
@@ -22,7 +22,7 @@ DrugBank
 ZINC-2019
 -------------
 
-- Path: /data/BigLibraries/ZINC_3D_Stnd_InStock_pHMid_250_500M_2019
+- Path:  /shared/data-nbdcalc01/BigLibraries/ZINC_3D_Stnd_InStock_pHMid_250_500M_2019
 
 - Compounds: 10904248
 
@@ -32,7 +32,7 @@ ZINC-2019
 Chemistrix
 --------------
 
-- Path: /data/ChemistriX/VIRTUAL_BIUR_POR_MW/sdfs
+- Path:  /shared/data-nbdcalc01/ChemistriX/VIRTUAL_BIUR_POR_MW/sdfs
 
 - Compounds: 946224
 
@@ -42,7 +42,7 @@ Chemistrix
 Fragments
 -----------
 
-- Path: /data/Databases/docking_glide/Fragments/fragments_clean_inStock_ligprep.sd
+- Path:  /shared/data-nbdcalc01/Databases/docking_glide/Fragments/fragments_clean_inStock_ligprep.sd
 
 - Compounds: 51101
 
@@ -52,7 +52,7 @@ Fragments
 Macrocycles
 -------------
 
-- Path: /data/Databases/docking_glide/Macrocycles/sdfs
+- Path:  /shared/data-nbdcalc01/Databases/docking_glide/Macrocycles/sdfs
 
 - Compounds: Analyticon (5723), Asinex (7596), Chembridge(67337), Chemdiv(10726), PrincetonBio(6915) --> 100K compounds
 
@@ -62,7 +62,7 @@ Macrocycles
 Natural Products
 -------------------
 
-- Path: /data/Databases/docking_glide/Natural_products/sdfs
+- Path:  /shared/data-nbdcalc01/Databases/docking_glide/Natural_products/sdfs
 
 - Compounds: Asinex (741091), Chemdiv(32228), DiscoveryProbe(2063), Otawa (8523), Timtec (5564) --> 800K compounds
 
