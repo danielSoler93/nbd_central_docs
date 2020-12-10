@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Progesteron Receptor &#8212; PELE 1.6.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/naturemodified.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Launch your first job" href="../../CheatSheet/CheatSheet.html" />
+    <link rel="prev" title="MgluR5: Pose Prediction on GPCRs" href="../MgluR5/MgluR5.html" /> 
+    <script type="text/javascript" >
+    MathJax.Hub.Config({
+        TeX: { 
+	  Macros: {
+	    AA: '{\\unicode{xC5}}'
+	  }
+	}
+    });
+    </script>
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../CheatSheet/CheatSheet.html" title="Launch your first job"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../MgluR5/MgluR5.html" title="MgluR5: Pose Prediction on GPCRs"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../tutorial.html" accesskey="U">Tutorial</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="progesteron-receptor">
+<h1>Progesteron Receptor<a class="headerlink" href="#progesteron-receptor" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<p>To explore the protein-ligand conformational space around the binding site. Useful to refine docking</p>
+</div>
+<div class="section" id="preparation">
+<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<p>To start the simulation, we need the complex.pdb an the input.yaml</p>
+<div class="section" id="receptor">
+<h3>Receptor<a class="headerlink" href="#receptor" title="Permalink to this headline">¶</a></h3>
+<p>Process the protein complex (PDB id: XXXX) with Protein Preparation Wizard (Schrodinger Program Suite) at pH 7.4 ± 0.5 to assign the protonation state to all ionizable residue as well as optimize the H-bond network. (Already done)</p>
+</div>
+</div>
+<div class="section" id="procedure-induced-fit">
+<h2>Procedure: Induced fit<a class="headerlink" href="#procedure-induced-fit" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="main-characteristics-of-the-simulation">
+<h3>Main characteristics of the simulation<a class="headerlink" href="#main-characteristics-of-the-simulation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Induced fit simulation</p></li>
+<li><p>Inversely proportional strategy</p></li>
+<li><p>Computational time: 4h</p></li>
+<li><p>Cpus: 64</p></li>
+</ul>
+</div>
+<div class="section" id="control-file-specifics">
+<h3>Control File Specifics<a class="headerlink" href="#control-file-specifics" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">system</span><span class="p">:</span> <span class="s">&#39;PR_1A28_xray_-_minimized.pdb&#39;</span>
+<span class="nt">chain</span><span class="p">:</span> <span class="s">&#39;Z&#39;</span>
+<span class="nt">resname</span><span class="p">:</span> <span class="s">&#39;STR&#39;</span>
+<span class="nt">seed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12345</span>
+<span class="nt">induced_fit_fast</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">cpus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">64</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="launch-command">
+<h3>Launch Command<a class="headerlink" href="#launch-command" title="Permalink to this headline">¶</a></h3>
+<p>python -m pele_platform.main input.yaml</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Progesteron Receptor</a><ul>
+<li><a class="reference internal" href="#objective">Objective</a></li>
+<li><a class="reference internal" href="#preparation">Preparation</a><ul>
+<li><a class="reference internal" href="#receptor">Receptor</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#procedure-induced-fit">Procedure: Induced fit</a><ul>
+<li><a class="reference internal" href="#main-characteristics-of-the-simulation">Main characteristics of the simulation</a></li>
+<li><a class="reference internal" href="#control-file-specifics">Control File Specifics</a></li>
+<li><a class="reference internal" href="#launch-command">Launch Command</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../MgluR5/MgluR5.html"
+                        title="previous chapter">MgluR5: Pose Prediction on GPCRs</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../../CheatSheet/CheatSheet.html"
+                        title="next chapter">Launch your first job</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/tutorial/PRNHR/PR.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../CheatSheet/CheatSheet.html" title="Launch your first job"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../MgluR5/MgluR5.html" title="MgluR5: Pose Prediction on GPCRs"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../tutorial.html" >Tutorial</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.0.1.
+    <a href="../../index.html#license">License</a>.
+    </div>
+  </body>
+</html>

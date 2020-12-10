@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>MgluR5: Pose Prediction on GPCRs &#8212; PELE 1.6.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/naturemodified.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Esterase: Mutant design for cavity creation" href="../Esterases/Esterases.html" />
+    <link rel="prev" title="Hemagglutinin: Pocket Detection" href="../Hemagglutinin/Hemagglutinin.html" /> 
+    <script type="text/javascript" >
+    MathJax.Hub.Config({
+        TeX: { 
+	  Macros: {
+	    AA: '{\\unicode{xC5}}'
+	  }
+	}
+    });
+    </script>
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Esterases/Esterases.html" title="Esterase: Mutant design for cavity creation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Hemagglutinin/Hemagglutinin.html" title="Hemagglutinin: Pocket Detection"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../tutorial.html" accesskey="U">Tutorial</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mglur5-pose-prediction-on-gpcrs">
+<h1>MgluR5: Pose Prediction on GPCRs<a class="headerlink" href="#mglur5-pose-prediction-on-gpcrs" title="Permalink to this headline">¶</a></h1>
+<p>Metabotropic glutamate receptors (mGluRs) are high-profile G-protein coupled receptors drug targets because of their involvement in several neurological disease states, and mGluR5 in particular is a subtype whose controlled allosteric modulation, both positive and negative, can potentially be useful for the treatment of schizophrenia and relief of chronic pain, respectively.</p>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/system3.png" src="../../_images/system3.png" />
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">MgluR5 system</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<p>The aim of this project is to find the binding pose of MgluR5 complexed with a benzonitrile NAM.</p>
+</div>
+<div class="section" id="preparation">
+<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<p>To start the simulation we need complex, ligand, ligand parameters and the input controlfile.</p>
+<div class="section" id="receptor">
+<h3>Receptor<a class="headerlink" href="#receptor" title="Permalink to this headline">¶</a></h3>
+<p>PDB: 5cgc. The holo structure with the ligand crystal at the entrance of the GPCR was processed with Protein Preparation Wizard at pH 7.4 (Schrodinger).</p>
+</div>
+<div class="section" id="ligand">
+<h3>Ligand<a class="headerlink" href="#ligand" title="Permalink to this headline">¶</a></h3>
+<p>Calculate protonation state at pH 7.4±0.5 with the default OPLS2005 charges.</p>
+</div>
+<div class="section" id="template-of-ligand">
+<h3>Template of ligand<a class="headerlink" href="#template-of-ligand" title="Permalink to this headline">¶</a></h3>
+<p>Output a mae file only cointaining the ligand, then run that one through PlopRotTemp.py as explain <a class="reference external" href="../../intro/SystemPreparation/SystemPreparation.html#ligand-preparation">here</a> to obtain the parameters and rotamers of the ligand and place them on the DataLocal Folder as specified <a class="reference external" href="../../molecularParameters.html#adding-the-generated-template-and-rotamer-library-files-to-pele">here</a>.</p>
+</div>
+</div>
+<div class="section" id="procedure-adaptivepele-local-exploration">
+<h2>Procedure: AdaptivePELE Local Exploration<a class="headerlink" href="#procedure-adaptivepele-local-exploration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="main-charachteristic-of-the-simulation">
+<h3>Main Charachteristic of the simulation<a class="headerlink" href="#main-charachteristic-of-the-simulation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Bias towards the orthosteric site</p></li>
+<li><p>Starting pose for PELE Local Exploration (check box definition)</p></li>
+<li><p>Processors: 64</p></li>
+<li><p>Compute time: 2-3h</p></li>
+</ul>
+</div>
+<div class="section" id="controlfile-specifics">
+<h3>ControlFile specifics<a class="headerlink" href="#controlfile-specifics" title="Permalink to this headline">¶</a></h3>
+<p>Special required parameters for this simulation are:</p>
+<div class="section" id="slight-bias-towards-the-orthosteric-site">
+<h4>Slight bias towards the orthosteric site<a class="headerlink" href="#slight-bias-towards-the-orthosteric-site" title="Permalink to this headline">¶</a></h4>
+<p>As we know these compunds should bing on a Class A GPCR fashion
+we will set a slight bias towards the orthosteric site.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;spawning&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;epsilon&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;reportFilename&quot;</span> <span class="p">:</span> <span class="s2">&quot;run_report&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;metricColumnInReport&quot;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="nt">&quot;epsilon&quot;</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">,</span>
+        <span class="nt">&quot;T&quot;</span><span class="p">:</span><span class="mi">1000</span>
+<span class="p">},}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="box-definition">
+<h4>Box definition<a class="headerlink" href="#box-definition" title="Permalink to this headline">¶</a></h4>
+<p>Since we hyphotesize the binding site is in between the TMs the box will contain the extracellular loops + the TM domain.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;Box&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sphericalBox&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;radius&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+   <span class="nt">&quot;fixedCenter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">-24.84</span><span class="p">,</span> <span class="mf">6.36</span><span class="p">,</span> <span class="mf">39.73</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="distances-to-monitor">
+<h4>Distances to monitor<a class="headerlink" href="#distances-to-monitor" title="Permalink to this headline">¶</a></h4>
+<p>We monitor the RMSD to the native pose along the simulation</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;rmsd&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Native&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;NOSTRUM/GPCRnew/5CGC/5CGC_native.pdb&quot;</span> <span class="p">},</span>
+      <span class="nt">&quot;selection&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;chains&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;C&quot;</span> <span class="p">]</span> <span class="p">}</span> <span class="p">},</span>
+      <span class="nt">&quot;includeHydrogens&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nt">&quot;doSuperposition&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nt">&quot;tag&quot;</span> <span class="p">:</span> <span class="s2">&quot;rmsd_lig&quot;</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="results">
+<h3>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
+<p>To analyze the simulation we will:</p>
+</div>
+</div>
+<div class="section" id="plot-the-binding-energies-vs-rmsd">
+<h2>1) Plot the Binding Energies vs RMSD<a class="headerlink" href="#plot-the-binding-energies-vs-rmsd" title="Permalink to this headline">¶</a></h2>
+<p>Plot the Binding Energies vs RMSD to check whether there is a minima at low RSMDs. To know more about the command, check <a class="reference external" href="../../intro/AdaptiveMethodology/GeneralAnalysis/GeneralAnalysis.html#plot-metrics">here</a>.</p>
+<div class="figure align-center" id="id2">
+<img alt="../../_images/entrance_plot.png" src="../../_images/entrance_plot.png" />
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Plot Binding Energy (Y-axis), RMSD to native pose (X_axis) and SASA (Z-axis)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="extract-the-best-structures-in-terms-of-be-and-rmsd">
+<h2>2) Extract the best structures in terms of BE and RMSD<a class="headerlink" href="#extract-the-best-structures-in-terms-of-be-and-rmsd" title="Permalink to this headline">¶</a></h2>
+<p>Extract the best snapshots. For more on extracting the best snapshots with InteractivePlot, plese refere <a class="reference external" href="../../intro/AdaptiveMethodology/GeneralAnalysis/GeneralAnalysis.html#extract-the-best-structures-in-terms-of-be-and-rmsd">here</a>.</p>
+<div class="figure align-center" id="id3">
+<img alt="../../_images/entrance_pose.png" src="../../_images/entrance_pose.png" />
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">In blue we have the crystal structure and in brown the pose predicted by PELE</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="extract-a-movie-from-the-best-structure">
+<h2>3) Extract a movie from the best structure<a class="headerlink" href="#extract-a-movie-from-the-best-structure" title="Permalink to this headline">¶</a></h2>
+<p>To map the movement of residues along the ligand exit pathway, make a movie as described <a class="reference external" href="../../intro/AdaptiveMethodology/GeneralAnalysis/GeneralAnalysis.html#extract-the-movie-of-your-best-snapshot">here</a> and display all the residues close to the ligand in one Figure to see their fluctuations (see below).</p>
+<div class="figure align-center" id="id4">
+<img alt="../../_images/entrance_path.png" src="../../_images/entrance_path.png" />
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Movie of the entrance path of the best structure in terms of binding energy</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="comparison-with-pele-simulation">
+<h2>4) Comparison with PELE simulation<a class="headerlink" href="#comparison-with-pele-simulation" title="Permalink to this headline">¶</a></h2>
+<p>As we can see in the figure below Adaptive explores much more around the binding site area but also undersamples other parts of the energy landscape. Despite of having much more exploration in the binding site the energies are not so high as in the PELE simulation due to Adaptive clustering (At the end of the simulation we cannot create more clusters and we always repite the same steps). Finally, adaptive got to the binding sit in 20 min while PELE took 3-4h. Hence, if we know the binding site of the ligand we should use AdaptivePELE to reach the area and add a final induced fit PELE simulation to get the best possible energy.</p>
+<div class="figure align-center" id="id5">
+<img alt="../../_images/pele_adaptive.png" src="../../_images/pele_adaptive.png" />
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Comparison between PELE and AdaptivePELE simulation</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">MgluR5: Pose Prediction on GPCRs</a><ul>
+<li><a class="reference internal" href="#objective">Objective</a></li>
+<li><a class="reference internal" href="#preparation">Preparation</a><ul>
+<li><a class="reference internal" href="#receptor">Receptor</a></li>
+<li><a class="reference internal" href="#ligand">Ligand</a></li>
+<li><a class="reference internal" href="#template-of-ligand">Template of ligand</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#procedure-adaptivepele-local-exploration">Procedure: AdaptivePELE Local Exploration</a><ul>
+<li><a class="reference internal" href="#main-charachteristic-of-the-simulation">Main Charachteristic of the simulation</a></li>
+<li><a class="reference internal" href="#controlfile-specifics">ControlFile specifics</a><ul>
+<li><a class="reference internal" href="#slight-bias-towards-the-orthosteric-site">Slight bias towards the orthosteric site</a></li>
+<li><a class="reference internal" href="#box-definition">Box definition</a></li>
+<li><a class="reference internal" href="#distances-to-monitor">Distances to monitor</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#results">Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#plot-the-binding-energies-vs-rmsd">1) Plot the Binding Energies vs RMSD</a></li>
+<li><a class="reference internal" href="#extract-the-best-structures-in-terms-of-be-and-rmsd">2) Extract the best structures in terms of BE and RMSD</a></li>
+<li><a class="reference internal" href="#extract-a-movie-from-the-best-structure">3) Extract a movie from the best structure</a></li>
+<li><a class="reference internal" href="#comparison-with-pele-simulation">4) Comparison with PELE simulation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Hemagglutinin/Hemagglutinin.html"
+                        title="previous chapter">Hemagglutinin: Pocket Detection</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Esterases/Esterases.html"
+                        title="next chapter">Esterase: Mutant design for cavity creation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/tutorial/MgluR5/MgluR5.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Esterases/Esterases.html" title="Esterase: Mutant design for cavity creation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Hemagglutinin/Hemagglutinin.html" title="Hemagglutinin: Pocket Detection"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../tutorial.html" >Tutorial</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.4.0.
+    <a href="../../index.html#license">License</a>.
+    </div>
+  </body>
+</html>

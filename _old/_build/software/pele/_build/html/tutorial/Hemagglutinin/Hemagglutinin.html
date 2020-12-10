@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Hemagglutinin: Pocket Detection &#8212; PELE 1.6.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/naturemodified.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MgluR5: Pose Prediction on GPCRs" href="../MgluR5/MgluR5.html" />
+    <link rel="prev" title="RoRγ: Dissociation Pathway to guide unbiased binding simulation" href="../RoRGamma/RoRGamma.html" /> 
+    <script type="text/javascript" >
+    MathJax.Hub.Config({
+        TeX: { 
+	  Macros: {
+	    AA: '{\\unicode{xC5}}'
+	  }
+	}
+    });
+    </script>
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../MgluR5/MgluR5.html" title="MgluR5: Pose Prediction on GPCRs"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../RoRGamma/RoRGamma.html" title="RoRγ: Dissociation Pathway to guide unbiased binding simulation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../tutorial.html" accesskey="U">Tutorial</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="hemagglutinin-pocket-detection">
+<h1>Hemagglutinin: Pocket Detection<a class="headerlink" href="#hemagglutinin-pocket-detection" title="Permalink to this headline">¶</a></h1>
+<p>3- Flu hemagglutinin: It is one of the two proteins found on the surface of the influenza viruses. Hemagglutinin A (HA) is an antigenic glycoprotein assembled as a homo-trimer of identical subunits that are formed of two disulfide-linked polypeptides: membrane-distal HA1 and the smaller, membrane-proximal, HA2. HA is responsible for host cell binding and subsequent fusion of viral and host membranes in the endosome after the virus has been taken up by endocytosis.</p>
+<p>Cyclic and linear inhibitors that bind to the surface of hemagglutinin have been identified. Structural information on the antibody-bound target is also available (Fig. 1).</p>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/system.png" src="../../_images/system.png" />
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Hemagglutinin system</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<p>The goal is to predict the binding mode of JNJ4796 to a structure of hemagglutinin which is  not in a conformation likely to bind JNJ4796. For this, the structure found in PDB entry 5W6T (bound to a cyclic peptide) was taken for induced fit PELE simulations.  The question to be answered is: Can PELE find the binding site and then the correct binding mode by doing a 2-step procedure (global exploration + local refinement)?</p>
+</div>
+<div class="section" id="preparation">
+<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="receptor">
+<h3>Receptor<a class="headerlink" href="#receptor" title="Permalink to this headline">¶</a></h3>
+<p>5W6T processed with Protein Preparation Wizard (Schrodinger).
+Of note, no crystal structure of the protein with JNJ4796 bound is available in the pdb, so the reference interactions were defined in terms of distance to the residues that are pictured in Fig 1.</p>
+</div>
+</div>
+<div class="section" id="procedure-pele-global-exploration">
+<h2>Procedure: PELE Global Exploration<a class="headerlink" href="#procedure-pele-global-exploration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="main-simulation-characteristics">
+<h3>Main simulation characteristics<a class="headerlink" href="#main-simulation-characteristics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Starting poses for PELE Local Exploration: 40 initial poses at random positions around the whole protein were generated (Fig. 2)</p></li>
+<li><p>“inverselyProportional”: Emphasize clusters with low representation</p></li>
+<li><p>Iterations: 100</p></li>
+<li><p>PeleSteps: 4</p></li>
+<li><p>Processors: 250</p></li>
+<li><p>Compute time: 12-15h</p></li>
+</ul>
+</div>
+<div class="section" id="controlfile-specifics">
+<h3>ControlFile specifics<a class="headerlink" href="#controlfile-specifics" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">system</span><span class="p">:</span> <span class="s">&#39;input_0.pdb&#39;</span> <span class="c1">#Input ligand-protein pdb</span>
+<span class="nt">chain</span><span class="p">:</span> <span class="s">&#39;L&#39;</span> <span class="c1">#Ligand chain name</span>
+<span class="nt">resname</span><span class="p">:</span> <span class="s">&#39;JNJ&#39;</span> <span class="c1">#Ligand residue name</span>
+<span class="nt">seed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12345</span>
+<span class="nt">ppi</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span> <span class="c1">#Run a global exploration + clustering + inducedfit</span>
+<span class="nt">cpus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span> <span class="c1">#Number of cpus</span>
+<span class="nt">atom_dist</span><span class="p">:</span> <span class="c1">#Check the distance between this atoms</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">L:1:O3</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">A:315:CA</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="results">
+<h3>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
+<p>The energy profile for the refinement of the 7 poses can be found in Fig. 5. The two lowest energy minima are highlighted. The lowest energy pose with an H-bond to T318 (Fig. 6) is the one with the lowest interaction energy (-50 kcal/mol) as predicted by PELE (Fig. 5). This pose is very close to the binding mode described by Kadam et al., 2017.</p>
+<div class="figure align-center" id="id2">
+<img alt="../../_images/result_local.png" src="../../_images/result_local.png" />
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Binding energy plot against distance to T318 (one of the key residues anchoring JNJ4796) for the 7 poses generated with the initial global exploration. The two minima which are highlighted with green and cyan circles are the ones represented in Fig. 7 below.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center">
+<img alt="../../_images/poses_local.png" src="../../_images/poses_local.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Hemagglutinin: Pocket Detection</a><ul>
+<li><a class="reference internal" href="#objective">Objective</a></li>
+<li><a class="reference internal" href="#preparation">Preparation</a><ul>
+<li><a class="reference internal" href="#receptor">Receptor</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#procedure-pele-global-exploration">Procedure: PELE Global Exploration</a><ul>
+<li><a class="reference internal" href="#main-simulation-characteristics">Main simulation characteristics</a></li>
+<li><a class="reference internal" href="#controlfile-specifics">ControlFile specifics</a></li>
+<li><a class="reference internal" href="#results">Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../RoRGamma/RoRGamma.html"
+                        title="previous chapter">RoRγ: Dissociation Pathway to guide unbiased binding simulation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../MgluR5/MgluR5.html"
+                        title="next chapter">MgluR5: Pose Prediction on GPCRs</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/tutorial/Hemagglutinin/Hemagglutinin.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../MgluR5/MgluR5.html" title="MgluR5: Pose Prediction on GPCRs"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../RoRGamma/RoRGamma.html" title="RoRγ: Dissociation Pathway to guide unbiased binding simulation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PELE 1.6.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../tutorial.html" >Tutorial</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-2016 BARCELONA SUPERCOMPUTING CENTER. See the COPYRIGHT file at the top-level directory of this distribution. 
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.0.1.
+    <a href="../../index.html#license">License</a>.
+    </div>
+  </body>
+</html>

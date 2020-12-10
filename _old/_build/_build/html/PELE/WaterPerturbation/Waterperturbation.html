@@ -1,0 +1,473 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Water Perturbation Block in Pele++ control file &mdash; NBD Docs 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> NBD Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../databases/index.html">Compound DataBases</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../software/index.html">Software</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../compute_power/index.html">IT infrastructure</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../papers/index.html">Articles</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NBD Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Water Perturbation Block in Pele++ control file</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/PELE/WaterPerturbation/Waterperturbation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="water-perturbation-block-in-pele-control-file">
+<span id="sec-water"></span><h1>Water Perturbation Block in Pele++ control file<a class="headerlink" href="#water-perturbation-block-in-pele-control-file" title="Permalink to this headline">¶</a></h1>
+<p>This block configures the Water Perturbation in a <code class="docutils literal notranslate"><span class="pre">peleSimulation</span></code>
+command. In a <code class="docutils literal notranslate"><span class="pre">peleSimulation</span></code>, this phase will be active depending
+whether the <code class="docutils literal notranslate"><span class="pre">WaterPerturbation</span></code> block is present or not. If defined,
+an extra MC perturbation step focused on explicit water molecules will
+be performed after the ligand perturbation. This consists in a
+stochastic translation and rotation of the water molecules to a steric
+free location followed by a local minimization step. The new
+conformation is only accepted if it fulfills the Metropolis criterion.
+The user can decide whether to move a single water molecules or more
+than one by defining them explicitly in the control file. In order to
+assess how many water molecules to use we are currently building a new
+methodology.</p>
+<p>It is also possible to defined different water sites and associate a
+certain set of explicit water molecules and boxes to each. Those water
+molecules defined in a water site will be explored within the box that
+corresponds to that water site. Those water molecules that need to be
+perturbed but are not included in a water site will be perturbed within
+the general box of water perturbation, if any is defined. In case there
+is not a general box defined, they will be perturbed in an infinite
+box (no box will be applied to them).</p>
+<p>Note that the frequency with which this algorithm is performed in a Pele
+simulation can be set in the PeleParameters section of the control file.
+See more information about this parameter at <a class="reference internal" href="../../software/pele/PELE/PeleParameters.html#sec-peleparameters-waterperturbationfrequency"><span class="std std-ref">waterPerturbationFrequency</span></a>.</p>
+<p>In case of questions or problems regarding the Water Perturbation algorithm
+contact the author at <a class="reference external" href="mailto:marti&#46;municoy&#37;&#52;&#48;bsc&#46;es">marti<span>&#46;</span>municoy<span>&#64;</span>bsc<span>&#46;</span>es</a>.</p>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>The WaterPerturbation block can be defined inside the pele simulation
+command block section as next. In this case, a perturbation on four
+different water molecules is defined. However, at each Pele step, only
+to of them will be perturbed (see <a class="reference internal" href="../../software/pele/WaterPerturbation/Waterperturbation.html#sec-waterperturbation-waterstoperturbperstep"><span class="std std-ref">watersToPerturbPerStep</span></a>
+command below). In this example, water molecules are perturbed at three
+different cavities: one is defined through the general box of the water
+perturbation algorithm and the other two through the definition of two
+water sites. In this way, W:4 wil be perturbed within the box defined
+in the first water site, W:5 and W:6 will be perturbed within the box
+of the second water site and W:7, since it has not been assigned to any
+water site, will use the global box of water perturbation.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;WaterPerturbation&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;Box&quot;</span> <span class="p">:</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;radius&quot;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="nt">&quot;fixedCenter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">28.02</span><span class="p">,</span> <span class="mf">5.97</span><span class="p">,</span> <span class="mf">19.16</span><span class="p">],</span>
+            <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;sphericalBox&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;watersToPerturb&quot;</span><span class="p">:</span>  <span class="p">{</span> <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;W:4&quot;</span><span class="p">,</span> <span class="s2">&quot;W:5&quot;</span><span class="p">,</span> <span class="s2">&quot;W:6&quot;</span><span class="p">,</span> <span class="s2">&quot;W:7&quot;</span> <span class="p">]</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="nt">&quot;parameters&quot;</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;watersToPerturbPerStep&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="nt">&quot;translationRange&quot;</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;waterSites&quot;</span><span class="p">:</span>
+        <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;watersToPerturb&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;W:4&quot;</span><span class="p">]</span> <span class="p">}},</span>
+                <span class="nt">&quot;Box&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;radius&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nt">&quot;fixedCenter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">25.48</span><span class="p">,</span> <span class="mf">11.49</span><span class="p">,</span> <span class="mf">18.06</span><span class="p">],</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sphericalBox&quot;</span><span class="p">}</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                 <span class="nt">&quot;watersToPerturb&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;W:5&quot;</span><span class="p">,</span> <span class="s2">&quot;W:6&quot;</span><span class="p">]</span> <span class="p">}},</span>
+                 <span class="nt">&quot;Box&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;radius&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="nt">&quot;fixedCenter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sphericalBox&quot;</span><span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="global-selection-of-waters-to-perturb">
+<span id="sec-waterperturbation-waterselection"></span><h2>Global selection of waters to perturb<a class="headerlink" href="#global-selection-of-waters-to-perturb" title="Permalink to this headline">¶</a></h2>
+<p>WaterPerturbation works on a set of selected water molecules. All water
+molecules defined in the global selector will be perturbed inside the
+global perturbation box (see <a class="reference internal" href="../../software/pele/WaterPerturbation/Waterperturbation.html#sec-waterperturbation-box"><span class="std std-ref">Global box</span></a>).</p>
+<p>Note that in case that one water molecule is also defined in a water
+site (see <a class="reference internal" href="../../software/pele/WaterPerturbation/Waterperturbation.html#sec-waterperturbation-watersites"><span class="std std-ref">waterSites</span></a> for more information),
+the box of that site would always have precedence over the global box
+as long as it is a finite spherical box.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;watersToPerturb&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;W:1&quot;</span> <span class="p">]</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">watersToPerturb</span></code></p></li>
+<li><p>Type: Pele links selection (see more details at <a class="reference internal" href="../../software/pele/Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="global-box">
+<span id="sec-waterperturbation-box"></span><h2>Global box<a class="headerlink" href="#global-box" title="Permalink to this headline">¶</a></h2>
+<p>It is always recommended to define a global box for the perturbation algorithm.
+In this way, explicit water molecules would be perturbed inside a specific region
+as they could not get outside the perturbation box. If a global box is not
+defined, water molecules would not have any spatial constrain and could be shifted
+in any protein region indistinctly.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;Box&quot;</span> <span class="p">:</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;radius&quot;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="nt">&quot;fixedCenter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">28.02</span><span class="p">,</span> <span class="mf">5.97</span><span class="p">,</span> <span class="mf">19.16</span><span class="p">],</span>
+        <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;sphericalBox&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">Box</span></code></p></li>
+<li><p>Type: Pele box definition (see more details at <a class="reference internal" href="../../software/pele/Boxes/Boxes.html#sec-boxes"><span class="std std-ref">Boxes</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="watersites">
+<span id="sec-waterperturbation-watersites"></span><h2>waterSites<a class="headerlink" href="#watersites" title="Permalink to this headline">¶</a></h2>
+<p>Several boxes can be associated to specific water molecules through water sites.
+In this way, the user can choose to perturb some water molecules inside one
+region and some others in a different region. Each water site can have their
+own box settings.</p>
+<p>Note that if those water molecules that are selected to perturb
+do not have any water site specified will be perturbed using the global
+box of the algorithm, if any. In case that no global box is defined, their
+perturbation will not be restricted inside a box.</p>
+<p>It is also worth to mention that if a water molecule belongs to a water site and
+has also been selected globally, the box from the water site will have precedence
+(unless it is an infinite box) over the global perturbation box..</p>
+<p>It is always recommended to define a global box for the perturbation algorithm.
+In this way, explicit water molecules are perturbed inside a specific region
+as they cannot get outside the perturbation box.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;waterSites&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;watersToPerturb&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;W:4&quot;</span><span class="p">]</span> <span class="p">}},</span>
+            <span class="nt">&quot;Box&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;radius&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nt">&quot;fixedCenter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">25.48</span><span class="p">,</span> <span class="mf">11.49</span><span class="p">,</span> <span class="mf">18.06</span><span class="p">],</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sphericalBox&quot;</span><span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+             <span class="nt">&quot;watersToPerturb&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;W:5&quot;</span><span class="p">,</span> <span class="s2">&quot;W:6&quot;</span><span class="p">]</span> <span class="p">}},</span>
+             <span class="nt">&quot;Box&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;radius&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="nt">&quot;fixedCenter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sphericalBox&quot;</span><span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">waterSites</span></code></p></li>
+<li><p>Type: list of water site definitions. Each water site requires the definition of a set of water molecules, <code class="docutils literal notranslate"><span class="pre">watersToPerturb</span></code>,  and a perturbation box, <code class="docutils literal notranslate"><span class="pre">Box</span></code>.</p></li>
+</ul>
+<div class="section" id="waterstoperturb">
+<h3>watersToPerturb<a class="headerlink" href="#waterstoperturb" title="Permalink to this headline">¶</a></h3>
+<p>Selection of the explicit water molecules of each water site.</p>
+<ul class="simple">
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">watersToPerturb</span></code></p></li>
+<li><p>Type: Pele links selection (see more details at <a class="reference internal" href="../../software/pele/Selections/SelectionExamples.html#sec-selectionexamples"><span class="std std-ref">Selections By Example</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="box">
+<h3>Box<a class="headerlink" href="#box" title="Permalink to this headline">¶</a></h3>
+<p>Definition of the perturbation box of each water site.</p>
+<ul class="simple">
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">Box</span></code></p></li>
+<li><p>Type: Pele box definition (see more details at <a class="reference internal" href="../../software/pele/Boxes/Boxes.html#sec-boxes"><span class="std std-ref">Boxes</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="parameters">
+<span id="sec-waterperturbation-parameters"></span><h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<p>All the possible parameters that can be specified in this section are the following ones:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;parameters&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;translationRange&quot;</span> <span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+        <span class="nt">&quot;overlapFactor&quot;</span> <span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+        <span class="nt">&quot;temperature&quot;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="nt">&quot;numberOfStericTrials&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="nt">&quot;COMConstraintConstant&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
+        <span class="nt">&quot;watersToPerturbPerStep&quot;</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="translationrange">
+<span id="sec-waterperturbation-translationrange"></span><h3>translationRange<a class="headerlink" href="#translationrange" title="Permalink to this headline">¶</a></h3>
+<p>WaterPerturbation works by translating and minimazing the water molecule
+at each PELE step. The translation range of the water molecules can be define with
+this parameter. However, the final translation modulus is allowed to fluctuate at
+each move trial to expand the sampling capabilities. It is obtained by applying
+the following equation:</p>
+<p><span class="math notranslate nohighlight">\(\text{Translation modulus} = \text{random double between}(0.75, 1.25) * \text{translationRange}\)</span></p>
+<ul class="simple">
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">translationRange</span></code></p></li>
+<li><p>Type: float</p></li>
+<li><p>Default: 5.0</p></li>
+<li><p>Units: angstroms</p></li>
+<li><p>Range: (0, inf)</p></li>
+</ul>
+</div>
+<div class="section" id="overlapfactor">
+<span id="sec-waterperturbation-overlapfactor"></span><h3>overlapFactor<a class="headerlink" href="#overlapfactor" title="Permalink to this headline">¶</a></h3>
+<p>The overlap factor that is used when looking for initial cavities for perturbed
+water molecules without steric clashes. When this factor gets lower, a higher steric overlap
+is accepted. See <a class="reference internal" href="../../software/pele/SideChainPrediction/SideChainPrediction.html#sec-sidechainprediction-parameters-overlapfactor"><span class="std std-ref">Overlap factor</span></a>
+for more information about this parameter.</p>
+<ul class="simple">
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">overlapFactor</span></code></p></li>
+<li><p>Type: float</p></li>
+<li><p>Default: 0.8</p></li>
+<li><p>Units: dimensionless</p></li>
+<li><p>Range: [0, 1]</p></li>
+</ul>
+</div>
+<div class="section" id="temperature">
+<span id="sec-waterperturbation-temperature"></span><h3>temperature<a class="headerlink" href="#temperature" title="Permalink to this headline">¶</a></h3>
+<p>The temperature that is used in the Metropolis criterion to decide whether to accept
+the new location of a perturbed water or not. The higher the temperature is, the
+easier will be to accept new water locations. Thus, more locations will be explored
+but worse conformations will be generated.</p>
+<ul class="simple">
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">temperature</span></code></p></li>
+<li><p>Type: float</p></li>
+<li><p>Default: 1000</p></li>
+<li><p>Units: Kelvin degrees</p></li>
+<li><p>Range: (0, inf)</p></li>
+</ul>
+</div>
+<div class="section" id="numberofsterictrials">
+<span id="sec-waterperturbation-numberofsterictrials"></span><h3>numberOfStericTrials<a class="headerlink" href="#numberofsterictrials" title="Permalink to this headline">¶</a></h3>
+<p>Number of trials that will be performed to look for steric-clashes-free
+cavities for the perturbed water molecules. For small pockets were
+valid movements are hardly found, you can consider increasing the amount
+of trials. See <a class="reference internal" href="../../software/pele/Perturbation/Perturbation.html#sec-perturbation-parameters-numberofsterictrials"><span class="std std-ref">numberOfStericTrials</span></a>
+for more details.</p>
+<ul class="simple">
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">numberOfStericTrials</span></code></p></li>
+<li><p>Type: integer</p></li>
+<li><p>Default: 1000</p></li>
+<li><p>Units: dimensionless</p></li>
+<li><p>Range: [1, inf)</p></li>
+</ul>
+</div>
+<div class="section" id="comconstraintconstant">
+<span id="sec-waterperturbation-comconstraintconstant"></span><h3>COMConstraintConstant<a class="headerlink" href="#comconstraintconstant" title="Permalink to this headline">¶</a></h3>
+<p>Constraint on the center of mass (COM) of each atomset that will be applied
+on all water molecules that are perturbed, once they are in the new location.
+Thus, during the relaxation step, perturbed water molecules will not be able
+to move to other places. This parameter could benefit the exploration of new
+water sites. However, as it introduces more constraints to the system, the
+final acceptance at the end of the Pele step could be lowered significantly.</p>
+<ul class="simple">
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">COMConstraintConstant</span></code></p></li>
+<li><p>Type: float</p></li>
+<li><p>Default: 0.0</p></li>
+<li><p>Units: <span class="math notranslate nohighlight">\(\text{kcal}/(\text{mol} \cdot \unicode{xC5}^{2})\)</span></p></li>
+<li><p>Range: [0, inf)</p></li>
+</ul>
+</div>
+<div class="section" id="waterstoperturbperstep">
+<span id="sec-waterperturbation-waterstoperturbperstep"></span><h3>watersToPerturbPerStep<a class="headerlink" href="#waterstoperturbperstep" title="Permalink to this headline">¶</a></h3>
+<p>Maximum number of water molecules that will be perturbed in a single water
+perturbation step. The default value, which is -1, perturbs all the water
+molecules that were selected in the WaterPerturbation section of the
+control file.</p>
+<ul class="simple">
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">watersToPerturbPerStep</span></code></p></li>
+<li><p>Type: integer</p></li>
+<li><p>Default: -1</p></li>
+<li><p>Units: dimensionless</p></li>
+<li><p>Range [-1, inf)</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Daniel Soler Viladrich
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
