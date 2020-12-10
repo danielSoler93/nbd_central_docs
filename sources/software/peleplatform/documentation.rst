@@ -11,7 +11,7 @@ Full documentation
 Tutorial
 --------
 
-`Pele Platform tutorial <https://nostrumbiodiscovery.github.io/pele_platform/cheatsheet/index.html>`_
+`Pele Platform tutorial <https://nostrumbiodiscovery.github.io/pele_platform/tutorials/index.html>`_
 
 
 Templates for launching
