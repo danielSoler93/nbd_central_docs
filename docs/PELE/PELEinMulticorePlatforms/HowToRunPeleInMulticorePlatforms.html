@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to run PELE in multicore platforms &mdash; NBD Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> NBD Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../databases/index.html">Compound DataBases</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../software/index.html">Software</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../compute_power/index.html">IT infrastructure</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../papers/index.html">Articles</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NBD Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>How to run PELE in multicore platforms</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/PELE/PELEinMulticorePlatforms/HowToRunPeleInMulticorePlatforms.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-run-pele-in-multicore-platforms">
+<h1>How to run PELE in multicore platforms<a class="headerlink" href="#how-to-run-pele-in-multicore-platforms" title="Permalink to this headline">¶</a></h1>
+<p>PELE can take advantage of multicore platforms in different ways:</p>
+<ul class="simple">
+<li><p>OpenMP</p></li>
+<li><p>MPI</p></li>
+<li><p>MPI + OpenMP</p></li>
+<li><p>CUDA (Experimental)</p></li>
+</ul>
+<p>Brief introduction of computing language used in this page:</p>
+<ul class="simple">
+<li><p>Processor: a die with one or more cores</p></li>
+<li><p>Core: execution unit</p></li>
+<li><p>Thread: process running in a core</p></li>
+</ul>
+<p>Usually the meaning of each words depends on the context. It’s also used
+processor instead of core, etc.</p>
+<div class="section" id="openmp">
+<h2>OpenMP<a class="headerlink" href="#openmp" title="Permalink to this headline">¶</a></h2>
+<p>In OpenMP, all the processors are sharing the memory of the system.
+OpenMP allows us to use the multiple cores that are available in the
+processor/s of our workstation in an easy and fast way. The OpenMP PELE
+implementation is like the serial execution of PELE (one explorer) but
+faster, doing some calculations in parallel.</p>
+<p>To use the OpenMP version of PELE, you have to follow the next steps:</p>
+<ol class="arabic simple">
+<li><p>Compile PELE with the pre-processor flag -DOPENMP and the flags to compile an OpenMP source code in your machine.</p></li>
+<li><p>Before run PELE, set the enviromental variable “OMP_NUM_THREADS” to set the number of threads that you want to use.</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> setenv OMP_NUM_THREADS <span class="m">4</span>
+<span class="gp">#</span> or
+<span class="gp">$</span> <span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">4</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Tip: set at maximum the number of REAL cores that you have to map each thread to a real core and get the maximum perfomance. Pay attention if you have an Intel cpu with hyperthreading enable.</p>
+<ol class="arabic simple" start="3">
+<li><p>Run PELE</p></li>
+</ol>
+<p>It doesn’t need any anotation in the configuration file.</p>
+</div>
+<div class="section" id="mpi">
+<h2>MPI<a class="headerlink" href="#mpi" title="Permalink to this headline">¶</a></h2>
+<p>MPI allows us to communicate different processors that are not sharing
+memory. We can also use MPI to comunicate the different cores or
+processors that are sharing memory. MPI it’s very used in supercomputers
+The MPI implementation runs one explorer per thread. Is like a lot of
+serial executions of PELE running at the same time being handled by a
+controller. If we have N cores and we launch PELE using all of them, we
+will have N-1 explorers and 1 controller.</p>
+<ol class="arabic simple">
+<li><p>Compile PELE for MPI</p></li>
+<li><p>Set in the PeleParameters section of the configuration file the “useMPI” option to true.</p></li>
+<li><p>Launch PELE using mpirun</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> mpirun -np &lt;numberOfProcessors&gt; PELE &lt;configurationFile&gt;
+</pre></div>
+</div>
+</div></blockquote>
+<p>If mpirun can’t find some files and crash, set the “working directory”,
+in our case the Pele directory, adding the flag “-wd “.</p>
+<p>If you are using Intel MPI and your execution fails with a message similar to:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Fatal error in MPI_Recv: Other MPI error, error stack:
+MPI_Recv(224)...................: MPI_Recv(buf=0x29598b0, count=13647, MPI_DOUBLE, src=3, tag=6, MPI_COMM_WORLD, status=0x1) failed
+PMPIDI_CH3I_Progress(623).......: fail failed
+pkt_RTS_handler(317)............: fail failed
+do_cts(662).....................: fail failed
+MPID_nem_lmt_dcp_start_recv(302): fail failed
+dcp_recv(165)...................: Internal MPI error!  Cannot read from remote process
+ Two workarounds have been identified for this issue:
+ 1) Enable ptrace for non-root users with:
+    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+ 2) Or, use:
+    I_MPI_SHM_LMT=shm
+</pre></div>
+</div>
+<p>try the second suggested option, by setting the environment variable <code class="docutils literal notranslate"><span class="pre">I_MPI_SHM_LMT</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nb">set</span> <span class="nv">I_MPI_SHM_LMT</span><span class="o">=</span>shm
+</pre></div>
+</div>
+</div>
+<div class="section" id="mpi-openmp">
+<h2>MPI + OpenMP<a class="headerlink" href="#mpi-openmp" title="Permalink to this headline">¶</a></h2>
+<p>It combines the two previous methods. In brief, the combination of
+both technologies permit to have fastest explorers running at the same
+time.</p>
+<p>For example, if we have 10 processors with 4 cores each one, we can
+have two configurations to use all the resources in an efficient way:</p>
+<ul class="simple">
+<li><p>10 MPI threads (explorers) with 4 OpenMP threads</p></li>
+<li><p>20 MPI threads (explorers) with 2 OpenMP threads</p></li>
+</ul>
+<div class="section" id="tips">
+<h3>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Don’t split an explorer to use OpenMP threads from a different
+processors. This situation can decrease the performance. Example, if
+we have 2 processors sharing memory with 6-core each, we have the
+following good and bad configurations:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>2 MPI threads with 6 OpenMP threads -&gt; GOOD</p></li>
+<li><p>3 MPI threads with 4 OpenMP threads -&gt; BAD, because one MPI
+thread will have 2 OpenMP thread in one processors and 2 OpenMP
+thread in other processor</p></li>
+<li><p>4 MPI threads with 3 OpenMP threads -&gt; GOOD</p></li>
+<li><p>6 MPI threads with 2 OpenMP threads -&gt; GOOD</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="cuda-experimental">
+<h2>CUDA (Experimental)<a class="headerlink" href="#cuda-experimental" title="Permalink to this headline">¶</a></h2>
+<p>It’s very hardware dependent. Use OpenMP and MPI.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Daniel Soler Viladrich
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
