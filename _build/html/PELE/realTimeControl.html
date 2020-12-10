@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Real Time Control of PELE simulations (experimental) &mdash; NBD Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> NBD Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../databases/index.html">Compound DataBases</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../software/index.html">Software</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../compute_power/index.html">IT infrastructure</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../papers/index.html">Articles</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NBD Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Real Time Control of PELE simulations (experimental)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/PELE/realTimeControl.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="real-time-control-of-pele-simulations-experimental">
+<span id="sec-realtimecontrol"></span><h1>Real Time Control of PELE simulations (experimental)<a class="headerlink" href="#real-time-control-of-pele-simulations-experimental" title="Permalink to this headline">¶</a></h1>
+<p>This is an experimental feature to allow real time control of an already started PELE simulation, in a similar way to <a class="reference internal" href="../software/pele/PELEDynamicChangesInSimulationParameters/ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">Changeable Parameters</span></a>, but this time performing the change of parameters at the moment the user decides to issue the command. This feature is intended to be used indirectly by the user, with a middleware that will understand the user control commands and transform them into the low-level way of interacting with the PELE simulation.</p>
+<p>This feature is currently only available for MPI simulations; in those cases, only PELE simulation commands can be executed.</p>
+<p>The following commands are available:</p>
+<ul class="simple">
+<li><p>PAUSE: Pause the simulation.</p></li>
+<li><p>RESUME: Resume a paused simulation.</p></li>
+<li><p>TERMINATE: Terminate a simulation.</p></li>
+<li><p>CHANGE_PARAMETERS: Change simulation parameters (the same that can be changed in <a class="reference internal" href="../software/pele/PELEDynamicChangesInSimulationParameters/ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">Changeable Parameters</span></a>).</p></li>
+<li><p>NOOP: No-operation (command without effect).</p></li>
+</ul>
+<p>To use real time control of a PELE simulation, you must enable this through the control file. Then, you must write commands to the command input file, while you can see how the commands are processed at the command output file.</p>
+<div class="section" id="configure-real-time-control-of-a-pele-simulation">
+<h2>Configure real time control of a PELE simulation<a class="headerlink" href="#configure-real-time-control-of-a-pele-simulation" title="Permalink to this headline">¶</a></h2>
+<p>To enable real time control of a PELE simulation, you must add the <code class="docutils literal notranslate"><span class="pre">commandFilePath</span></code> and <code class="docutils literal notranslate"><span class="pre">commandOutputFilePath</span></code> configuration variables to the top level of the control file (see <a class="reference internal" href="../software/pele/GeneralStructure/GeneralStructure.html#sec-generalstructure-commandfilepath"><span class="std std-ref">commandFilePath</span></a> and <a class="reference internal" href="../software/pele/GeneralStructure/GeneralStructure.html#sec-generalstructure-commandoutputfilepath"><span class="std std-ref">commandOutputFilePath</span></a>).</p>
+<p>For example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+ &quot;commandFilePath&quot;: &quot;commands.txt&quot;,
+ &quot;commandOutputFilePath&quot;: &quot;commandsOutput.txt&quot;,
+
+ // ...
+   &quot;commands&quot; : [
+      {
+         &quot;commandType&quot; : &quot;peleSimulation&quot;,
+      // ...
+      }
+  ]
+}
+</pre></div>
+</div>
+<p>You must make sure that those files do not exist when you start the simulation, since PELE++ creates those files itself and, to make sure you write your commands in the right file, it will terminate execution if those files already existed.</p>
+</div>
+<div class="section" id="write-commands-to-the-command-input-file">
+<h2>Write commands to the command input file<a class="headerlink" href="#write-commands-to-the-command-input-file" title="Permalink to this headline">¶</a></h2>
+<p>Once the application has started and created the command files, you can write to the command stream (<code class="docutils literal notranslate"><span class="pre">commandFilePath</span></code>), where each command is a JSON object with three fields, and to let the program know that the command is finished, a final line <code class="docutils literal notranslate"><span class="pre">*END</span></code> is added to terminate the command. The fields of the JSON command object are:</p>
+<ul class="simple">
+<li><p>commandId: A numeric identifier to match command output in the <code class="docutils literal notranslate"><span class="pre">commandOutputFilePath</span></code> to a given input command.</p></li>
+<li><p>commandType: The type of command. One of the allowed ones (see above, in the introduction section).</p></li>
+<li><p>commandData: The actual contents of the command, as a string. It will contain a JSON object (codified as a string, so quote symbols must be escaped, and backslashes also must be escaped). It will contain a set of parameter change instructions, as in <a class="reference internal" href="../software/pele/PELEDynamicChangesInSimulationParameters/ParametersThatCanChange.html#sec-parametersthatcanchange"><span class="std std-ref">Changeable Parameters</span></a>.</p></li>
+</ul>
+<p>A PELE simulation, regarding real time control, can be in one of two states:</p>
+<ul class="simple">
+<li><p>Running the simulation, in which case it accepts both PAUSE and TERMINATE commands. Commands are only processed just before starting a new simulation step.</p></li>
+<li><p>In a paused state, where it can accept a CHANGE_PARAMETERS command, or it can receive a RESUME command to return to the running state, or a TERMINATE command to end with the simulation.</p></li>
+</ul>
+<p>It always can receive a NOOP command, which has no effect.</p>
+<p>For example, the following commands will pause the simulation, make a change of parameters, and then resume the simulation:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&quot;commandId&quot;: 1,
+ &quot;commandType&quot;: &quot;PAUSE&quot;,
+ &quot;commandData&quot;: &quot;&quot;
+}
+*END
+{&quot;commandId&quot;: 5,
+ &quot;commandType&quot;: &quot;CHANGE_PARAMETERS&quot;,
+ &quot;commandData&quot;: &quot;{
+        \&quot;Perturbation::parameters\&quot;: {
+                \&quot;numberOfSteps\&quot; : 40,
+                \&quot;numberOfTrials\&quot; : 1,
+                \&quot;rotationScalingFactor\&quot;: 0.4,
+                \&quot;translationRange\&quot;: 3.5,
+                \&quot;overlapFactor\&quot;: 1.3,
+                \&quot;temperature\&quot;: 81,
+                \&quot;numberOfStericTrials\&quot;: 1
+        }
+       }&quot;
+}
+*END
+{&quot;commandId&quot;: 10,
+ &quot;commandType&quot;: &quot;RESUME&quot;,
+ &quot;commandData&quot;: &quot;&quot;
+}
+*END
+</pre></div>
+</div>
+<p>The command output file will register all results of a command execution while in the running state. Therefore, for the previous commands, only one result will be seen, corresponding to the pause command. Notice that the output is only written once all active explorers have acknowledged the command; so if some explorers are doing long calculations at a given step, you will have to wait for those calculations (and the step) to finish, before the command is actually effective.</p>
+<p>The contents of the result are a JSON object with two fields:</p>
+<ul class="simple">
+<li><p>commandId: Matches the commandId of the command this result corresponds to.</p></li>
+<li><p>output: A string with the output for the given command.</p></li>
+</ul>
+<p>The output is a string codifying a list of steps where the different explorers are after executing the command, which corresponds to the next step they plan to run. The format is: <code class="docutils literal notranslate"><span class="pre">X&#64;Y:Z</span></code> where X is the explorer id, Y is the task id, and Z is the step number.</p>
+<p>An example output, corresponding to the previous input commands:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&quot;commandId&quot;: 1, &quot;output&quot;: &quot;1@1:2 2@1:2 3@1:2&quot;}
+*END
+</pre></div>
+</div>
+<p>Notice that each reply is also terminated by a <code class="docutils literal notranslate"><span class="pre">*END</span></code> line. In the example, explorers 1, 2 and 3 were active when they received the command, and all of them were ready to start step 2 of task 1 at that time.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Daniel Soler Viladrich
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
