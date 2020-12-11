@@ -9,7 +9,7 @@ Launching Templates
 PelePlatform (cluster)
 -------------------------
 
-`/shared//work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/launch_template.sl`
+`/shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/launch_template.sl`
 
 Launch with: `sbatch launch_template.sl`
 
@@ -20,6 +20,15 @@ PeleSimulationAnalysis (cluster)
 `/shared/work/NBD_Utilities/PELE/PELE_Templates/analisis.sl`
 
 Launch with: Copy and paste the analysis part you want to run to commandline
+
+
+Pele++ (cluster)
+------------------------------------
+
+`/shared/work/NBD_Utilities/PELE/PELE_Templates/PELE_mpi/run_pele_nbd.sl`
+
+Launch with: `sbatch run_pele_nbd.sl`
+
 
 AnalogsSearch (Office)
 ---------------------------
