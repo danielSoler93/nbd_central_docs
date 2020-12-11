@@ -44,11 +44,21 @@ Launch the simulation:
 	$ cd aspirin
 	$ sbatch run_pele_nbd.sl
 
+Check the simulation state (more info in `queue-system <../../compute_power/index.html#queue-system>`_):
+
+.. code-block:: bash
+
+	$ squeue
+
+
+When the job is done, the outputs will be available in the folder **results**.
+
+
 
 Generate your own pele control file
 -----------------------------------
 
-More information about the syntax of control file is available in `Pele++ reference manual <https://eapm-bsc.github.io/PELE-repo/referenceManual.html>`_
+More information about the syntax of control file is available in `Pele++ reference manual <https://eapm-bsc.github.io/PELE-repo/GeneralStructure/GeneralStructure.html>`_
 
 
 Templates for launching
