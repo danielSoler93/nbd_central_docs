@@ -47,7 +47,7 @@ The RES grant allows us to use MN4 to run our in house ModTox project. (MD&PELE 
 `ModTox project <https://nostrumbiodiscovery.github.io/modtox/>`_
 
 
-**To connect**: You need to ask for an account. Please, talk with daniel.soler@nostrumbiodiscovery.com
+**To connect**: You need to ask for an account. Please, contact with it@nostrumbiodiscovery.com
 
 Backup
 -------------
