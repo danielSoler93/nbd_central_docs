@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>AdaptivePELE &mdash; NBD Docs 1.0.0 documentation</title>
+  <title>PELE++ &mdash; NBD Docs 1.0.0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="MD" href="../MD/documentation.html" />
-    <link rel="prev" title="PELE Platfom" href="../peleplatform/documentation.html" /> 
+    <link rel="next" title="PELE Platfom" href="../peleplatform/documentation.html" />
+    <link rel="prev" title="Launching Templates" href="../templates/documentation.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,15 +94,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#summary">Summary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#job-launching-templates">Job launching Templates</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#pele">PELE</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../pele/documentation.html">PELE++</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../peleplatform/documentation.html">PELE Platfom</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">AdaptivePELE</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PELE++</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#full-documentation">Full documentation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tutorial">Tutorial</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-your-own-pele-control-file">Generate your own pele control file</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#templates-for-launching">Templates for launching</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#templates-for-analysis">Templates for analysis</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../peleplatform/documentation.html">PELE Platfom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adaptive/documentation.html">AdaptivePELE</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#namd">NAMD</a></li>
@@ -167,13 +167,13 @@
         
           <li><a href="../index.html">Software</a> &raquo;</li>
         
-      <li>AdaptivePELE</li>
+      <li>PELE++</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/software/adaptive/documentation.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/software/pele/documentation.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -186,33 +186,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="adaptivepele">
-<h1>AdaptivePELE<a class="headerlink" href="#adaptivepele" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-</div>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../../_images/adaptive.png"><img alt="../../_images/adaptive.png" src="../../_images/adaptive.png" style="width: 400.0px; height: 508.0px;" /></a>
-</div>
+  <div class="section" id="pele">
+<h1>PELE++<a class="headerlink" href="#pele" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="full-documentation">
 <h2>Full documentation<a class="headerlink" href="#full-documentation" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://adaptivepele.github.io/AdaptivePELE/">Adaptive docs</a></p>
+<p><a class="reference external" href="https://eapm-bsc.github.io/PELE-repo/">Pele++ docs</a></p>
 </div>
 <div class="section" id="tutorial">
 <h2>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h2>
-<p>Still unimplemented</p>
+<p>The steps for launch a simulation are:</p>
+<ul class="simple">
+<li><p>Prepare the complex</p></li>
+<li><p>Prepare the input file (.conf)</p></li>
+<li><p>Run command</p></li>
+</ul>
+<p>You can find sample data to launch aspirin example in the NBD cluster. The steps to run the simulation are:</p>
+<p>Change to a personal folder, for example (&lt;USERNAME&gt; refers to your system user):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /shared/scratch/jobs/&lt;USERNAME&gt;
+</pre></div>
+</div>
+<p>Copy sample data (includes the complex and the input file):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cp -r /shared/work/NBD_Utilities/PELE/PELE_TestData/aspirin .
+</pre></div>
+</div>
+<p>Copy the launching file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cp /shared/work/NBD_Utilities/PELE/PELE_Templates/PELE_mpi/run_pele_nbd.sl aspirin/
+</pre></div>
+</div>
+<p>Launch the simulation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> aspirin
+$ sbatch run_pele_nbd.sl
+</pre></div>
+</div>
+<p>Check the simulation state (more info in <a class="reference external" href="../../compute_power/index.html#queue-system">queue-system</a>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ squeue
+</pre></div>
+</div>
+<p>When the job is done, the outputs will be available in the folder <strong>results</strong>.</p>
+</div>
+<div class="section" id="generate-your-own-pele-control-file">
+<h2>Generate your own pele control file<a class="headerlink" href="#generate-your-own-pele-control-file" title="Permalink to this headline">¶</a></h2>
+<p>More information about the syntax of control file is available in <a class="reference external" href="https://eapm-bsc.github.io/PELE-repo/GeneralStructure/GeneralStructure.html">Pele++ reference manual</a></p>
 </div>
 <div class="section" id="templates-for-launching">
 <h2>Templates for launching<a class="headerlink" href="#templates-for-launching" title="Permalink to this headline">¶</a></h2>
-<p>You can find an AdaptivePELE input (.conf) and a launching file (.sl) for the NBD cluster under:</p>
+<p>You can find a launching file (.sl) for the NBD cluster under:</p>
 <ul class="simple">
-<li><p><strong>/shared/work/NBD_Utilities/PELE/PELE_Templates/Adaptive_intel/</strong></p></li>
-</ul>
-</div>
-<div class="section" id="templates-for-analysis">
-<h2>Templates for analysis<a class="headerlink" href="#templates-for-analysis" title="Permalink to this headline">¶</a></h2>
-<p>You can find an analysis file with everything explain inside under:</p>
-<ul class="simple">
-<li><p><strong>/shared/work/NBD_Utilities/PELE/PELE_Templates/analisis.sl</strong></p></li>
+<li><p><strong>/shared/work/NBD_Utilities/PELE/PELE_Templates/PELE_mpi/</strong></p></li>
 </ul>
 </div>
 </div>
@@ -225,10 +245,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../MD/documentation.html" class="btn btn-neutral float-right" title="MD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../peleplatform/documentation.html" class="btn btn-neutral float-right" title="PELE Platfom" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../peleplatform/documentation.html" class="btn btn-neutral float-left" title="PELE Platfom" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../templates/documentation.html" class="btn btn-neutral float-left" title="Launching Templates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
