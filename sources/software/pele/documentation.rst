@@ -5,7 +5,7 @@ PELE++
 Full documentation
 ------------------------
 
-`Pele++ docs <https://eapm-bsc.github.io/PELE-repo/>`_
+`Pele++ docs <https://nostrumbiodiscovery.github.io/pele_docs/>`_
 
 
 Tutorial
@@ -58,7 +58,7 @@ When the job is done, the outputs will be available in the folder **results**.
 Generate your own pele control file
 -----------------------------------
 
-More information about the syntax of control file is available in `Pele++ reference manual <https://eapm-bsc.github.io/PELE-repo/GeneralStructure/GeneralStructure.html>`_
+More information about the syntax of control file is available in `Pele++ reference manual <https://nostrumbiodiscovery.github.io/pele_docs/GeneralStructure/GeneralStructure.html>`_
 
 
 Templates for launching
