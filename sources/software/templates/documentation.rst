@@ -175,7 +175,7 @@ Launch with: `sbatch run_pele_nbd.sl`
 AnalogsSearch (Office)
 ---------------------------
 
-..code-block:: bash
+.. code-block:: bash
     #Read the docs for more info in the possible searches and commands:
 
     # https://danielsoler93.github.io/analogs_finder/
@@ -252,7 +252,7 @@ MDPocket (Office)
 
 
 
-..code-block:: bash
+.. code-block:: bash
     $ # Path:
     $ /shared/data-nbdcalc01/software/MDpocket/mdpocket_readme_suwipa/README_MDpocket
 
