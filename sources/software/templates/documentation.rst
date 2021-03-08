@@ -44,7 +44,7 @@ PelePlatform (cluster)
     
 
 .. code-block:: bash
-
+   $ # Path:
    $ /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/launch_template.sl
 
 
