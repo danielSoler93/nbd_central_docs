@@ -10,6 +10,7 @@ PelePlatform (cluster)
 -------------------------
 
 .. code-block:: bash
+
    #!/bin/bash
    #SBATCH -J PELE_MPI_test
    #SBATCH --output=mpi_%j.out
@@ -43,6 +44,7 @@ PelePlatform (cluster)
     
 
 .. code-block:: bash
+
    $ /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/launch_template.sl
 
 
@@ -53,6 +55,7 @@ PeleSimulationAnalysis (cluster)
 ------------------------------------
 
 .. code-block:: none
+
    #Generate plot with interactive
    interactive -n 1 -X
 
@@ -130,6 +133,7 @@ PeleSimulationAnalysis (cluster)
    (X=number of processors in PELE)
                                  
 .. code-block:: bash
+
    $ #Path: 
    $ /shared/work/NBD_Utilities/PELE/PELE_Templates/analisis.sl
 
@@ -141,6 +145,7 @@ Pele++ (cluster)
 ------------------------------------
 
 .. code-block:: bash
+
    #!/bin/bash
    #SBATCH -J PELE_MPI
    #SBATCH --output=mpi_%j.out
@@ -165,6 +170,7 @@ Pele++ (cluster)
 
 
 .. code-block:: bash
+
    $ # Path:
    $ /shared/work/NBD_Utilities/PELE/PELE_Templates/PELE_mpi/run_pele_nbd.sl
 
@@ -176,6 +182,7 @@ AnalogsSearch (Office)
 ---------------------------
 
 .. code-block:: bash
+
    #Read the docs for more info in the possible searches and commands:
    # https://danielsoler93.github.io/analogs_finder/
 
@@ -184,6 +191,7 @@ AnalogsSearch (Office)
 
 
 .. code-block:: bash
+
    $ # Path:
    $ /shared/data-nbdcalc01/software/python_scripts/analogs_finder/analogs.shi
 
@@ -193,6 +201,7 @@ MDPocket (Office)
 --------------------
 
 .. code-block:: none
+
    README MDpocket
    SUWIPA April 4, 2019.
 
@@ -251,19 +260,9 @@ MDPocket (Office)
 
 
 .. code-block:: bash
+
    $ # Path:
    $ /shared/data-nbdcalc01/software/MDpocket/mdpocket_readme_suwipa/README_MDpocket
 
 
 Launch with: Follow instructions and copy paste to command line
-
-
-
-
-
-
-
-
-
-
-
