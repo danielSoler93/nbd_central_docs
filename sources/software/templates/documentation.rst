@@ -9,6 +9,8 @@ Launching Templates
 PelePlatform (cluster)
 -------------------------
 
+**Last Update:** 25-11-2020
+
 .. code-block:: bash
 
    #!/bin/bash
@@ -30,6 +32,8 @@ PelePlatform (cluster)
 
 PeleSimulationAnalysis (cluster)
 ------------------------------------
+
+**Last Update:** 14-01-2020
 
 .. code-block:: none
 
@@ -121,6 +125,8 @@ Launch with: Copy and paste the analysis part you want to run to commandline
 Pele++ (cluster)
 ------------------------------------
 
+**Last Update:** 11-12-2020
+
 .. code-block:: bash
 
    #!/bin/bash
@@ -158,6 +164,8 @@ Launch with: `sbatch run_pele_nbd.sl`
 AnalogsSearch (Office)
 ---------------------------
 
+**Last Update:** 19-03-2020
+
 .. code-block:: bash
 
    #Read the docs for more info in the possible searches and commands:
@@ -176,6 +184,8 @@ Launch with: `bash analogs.sh`
 
 MDPocket (Office)
 --------------------
+
+**Last Update:** 02-01-2020
 
 .. code-block:: none
 

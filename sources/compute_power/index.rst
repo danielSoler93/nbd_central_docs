@@ -16,7 +16,7 @@ Folders:
     - /shared/data-ndbdata01/users/user/: Individual storage
     - /shared/data-nbddata01/common/: Shared storaged & Project management
 
-**To connect**: ``ssh -X -p 22022 username@10.10.0.6``
+**To connect**: ``ssh -X username@10.10.0.6``
 
 
 Queue system

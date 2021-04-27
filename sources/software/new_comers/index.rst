@@ -21,7 +21,7 @@ MAC
     :align: center
 
 
-4) You shoud be able to connect to ``ssh -X username@10.8.0.1`` from commandline
+4) You shoud be able to connect to ``ssh -X username@10.10.0.6`` from commandline
 
 
 Windows
@@ -41,7 +41,7 @@ vpn
 
 3) Click the openVPN icon on the low bar of your computer and connect
 
-4) You should be able to  ``ssh -X username@10.8.0.1`` from the window's cmd (type cmd on windows search to open it)
+4) You should be able to  ``ssh -X username@10.10.0.6`` from the window's cmd (type cmd on windows search to open it)
 
 Winscp
 ++++++++
@@ -50,6 +50,6 @@ To easily manage files between machines install winscp.
 
 1) Install winscp `here <https://winscp.net/eng/download.php>`_ (stable version prefered)
 
-2) Open winscp and set the hostname (10.8.0.1) port (22) username (your_username) and password (your password)
+2) Open winscp and set the hostname (10.10.0.6) port (22) username (your_username) and password (your password)
 
-3) You will be able to manage files between your laptop and the server. Do the same for the cluster (host: 94.24.113.46 / port: 22022) and the office machine (host: 192.168.1.4 / port: 22)
+3) You will be able to manage files between your laptop and the server.
