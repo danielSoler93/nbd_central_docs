@@ -193,7 +193,8 @@
 <h2>PelePlatform (cluster)<a class="headerlink" href="#peleplatform-cluster" title="Permalink to this headline">¶</a></h2>
 <p><strong>Last Update:</strong> 03-05-2021</p>
 <p><strong>PelePlatform - v1.6</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH -J peleplat_tests</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -J peleplat_tests</span>
 <span class="c1">#SBATCH --output=report_%j.out</span>
 <span class="c1">#SBATCH --error=report_%j.err</span>
 <span class="c1">#SBATCH --ntasks=2</span>
