@@ -172,7 +172,43 @@ Launch with: Copy and paste the analysis part you want to run to commandline
 Pele++ (cluster)
 ------------------------------------
 
-**Last Update:** 11-12-2020
+**Last Update:** 21-05-2021
+
+**PELE-1.7**
+
+.. code-block:: bash
+
+   #!/bin/bash
+   #SBATCH -J PELE_MPI
+   #SBATCH --output=mpi_%j.out
+   #SBATCH --error=mpi_%j.err
+   #SBATCH --ntasks=5        # Change this value to match CPUs in mpi run --ntasks=XXX 
+   #SBATCH --mem-per-cpu=1000
+
+   ##################################################################
+   module purge
+   export LC_ALL=C; unset LANGUAGE
+   module load intel-oneapi
+   module load imkl
+   export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
+   export LD_LIBRARY_PATH=/shared/work/NBD_Utilities/PELE/PELE_dependencies/boost-1.66.0/lib:$LD_LIBRARY_PATH
+   export PATH=/shared/work/NBD_Utilities/PELE/PELE_Softwares/bin/PELE1.7/bin:$PATH
+   module list
+   ##################################################################
+
+   #CHOOSE NUMBER OF PROCESSORS TO USE i.e. XXX = 5 
+   #srun -n XXX Pele_mpi pele.conf
+   srun -n 5 Pele_mpi pele.conf
+
+
+.. code-block:: bash
+
+   $ # Path:
+   $ /shared/work/NBD_Utilities/PELE/PELE_Templates/PELE_mpi/run_pele-1.7_nbd.sl
+
+Launch with: `sbatch run_pele-1.7_nbd.sl`
+
+**PELE-1.6**
 
 .. code-block:: bash
 
@@ -202,10 +238,10 @@ Pele++ (cluster)
 .. code-block:: bash
 
    $ # Path:
-   $ /shared/work/NBD_Utilities/PELE/PELE_Templates/PELE_mpi/run_pele_nbd.sl
+   $ /shared/work/NBD_Utilities/PELE/PELE_Templates/PELE_mpi/run_pele-1.6_nbd.sl
 
 
-Launch with: `sbatch run_pele_nbd.sl`
+Launch with: `sbatch run_pele-1.6_nbd.sl`
 
 
 AnalogsSearch (Office)
