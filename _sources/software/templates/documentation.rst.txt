@@ -172,9 +172,9 @@ Launch with: Copy and paste the analysis part you want to run to commandline
 Pele++ (cluster)
 ------------------------------------
 
-**Last Update:** 21-05-2021
+**Last Update:** 09-06-2021
 
-**PELE-1.7**
+**PELE-1.7.1**
 
 .. code-block:: bash
 
@@ -192,7 +192,7 @@ Pele++ (cluster)
    module load imkl
    export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
    export LD_LIBRARY_PATH=/shared/work/NBD_Utilities/PELE/PELE_dependencies/boost-1.66.0/lib:$LD_LIBRARY_PATH
-   export PATH=/shared/work/NBD_Utilities/PELE/PELE_Softwares/bin/PELE1.7/bin:$PATH
+   export PATH=/shared/work/NBD_Utilities/PELE/PELE_Softwares/bin/PELE1.7.1/bin:$PATH
    module list
    ##################################################################
 
@@ -204,9 +204,9 @@ Pele++ (cluster)
 .. code-block:: bash
 
    $ # Path:
-   $ /shared/work/NBD_Utilities/PELE/PELE_Templates/PELE_mpi/run_pele-1.7_nbd.sl
+   $ /shared/work/NBD_Utilities/PELE/PELE_Templates/PELE_mpi/run_pele-1.7.1_nbd.sl
 
-Launch with: `sbatch run_pele-1.7_nbd.sl`
+Launch with: `sbatch run_pele-1.7.1_nbd.sl`
 
 **PELE-1.6**
 
