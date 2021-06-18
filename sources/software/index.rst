@@ -27,7 +27,12 @@ The NBD's main technologies are:
 
 - modtox AI ( `modtox AI docs  <https://nostrumbiodiscovery.github.io/modtox/>`_)
 
-- schordingers platform ( `schrodinger docs  <https://www.schrodinger.com/>`_) 
+- schrodinger platform ( `schrodinger docs  <https://www.schrodinger.com/>`_)
+
+- GROMACS ( `GROMACS docs <https://manual.gromacs.org/documentation/>`_)
+
+- PLUMED ( `PLUMED docs <https://www.plumed.org/doc>`_)
+
 
 Job launching Templates
 -------------------------
@@ -72,6 +77,21 @@ A micelaneous of several Python Packages built along the years
 
 .. toctree::
    python/packages
+
+GROMACS
+------------------
+GROMACS is a versatile package to perform molecular dynamics.
+
+.. toctree::
+   GROMACS/documentation
+
+PLUMED
+------------------
+PLUMED is a plugin that works with a large number of molecular dynamics codes. PLUMED can also work as a Command Line Tools to perform analysis on trajectories saved in most of the existing formats.
+
+.. toctree::
+   PLUMED/documentation
+
 
 Nice DCV
 ------------
