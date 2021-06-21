@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>SchrodingerSuit &mdash; NBD Docs 1.0.0 documentation</title>
+  <title>GROMACS &mdash; NBD Docs 1.0.0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Python Packages" href="../python/packages.html" />
-    <link rel="prev" title="MD" href="../MD/documentation.html" /> 
+    <link rel="next" title="PLUMED" href="../PLUMED/documentation.html" />
+    <link rel="prev" title="Python Packages" href="../python/packages.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -95,17 +95,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#job-launching-templates">Job launching Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#pele">PELE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#namd">NAMD</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html#schrodinger">Schrodinger</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">SchrodingerSuit</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#full-documentation">Full documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#launch">Launch</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#reactivate-license">Reactivate License</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#schrodinger">Schrodinger</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#python-packages">Python packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#gromacs">GROMACS</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#gromacs">GROMACS</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">GROMACS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">2021.2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patched-with-plumed-2-1-5">4.6.7 (patched with plumed 2.1.5)</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#plumed">PLUMED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#nice-dcv">Nice DCV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tests">Tests</a></li>
@@ -166,13 +165,13 @@
         
           <li><a href="../index.html">Software</a> &raquo;</li>
         
-      <li>SchrodingerSuit</li>
+      <li>GROMACS</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/software/Schrodinger/documentation.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/software/GROMACS/documentation.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -185,25 +184,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="schrodingersuit">
-<h1>SchrodingerSuit<a class="headerlink" href="#schrodingersuit" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="full-documentation">
-<h2>Full documentation<a class="headerlink" href="#full-documentation" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://www.schrodinger.com/documentation">Schrodinger docs</a></p>
+  <div class="section" id="gromacs">
+<h1>GROMACS<a class="headerlink" href="#gromacs" title="Permalink to this headline">¶</a></h1>
+<p>GROMACS is a versatile package to perform molecular dynamics.</p>
+<div class="section" id="id1">
+<h2>2021.2<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://manual.gromacs.org/documentation/2021-current/index.html">Documentation for this version</a></p>
+<p>Installation path (NBD cluster):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">NBD_Utilities</span><span class="o">/</span><span class="n">GROMACS</span><span class="o">/</span><span class="n">gromacs</span><span class="o">-</span><span class="mf">2021.2</span>
+</pre></div>
 </div>
-<div class="section" id="launch">
-<h2>Launch<a class="headerlink" href="#launch" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/opt/schrodinger2020-1/maestro
+<p>Dependencies:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">intel</span><span class="o">-</span><span class="n">oneapi</span><span class="o">/</span><span class="mf">2021.1.0</span> <span class="n">intel</span> <span class="n">imkl</span>
+<span class="n">export</span> <span class="n">I_MPI_PMI_LIBRARY</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libpmi</span><span class="o">.</span><span class="n">so</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="reactivate-license">
-<h2>Reactivate License<a class="headerlink" href="#reactivate-license" title="Permalink to this headline">¶</a></h2>
-<p>From nbdcalc01 (office machine):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash /scratch/reactivate_schrodinger.sh
+<div class="section" id="patched-with-plumed-2-1-5">
+<h2>4.6.7 (patched with plumed 2.1.5)<a class="headerlink" href="#patched-with-plumed-2-1-5" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://manual.gromacs.org/archive/4.6.7/online.html">Documentation for this version</a></p>
+<p>Installation path (NBD cluster):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">NBD_Utilities</span><span class="o">/</span><span class="n">GROMACS</span><span class="o">/</span><span class="n">gromacs</span><span class="o">-</span><span class="mf">4.6.7</span>
 </pre></div>
 </div>
-<p>If when openning maestro, it asks for setting a writing directory please specify: /scratch/</p>
+<p>Dependencies:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">OpenMPI</span><span class="o">/</span><span class="mf">2.1.2</span><span class="o">-</span><span class="n">GCC</span><span class="o">-</span><span class="mf">6.4.0</span><span class="o">-</span><span class="mf">2.28</span> <span class="n">intel</span><span class="o">-</span><span class="n">oneapi</span><span class="o">/</span><span class="mf">2021.1.0</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -215,10 +222,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../python/packages.html" class="btn btn-neutral float-right" title="Python Packages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../PLUMED/documentation.html" class="btn btn-neutral float-right" title="PLUMED" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../MD/documentation.html" class="btn btn-neutral float-left" title="MD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../python/packages.html" class="btn btn-neutral float-left" title="Python Packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
