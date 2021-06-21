@@ -31,4 +31,4 @@ Installation path (NBD cluster)::
 
 Dependencies::
 
-	module laod OpenMPI/2.1.2-GCC-6.4.0-2.28
+	module load OpenMPI/2.1.2-GCC-6.4.0-2.28
