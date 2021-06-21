@@ -11,9 +11,9 @@ Summary
 
 The NBD's main technologies are:
 
-- PELE++ ( `PELE docs <https://nostrumbiodiscovery.github.io/pele_docs/>`_ )
+- PELE++ (`PELE docs <https://nostrumbiodiscovery.github.io/pele_docs/>`_)
 
-- PELE Platform (`PELE Platform <https://nostrumbiodiscovery.github.io/pele_platform/>`_ )
+- PELE Platform (`PELE Platform <https://nostrumbiodiscovery.github.io/pele_platform/>`_)
 
 - Adaptive PELE Simulation (`Adaptive PELE docs <https://adaptivepele.github.io/AdaptivePELE/>`_)
 
@@ -23,11 +23,16 @@ The NBD's main technologies are:
 
 - NAMD Molecular Dynamics (`NAMD docs <http://www.ks.uiuc.edu/Research/namd/>`_)
 
-- analogs finder  ( `analogs finder docs <https://nostrumbiodiscovery.github.io/analogs_finder/>`_)
+- analogs finder  (`analogs finder docs <https://nostrumbiodiscovery.github.io/analogs_finder/>`_)
 
-- modtox AI ( `modtox AI docs  <https://nostrumbiodiscovery.github.io/modtox/>`_)
+- modtox AI (`modtox AI docs  <https://nostrumbiodiscovery.github.io/modtox/>`_)
 
-- schordingers platform ( `schrodinger docs  <https://www.schrodinger.com/>`_) 
+- schrodinger platform (`schrodinger docs  <https://www.schrodinger.com/>`_)
+
+- GROMACS (`GROMACS docs <https://manual.gromacs.org/documentation/>`_)
+
+- PLUMED (`PLUMED docs <https://www.plumed.org/doc>`_)
+
 
 Job launching Templates
 -------------------------
@@ -72,6 +77,21 @@ A micelaneous of several Python Packages built along the years
 
 .. toctree::
    python/packages
+
+GROMACS
+------------------
+GROMACS is a versatile package to perform molecular dynamics.
+
+.. toctree::
+   GROMACS/documentation
+
+PLUMED
+------------------
+PLUMED is a plugin that works with a large number of molecular dynamics codes. PLUMED can also work as a Command Line Tool to perform analysis on trajectories saved in most of the existing formats.
+
+.. toctree::
+   PLUMED/documentation
+
 
 Nice DCV
 ------------
