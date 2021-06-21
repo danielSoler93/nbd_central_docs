@@ -11,9 +11,9 @@ Summary
 
 The NBD's main technologies are:
 
-- PELE++ ( `PELE docs <https://nostrumbiodiscovery.github.io/pele_docs/>`_ )
+- PELE++ (`PELE docs <https://nostrumbiodiscovery.github.io/pele_docs/>`_)
 
-- PELE Platform (`PELE Platform <https://nostrumbiodiscovery.github.io/pele_platform/>`_ )
+- PELE Platform (`PELE Platform <https://nostrumbiodiscovery.github.io/pele_platform/>`_)
 
 - Adaptive PELE Simulation (`Adaptive PELE docs <https://adaptivepele.github.io/AdaptivePELE/>`_)
 
@@ -23,15 +23,15 @@ The NBD's main technologies are:
 
 - NAMD Molecular Dynamics (`NAMD docs <http://www.ks.uiuc.edu/Research/namd/>`_)
 
-- analogs finder  ( `analogs finder docs <https://nostrumbiodiscovery.github.io/analogs_finder/>`_)
+- analogs finder  (`analogs finder docs <https://nostrumbiodiscovery.github.io/analogs_finder/>`_)
 
-- modtox AI ( `modtox AI docs  <https://nostrumbiodiscovery.github.io/modtox/>`_)
+- modtox AI (`modtox AI docs  <https://nostrumbiodiscovery.github.io/modtox/>`_)
 
-- schrodinger platform ( `schrodinger docs  <https://www.schrodinger.com/>`_)
+- schrodinger platform (`schrodinger docs  <https://www.schrodinger.com/>`_)
 
-- GROMACS ( `GROMACS docs <https://manual.gromacs.org/documentation/>`_)
+- GROMACS (`GROMACS docs <https://manual.gromacs.org/documentation/>`_)
 
-- PLUMED ( `PLUMED docs <https://www.plumed.org/doc>`_)
+- PLUMED (`PLUMED docs <https://www.plumed.org/doc>`_)
 
 
 Job launching Templates
