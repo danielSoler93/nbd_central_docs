@@ -87,7 +87,7 @@ GROMACS is a versatile package to perform molecular dynamics.
 
 PLUMED
 ------------------
-PLUMED is a plugin that works with a large number of molecular dynamics codes. PLUMED can also work as a Command Line Tools to perform analysis on trajectories saved in most of the existing formats.
+PLUMED is a plugin that works with a large number of molecular dynamics codes. PLUMED can also work as a Command Line Tool to perform analysis on trajectories saved in most of the existing formats.
 
 .. toctree::
    PLUMED/documentation
