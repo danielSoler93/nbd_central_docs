@@ -9,33 +9,33 @@ Launching Templates
 PelePlatform (cluster)
 -------------------------
 
-**Last Update:** 03-05-2021
+**Last Update:** 29-06-2021
 
 
 **PelePlatform - v1.6**
 
 .. code-block:: bash
 
-   #!/bin/bash
    #SBATCH -J peleplat_tests
    #SBATCH --output=report_%j.out
    #SBATCH --error=report_%j.err
-   #SBATCH --ntasks=2
+   #SBATCH --ntasks=5
    #SBATCH --mem-per-cpu=1000
-   
+
    module purge
+   module load intel-oneapi
+   module load imkl
+
    source /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
    conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/envs/peleplatform-1.6.0
 
-   module load intel
-
    export SCHRODINGER="/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/"
    export SCHRODINGER_PYTHONPATH="/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/internal/lib/python2.7/site-packages"
-   export PELE="/shared/work/NBD_Utilities/PELE/PELE_Softwares/bin/PELE1.6/"
+   export PELE="/shared/work/NBD_Utilities/PELE/PELE_Softwares/bin/PELE1.7.1/"
 
    export LC_ALL=C; unset LANGUAGE
    export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
-   export LD_LIBRARY_PATH=/shared/work/NBD_Utilities/PELE/PELE_Softwares/local_deps/pele_deps/boost_1_52/lib:$LD_LIBRARY_PATH
+   export LD_LIBRARY_PATH=/shared/work/NBD_Utilities/PELE/PELE_dependencies/boost-1.66.0/lib:$LD_LIBRARY_PATH
    export SRUN=1  # this is to avoid having to set usesrun: true in input.yaml
 
    python -c "import pele_platform; print('Using PELEPlatform, version', pele_platform.__version__)"
