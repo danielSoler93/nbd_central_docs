@@ -100,7 +100,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#gromacs">GROMACS</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">GROMACS</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id1">2021.2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#patched-with-plumed-2-1-5">4.6.7 (patched with plumed 2.1.5)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patched-with-plumed-2-7-1">2019.6 (patched with plumed 2.7.1)</a></li>
 </ul>
 </li>
 </ul>
@@ -200,15 +200,17 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="patched-with-plumed-2-1-5">
-<h2>4.6.7 (patched with plumed 2.1.5)<a class="headerlink" href="#patched-with-plumed-2-1-5" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://manual.gromacs.org/archive/4.6.7/online.html">Documentation for this version</a></p>
+<div class="section" id="patched-with-plumed-2-7-1">
+<h2>2019.6 (patched with plumed 2.7.1)<a class="headerlink" href="#patched-with-plumed-2-7-1" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://manual.gromacs.org/documentation/2019-current/index.html">Documentation for this version</a></p>
 <p>Installation path (NBD cluster):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">NBD_Utilities</span><span class="o">/</span><span class="n">GROMACS</span><span class="o">/</span><span class="n">gromacs</span><span class="o">-</span><span class="mf">4.6.7</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">NBD_Utilities</span><span class="o">/</span><span class="n">GROMACS</span><span class="o">/</span><span class="n">gromacs</span><span class="o">-</span><span class="mf">2019.6</span>
 </pre></div>
 </div>
 <p>Dependencies:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">OpenMPI</span><span class="o">/</span><span class="mf">2.1.2</span><span class="o">-</span><span class="n">GCC</span><span class="o">-</span><span class="mf">6.4.0</span><span class="o">-</span><span class="mf">2.28</span> <span class="n">intel</span><span class="o">-</span><span class="n">oneapi</span><span class="o">/</span><span class="mf">2021.1.0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>module load intel-oneapi
+export LD_LIBRARY_PATH=/shared/work/NBD_Utilities/PLUMED/plumed-2.7.1_impi/lib:$LD_LIBRARY_PATH
+export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
 </pre></div>
 </div>
 </div>

@@ -101,7 +101,6 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#plumed">PLUMED</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">PLUMED</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id1">2.7.1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">2.1.5</a></li>
 </ul>
 </li>
 </ul>
@@ -191,24 +190,13 @@
 <h2>2.7.1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://plumed.github.io/doc-v2.7/user-doc/html/index.html">Documentation for this version</a></p>
 <p>Installation path (NBD cluster):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">NBD_Utilities</span><span class="o">/</span><span class="n">PLUMED</span><span class="o">/</span><span class="n">plumed</span><span class="o">-</span><span class="mf">2.7.1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">NBD_Utilities</span><span class="o">/</span><span class="n">PLUMED</span><span class="o">/</span><span class="n">plumed</span><span class="o">-</span><span class="mf">2.7.1</span><span class="n">_impi</span>
 </pre></div>
 </div>
 <p>Dependencies:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>module laod OpenMPI/2.1.2-GCC-6.4.0-2.28
-export LD_LIBRARY_PATH=/shared/work/NBD_Utilities/PLUMED/plumed-2.7.1/lib:$LD_LIBRARY_PATH
-</pre></div>
-</div>
-</div>
-<div class="section" id="id2">
-<h2>2.1.5<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://plumed.github.io/doc-v2.1/user-doc/html/index.html">Documentation for this version</a></p>
-<p>Installation path (NBD cluster):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">NBD_Utilities</span><span class="o">/</span><span class="n">PLUMED</span><span class="o">/</span><span class="n">plumed</span><span class="o">-</span><span class="mf">2.1.5</span>
-</pre></div>
-</div>
-<p>Dependencies:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">OpenMPI</span><span class="o">/</span><span class="mf">2.1.2</span><span class="o">-</span><span class="n">GCC</span><span class="o">-</span><span class="mf">6.4.0</span><span class="o">-</span><span class="mf">2.28</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>module load intel-oneapi
+export LD_LIBRARY_PATH=/shared/work/NBD_Utilities/PLUMED/plumed-2.7.1_impi/lib:$LD_LIBRARY_PATH
+export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
 </pre></div>
 </div>
 </div>

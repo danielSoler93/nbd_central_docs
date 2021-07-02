@@ -20,17 +20,19 @@ Dependencies::
 	export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
 
 
-4.6.7 (patched with plumed 2.1.5)
+2019.6 (patched with plumed 2.7.1)
 ---------------------------------
 
-`Documentation for this version <http://manual.gromacs.org/archive/4.6.7/online.html>`_
+`Documentation for this version <https://manual.gromacs.org/documentation/2019-current/index.html>`_
 
 Installation path (NBD cluster)::
 	
-	/shared/work/NBD_Utilities/GROMACS/gromacs-4.6.7
+	/shared/work/NBD_Utilities/GROMACS/gromacs-2019.6
 
 Dependencies::
 
-	module load OpenMPI/2.1.2-GCC-6.4.0-2.28 intel-oneapi/2021.1.0
+	module load intel-oneapi
+	export LD_LIBRARY_PATH=/shared/work/NBD_Utilities/PLUMED/plumed-2.7.1_impi/lib:$LD_LIBRARY_PATH
+	export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
 
 
