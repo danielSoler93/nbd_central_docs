@@ -12,23 +12,11 @@ PLUMED is a plugin that works with a large number of molecular dynamics codes. P
 
 Installation path (NBD cluster)::
 	
-	/shared/work/NBD_Utilities/PLUMED/plumed-2.7.1
+	/shared/work/NBD_Utilities/PLUMED/plumed-2.7.1_impi
 
 Dependencies::
 
-	module laod OpenMPI/2.1.2-GCC-6.4.0-2.28
-	export LD_LIBRARY_PATH=/shared/work/NBD_Utilities/PLUMED/plumed-2.7.1/lib:$LD_LIBRARY_PATH
+	module load intel-oneapi
+	export LD_LIBRARY_PATH=/shared/work/NBD_Utilities/PLUMED/plumed-2.7.1_impi/lib:$LD_LIBRARY_PATH
+	export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
 
-
-2.1.5
------
-
-`Documentation for this version <http://plumed.github.io/doc-v2.1/user-doc/html/index.html>`_
-
-Installation path (NBD cluster)::
-	
-	/shared/work/NBD_Utilities/PLUMED/plumed-2.1.5
-
-Dependencies::
-
-	module load OpenMPI/2.1.2-GCC-6.4.0-2.28
