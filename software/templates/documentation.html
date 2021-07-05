@@ -257,7 +257,29 @@ module load Crypto++/6.1.0-intel-2018a OpenBLAS/0.2.20-GCC-6.4.0-2.28
 </div>
 <div class="section" id="pelesimulationanalysis-cluster">
 <h2>PeleSimulationAnalysis (cluster)<a class="headerlink" href="#pelesimulationanalysis-cluster" title="Permalink to this headline">¶</a></h2>
-<p><strong>Last Update:</strong> 14-01-2020</p>
+<p><strong>Last Update:</strong> 05-07-2021</p>
+<p>This script allows the user to create a dispersion plot of any two metrics from a PELE simulation. A third metric can be represented with a colorbar.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate plot with interactive</span>
+interactive -n <span class="m">1</span> -X
+
+<span class="c1"># Import modules</span>
+module purge
+module load intel-oneapi
+module load imkl
+
+<span class="c1"># Set up conda</span>
+<span class="nb">source</span> /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
+
+<span class="c1"># Activate conda environment</span>
+conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/conda_envs/pele_analysis
+
+<span class="c1"># Run PELEPlot.py</span>
+python -m PELEPlot.run -i output/0/report_* -X <span class="m">7</span> -Y <span class="m">5</span>
+
+<span class="c1"># Or call its helper</span>
+python -m PELEPlot.run --help
+</pre></div>
+</div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Generate plot with interactive
 interactive -n 1 -X
 
