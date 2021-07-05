@@ -81,7 +81,32 @@ PelePlatform (cluster)
 PeleSimulationAnalysis (cluster)
 ------------------------------------
 
-**Last Update:** 14-01-2020
+**Last Update:** 05-07-2021
+
+This script allows the user to create a dispersion plot of any two metrics from a PELE simulation. A third metric can be represented with a colorbar.
+
+.. code-block:: bash
+
+   # Generate plot with interactive
+   interactive -n 1 -X
+
+   # Import modules
+   module purge
+   module load intel-oneapi
+   module load imkl
+
+   # Set up conda
+   source /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
+
+   # Activate conda environment
+   conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/conda_envs/pele_analysis
+
+   # Run PELEPlot.py
+   python -m PELEPlot.run -i output/0/report_* -X 7 -Y 5
+
+   # Or call its helper
+   python -m PELEPlot.run --help
+
 
 .. code-block:: none
 
