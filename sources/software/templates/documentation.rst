@@ -362,3 +362,28 @@ MDPocket (Office)
 
 
 Launch with: Follow instructions and copy paste to command line
+
+
+CAVIAR (cluster)
+----------------
+
+**Last Update:** 08-07-2021
+
+.. code-block:: bash
+
+   #!/bin/bash
+   #SBATCH -J caviar
+   #SBATCH --output=report_%j.out
+   #SBATCH --error=report_%j.err
+   #SBATCH --ntasks=1
+   #SBATCH --mem-per-cpu=1000
+   
+   module purge
+   module load intel-oneapi
+   module load imkl
+   
+   source /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
+   conda activate /shared/work/NBD_Utilities/miniconda3/envs/caviar
+   
+   caviar -code 1dwc
+
