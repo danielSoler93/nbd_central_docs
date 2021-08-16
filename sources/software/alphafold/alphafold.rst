@@ -76,7 +76,7 @@ include the computed MSAs, unrelaxed structures, relaxed structures, ranked
 structures, raw model outputs, prediction metadata, and section timings. The
 `output_dir` directory will have the following structure:
 
-```
+
 <target_name>/
     features.pkl
     ranked_{0,1,2,3,4}.pdb
@@ -89,7 +89,7 @@ structures, raw model outputs, prediction metadata, and section timings. The
         bfd_uniclust_hits.a3m
         mgnify_hits.sto
         uniref90_hits.sto
-```
+
 
 The contents of each output file are as follows:
 
