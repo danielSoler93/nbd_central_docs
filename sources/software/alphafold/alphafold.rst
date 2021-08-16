@@ -59,7 +59,7 @@ To run Alpha Fold, please change in the following template:
      -B $ALPHAFOLD_MODELS \
      -B .:/etc \
      --pwd  /shared/work/NBD_Utilities/AlphaFold/test_container/alphafold /shared/work/NBD_Utilities/AlphaFold/test_container/alphafold/alphafold.sif \
-     --fasta_paths=/shared/work/NBD_Utilities/AlphaFold/test_container/input.fasta  \
+     --fasta_paths=/path/to/input/sequence/input.fasta  \
      --uniref90_database_path=/data/uniref90/uniref90.fasta  \
      --data_dir=/data \
      --mgnify_database_path=/data/mgnify/mgy_clusters.fa   \
@@ -68,8 +68,7 @@ To run Alpha Fold, please change in the following template:
      --pdb70_database_path=/data/pdb70/pdb70  \
      --template_mmcif_dir=/data/pdb_mmcif/mmcif_files  \
      --obsolete_pdbs_path=/data/pdb_mmcif/obsolete.dat \
-     --max_template_date=2020-05-14   \
-     --output_dir=/shared/work/NBD_Utilities/AlphaFold/test_container/alphafold_output  \
+     --output_dir=/path/to/output/directory  \
      --model_names='model_1','model_2','model_3','model_4','model_5' 
 
 ====================
