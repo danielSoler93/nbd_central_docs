@@ -39,7 +39,6 @@ To run Alpha Fold, please change in the following template:
     
     #!/bin/bash
     #SBATCH --job-name alphafold-run
-    #SBATCH --time=08:00:00
     #SBATCH --gres=gpu:1
     #SBATCH --cpus-per-task=8
     #SBATCH --mem=40G
