@@ -30,7 +30,8 @@ To run Alpha Fold, please change in the following template:
 
 .. warning::
 
-    The memory needed for a job depends on the length of the input FASTA sequence. Consider increasing the memory if you are working with a large sequence.
+    The memory needed for a job depends on the length of the input FASTA sequence.
+    Consider increasing the memory if you are working with a large sequence.
 
 **Alpha Fold - v2.0 - Template to run**
 
