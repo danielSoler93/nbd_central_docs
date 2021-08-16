@@ -1,7 +1,7 @@
 ==========================
 Alpha Fold
 ==========================
-This documentation provides the infromation and templates to run Alpha Fold.
+This documentation provides the information and templates to run `Alpha Fold <https://github.com/deepmind/alphafold>`_.
 
 The parameters needed to run Alpha Fold are:
 
