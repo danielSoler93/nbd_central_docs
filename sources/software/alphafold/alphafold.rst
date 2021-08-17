@@ -39,7 +39,6 @@ To run Alpha Fold, please change in the following template:
     
     #!/bin/bash
     #SBATCH --job-name alphafold-run
-    #SBATCH --time=08:00:00
     #SBATCH --gres=gpu:1
     #SBATCH --cpus-per-task=8
     #SBATCH --mem=40G
@@ -83,7 +82,7 @@ structures, raw model outputs, prediction metadata, and section timings. The
 ::
 
     <target_name>/
-        |-input/
+        |- input/
 	   |- features.pkl
 	   |- ranked_{0,1,2,3,4}.pdb
 	   |- ranking_debug.json
@@ -92,9 +91,9 @@ structures, raw model outputs, prediction metadata, and section timings. The
 	   |- timings.json
 	   |- unrelaxed_model_{1,2,3,4,5}.pdb
 	   |- msas/
-	       |- bfd_uniclust_hits.a3m
-	       |- mgnify_hits.sto
-	       |- uniref90_hits.sto
+	      |- bfd_uniclust_hits.a3m
+	      |- mgnify_hits.sto
+	      |- uniref90_hits.sto
 
 
 The contents of each output file are as follows:
