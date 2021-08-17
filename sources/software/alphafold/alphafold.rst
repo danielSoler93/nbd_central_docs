@@ -57,7 +57,7 @@ To run Alpha Fold, please change in the following template:
      -B $ALPHAFOLD_DATA_PATH:/data \
      -B $ALPHAFOLD_MODELS \
      -B .:/etc \
-     --pwd  /shared/work/NBD_Utilities/AlphaFold/test_container/alphafold /shared/work/NBD_Utilities/AlphaFold/test_container/alphafold/alphafold.sif \
+     --pwd  /shared/work/NBD_Utilities/AlphaFold/alphafold /shared/work/NBD_Utilities/AlphaFold/alphafold.sif \
      --fasta_paths=/path/to/input/sequence/input.fasta  \
      --uniref90_database_path=/data/uniref90/uniref90.fasta  \
      --data_dir=/data \
