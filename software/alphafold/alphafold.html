@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Alpha Fold &mdash; NBD Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="IT infrastructure" href="../../compute_power/index.html" />
+    <link rel="prev" title="New to NBD? Set everything up!" href="../new_comers/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> NBD Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../databases/index.html">Compound DataBases</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#job-launching-templates">Job launching Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pele">PELE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#namd">NAMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#schrodinger">Schrodinger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#python-packages">Python packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#gromacs">GROMACS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plumed">PLUMED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#nice-dcv">Nice DCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tests">Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#newcomers">NewComers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#alphafold">AlphaFold</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Alpha Fold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alphafold-output">AlphaFold output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../compute_power/index.html">IT infrastructure</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../papers/index.html">Articles</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NBD Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Software</a> &raquo;</li>
+        
+      <li>Alpha Fold</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/software/alphafold/alphafold.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="alpha-fold">
+<h1>Alpha Fold<a class="headerlink" href="#alpha-fold" title="Permalink to this headline">¶</a></h1>
+<p>This documentation provides the information and templates to run <a class="reference external" href="https://github.com/deepmind/alphafold">Alpha Fold</a>.</p>
+<p>The parameters needed to run Alpha Fold are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>ALPHAFOLD_DATA_PATH:</strong> Absolute path to folder with databases.</p></li>
+<li><p><strong>ALPHAFOLD_MODELS:</strong> Absolute path to folder with models.</p></li>
+<li><p><strong>pwd:</strong> Path to Singularity Image File (SIF) file.</p></li>
+<li><p><strong>fasta_paths:</strong> Path to the input sequence in fasta format.</p></li>
+<li><p><strong>uniref90_database_path:</strong> Path to Uniref90 database for use by JackHMMER.</p></li>
+<li><p><strong>mgnify_database_path:</strong> Path to the MGnify database for use by JackHMMER.</p></li>
+<li><p><strong>bfd_database_path:</strong> Path to the BFD database for use by HHblits.</p></li>
+<li><p><strong>uniclust30_database_path:</strong> Path to Uniclust30 database for use by HHblits.</p></li>
+<li><p><strong>pdb70_database_path:</strong> Path to PDB70 database for use by HHsearch.</p></li>
+<li><p><strong>template_mmcif_dir_</strong> Path to a directory with template mmCIF structures, each named &lt;pdb_id&gt;.cif.</p></li>
+<li><p><strong>obsolete_pdbs_path:</strong> Path to a file mapping obsolete PDB IDs to their replacements.</p></li>
+<li><p><strong>max_template_date:</strong> Maximum template release date to consider (ISO-8601 format - i.e. YYYY-MM-DD). Important if folding historical test sets. Default is None.</p></li>
+<li><p><strong>output_dir:</strong> Path to a directory that will store the results.</p></li>
+<li><p><strong>model_names:</strong> Names of models to use.</p></li>
+<li><p><strong>preset:</strong> [‘reduced_dbs’, ‘full_dbs’, ‘casp14’]. Choose preset model configuration - no ensembling and smaller genetic database config (reduced_dbs), no ensembling and full genetic database config (full_dbs) or full genetic database config and 8 model ensemblings (casp14). Default is full_dbs.</p></li>
+<li><p><strong>benchmark:</strong> [True, False]. Run multiple JAX model evaluations to obtain a timing that excludes the compilation time, which should be more indicative of the time required for inferencing many proteins. Default is False.</p></li>
+</ul>
+</div></blockquote>
+<p>The reference databases and models were downloaded in the directory <code class="docutils literal notranslate"><span class="pre">/shared/work/NBD_Utilities/Alphafold/databases</span></code></p>
+<dl class="simple">
+<dt>To run Alpha Fold, please change in the following template:</dt><dd><ul class="simple">
+<li><p>output_dir</p></li>
+<li><p>fasta_paths</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">memory</span> <span class="n">needed</span> <span class="k">for</span> <span class="n">a</span> <span class="n">job</span> <span class="n">depends</span> <span class="n">on</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">FASTA</span> <span class="n">sequence</span><span class="o">.</span>
+<span class="n">Consider</span> <span class="n">increasing</span> <span class="n">the</span> <span class="n">memory</span> <span class="k">if</span> <span class="n">you</span> <span class="n">are</span> <span class="n">working</span> <span class="k">with</span> <span class="n">a</span> <span class="n">large</span> <span class="n">sequence</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Alpha Fold - v2.0 - Template to run</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name alphafold-run</span>
+<span class="c1">#SBATCH --gres=gpu:1</span>
+<span class="c1">#SBATCH --cpus-per-task=8</span>
+<span class="c1">#SBATCH --mem=40G</span>
+
+<span class="c1">#set the environment PATH</span>
+<span class="nb">export</span> <span class="nv">PYTHONNOUSERSITE</span><span class="o">=</span>True
+<span class="nv">ALPHAFOLD_DATA_PATH</span><span class="o">=</span>/shared/work/NBD_Utilities/AlphaFold/databases
+<span class="nv">ALPHAFOLD_MODELS</span><span class="o">=</span>/shared/work/NBD_Utilities/AlphaFold/databases/params
+
+module load CUDA/9.2.88-iccifort-2018.1.163-GCC-6.4.0-2.28
+module load cuDNN
+<span class="nb">export</span> <span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span>-1
+
+<span class="c1">#Run the command</span>
+singularity run --nv <span class="se">\</span>
+ -B <span class="nv">$ALPHAFOLD_DATA_PATH</span>:/data <span class="se">\</span>
+ -B <span class="nv">$ALPHAFOLD_MODELS</span> <span class="se">\</span>
+ -B .:/etc <span class="se">\</span>
+ --pwd  /shared/work/NBD_Utilities/AlphaFold/alphafold /shared/work/NBD_Utilities/AlphaFold/alphafold.sif <span class="se">\</span>
+ --fasta_paths<span class="o">=</span>/path/to/input/sequence/input.fasta  <span class="se">\</span>
+ --uniref90_database_path<span class="o">=</span>/data/uniref90/uniref90.fasta  <span class="se">\</span>
+ --data_dir<span class="o">=</span>/data <span class="se">\</span>
+ --mgnify_database_path<span class="o">=</span>/data/mgnify/mgy_clusters.fa   <span class="se">\</span>
+ --bfd_database_path<span class="o">=</span>/data/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt <span class="se">\</span>
+ --uniclust30_database_path<span class="o">=</span>/data/uniclust30/uniclust30_2018_08/uniclust30_2018_08 <span class="se">\</span>
+ --pdb70_database_path<span class="o">=</span>/data/pdb70/pdb70  <span class="se">\</span>
+ --template_mmcif_dir<span class="o">=</span>/data/pdb_mmcif/mmcif_files  <span class="se">\</span>
+ --obsolete_pdbs_path<span class="o">=</span>/data/pdb_mmcif/obsolete.dat <span class="se">\</span>
+ --output_dir<span class="o">=</span>/path/to/output/directory  <span class="se">\</span>
+ --model_names<span class="o">=</span><span class="s1">&#39;model_1&#39;</span>,<span class="s1">&#39;model_2&#39;</span>,<span class="s1">&#39;model_3&#39;</span>,<span class="s1">&#39;model_4&#39;</span>,<span class="s1">&#39;model_5&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="alphafold-output">
+<h1>AlphaFold output<a class="headerlink" href="#alphafold-output" title="Permalink to this headline">¶</a></h1>
+<p>The outputs will be in a subfolder of <cite>output_dir</cite>. They
+include the computed MSAs, unrelaxed structures, relaxed structures, ranked
+structures, raw model outputs, prediction metadata, and section timings. The
+<cite>output_dir</cite> directory will have the following structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">target_name</span><span class="o">&gt;/</span>
+    <span class="o">|-</span> <span class="nb">input</span><span class="o">/</span>
+       <span class="o">|-</span> <span class="n">features</span><span class="o">.</span><span class="n">pkl</span>
+       <span class="o">|-</span> <span class="n">ranked_</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">}</span><span class="o">.</span><span class="n">pdb</span>
+       <span class="o">|-</span> <span class="n">ranking_debug</span><span class="o">.</span><span class="n">json</span>
+       <span class="o">|-</span> <span class="n">relaxed_model_</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">}</span><span class="o">.</span><span class="n">pdb</span>
+       <span class="o">|-</span> <span class="n">result_model_</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">}</span><span class="o">.</span><span class="n">pkl</span>
+       <span class="o">|-</span> <span class="n">timings</span><span class="o">.</span><span class="n">json</span>
+       <span class="o">|-</span> <span class="n">unrelaxed_model_</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">}</span><span class="o">.</span><span class="n">pdb</span>
+       <span class="o">|-</span> <span class="n">msas</span><span class="o">/</span>
+          <span class="o">|-</span> <span class="n">bfd_uniclust_hits</span><span class="o">.</span><span class="n">a3m</span>
+          <span class="o">|-</span> <span class="n">mgnify_hits</span><span class="o">.</span><span class="n">sto</span>
+          <span class="o">|-</span> <span class="n">uniref90_hits</span><span class="o">.</span><span class="n">sto</span>
+</pre></div>
+</div>
+<p>The contents of each output file are as follows:</p>
+<ul class="simple">
+<li><p><strong>features.pkl:</strong> A pickle file containing the input feature NumPy arrays
+used by the models to produce the structures.</p></li>
+<li><p><strong>unrelaxed_model_x.pdb:</strong> A PDB format text file containing the predicted
+structure, exactly as outputted by the model.</p></li>
+<li><p><strong>relaxed_model_x.pdb:</strong> A PDB format text file containing the predicted
+structure, after performing an Amber relaxation procedure on the unrelaxed
+structure prediction (see Jumper et al. 2021, Suppl. Methods 1.8.6 for
+details).</p></li>
+<li><p><strong>ranked_x.pdb:</strong> A PDB format text file containing the relaxed predicted
+structures, after reordering by model confidence. Here <cite>ranked_0.pdb</cite> should
+contain the prediction with the highest confidence, and <cite>ranked_4.pdb</cite> the
+prediction with the lowest confidence. To rank model confidence, we use
+predicted LDDT (pLDDT) scores (see Jumper et al. 2021, Suppl. Methods 1.9.6
+for details).</p></li>
+<li><p><strong>ranking_debug.json:</strong> A JSON format text file containing the pLDDT values
+used to perform the model ranking, and a mapping back to the original model
+names.</p></li>
+<li><p><strong>timings.json:</strong> A JSON format text file containing the times taken to run
+each section of the AlphaFold pipeline.</p></li>
+<li><p><strong>msas/:</strong> - A directory containing the files describing the various genetic
+tool hits that were used to construct the input MSA.</p></li>
+<li><p><strong>result_model_x.pkl:</strong> A <cite>pickle</cite> file containing a nested dictionary of the
+various NumPy arrays directly produced by the model. In addition to the
+output of the structure module, this includes auxiliary outputs such as:</p>
+<ul>
+<li><p>Distograms (<strong>distogram/logits</strong> contains a NumPy array of shape [N_res,
+N_res, N_bins] and <strong>distogram/bin_edges</strong> contains the definition of the
+bins).</p></li>
+<li><p>Per-residue pLDDT scores (<strong>plddt</strong> contains a NumPy array of shape
+[N_res] with the range of possible values from 0 to 100, where 100
+means most confident). This can serve to identify sequence regions
+predicted with high confidence or as an overall per-target confidence
+score when averaged across residues.</p></li>
+<li><p>Present only if using pTM models: predicted TM-score (<strong>ptm</strong> field
+contains a scalar). As a predictor of a global superposition metric,
+this score is designed to also assess whether the model is confident in
+the overall domain packing.</p></li>
+<li><p>Present only if using pTM models: predicted pairwise aligned errors
+(<strong>predicted_aligned_error</strong> contains a NumPy array of shape [N_res,
+N_res] with the range of possible values from 0 to
+<strong>max_predicted_aligned_error</strong>, where 0 means most confident). This can
+serve for a visualisation of domain packing confidence within the
+structure.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../compute_power/index.html" class="btn btn-neutral float-right" title="IT infrastructure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../new_comers/index.html" class="btn btn-neutral float-left" title="New to NBD? Set everything up!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, NBD | Nostrum Biodiscovery
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

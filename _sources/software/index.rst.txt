@@ -118,3 +118,10 @@ Here you will find how to set up your laptop to access NBD facilities
 
 .. toctree::
    new_comers/index
+
+AlphaFold
+------------
+Here you will find how to run AlphaFold
+
+.. toctree::
+   alphafold/alphafold
