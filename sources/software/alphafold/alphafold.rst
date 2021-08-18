@@ -22,10 +22,10 @@ The parameters needed to run Alpha Fold are:
 	* **preset:** ['reduced_dbs', 'full_dbs', 'casp14']. Choose preset model configuration - no ensembling and smaller genetic database config (reduced_dbs), no ensembling and full genetic database config (full_dbs) or full genetic database config and 8 model ensemblings (casp14). Default is full_dbs.
 	* **benchmark:** [True, False]. Run multiple JAX model evaluations to obtain a timing that excludes the compilation time, which should be more indicative of the time required for inferencing many proteins. Default is False. 
 
-The reference databases and models were downloaded in the directory ``/shared/work/NBD_Utilities/Alphafold/databases`` 
-    
 
 ::
+
+    The reference databases and models were downloaded in the directory ``/shared/work/NBD_Utilities/Alphafold/databases`` 
     The singularity image file (.sif) of AlphaFold is available at ``/shared/work/NBD_Utilities/AlphaFold``
 
 
