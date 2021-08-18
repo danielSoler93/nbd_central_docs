@@ -23,17 +23,46 @@ The parameters needed to run Alpha Fold are:
 	* **benchmark:** [True, False]. Run multiple JAX model evaluations to obtain a timing that excludes the compilation time, which should be more indicative of the time required for inferencing many proteins. Default is False. 
 
 The reference databases and models were downloaded in the directory ``/shared/work/NBD_Utilities/Alphafold/databases`` 
+    
+::
+    The singularity image file (.sif) of AlphaFold is available at ``/shared/work/NBD_Utilities/AlphaFold``
+
+=======================================
+Running Alphafold within Singularity
+=======================================
+
+Here is an example on how to run AlphaFold.
+First, we need a protein sequenced in FASTA format.
+
+::
+
+    >5ZE6_1
+MNLEKINELTAQDMAGVNAAILEQLNSDVQLINQLGYYIVSGGGKRIRPMIAVLAARAVGYEGNAHVTIAALIEFIHTATLLHDDVVDESDMRRGKATANAA
+FGNAASVLVGDFIYTRAFQMMTSLGSLKVLEVMSEAVNVIAEGEVLQLMNVNDPDITEENYMRVIYSKTARLFEAAAQCSGILAGCTPEEEKGLQDYGRYLG
+TAFQLIDDLLDYNADGEQLGKNVGDDLNEGKPTLPLLHAMHHGTPEQAQMIRTAIEQGNGRHLLEPVLEAMNACGSLEWTRQRAEEEADKAIAALQVLPDTP
+WREALIGLAHIAVQRDR
+
+If we want to run AlphaFold in, for example, the directory ``AlphaFold/test``
+
+::
+
+    user@login01:~$  cd test_container/
+    user@login01:~$  mkdir alphafold_output # Create the directory for AlphaFold output
+    user@login01:~$  ls # The directory should contain the singularity image file (.sif) and the input FASTA sequence
+    alphafold_output alphafold.sif input.fasta 
+    
 
 To run Alpha Fold, please change in the following template:
 	* output_dir
 	* fasta_paths
 
+**Alpha Fold - v2.0 - Template to run**
+
 ::
 
     The memory needed for a job depends on the length of the input FASTA sequence. 
     Consider increasing the memory if you are working with a large sequence.
-
-**Alpha Fold - v2.0 - Template to run**
+    
 
 .. code-block:: bash 
     
@@ -57,7 +86,7 @@ To run Alpha Fold, please change in the following template:
      -B $ALPHAFOLD_DATA_PATH:/data \
      -B $ALPHAFOLD_MODELS \
      -B .:/etc \
-     --pwd  /shared/work/NBD_Utilities/AlphaFold/alphafold /shared/work/NBD_Utilities/AlphaFold/alphafold.sif \
+     --pwd  /shared/work/NBD_Utilities/AlphaFold/alphafold alphafold.sif \
      --fasta_paths=/path/to/input/sequence/input.fasta  \
      --uniref90_database_path=/data/uniref90/uniref90.fasta  \
      --data_dir=/data \
