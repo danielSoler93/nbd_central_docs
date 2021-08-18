@@ -1,5 +1,5 @@
 ==========================
-Alpha Fold
+AlphaFold
 ==========================
 This documentation provides the information and templates to run `Alpha Fold <https://github.com/deepmind/alphafold>`_.
 
@@ -25,12 +25,12 @@ The parameters needed to run Alpha Fold are:
 
 ::
 
-    The reference databases and models were downloaded in the directory ``/shared/work/NBD_Utilities/Alphafold/databases`` 
-    The singularity image file (.sif) of AlphaFold is available at ``/shared/work/NBD_Utilities/AlphaFold``
+    The reference databases and models were downloaded in the directory **/shared/work/NBD_Utilities/Alphafold/databases**
+    The singularity image file (.sif) of AlphaFold is available at **/shared/work/NBD_Utilities/AlphaFold**
 
 
 =======================================
-Running Alphafold within Singularity
+Running AlphaFold within Singularity
 =======================================
 
 Here is an example on how to run AlphaFold.
