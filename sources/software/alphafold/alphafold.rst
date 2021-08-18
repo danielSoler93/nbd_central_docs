@@ -24,8 +24,10 @@ The parameters needed to run Alpha Fold are:
 
 The reference databases and models were downloaded in the directory ``/shared/work/NBD_Utilities/Alphafold/databases`` 
     
+
 ::
     The singularity image file (.sif) of AlphaFold is available at ``/shared/work/NBD_Utilities/AlphaFold``
+
 
 =======================================
 Running Alphafold within Singularity
