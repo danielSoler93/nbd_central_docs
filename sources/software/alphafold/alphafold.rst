@@ -23,10 +23,7 @@ The parameters needed to run Alpha Fold are:
 	* **benchmark:** [True, False]. Run multiple JAX model evaluations to obtain a timing that excludes the compilation time, which should be more indicative of the time required for inferencing many proteins. Default is False. 
 
 
-::
-
-    The reference databases and models were downloaded in the directory **/shared/work/NBD_Utilities/Alphafold/databases**
-    The singularity image file (.sif) of AlphaFold is available at **/shared/work/NBD_Utilities/AlphaFold**
+:Important: The reference databases and models were downloaded in the directory **/shared/work/NBD_Utilities/Alphafold/databases** and the singularity image file (.sif) of AlphaFold is available at **/shared/work/NBD_Utilities/AlphaFold**
 
 
 =======================================
