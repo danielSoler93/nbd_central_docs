@@ -37,18 +37,18 @@ First, we need a protein sequenced in FASTA format.
 ::
 
     >5ZE6_1
-MNLEKINELTAQDMAGVNAAILEQLNSDVQLINQLGYYIVSGGGKRIRPMIAVLAARAVGYEGNAHVTIAALIEFIHTATLLHDDVVDESDMRRGKATANAA
-FGNAASVLVGDFIYTRAFQMMTSLGSLKVLEVMSEAVNVIAEGEVLQLMNVNDPDITEENYMRVIYSKTARLFEAAAQCSGILAGCTPEEEKGLQDYGRYLG
-TAFQLIDDLLDYNADGEQLGKNVGDDLNEGKPTLPLLHAMHHGTPEQAQMIRTAIEQGNGRHLLEPVLEAMNACGSLEWTRQRAEEEADKAIAALQVLPDTP
-WREALIGLAHIAVQRDR
+    MNLEKINELTAQDMAGVNAAILEQLNSDVQLINQLGYYIVSGGGKRIRPMIAVLAARAVGYEGNAHVTIAALIEFIHTATLLHDDVVDESDMRRGKATANAA
+    FGNAASVLVGDFIYTRAFQMMTSLGSLKVLEVMSEAVNVIAEGEVLQLMNVNDPDITEENYMRVIYSKTARLFEAAAQCSGILAGCTPEEEKGLQDYGRYLG
+    TAFQLIDDLLDYNADGEQLGKNVGDDLNEGKPTLPLLHAMHHGTPEQAQMIRTAIEQGNGRHLLEPVLEAMNACGSLEWTRQRAEEEADKAIAALQVLPDTP
+    WREALIGLAHIAVQRDR
 
 If we want to run AlphaFold in, for example, the directory ``AlphaFold/test``
 
 ::
 
-    user@login01:~$  cd test_container/
-    user@login01:~$  mkdir alphafold_output # Create the directory for AlphaFold output
-    user@login01:~$  ls # The directory should contain the singularity image file (.sif) and the input FASTA sequence
+    user@login01:~$  cd AlphaFold/test
+    user@login01:AlphaFold/test$  mkdir alphafold_output # Create the directory for AlphaFold output
+    user@login01:AlphaFold/test$  ls # The directory should contain the singularity image file (.sif) and the input FASTA sequence
     alphafold_output alphafold.sif input.fasta 
     
 
