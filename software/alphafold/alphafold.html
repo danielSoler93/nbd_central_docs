@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Alpha Fold &mdash; NBD Docs 1.0.0 documentation</title>
+  <title>AlphaFold &mdash; NBD Docs 1.0.0 documentation</title>
   
 
   
@@ -103,7 +103,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tests">Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#newcomers">NewComers</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#alphafold">AlphaFold</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Alpha Fold</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">AlphaFold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-alphafold-within-singularity">Running AlphaFold within Singularity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alphafold-output">AlphaFold output</a></li>
 </ul>
 </li>
@@ -163,7 +164,7 @@
         
           <li><a href="../index.html">Software</a> &raquo;</li>
         
-      <li>Alpha Fold</li>
+      <li>AlphaFold</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -182,8 +183,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="alpha-fold">
-<h1>Alpha Fold<a class="headerlink" href="#alpha-fold" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="alphafold">
+<h1>AlphaFold<a class="headerlink" href="#alphafold" title="Permalink to this headline">¶</a></h1>
 <p>This documentation provides the information and templates to run <a class="reference external" href="https://github.com/deepmind/alphafold">Alpha Fold</a>.</p>
 <p>The parameters needed to run Alpha Fold are:</p>
 <blockquote>
@@ -206,7 +207,30 @@
 <li><p><strong>benchmark:</strong> [True, False]. Run multiple JAX model evaluations to obtain a timing that excludes the compilation time, which should be more indicative of the time required for inferencing many proteins. Default is False.</p></li>
 </ul>
 </div></blockquote>
-<p>The reference databases and models were downloaded in the directory <code class="docutils literal notranslate"><span class="pre">/shared/work/NBD_Utilities/Alphafold/databases</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Important</dt>
+<dd class="field-odd"><p>The reference databases and models were downloaded in the directory <strong>/shared/work/NBD_Utilities/Alphafold/databases</strong> and the singularity image file (.sif) of AlphaFold is available at <strong>/shared/work/NBD_Utilities/AlphaFold</strong></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="running-alphafold-within-singularity">
+<h1>Running AlphaFold within Singularity<a class="headerlink" href="#running-alphafold-within-singularity" title="Permalink to this headline">¶</a></h1>
+<p>Here is an example on how to run AlphaFold.
+First, we need a protein sequenced in FASTA format.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="mi">5</span><span class="n">ZE6_1</span>
+<span class="n">MNLEKINELTAQDMAGVNAAILEQLNSDVQLINQLGYYIVSGGGKRIRPMIAVLAARAVGYEGNAHVTIAALIEFIHTATLLHDDVVDESDMRRGKATANAA</span>
+<span class="n">FGNAASVLVGDFIYTRAFQMMTSLGSLKVLEVMSEAVNVIAEGEVLQLMNVNDPDITEENYMRVIYSKTARLFEAAAQCSGILAGCTPEEEKGLQDYGRYLG</span>
+<span class="n">TAFQLIDDLLDYNADGEQLGKNVGDDLNEGKPTLPLLHAMHHGTPEQAQMIRTAIEQGNGRHLLEPVLEAMNACGSLEWTRQRAEEEADKAIAALQVLPDTP</span>
+<span class="n">WREALIGLAHIAVQRDR</span>
+</pre></div>
+</div>
+<p>If we want to run AlphaFold in, for example, the directory <code class="docutils literal notranslate"><span class="pre">AlphaFold/test</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>user@login01:~$  cd AlphaFold/test
+user@login01:AlphaFold/test$  mkdir alphafold_output # Create the directory for AlphaFold output
+user@login01:AlphaFold/test$  ls # The directory should contain the singularity image file (.sif) and the input FASTA sequence
+alphafold_output alphafold.sif input.fasta
+</pre></div>
+</div>
 <dl class="simple">
 <dt>To run Alpha Fold, please change in the following template:</dt><dd><ul class="simple">
 <li><p>output_dir</p></li>
@@ -214,11 +238,11 @@
 </ul>
 </dd>
 </dl>
+<p><strong>Alpha Fold - v2.0 - Template to run</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">memory</span> <span class="n">needed</span> <span class="k">for</span> <span class="n">a</span> <span class="n">job</span> <span class="n">depends</span> <span class="n">on</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">FASTA</span> <span class="n">sequence</span><span class="o">.</span>
 <span class="n">Consider</span> <span class="n">increasing</span> <span class="n">the</span> <span class="n">memory</span> <span class="k">if</span> <span class="n">you</span> <span class="n">are</span> <span class="n">working</span> <span class="k">with</span> <span class="n">a</span> <span class="n">large</span> <span class="n">sequence</span><span class="o">.</span>
 </pre></div>
 </div>
-<p><strong>Alpha Fold - v2.0 - Template to run</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --job-name alphafold-run</span>
 <span class="c1">#SBATCH --gres=gpu:1</span>
@@ -239,7 +263,7 @@ singularity run --nv <span class="se">\</span>
  -B <span class="nv">$ALPHAFOLD_DATA_PATH</span>:/data <span class="se">\</span>
  -B <span class="nv">$ALPHAFOLD_MODELS</span> <span class="se">\</span>
  -B .:/etc <span class="se">\</span>
- --pwd  /shared/work/NBD_Utilities/AlphaFold/alphafold /shared/work/NBD_Utilities/AlphaFold/alphafold.sif <span class="se">\</span>
+ --pwd  /shared/work/NBD_Utilities/AlphaFold/alphafold alphafold.sif <span class="se">\</span>
  --fasta_paths<span class="o">=</span>/path/to/input/sequence/input.fasta  <span class="se">\</span>
  --uniref90_database_path<span class="o">=</span>/data/uniref90/uniref90.fasta  <span class="se">\</span>
  --data_dir<span class="o">=</span>/data <span class="se">\</span>
