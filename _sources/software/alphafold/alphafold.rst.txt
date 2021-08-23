@@ -31,7 +31,7 @@ Running AlphaFold within Singularity
 =======================================
 
 Here is an example on how to run AlphaFold.
-First, we need a protein sequenced in FASTA format.
+First, we need a protein sequence in FASTA format.
 
 ::
 
@@ -59,8 +59,8 @@ To run Alpha Fold, please change in the following template:
 
 ::
 
-    The memory needed for a job depends on the length of the input FASTA sequence. 
-    Consider increasing the memory if you are working with a large sequence.
+    The memory needed for a job depends on the length of the input FASTA sequence and the number of models used. 
+    Consider increasing the memory if you are working with a large sequence or with all the models.
     
 
 .. code-block:: bash 
