@@ -211,6 +211,9 @@
 <dt class="field-odd">Important</dt>
 <dd class="field-odd"><p>The reference databases and models were downloaded in the directory <strong>/shared/work/NBD_Utilities/AlphaFold/databases</strong> and the singularity image file (.sif) of AlphaFold is available at <strong>/shared/work/NBD_Utilities/AlphaFold</strong></p>
 </dd>
+<dt class="field-even">Important</dt>
+<dd class="field-even"><p>The max_template_date flag is mandatory when running AlphaFold. If you are predicting the structure of a protein that is already in PDB and you wish to avoid using it as a template, then max_template_date must be set to be before the release date of the structure. If you do not need to specify a date, by default we set today’s date. For example, if we are running the simulation on August 7th 2021, we set – max_template_date = 2021-08-07.</p>
+</dd>
 </dl>
 </div>
 <div class="section" id="running-alphafold-within-singularity">
@@ -273,6 +276,7 @@ singularity run --nv <span class="se">\</span>
  --pdb70_database_path<span class="o">=</span>/data/pdb70/pdb70  <span class="se">\</span>
  --template_mmcif_dir<span class="o">=</span>/data/pdb_mmcif/mmcif_files  <span class="se">\</span>
  --obsolete_pdbs_path<span class="o">=</span>/data/pdb_mmcif/obsolete.dat <span class="se">\</span>
+ --max_template_date<span class="o">=</span> YYYY-MM-DD <span class="se">\</span>
  --output_dir<span class="o">=</span>/path/to/output/directory  <span class="se">\</span>
  --model_names<span class="o">=</span><span class="s1">&#39;model_1&#39;</span>,<span class="s1">&#39;model_2&#39;</span>,<span class="s1">&#39;model_3&#39;</span>,<span class="s1">&#39;model_4&#39;</span>,<span class="s1">&#39;model_5&#39;</span>
 </pre></div>

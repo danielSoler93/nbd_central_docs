@@ -25,6 +25,7 @@ The parameters needed to run Alpha Fold are:
 
 :Important: The reference databases and models were downloaded in the directory **/shared/work/NBD_Utilities/AlphaFold/databases** and the singularity image file (.sif) of AlphaFold is available at **/shared/work/NBD_Utilities/AlphaFold**
 
+:Important: The max_template_date flag is mandatory when running AlphaFold. If you are predicting the structure of a protein that is already in PDB and you wish to avoid using it as a template, then max_template_date must be set to be before the release date of the structure. If you do not need to specify a date, by default we set today's date. For example, if we are running the simulation on August 7th 2021, we set -- max_template_date = 2021-08-07.
 
 =======================================
 Running AlphaFold within Singularity
@@ -95,6 +96,7 @@ To run Alpha Fold, please change in the following template:
      --pdb70_database_path=/data/pdb70/pdb70  \
      --template_mmcif_dir=/data/pdb_mmcif/mmcif_files  \
      --obsolete_pdbs_path=/data/pdb_mmcif/obsolete.dat \
+     --max_template_date= YYYY-MM-DD \
      --output_dir=/path/to/output/directory  \
      --model_names='model_1','model_2','model_3','model_4','model_5' 
 
