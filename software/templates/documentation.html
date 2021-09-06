@@ -220,8 +220,7 @@ conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/envs/
 <span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/shared/work/NBD_Utilities/PELE/PELE_dependencies/boost-1.66.0/lib:<span class="nv">$LD_LIBRARY_PATH</span>
 <span class="nb">export</span> <span class="nv">SRUN</span><span class="o">=</span><span class="m">1</span>  <span class="c1"># this is to avoid having to set usesrun: true in input.yaml</span>
 
-python -c <span class="s2">&quot;import pele_platform; print(&#39;Using PELEPlatform, version&#39;, pele_platform.__version__)&quot;</span>
-python -m pele_platform.main input_fast.yaml
+python -m pele_platform.main input.yaml
 </pre></div>
 </div>
 <p><strong>PelePlatform - v1.5.1</strong></p>
