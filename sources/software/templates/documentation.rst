@@ -39,8 +39,7 @@ PelePlatform (cluster)
    export LD_LIBRARY_PATH=/shared/work/NBD_Utilities/PELE/PELE_dependencies/boost-1.66.0/lib:$LD_LIBRARY_PATH
    export SRUN=1  # this is to avoid having to set usesrun: true in input.yaml
 
-   python -c "import pele_platform; print('Using PELEPlatform, version', pele_platform.__version__)"
-   python -m pele_platform.main input_fast.yaml
+   python -m pele_platform.main input.yaml
 
 
 **PelePlatform - v1.5.1**
