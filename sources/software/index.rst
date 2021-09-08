@@ -125,3 +125,10 @@ Here you will find how to run AlphaFold
 
 .. toctree::
    alphafold/alphafold
+
+Protein-protein docking
+-----------------------
+Here you will find information about several PPI software installed in our cluster
+
+.. toctree::
+   ppi/ppi
