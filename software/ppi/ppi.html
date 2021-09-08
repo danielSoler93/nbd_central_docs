@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Protein-protein docking &mdash; NBD Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="IT infrastructure" href="../../compute_power/index.html" />
+    <link rel="prev" title="AlphaFold" href="../alphafold/alphafold.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> NBD Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../databases/index.html">Compound DataBases</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#job-launching-templates">Job launching Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pele">PELE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#namd">NAMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#schrodinger">Schrodinger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#python-packages">Python packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#gromacs">GROMACS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#plumed">PLUMED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#nice-dcv">Nice DCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tests">Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#newcomers">NewComers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#alphafold">AlphaFold</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#protein-protein-docking">Protein-protein docking</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Protein-protein docking</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lightdock-0-9-0">LightDock 0.9.0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#voronota-voromqa-1-22">Voronota(VoroMQA) 1.22</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lzerd">LZerD</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../compute_power/index.html">IT infrastructure</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../papers/index.html">Articles</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NBD Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Software</a> &raquo;</li>
+        
+      <li>Protein-protein docking</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/software/ppi/ppi.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="protein-protein-docking">
+<h1>Protein-protein docking<a class="headerlink" href="#protein-protein-docking" title="Permalink to this headline">¶</a></h1>
+<p>Here you will find how to use various protein-protein docking programs installed on the NBD cluster.</p>
+<div class="section" id="lightdock-0-9-0">
+<h2>LightDock 0.9.0<a class="headerlink" href="#lightdock-0-9-0" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://lightdock.org">Official webpage</a></p>
+<p><a class="reference external" href="https://www.bonvinlab.org/education/HADDOCK24/LightDock-membrane-proteins/#lightdock-general-concepts">External tutorial for this version</a></p>
+<p>Installation path (NBD cluster):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">NBD_Utilities</span><span class="o">/</span><span class="n">LightDock</span>
+</pre></div>
+</div>
+<p>Load environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">NBD_Utilities</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">profile</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">conda</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">NBD_Utilities</span><span class="o">/</span><span class="n">LightDock</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">lightdock</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="voronota-voromqa-1-22">
+<h2>Voronota(VoroMQA) 1.22<a class="headerlink" href="#voronota-voromqa-1-22" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://bioinformatics.lt/wtsam/voromqa/help/standalone">Documentation</a></p>
+<p>Installation path (NBD cluster):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">NBD_Utilities</span><span class="o">/</span><span class="n">Voronota</span>
+</pre></div>
+</div>
+<p>Load environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">NBD_Utilities</span><span class="o">/</span><span class="n">Voronota</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">configure</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lzerd">
+<h2>LZerD<a class="headerlink" href="#lzerd" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://kiharalab.org/proteindocking/lzerd.php">Documentation</a></p>
+<p>Installation path (NBD cluster):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">NBD_Utilities</span><span class="o">/</span><span class="n">LZerD</span>
+</pre></div>
+</div>
+<p>Load environment and copy required files to current directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">NBD_Utilities</span><span class="o">/</span><span class="n">LZerD</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">configure</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Launch LZerD:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">runlzerd</span><span class="o">.</span><span class="n">sh</span> <span class="n">receptor</span><span class="o">.</span><span class="n">pdb</span> <span class="n">ligand</span><span class="o">.</span><span class="n">pdb</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../compute_power/index.html" class="btn btn-neutral float-right" title="IT infrastructure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../alphafold/alphafold.html" class="btn btn-neutral float-left" title="AlphaFold" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, NBD | Nostrum Biodiscovery
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
