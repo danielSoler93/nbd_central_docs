@@ -178,19 +178,19 @@ Running AlphaFold Multimer
 
 The steps are the same as when folding a monomer, but it is needed to provide:
 
-1. An input fasta file with multiple sequences.
+1. An input `fasta file with multiple sequences.
 
-2. Set the --model-preset flag to 'multimer'.
+2. Set the **--model-preset** flag to 'multimer'.
 
-3. Optionally set the --is_prokaryote_list flag with booleans that determine whether all input sequences in the given fasta file are prokaryotic. If that is not the case or the origin is unknown, set to false for that fasta.
+3. Optionally set the **--is_prokaryote_list** flag with booleans that determine whether all input sequences in the given `fasta` file are prokaryotic. If that is not the case or the origin is unknown, set to `false` for that `fasta`.
 
 Example
 #########
 
-In this tutorial we will fold a multimer using AlphaFold. We will be using a Human GITR-GITRL complex (PDB ID: 7kHD).
+In this tutorial we will fold a multimer using AlphaFold. We will be using a Human GITR-GITRL complex (PDB ID: 7KHD).
 
 1. Sequence file preparation:
-The multimer seuqence can be download from the PDB databse. 
+The multimer sequence can be download from the PDB databse. 
 
 ::
 
@@ -215,6 +215,10 @@ If the multimer has repeated chains,the input fasta should be
 In our multimer, chains A-B and chains C-D are repeated.
 
 Then, submit the following sh file:
+
+::
+
+  When running AlphaFold Multimer, it is needed to define UniProt's database file.
 
 .. code-block:: bash
 
