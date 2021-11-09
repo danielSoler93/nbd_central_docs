@@ -15,11 +15,12 @@ The parameters needed to run Alpha Fold are:
 	* **uniclust30_database_path:** Path to Uniclust30 database for use by HHblits.
 	* **pdb70_database_path:** Path to PDB70 database for use by HHsearch.
 	* **template_mmcif_dir_** Path to a directory with template mmCIF structures, each named <pdb_id>.cif.
+        * **uniprot_database_path** Path to the UniProt database for AlphaFold Multimer.
 	* **obsolete_pdbs_path:** Path to a file mapping obsolete PDB IDs to their replacements.
 	* **max_template_date:** Maximum template release date to consider (ISO-8601 format - i.e. YYYY-MM-DD). Important if folding historical test sets. Default is None.
 	* **output_dir:** Path to a directory that will store the results.
-	* **model_names:** Names of models to use.
-	* **preset:** ['reduced_dbs', 'full_dbs', 'casp14']. Choose preset model configuration - no ensembling and smaller genetic database config (reduced_dbs), no ensembling and full genetic database config (full_dbs) or full genetic database config and 8 model ensemblings (casp14). Default is full_dbs.
+	* **model_preset:** ['monomer','monomer_casp14','monomer_ptm','multimer']. Control which AlphaFold model use, choosing between the original model used at CASP14 with no ensembling (monomer). the original model used at CASP14 with num_ensemble=8, matching our CASP14 configuration. This is largely provided for reproducibility as it is 8x more computationally expensive for limited accuracy gain (+0.1 average GDT gain on CASP14 domains) (monomer_casp14). the original CASP14 model fine tuned with the pTM head, providing a pairwise confidence measure. It is slightly less accurate than the normal monomer model ('monomer_ptm'). The AlphaFold-Multimer model, to use this model, provide a multi-sequence FASTA file. In addition, the UniProt database should have been downloaded ('multimer').
+	* **db_preset:** ['reduced_dbs', 'full_dbs', 'casp14']. Choose preset model configuration - no ensembling and smaller genetic database config (reduced_dbs), no ensembling and full genetic database config (full_dbs) or full genetic database config and 8 model ensemblings (casp14). Default is full_dbs.
 	* **benchmark:** [True, False]. Run multiple JAX model evaluations to obtain a timing that excludes the compilation time, which should be more indicative of the time required for inferencing many proteins. Default is False. 
 
 
@@ -125,7 +126,6 @@ structures, raw model outputs, prediction metadata, and section timings. The
 	      |- mgnify_hits.sto
 	      |- uniref90_hits.sto
 
-
 The contents of each output file are as follows:
 
 *   **features.pkl:** A pickle file containing the input feature NumPy arrays
@@ -172,3 +172,83 @@ The contents of each output file are as follows:
         serve for a visualisation of domain packing confidence within the
         structure.
 
+================================
+Running AlphaFold Multimer 
+================================
+
+The steps are the same as when folding a monomer, but it is needed to provide:
+
+1. An input fasta file with multiple sequences.
+
+2. Set the --model-preset flag to 'multimer'.
+
+3. Optionally set the --is_prokaryote_list flag with booleans that determine whether all input sequences in the given fasta file are prokaryotic. If that is not the case or the origin is unknown, set to false for that fasta.
+
+Example
+#########
+
+In this tutorial we will fold a multimer using AlphaFold. We will be using a Human GITR-GITRL complex (PDB ID: 7kHD).
+
+1. Sequence file preparation:
+The multimer seuqence can be download from the PDB databse. 
+
+::
+    >7KHD_1|Chains A, B|Tumor necrosis factor ligand superfamily member 18|Homo sapiens (9606)
+    QLETAKEPCMAKFGPLPSKWQMASSEPPCVNKVSDWKLEILQNGLYLIYGQVAPNANYNDVAPFEVRLYKNKDMIQTLTNKSKIQNVGGTYELHVGDTIDLIFNSEHQVLKNNTYWGIILLANPQFIS
+    >7KHD_2|Chains C, D|Tumor necrosis factor receptor superfamily member 18|Homo sapiens (9606)
+    QRPTGGPGCGPGRLLLGTGTDARCCRVHTTRCCRDYPGEECCSEWDCMCVQPEFHCGDPCCTTCRHHPCPPGQGVQSQGKFSFGFQCIDCASGTFSGGHEGHCKPWTDCTQFGFLTVFPGNKTHNAVCVPGSPPAEP
+
+If the multimer has repeated chains,the input fasta should be
+
+::
+    >7KHD_1|Chain A
+    QLETAKEPCMAKFGPLPSKWQMASSEPPCVNKVSDWKLEILQNGLYLIYGQVAPNANYNDVAPFEVRLYKNKDMIQTLTNKSKIQNVGGTYELHVGDTIDLIFNSEHQVLKNNTYWGIILLANPQFIS
+    >7KHD_2|Chain B
+    QLETAKEPCMAKFGPLPSKWQMASSEPPCVNKVSDWKLEILQNGLYLIYGQVAPNANYNDVAPFEVRLYKNKDMIQTLTNKSKIQNVGGTYELHVGDTIDLIFNSEHQVLKNNTYWGIILLANPQFIS
+    >7KHD_3|Chain C
+    QRPTGGPGCGPGRLLLGTGTDARCCRVHTTRCCRDYPGEECCSEWDCMCVQPEFHCGDPCCTTCRHHPCPPGQGVQSQGKFSFGFQCIDCASGTFSGGHEGHCKPWTDCTQFGFLTVFPGNKTHNAVCVPGSPPAEP
+    >7KHD_4|Chain D
+    QRPTGGPGCGPGRLLLGTGTDARCCRVHTTRCCRDYPGEECCSEWDCMCVQPEFHCGDPCCTTCRHHPCPPGQGVQSQGKFSFGFQCIDCASGTFSGGHEGHCKPWTDCTQFGFLTVFPGNKTHNAVCVPGSPPAEP
+
+In our multimer, chains A-B and chains C-D are repeated.
+
+Then, submit the following sh file:
+
+.. code-block:: bash
+  #!/bin/bash
+  #SBATCH --job-name af_multimer
+  #SBATCH --cpus-per-task=8
+  #SBATCH --mem=20G
+
+  #set the environment PATH
+  export PYTHONNOUSERSITE=True
+  ALPHAFOLD_DATA_PATH=/shared/work/NBD_Utilities/AlphaFold/databases
+  ALPHAFOLD_MODELS=/shared/work/NBD_Utilities/AlphaFold/databases/params
+
+  module purge
+  module load CUDA/9.2.88-iccifort-2018.1.163-GCC-6.4.0-2.28
+  module load cuDNN
+  export CUDA_VISIBLE_DEVICES=-1
+
+  #Run the command
+  singularity run --nv \
+   -B $ALPHAFOLD_DATA_PATH:/data \
+   -B $ALPHAFOLD_MODELS \
+   -B .:/etc \
+   --pwd  /app/alphafold  af_multimer.sif \
+   --data_dir=/data \
+   --fasta_paths=/shared/work/NBD_Utilities/AlphaFold/test_container/af_multimer/sep_chains/7khd.fasta \
+   --uniref90_database_path=/data/uniref90/uniref90.fasta  \
+   --data_dir=/data \
+   --mgnify_database_path=/data/mgnify/mgy_clusters.fa   \
+   --bfd_database_path=/data/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt \
+   --uniclust30_database_path=/data/uniclust30/uniclust30_2018_08/uniclust30_2018_08 \
+   --pdb_seqres_database_path=/data/pdb_seqres/pdb_seqres.txt \
+   --hhblits_binary_path=/shared/work/NBD_Utilities/AlphaFold/test_container/af_multimer/sep_chaons/hhblits \
+   --hhsearch_binary_path=/shared/work/NBD_Utilities/AlphaFold/test_container/af_multimer/sep_chains/hhsearch \
+   --uniprot_database_path=/data/uniprot/uniprot.fasta \
+   --template_mmcif_dir=/data/pdb_mmcif/mmcif_files  \
+   --obsolete_pdbs_path=/data/pdb_mmcif/obsolete.dat \
+   --max_template_date=2021-03-03 \
+   --model_preset='multimer' \
+   --output_dir=/shared/work/NBD_Utilities/AlphaFold/test_container/af_multimer/sep_chains/7khd
