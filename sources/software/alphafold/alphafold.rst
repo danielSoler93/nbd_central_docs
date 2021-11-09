@@ -193,6 +193,7 @@ In this tutorial we will fold a multimer using AlphaFold. We will be using a Hum
 The multimer seuqence can be download from the PDB databse. 
 
 ::
+
     >7KHD_1|Chains A, B|Tumor necrosis factor ligand superfamily member 18|Homo sapiens (9606)
     QLETAKEPCMAKFGPLPSKWQMASSEPPCVNKVSDWKLEILQNGLYLIYGQVAPNANYNDVAPFEVRLYKNKDMIQTLTNKSKIQNVGGTYELHVGDTIDLIFNSEHQVLKNNTYWGIILLANPQFIS
     >7KHD_2|Chains C, D|Tumor necrosis factor receptor superfamily member 18|Homo sapiens (9606)
@@ -201,6 +202,7 @@ The multimer seuqence can be download from the PDB databse.
 If the multimer has repeated chains,the input fasta should be
 
 ::
+
     >7KHD_1|Chain A
     QLETAKEPCMAKFGPLPSKWQMASSEPPCVNKVSDWKLEILQNGLYLIYGQVAPNANYNDVAPFEVRLYKNKDMIQTLTNKSKIQNVGGTYELHVGDTIDLIFNSEHQVLKNNTYWGIILLANPQFIS
     >7KHD_2|Chain B
@@ -215,6 +217,7 @@ In our multimer, chains A-B and chains C-D are repeated.
 Then, submit the following sh file:
 
 .. code-block:: bash
+
   #!/bin/bash
   #SBATCH --job-name af_multimer
   #SBATCH --cpus-per-task=8
