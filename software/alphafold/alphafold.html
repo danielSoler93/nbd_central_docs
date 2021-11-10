@@ -208,7 +208,7 @@
 <li><p><strong>obsolete_pdbs_path:</strong> Path to a file mapping obsolete PDB IDs to their replacements.</p></li>
 <li><p><strong>max_template_date:</strong> Maximum template release date to consider (ISO-8601 format - i.e. YYYY-MM-DD). Important if folding historical test sets. Default is None.</p></li>
 <li><p><strong>output_dir:</strong> Path to a directory that will store the results.</p></li>
-<li><p><strong>model_preset:</strong> [‘monomer’,’monomer_casp14’,’monomer_ptm’,’multimer’]. Control which AlphaFold model use, choosing between the original model used at CASP14 with no ensembling (monomer). the original model used at CASP14 with num_ensemble=8, matching our CASP14 configuration. This is largely provided for reproducibility as it is 8x more computationally expensive for limited accuracy gain (+0.1 average GDT gain on CASP14 domains) (monomer_casp14). the original CASP14 model fine tuned with the pTM head, providing a pairwise confidence measure. It is slightly less accurate than the normal monomer model (‘monomer_ptm’). The AlphaFold-Multimer model, to use this model, provide a multi-sequence FASTA file. In addition, the UniProt database should have been downloaded (‘multimer’).</p></li>
+<li><p><strong>model_preset:</strong> [‘monomer’, ‘monomer_casp14’, ‘monomer_ptm’, ‘multimer’]. Control which AlphaFold model use, choosing between the original model used at CASP14 with no ensembling (monomer), the original model used at CASP14 with num_ensemble=8, matching our CASP14 configuration (monomer_casp14), the original CASP14 model fine tuned with the pTM head, providing a pairwise confidence measure (‘monomer_ptm’) and the AlphaFold-Multimer model (‘multimer’), to use this model, provide a multi-sequence FASTA file.</p></li>
 <li><p><strong>db_preset:</strong> [‘reduced_dbs’, ‘full_dbs’, ‘casp14’]. Choose preset model configuration - no ensembling and smaller genetic database config (reduced_dbs), no ensembling and full genetic database config (full_dbs) or full genetic database config and 8 model ensemblings (casp14). Default is full_dbs.</p></li>
 <li><p><strong>benchmark:</strong> [True, False]. Run multiple JAX model evaluations to obtain a timing that excludes the compilation time, which should be more indicative of the time required for inferencing many proteins. Default is False.</p></li>
 </ul>
@@ -362,7 +362,7 @@ structure.</p></li>
 <h1>Running AlphaFold Multimer<a class="headerlink" href="#running-alphafold-multimer" title="Permalink to this headline">¶</a></h1>
 <p>The steps are the same as when folding a monomer, but it is needed to provide:</p>
 <ol class="arabic simple">
-<li><p>An input <a href="#id1"><span class="problematic" id="id2">`</span></a>fasta file with multiple sequences.</p></li>
+<li><p>An input <cite>fasta</cite> file with multiple sequences.</p></li>
 <li><p>Set the <strong>–model-preset</strong> flag to ‘multimer’.</p></li>
 <li><p>Optionally set the <strong>–is_prokaryote_list</strong> flag with booleans that determine whether all input sequences in the given <cite>fasta</cite> file are prokaryotic. If that is not the case or the origin is unknown, set to <cite>false</cite> for that <cite>fasta</cite>.</p></li>
 </ol>
@@ -370,14 +370,14 @@ structure.</p></li>
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>In this tutorial we will fold a multimer using AlphaFold. We will be using a Human GITR-GITRL complex (PDB ID: 7KHD).</p>
 <p>1. Sequence file preparation:
-The multimer sequence can be download from the PDB databse.</p>
+The multimer sequence can be downloaded from the PDB databse.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="mi">7</span><span class="n">KHD_1</span><span class="o">|</span><span class="n">Chains</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="o">|</span><span class="n">Tumor</span> <span class="n">necrosis</span> <span class="n">factor</span> <span class="n">ligand</span> <span class="n">superfamily</span> <span class="n">member</span> <span class="mi">18</span><span class="o">|</span><span class="n">Homo</span> <span class="n">sapiens</span> <span class="p">(</span><span class="mi">9606</span><span class="p">)</span>
 <span class="n">QLETAKEPCMAKFGPLPSKWQMASSEPPCVNKVSDWKLEILQNGLYLIYGQVAPNANYNDVAPFEVRLYKNKDMIQTLTNKSKIQNVGGTYELHVGDTIDLIFNSEHQVLKNNTYWGIILLANPQFIS</span>
 <span class="o">&gt;</span><span class="mi">7</span><span class="n">KHD_2</span><span class="o">|</span><span class="n">Chains</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="o">|</span><span class="n">Tumor</span> <span class="n">necrosis</span> <span class="n">factor</span> <span class="n">receptor</span> <span class="n">superfamily</span> <span class="n">member</span> <span class="mi">18</span><span class="o">|</span><span class="n">Homo</span> <span class="n">sapiens</span> <span class="p">(</span><span class="mi">9606</span><span class="p">)</span>
 <span class="n">QRPTGGPGCGPGRLLLGTGTDARCCRVHTTRCCRDYPGEECCSEWDCMCVQPEFHCGDPCCTTCRHHPCPPGQGVQSQGKFSFGFQCIDCASGTFSGGHEGHCKPWTDCTQFGFLTVFPGNKTHNAVCVPGSPPAEP</span>
 </pre></div>
 </div>
-<p>If the multimer has repeated chains,the input fasta should be</p>
+<p>If the multimer has repeated chains,the input <cite>fasta</cite> file should be:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="mi">7</span><span class="n">KHD_1</span><span class="o">|</span><span class="n">Chain</span> <span class="n">A</span>
 <span class="n">QLETAKEPCMAKFGPLPSKWQMASSEPPCVNKVSDWKLEILQNGLYLIYGQVAPNANYNDVAPFEVRLYKNKDMIQTLTNKSKIQNVGGTYELHVGDTIDLIFNSEHQVLKNNTYWGIILLANPQFIS</span>
 <span class="o">&gt;</span><span class="mi">7</span><span class="n">KHD_2</span><span class="o">|</span><span class="n">Chain</span> <span class="n">B</span>
@@ -388,8 +388,8 @@ The multimer sequence can be download from the PDB databse.</p>
 <span class="n">QRPTGGPGCGPGRLLLGTGTDARCCRVHTTRCCRDYPGEECCSEWDCMCVQPEFHCGDPCCTTCRHHPCPPGQGVQSQGKFSFGFQCIDCASGTFSGGHEGHCKPWTDCTQFGFLTVFPGNKTHNAVCVPGSPPAEP</span>
 </pre></div>
 </div>
-<p>In our multimer, chains A-B and chains C-D are repeated.</p>
-<p>Then, submit the following sh file:</p>
+<p>In our protein, chains A-B and chains C-D are repeated.</p>
+<p>Then, submit the following sh file, remember to change the <strong>–output_dir</strong> and <strong>–fasta_paths</strong> to match your input <cite>fasta</cite> file and output folder:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">When</span> <span class="n">running</span> <span class="n">AlphaFold</span> <span class="n">Multimer</span><span class="p">,</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">needed</span> <span class="n">to</span> <span class="n">define</span> <span class="n">UniProt</span><span class="s1">&#39;s database file.</span>
 </pre></div>
 </div>
