@@ -19,7 +19,7 @@ The parameters needed to run Alpha Fold are:
 	* **obsolete_pdbs_path:** Path to a file mapping obsolete PDB IDs to their replacements.
 	* **max_template_date:** Maximum template release date to consider (ISO-8601 format - i.e. YYYY-MM-DD). Important if folding historical test sets. Default is None.
 	* **output_dir:** Path to a directory that will store the results.
-	* **model_preset:** ['monomer','monomer_casp14','monomer_ptm','multimer']. Control which AlphaFold model use, choosing between the original model used at CASP14 with no ensembling (monomer). the original model used at CASP14 with num_ensemble=8, matching our CASP14 configuration. This is largely provided for reproducibility as it is 8x more computationally expensive for limited accuracy gain (+0.1 average GDT gain on CASP14 domains) (monomer_casp14). the original CASP14 model fine tuned with the pTM head, providing a pairwise confidence measure. It is slightly less accurate than the normal monomer model ('monomer_ptm'). The AlphaFold-Multimer model, to use this model, provide a multi-sequence FASTA file. In addition, the UniProt database should have been downloaded ('multimer').
+	* **model_preset:** ['monomer', 'monomer_casp14', 'monomer_ptm', 'multimer']. Control which AlphaFold model use, choosing between the original model used at CASP14 with no ensembling (monomer), the original model used at CASP14 with num_ensemble=8, matching our CASP14 configuration (monomer_casp14), the original CASP14 model fine tuned with the pTM head, providing a pairwise confidence measure ('monomer_ptm') and the AlphaFold-Multimer model ('multimer'), to use this model, provide a multi-sequence FASTA file.
 	* **db_preset:** ['reduced_dbs', 'full_dbs', 'casp14']. Choose preset model configuration - no ensembling and smaller genetic database config (reduced_dbs), no ensembling and full genetic database config (full_dbs) or full genetic database config and 8 model ensemblings (casp14). Default is full_dbs.
 	* **benchmark:** [True, False]. Run multiple JAX model evaluations to obtain a timing that excludes the compilation time, which should be more indicative of the time required for inferencing many proteins. Default is False. 
 
@@ -178,7 +178,7 @@ Running AlphaFold Multimer
 
 The steps are the same as when folding a monomer, but it is needed to provide:
 
-1. An input `fasta file with multiple sequences.
+1. An input `fasta` file with multiple sequences.
 
 2. Set the **--model-preset** flag to 'multimer'.
 
@@ -190,7 +190,7 @@ Example
 In this tutorial we will fold a multimer using AlphaFold. We will be using a Human GITR-GITRL complex (PDB ID: 7KHD).
 
 1. Sequence file preparation:
-The multimer sequence can be download from the PDB databse. 
+The multimer sequence can be downloaded from the PDB databse. 
 
 ::
 
@@ -199,7 +199,7 @@ The multimer sequence can be download from the PDB databse.
     >7KHD_2|Chains C, D|Tumor necrosis factor receptor superfamily member 18|Homo sapiens (9606)
     QRPTGGPGCGPGRLLLGTGTDARCCRVHTTRCCRDYPGEECCSEWDCMCVQPEFHCGDPCCTTCRHHPCPPGQGVQSQGKFSFGFQCIDCASGTFSGGHEGHCKPWTDCTQFGFLTVFPGNKTHNAVCVPGSPPAEP
 
-If the multimer has repeated chains,the input fasta should be
+If the multimer has repeated chains,the input `fasta` file should be:
 
 ::
 
@@ -212,9 +212,9 @@ If the multimer has repeated chains,the input fasta should be
     >7KHD_4|Chain D
     QRPTGGPGCGPGRLLLGTGTDARCCRVHTTRCCRDYPGEECCSEWDCMCVQPEFHCGDPCCTTCRHHPCPPGQGVQSQGKFSFGFQCIDCASGTFSGGHEGHCKPWTDCTQFGFLTVFPGNKTHNAVCVPGSPPAEP
 
-In our multimer, chains A-B and chains C-D are repeated.
+In our protein, chains A-B and chains C-D are repeated.
 
-Then, submit the following sh file:
+Then, submit the following sh file, remember to change the **--output_dir** and **--fasta_paths** to match your input `fasta` file and output folder:
 
 ::
 
