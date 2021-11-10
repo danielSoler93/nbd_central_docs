@@ -57,7 +57,7 @@ To run Alpha Fold, please change in the following template:
 	* output_dir
 	* fasta_paths
 
-**Alpha Fold - v2.0 - Template to run**
+**Alpha Fold - v2.0.1 - Template to run**
 
 ::
 
