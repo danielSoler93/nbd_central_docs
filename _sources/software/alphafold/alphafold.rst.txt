@@ -24,7 +24,7 @@ The parameters needed to run Alpha Fold are:
 	* **benchmark:** [True, False]. Run multiple JAX model evaluations to obtain a timing that excludes the compilation time, which should be more indicative of the time required for inferencing many proteins. Default is False. 
 
 
-:Important: The reference databases and models were downloaded in the directory **/shared/work/NBD_Utilities/AlphaFold/databases** and the singularity image file (.sif) of AlphaFold is available at **/shared/work/NBD_Utilities/AlphaFold**
+:Important: The reference databases and models were downloaded in the directory **/shared/work/NBD_Utilities/AlphaFold/databases** and the singularity image file (alphafold_2.1.0.sif) of AlphaFold is available at **/shared/work/NBD_Utilities/AlphaFold**
 
 :Important: The max_template_date flag is mandatory when running AlphaFold. If you are predicting the structure of a protein that is already in PDB and you wish to avoid using it as a template, then max_template_date must be set to be before the release date of the structure. If you do not need to specify a date, by default we set today's date. For example, if we are running the simulation on August 7th 2021, we set -- max_template_date = 2021-08-07.
 
@@ -50,7 +50,7 @@ If we want to run AlphaFold in, for example, the directory ``AlphaFold/test``
     user@login01:~$  cd AlphaFold/test
     user@login01:AlphaFold/test$  mkdir alphafold_output # Create the directory for AlphaFold output
     user@login01:AlphaFold/test$  ls # The directory should contain the singularity image file (.sif) and the input FASTA sequence
-    alphafold_output alphafold.sif input.fasta 
+    alphafold_output alphafold_2.1.0.sif input.fasta 
     
 
 To run Alpha Fold, please change in the following template:
@@ -87,7 +87,7 @@ To run Alpha Fold, please change in the following template:
      -B $ALPHAFOLD_DATA_PATH:/data \
      -B $ALPHAFOLD_MODELS \
      -B .:/etc \
-     --pwd  /app/alphafold alphafold.sif \
+     --pwd  /app/alphafold alphafold_2.1.0.sif \
      --fasta_paths=/path/to/input/sequence/input.fasta  \
      --uniref90_database_path=/data/uniref90/uniref90.fasta  \
      --data_dir=/data \
@@ -99,7 +99,7 @@ To run Alpha Fold, please change in the following template:
      --obsolete_pdbs_path=/data/pdb_mmcif/obsolete.dat \
      --max_template_date= YYYY-MM-DD \
      --output_dir=/path/to/output/directory  \
-     --model_names='model_1','model_2','model_3','model_4','model_5' 
+     --model_preset='monomer' 
 
 ====================
 AlphaFold output
@@ -242,7 +242,7 @@ Then, submit the following sh file:
    -B $ALPHAFOLD_DATA_PATH:/data \
    -B $ALPHAFOLD_MODELS \
    -B .:/etc \
-   --pwd  /app/alphafold  af_multimer.sif \
+   --pwd  /app/alphafold  alphafold_2.1.0.sif \
    --data_dir=/data \
    --fasta_paths=/shared/work/NBD_Utilities/AlphaFold/test_container/af_multimer/sep_chains/7khd.fasta \
    --uniref90_database_path=/data/uniref90/uniref90.fasta  \
@@ -251,8 +251,6 @@ Then, submit the following sh file:
    --bfd_database_path=/data/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt \
    --uniclust30_database_path=/data/uniclust30/uniclust30_2018_08/uniclust30_2018_08 \
    --pdb_seqres_database_path=/data/pdb_seqres/pdb_seqres.txt \
-   --hhblits_binary_path=/shared/work/NBD_Utilities/AlphaFold/test_container/af_multimer/sep_chaons/hhblits \
-   --hhsearch_binary_path=/shared/work/NBD_Utilities/AlphaFold/test_container/af_multimer/sep_chains/hhsearch \
    --uniprot_database_path=/data/uniprot/uniprot.fasta \
    --template_mmcif_dir=/data/pdb_mmcif/mmcif_files  \
    --obsolete_pdbs_path=/data/pdb_mmcif/obsolete.dat \
