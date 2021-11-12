@@ -8,11 +8,10 @@ with the possibility of specifying which R-groups we want fixed.
 Flags and Input Files
 ~~~~~~~~~~~~~~~~~~~~~
 
--i TEMPLATE_LIGAND, –template_ligand –> Path to PDB template ligand. -l
-LIGANDS, –ligands –> Path to SDF file with database ligands or folder
-with SDF files. -o OUTFILE, –outfile –> Output file name. -a
-ATOM_LINKER, –atom_linker –> PDB atom name of core that is bound to
-R-group.
+-i TEMPLATE_LIGAND, –template_ligand –> Path to PDB template ligand. 
+-l LIGANDS, –ligands –> Path to SDF file with database ligands or folder with SDF files. 
+-o OUTFILE, –outfile –> Output file name. 
+-a ATOM_LINKER, –atom_linker –> PDB atom name of core that is bound to R-group.
 
 Requirements of the input files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
