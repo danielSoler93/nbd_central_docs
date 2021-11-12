@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Structure Filtering Tutorial &mdash; NBD Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> NBD Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../databases/index.html">Compound DataBases</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Software</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../compute_power/index.html">IT infrastructure</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../papers/index.html">Articles</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NBD Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Structure Filtering Tutorial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/software/filtering/filtering.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="structure-filtering-tutorial">
+<h1>Structure Filtering Tutorial<a class="headerlink" href="#structure-filtering-tutorial" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial aims to guide the user to perform a database filtering
+with the possibility of specifying which R-groups we want fixed.</p>
+<div class="section" id="flags-and-input-files">
+<h2>Flags and Input Files<a class="headerlink" href="#flags-and-input-files" title="Permalink to this headline">¶</a></h2>
+<p>-i TEMPLATE_LIGAND, –template_ligand –&gt; Path to PDB template ligand.
+-l LIGANDS, –ligands –&gt; Path to SDF file with database ligands or folder with SDF files.
+-o OUTFILE, –outfile –&gt; Output file name.
+-a ATOM_LINKER, –atom_linker –&gt; PDB atom name of core that is bound to R-group.</p>
+</div>
+<div class="section" id="requirements-of-the-input-files">
+<h2>Requirements of the input files<a class="headerlink" href="#requirements-of-the-input-files" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>The file of the substructure we want to have in all the molecules,
+must be in PDB format and have <strong>unique PDB atom names</strong>.</p></li>
+<li><p>The database files must be SDF format.</p></li>
+</ol>
+<div class="section" id="example-running-in-a-jupyter-notebook">
+<h3>Example - Running in a Jupyter Notebook<a class="headerlink" href="#example-running-in-a-jupyter-notebook" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import database_filtering
+from database_filtering.utils.utils import filter_mols
+import rdkit
+from rdkit import Chem
+from rdkit.Chem import AllChem
+from rdkit.Chem import Draw
+from rdkit.Chem.Draw import rdMolDraw2D
+from rdkit.Chem.Draw import IPythonConsole
+IPythonConsole.molSize = 300,300
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>template_ligand = Chem.MolFromSmiles(&quot;O=C(O)c1ccccc1&quot;)
+template_ligand
+</pre></div>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/DF_tutorial-input_ligand.png"><img alt="../../_images/DF_tutorial-input_ligand.png" src="../../_images/DF_tutorial-input_ligand.png" style="width: 120.0px; height: 120.0px;" /></a>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ligands = [Chem.MolFromSmiles(&quot;O=C(O)c1ccccc1CO&quot;),
+           Chem.MolFromSmiles(&quot;Nc1ccccc1C(=O)O&quot;),
+           Chem.MolFromSmiles(&quot;Nc1ccccc1C(=O)O&quot;),
+           Chem.MolFromSmiles(&quot;O=C(O)c1ccccc1I&quot;),
+           Chem.MolFromSmiles(&quot;O=C(O)c1ccccc1Br&quot;),
+           Chem.MolFromSmiles(&quot;NC(=O)c1ccccc1C(=O)O&quot;),
+           Chem.MolFromSmiles(&quot;O=[IH2]c1ccccc1C(=O)O&quot;),
+           Chem.MolFromSmiles(&quot;Nc1ncccc1C(=O)O&quot;),
+           Chem.MolFromSmiles(&quot;Nc1ccc(C(=O)O)c(O)c1&quot;)]
+Draw.MolsToGridImage(ligands,molsPerRow=4,subImgSize=(200,200))
+</pre></div>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/DF_tutorial-ligands.png"><img alt="../../_images/DF_tutorial-ligands.png" src="../../_images/DF_tutorial-ligands.png" style="width: 320.0px; height: 240.0px;" /></a>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>linker = [&#39;C7&#39;]
+template_ligand.__sssAtoms = [8] # Highlight the atom C7
+template_ligand
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">REMEMBER</span><span class="p">:</span> <span class="n">If</span> <span class="n">your</span> <span class="n">linker</span> <span class="ow">is</span> <span class="n">atom</span> <span class="n">C7</span><span class="p">,</span> <span class="n">we</span> <span class="n">will</span> <span class="n">only</span> <span class="n">obtain</span> <span class="n">molecules</span> <span class="n">that</span> <span class="n">have</span> <span class="n">an</span> <span class="n">R</span><span class="o">-</span><span class="n">group</span> <span class="n">bound</span> <span class="n">to</span> <span class="n">that</span> <span class="n">atom</span><span class="o">.</span>
+<span class="n">Also</span><span class="p">,</span> <span class="n">we</span> <span class="n">can</span> <span class="n">select</span> <span class="n">more</span> <span class="n">than</span> <span class="n">one</span> <span class="n">linker</span> <span class="n">atom</span><span class="p">:</span>
+<span class="n">In</span> <span class="n">a</span> <span class="n">notebook</span> <span class="o">--&gt;</span> <span class="n">linker</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;C7&quot;</span><span class="p">,</span> <span class="s2">&quot;C4&quot;</span><span class="p">]</span>
+<span class="n">Running</span> <span class="n">on</span> <span class="n">the</span> <span class="n">cluster</span> <span class="o">--&gt;</span> <span class="o">-</span><span class="n">a</span> <span class="n">C7</span> <span class="n">C8</span>
+</pre></div>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/DF_tutorial-linker_atom.png"><img alt="../../_images/DF_tutorial-linker_atom.png" src="../../_images/DF_tutorial-linker_atom.png" style="width: 120.0px; height: 120.0px;" /></a>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>template_ligand_path = &quot;./template_ligand.pdb&quot;
+ligands_path = &quot;./ligands.sdf&quot;
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>filter_mols(template_ligand_path, ligands_path,&#39;test&#39;,linker)
+# Results are stored in the file test.sdf
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Filtering</span> <span class="n">passed</span> <span class="k">for</span> <span class="n">molecule</span>
+<span class="n">Filtering</span> <span class="n">passed</span> <span class="k">for</span> <span class="n">molecule</span>
+<span class="n">Filtering</span> <span class="n">passed</span> <span class="k">for</span> <span class="n">molecule</span>
+<span class="n">Filtering</span> <span class="n">passed</span> <span class="k">for</span> <span class="n">molecule</span>
+<span class="n">Filtering</span> <span class="n">passed</span> <span class="k">for</span> <span class="n">molecule</span>
+<span class="n">Filtering</span> <span class="n">passed</span> <span class="k">for</span> <span class="n">molecule</span>
+<span class="n">Filtering</span> <span class="n">passed</span> <span class="k">for</span> <span class="n">molecule</span>
+<span class="n">No</span> <span class="n">substructure</span> <span class="n">match</span> <span class="k">for</span> <span class="n">ligand</span> <span class="p">,</span> <span class="n">skipping</span>
+<span class="n">Molecule</span>  <span class="n">did</span> <span class="ow">not</span> <span class="n">meet</span> <span class="n">the</span> <span class="n">R</span><span class="o">-</span><span class="n">groups</span> <span class="n">requirements</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>### This block of code is only for visualization purposes.
+suppl = Chem.SDMolSupplier(&#39;test.sdf&#39;)
+mols = []
+for mol in suppl:
+    AllChem.Compute2DCoords(mol)
+    mols.append(mol)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="filtering-results">
+<h2>Filtering Results<a class="headerlink" href="#filtering-results" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>Draw.MolsToGridImage(mols,molsPerRow=4,subImgSize=(200,200))
+</pre></div>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/DF_tutorial-results.png"><img alt="../../_images/DF_tutorial-results.png" src="../../_images/DF_tutorial-results.png" style="width: 320.0px; height: 160.0px;" /></a>
+</div>
+<div class="section" id="running-in-the-cluster">
+<h3>Running in the Cluster<a class="headerlink" href="#running-in-the-cluster" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -J filter</span>
+<span class="c1">#SBATCH --output=filter.out</span>
+<span class="c1">#SBATCH --error=filter.err</span>
+<span class="c1">#SBATCH --ntasks=3</span>
+<span class="c1">#SBATCH --mem-per-cpu=10000</span>
+
+<span class="nb">source</span> /shared/home/hmartin/miniconda3/etc/profile.d/conda.sh
+conda activate /shared/home/hmartin/miniconda3/envs/r_groups_env
+
+python -m database_filtering.run_filtering -i template_ligand.pdb -l ligands.sdf -a C7 -o <span class="nb">test</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, NBD | Nostrum Biodiscovery
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
