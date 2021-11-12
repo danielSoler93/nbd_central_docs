@@ -44,7 +44,7 @@ Example - Running in a Jupyter Notebook
 
 
 
-.. figure:: ../_images/DF_tutorial-input_ligand.png
+.. figure:: ../../_images/DF_tutorial-input_ligand.png
     :scale: 40%
     :align: center
 
@@ -67,7 +67,7 @@ Example - Running in a Jupyter Notebook
 
 
 
-.. figure:: ../_images/DF_tutorial-ligands.png
+.. figure:: ../../_images/DF_tutorial-ligands.png
     :scale: 40%
     :align: center
 
@@ -94,7 +94,7 @@ Example - Running in a Jupyter Notebook
 
 
 
-.. image:: .. figure:: ../_images/DF_tutorial-linker_atom.png
+.. figure:: ../../_images/DF_tutorial-linker_atom.png
     :scale: 40%
     :align: center
 
@@ -143,7 +143,7 @@ Filtering Results
 
 
 
-.. figure:: ../_images/DF_tutorial-results.png
+.. figure:: ../../_images/DF_tutorial-results.png
     :scale: 40%
     :align: center
 
