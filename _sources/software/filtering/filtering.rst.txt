@@ -9,9 +9,13 @@ Flags and Input Files
 ~~~~~~~~~~~~~~~~~~~~~
 
 -i TEMPLATE_LIGAND, –template_ligand –> Path to PDB template ligand. 
+
 -l LIGANDS, –ligands –> Path to SDF file with database ligands or folder with SDF files. 
+
 -o OUTFILE, –outfile –> Output file name. 
+
 -a ATOM_LINKER, –atom_linker –> PDB atom name of core that is bound to R-group.
+
 
 Requirements of the input files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -118,15 +122,6 @@ Example - Running in a Jupyter Notebook
     No substructure match for ligand , skipping
     Molecule  did not meet the R-groups requirements.
 
-
-.. code:: ipython3
-
-    ### This block of code is only for visualization purposes.
-    suppl = Chem.SDMolSupplier('test.sdf')   
-    mols = []
-    for mol in suppl:
-        AllChem.Compute2DCoords(mol)
-        mols.append(mol)
 
 Filtering Results
 ~~~~~~~~~~~~~~~~~
