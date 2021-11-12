@@ -77,10 +77,6 @@ Example - Running in a Jupyter Notebook
 
     linker = ['C7']
     template_ligand.__sssAtoms = [8] # Highlight the atom C7
-    print('REMEMBER: If your linker is atom C7, we will only obtain molecules that have an R-group bound to that atom.')
-    print('Also, we can select more than one linker atom:')
-    print('In a notebook --> linker = ["C7", "C4"]')
-    print('Running on the cluster --> -a C7 C8 ')
     template_ligand
 
 
