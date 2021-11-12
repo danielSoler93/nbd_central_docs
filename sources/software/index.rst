@@ -126,6 +126,13 @@ Here you will find how to run AlphaFold
 .. toctree::
    alphafold/alphafold
 
+Structure Filtering
+----------------------
+Here you will find how to run a structure filtering
+
+.. toctree::
+   filtering/filtering
+
 Protein-protein docking
 -----------------------
 Here you will find information about several PPI software installed in our cluster
