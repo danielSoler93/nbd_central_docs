@@ -9,7 +9,7 @@ Software
 Summary
 ----------
 
-The NBD's main technologies are:
+NBD main technologies are:
 
 - PELE++ (`PELE docs <https://nostrumbiodiscovery.github.io/pele_docs/>`_)
 
@@ -34,7 +34,7 @@ The NBD's main technologies are:
 - PLUMED (`PLUMED docs <https://www.plumed.org/doc>`_)
 
 
-Job launching Templates
+Job Launching Templates
 -------------------------
 
 .. toctree::
@@ -43,7 +43,7 @@ Job launching Templates
 PELE
 ---------
 
-Pele is our in-house comercial software that we sell and use for speeding up DD projects
+Pele is our in-house commercial software that we sell and use for speeding up DD projects
 
 .. toctree::
    pele/documentation
@@ -57,7 +57,7 @@ Pele is our in-house comercial software that we sell and use for speeding up DD 
 NAMD
 ----------
 
-NAMD is used to perform molecular dynamics over several system to study its dynamics along time
+NAMD is used to perform molecular dynamics over several systems to study their dynamics over time
 
 .. toctree::
    MD/documentation
@@ -73,7 +73,7 @@ Schrodinger is used for virtual screening purposes and system preparation.
 Python packages
 ---------------------
 
-A micelaneous of several Python Packages built along the years
+A miscelaneous of several Python Packages built along the years
 
 .. toctree::
    python/packages
@@ -91,6 +91,13 @@ PLUMED is a plugin that works with a large number of molecular dynamics codes. P
 
 .. toctree::
    PLUMED/documentation
+
+PSI4
+----
+PSI4 is the latest in the family of PSI Quantum Chemistry programs, it's mainly developed at Dave Scherrill's lab. at Georgia Tech. It's focused on the highest levels of Quantum Chemistry calculations such as fullCI, Coupled Cluster Theory and various DFT recipes.
+
+.. toctree::
+   PSI4/documentation
 
 
 Nice DCV
@@ -111,7 +118,7 @@ run on nbdcalc01 computer
 .. toctree::
    tests/index
 
-NewComers
+New Comers
 -------------
 
 Here you will find how to set up your laptop to access NBD facilities

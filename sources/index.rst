@@ -12,7 +12,7 @@ NostrumBioDiscovery Docs
 
 NBD combines powerful in-house innovative technologies with deep industrial expertise in biomolecular modelling, and leads several successful exploratory discovery projects in partnership with academia. NBD provides tailored, flexible services to help its pharma and biotech clients overcome their early discovery bottlenecks. Dedication and ethics are also key values of our company.
 
-.. centered:: `Nostrum BioDiscovery website <http://nostrumbiodiscovery.com/>`_
+.. centered:: `Nostrum BioDiscovery website <https://nostrumbiodiscovery.com/>`_
 
 
 Compound DataBases
@@ -34,9 +34,8 @@ Our competitive advantage relies on combining supercomputing with both proprieta
 Compute Power
 ===================
 The NBD infrastructure consists of 1 private cluster 1 officeGPU computer
-a private storage server and a backup machine. Also, thanks to Spanish social net
-grant we use the Marenostrum4 to run molecular dynamics for our inside modtox
-project
+a private storage server and a backup machine. Also, thanks to a Spanish social net
+grant we use Marenostrum4 to run molecular dynamics for our internal modtox project
 
 .. toctree::
    compute_power/index.rst
@@ -45,8 +44,7 @@ project
 Articles
 =============
 
-All articles released along the journey of the company. They are divided the three main sections
-of the company: Drug Discovery, Enzime Engineering and Software Development.
+All articles released along the journey of the company. They're divided into three main sections: Drug Discovery, Enzyme Engineering and Software Development.
 
 .. toctree::
    papers/index.rst
