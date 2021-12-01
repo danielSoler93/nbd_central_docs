@@ -448,3 +448,23 @@ CAVIAR (cluster)
    
    caviar -code 1dwc
 
+
+PSI4 (cluster)
+--------------
+
+**Last Update:** 15-11-2021
+
+.. code-block:: bash
+
+   #!/bin/bash
+   #SBATCH -J PSI4
+   #SBATCH --output=report_%j.out
+   #SBATCH --error=report_%j.err
+   #SBATCH --ntasks=16
+   #SBATCH --time=1:00:00
+   
+   module purge
+   source /shared/work/NBD_Utilities/PSI4/psi4conda/etc/profile.d/conda.sh
+   conda activate
+
+   psi4 -i input.in -o output.dat -n $SLURM_NPROCS 

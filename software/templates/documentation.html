@@ -92,7 +92,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Software</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#summary">Summary</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html#job-launching-templates">Job launching Templates</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#job-launching-templates">Job Launching Templates</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Launching Templates</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#peleplatform-cluster">PelePlatform (cluster)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#peleplatform-tirant">PelePlatform (tirant)</a></li>
@@ -101,6 +101,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#analogssearch-office">AnalogsSearch (Office)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mdpocket-office">MDPocket (Office)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#caviar-cluster">CAVIAR (cluster)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#psi4-cluster">PSI4 (cluster)</a></li>
 </ul>
 </li>
 </ul>
@@ -111,9 +112,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#python-packages">Python packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#gromacs">GROMACS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#plumed">PLUMED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#psi4">PSI4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#nice-dcv">Nice DCV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tests">Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#newcomers">NewComers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#new-comers">New Comers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#alphafold">AlphaFold</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#structure-filtering">Structure Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#protein-protein-docking">Protein-protein docking</a></li>
@@ -584,6 +586,24 @@ module load imkl
 conda activate /shared/work/NBD_Utilities/miniconda3/envs/caviar
 
 caviar -code 1dwc
+</pre></div>
+</div>
+</div>
+<div class="section" id="psi4-cluster">
+<h2>PSI4 (cluster)<a class="headerlink" href="#psi4-cluster" title="Permalink to this headline">¶</a></h2>
+<p><strong>Last Update:</strong> 15-11-2021</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -J PSI4</span>
+<span class="c1">#SBATCH --output=report_%j.out</span>
+<span class="c1">#SBATCH --error=report_%j.err</span>
+<span class="c1">#SBATCH --ntasks=16</span>
+<span class="c1">#SBATCH --time=1:00:00</span>
+
+module purge
+<span class="nb">source</span> /shared/work/NBD_Utilities/PSI4/psi4conda/etc/profile.d/conda.sh
+conda activate
+
+psi4 -i input.in -o output.dat -n <span class="nv">$SLURM_NPROCS</span>
 </pre></div>
 </div>
 </div>
