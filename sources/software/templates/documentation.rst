@@ -9,9 +9,38 @@ Launching Templates
 PelePlatform (cluster)
 -------------------------
 
-**Last Update:** 24-11-2021
+**Last Update:** 17-12-2021
 
-**PelePlatform - v1.6.1, latest release**
+**PelePlatform - v1.6.2, latest release**
+
+.. code-block:: bash
+
+   #SBATCH -J peleplat_tests
+   #SBATCH --output=report_%j.out
+   #SBATCH --error=report_%j.err
+   #SBATCH --ntasks=2
+   #SBATCH --mem-per-cpu=1000
+
+   module purge
+   source /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
+   conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/envs/peleplatform-1.6.2
+
+   module load intel
+
+   export SCHRODINGER="/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/"
+   export SCHRODINGER_PYTHONPATH="/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/internal/lib/python2.7/site-packages"
+   export PELE="/shared/work/NBD_Utilities/PELE/PELE_Softwares/bin/PELE1.6/"
+
+   export LC_ALL=C; unset LANGUAGE
+   export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
+   export LD_LIBRARY_PATH=/shared/work/NBD_Utilities/PELE/PELE_Softwares/local_deps/pele_deps/boost_1_52/lib:$LD_LIBRARY_PATH
+   export SRUN=1  # this is to avoid having to set usesrun: true in input.yaml
+
+   python -c "import pele_platform; print('Using PELEPlatform, version', pele_platform.__version__)"
+   python -m pele_platform.main input_fast.yaml
+   
+   
+**PelePlatform - v1.6.1**
 
 .. code-block:: bash
 
@@ -108,9 +137,38 @@ PelePlatform (cluster)
 PelePlatform (tirant)
 -------------------------
 
-**Last Update:** 24-11-2021
+**Last Update:** 17-12-2021
 
-**PelePlatform - v1.6.1, latest release**
+**PelePlatform - v1.6.2, latest release**
+
+.. code-block:: bash
+
+   #!/bin/bash
+   #SBATCH -J peleplat_test
+   #SBATCH --output=report_%j.out
+   #SBATCH --error=report_%j.err
+   #SBATCH --ntasks=5
+   #SBATCH --mem-per-cpu=1000
+
+   module purge
+   module load impi mkl
+   module load miniconda
+
+   source activate /storage/projects/cns14/Utilities/platform/envs/peleplatform-1.6.2
+
+   export SCHRODINGER="/storage/projects/cns14/Utilities/schrodinger2021-4/"
+   export SCHRODINGER_PYTHONPATH="/storage/projects/cns14/Utilities/schrodinger2021-4/internal/lib/python3.8/site-packages"
+   export PELE="/storage/projects/cns14/Utilities/PELE/PELE1.7.1/"
+
+   export LC_ALL=C; unset LANGUAGE
+   export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
+   export LD_LIBRARY_PATH=/storage/projects/cns14/Utilities/PELE/dependencies/boost-1.66.0/lib:$LD_LIBRARY_PATH
+   export SRUN=1  # this is to avoid having to set usesrun: true in input.yaml
+
+   python -m pele_platform.main input.yaml
+   
+   
+**PelePlatform - v1.6.1
 
 .. code-block:: bash
 
@@ -138,6 +196,35 @@ PelePlatform (tirant)
 
    python -m pele_platform.main input.yaml
 
+
+**PelePlatform - v1.6.0
+
+.. code-block:: bash
+
+   #!/bin/bash
+   #SBATCH -J peleplat_test
+   #SBATCH --output=report_%j.out
+   #SBATCH --error=report_%j.err
+   #SBATCH --ntasks=5
+   #SBATCH --mem-per-cpu=1000
+
+   module purge
+   module load impi mkl
+   module load miniconda
+
+   source activate /storage/projects/cns14/Utilities/platform/envs/peleplatform-1.6.0
+
+   export SCHRODINGER="/storage/projects/cns14/Utilities/schrodinger2021-4/"
+   export SCHRODINGER_PYTHONPATH="/storage/projects/cns14/Utilities/schrodinger2021-4/internal/lib/python3.8/site-packages"
+   export PELE="/storage/projects/cns14/Utilities/PELE/PELE1.7.1/"
+
+   export LC_ALL=C; unset LANGUAGE
+   export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
+   export LD_LIBRARY_PATH=/storage/projects/cns14/Utilities/PELE/dependencies/boost-1.66.0/lib:$LD_LIBRARY_PATH
+   export SRUN=1  # this is to avoid having to set usesrun: true in input.yaml
+
+   python -m pele_platform.main input.yaml
+   
 
 PeleSimulationAnalysis (cluster)
 ------------------------------------
