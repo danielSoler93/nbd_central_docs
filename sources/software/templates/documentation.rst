@@ -158,6 +158,7 @@ PelePlatform + singularity (cluster)
    export SCHRODINGER="/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4"
    export SCHRODINGER_PYTHONPATH="/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/internal/lib/python2.7/site-packages"
    export PELE_LICENSE="/shared/work/NBD_Utilities/PELE/PELE_Softwares/bin/PELE1.7.1/licenses"
+   export SINGULARITY_BIND="$PELE_LICENSE"
    export PELE_MPI_PARAMS="--verbose"
    export SINGULARITY_EXEC="/shared/work/NBD_Utilities/PELE/PELE_Softwares/containers/pele1.7.1_release.sif"
    export LC_ALL=C; unset LANGUAGE
