@@ -105,6 +105,43 @@ PelePlatform (cluster)
    /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/depend/bin/python -m pele_platform.main input.yaml
 
 
+PelePlatform + singularity (cluster)
+------------------------------------
+
+**Last Update:** 21-12-2021
+
+**PelePlatform - v1.6.1 + PELE ++ Singularity v1.7.1**
+
+.. code-block:: bash
+   
+   #!/bin/bash
+   #SBATCH -J peleplat
+   #SBATCH --output=peleplat_%j.out
+   #SBATCH --error=peleplat_%j.err
+   #SBATCH --ntasks=5
+   #SBATCH --mem-per-cpu=1000
+   
+   ##################################################################
+   module purge
+   module load OpenMPI/3.1.4-GCC-8.3.0
+   
+   export PELE="/opt/PELE"
+   export SCHRODINGER="/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4"
+   export SCHRODINGER_PYTHONPATH="/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/internal/lib/python2.7/site-packages"
+   export PELE_LICENSE="/shared/work/NBD_Utilities/PELE/PELE_Softwares/bin/PELE1.7.1/licenses"
+   export PELE_MPI_PARAMS="--verbose"
+   export SINGULARITY_EXEC="/shared/work/NBD_Utilities/PELE/PELE_Softwares/containers/pele1.7.1_release.sif"
+   export LC_ALL=C; unset LANGUAGE
+   
+   source /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
+   conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/envs/peleplatform-1.6.1
+   ##################################################################
+   
+   
+   python -m pele_platform.main input.yaml
+
+
+
 PelePlatform (tirant)
 -------------------------
 
