@@ -95,6 +95,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#job-launching-templates">Job Launching Templates</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Launching Templates</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#peleplatform-cluster">PelePlatform (cluster)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#peleplatform-singularity-cluster">PelePlatform + singularity (cluster)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#peleplatform-tirant">PelePlatform (tirant)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pelesimulationanalysis-cluster">PeleSimulationAnalysis (cluster)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pele-cluster">Pele++ (cluster)</a></li>
@@ -200,8 +201,34 @@
 </div>
 <div class="section" id="peleplatform-cluster">
 <h2>PelePlatform (cluster)<a class="headerlink" href="#peleplatform-cluster" title="Permalink to this headline">¶</a></h2>
-<p><strong>Last Update:</strong> 24-11-2021</p>
-<p><strong>PelePlatform - v1.6.1, latest release</strong></p>
+<p><strong>Last Update:</strong> 17-12-2021</p>
+<p><strong>PelePlatform - v1.6.2, latest release</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH -J peleplat_tests</span>
+<span class="c1">#SBATCH --output=report_%j.out</span>
+<span class="c1">#SBATCH --error=report_%j.err</span>
+<span class="c1">#SBATCH --ntasks=2</span>
+<span class="c1">#SBATCH --mem-per-cpu=1000</span>
+
+module purge
+<span class="nb">source</span> /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
+conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/envs/peleplatform-1.6.2
+
+module load intel
+
+<span class="nb">export</span> <span class="nv">SCHRODINGER</span><span class="o">=</span><span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/&quot;</span>
+<span class="nb">export</span> <span class="nv">SCHRODINGER_PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/internal/lib/python2.7/site-packages&quot;</span>
+<span class="nb">export</span> <span class="nv">PELE</span><span class="o">=</span><span class="s2">&quot;/shared/work/NBD_Utilities/PELE/PELE_Softwares/bin/PELE1.6/&quot;</span>
+
+<span class="nb">export</span> <span class="nv">LC_ALL</span><span class="o">=</span>C<span class="p">;</span> <span class="nb">unset</span> LANGUAGE
+<span class="nb">export</span> <span class="nv">I_MPI_PMI_LIBRARY</span><span class="o">=</span>/usr/lib64/libpmi.so
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/shared/work/NBD_Utilities/PELE/PELE_Softwares/local_deps/pele_deps/boost_1_52/lib:<span class="nv">$LD_LIBRARY_PATH</span>
+<span class="nb">export</span> <span class="nv">SRUN</span><span class="o">=</span><span class="m">1</span>  <span class="c1"># this is to avoid having to set usesrun: true in input.yaml</span>
+
+python -c <span class="s2">&quot;import pele_platform; print(&#39;Using PELEPlatform, version&#39;, pele_platform.__version__)&quot;</span>
+python -m pele_platform.main input_fast.yaml
+</pre></div>
+</div>
+<p><strong>PelePlatform - v1.6.1</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH -J peleplat_tests</span>
 <span class="c1">#SBATCH --output=report_%j.out</span>
 <span class="c1">#SBATCH --error=report_%j.err</span>
@@ -287,10 +314,68 @@ module load Crypto++/6.1.0-intel-2018a OpenBLAS/0.2.20-GCC-6.4.0-2.28
 </pre></div>
 </div>
 </div>
+<div class="section" id="peleplatform-singularity-cluster">
+<h2>PelePlatform + singularity (cluster)<a class="headerlink" href="#peleplatform-singularity-cluster" title="Permalink to this headline">¶</a></h2>
+<p><strong>Last Update:</strong> 21-12-2021</p>
+<p><strong>PelePlatform - v1.6.1 + PELE ++ Singularity v1.7.1</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -J peleplat</span>
+<span class="c1">#SBATCH --output=peleplat_%j.out</span>
+<span class="c1">#SBATCH --error=peleplat_%j.err</span>
+<span class="c1">#SBATCH --ntasks=5</span>
+<span class="c1">#SBATCH --mem-per-cpu=1000</span>
+
+<span class="c1">##################################################################</span>
+module purge
+module load OpenMPI/3.1.4-GCC-8.3.0
+
+<span class="nb">export</span> <span class="nv">PELE</span><span class="o">=</span><span class="s2">&quot;/opt/PELE&quot;</span>
+<span class="nb">export</span> <span class="nv">SCHRODINGER</span><span class="o">=</span><span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4&quot;</span>
+<span class="nb">export</span> <span class="nv">SCHRODINGER_PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/internal/lib/python2.7/site-packages&quot;</span>
+<span class="nb">export</span> <span class="nv">PELE_LICENSE</span><span class="o">=</span><span class="s2">&quot;/shared/work/NBD_Utilities/PELE/PELE_Softwares/bin/PELE1.7.1/licenses&quot;</span>
+<span class="nb">export</span> <span class="nv">PELE_MPI_PARAMS</span><span class="o">=</span><span class="s2">&quot;--verbose&quot;</span>
+<span class="nb">export</span> <span class="nv">SINGULARITY_EXEC</span><span class="o">=</span><span class="s2">&quot;/shared/work/NBD_Utilities/PELE/PELE_Softwares/containers/pele1.7.1_release.sif&quot;</span>
+<span class="nb">export</span> <span class="nv">LC_ALL</span><span class="o">=</span>C<span class="p">;</span> <span class="nb">unset</span> LANGUAGE
+
+<span class="nb">source</span> /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
+conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/envs/peleplatform-1.6.1
+<span class="c1">##################################################################</span>
+
+
+python -m pele_platform.main input.yaml
+</pre></div>
+</div>
+</div>
 <div class="section" id="peleplatform-tirant">
 <h2>PelePlatform (tirant)<a class="headerlink" href="#peleplatform-tirant" title="Permalink to this headline">¶</a></h2>
-<p><strong>Last Update:</strong> 24-11-2021</p>
-<p><strong>PelePlatform - v1.6.1, latest release</strong></p>
+<p><strong>Last Update:</strong> 17-12-2021</p>
+<p><strong>PelePlatform - v1.6.2, latest release</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -J peleplat_test</span>
+<span class="c1">#SBATCH --output=report_%j.out</span>
+<span class="c1">#SBATCH --error=report_%j.err</span>
+<span class="c1">#SBATCH --ntasks=5</span>
+<span class="c1">#SBATCH --mem-per-cpu=1000</span>
+
+module purge
+module load impi mkl
+module load miniconda
+
+<span class="nb">source</span> activate /storage/projects/cns14/Utilities/platform/envs/peleplatform-1.6.2
+
+<span class="nb">export</span> <span class="nv">SCHRODINGER</span><span class="o">=</span><span class="s2">&quot;/storage/projects/cns14/Utilities/schrodinger2021-4/&quot;</span>
+<span class="nb">export</span> <span class="nv">SCHRODINGER_PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;/storage/projects/cns14/Utilities/schrodinger2021-4/internal/lib/python3.8/site-packages&quot;</span>
+<span class="nb">export</span> <span class="nv">PELE</span><span class="o">=</span><span class="s2">&quot;/storage/projects/cns14/Utilities/PELE/PELE1.7.1/&quot;</span>
+
+<span class="nb">export</span> <span class="nv">LC_ALL</span><span class="o">=</span>C<span class="p">;</span> <span class="nb">unset</span> LANGUAGE
+<span class="nb">export</span> <span class="nv">I_MPI_PMI_LIBRARY</span><span class="o">=</span>/usr/lib64/libpmi.so
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/storage/projects/cns14/Utilities/PELE/dependencies/boost-1.66.0/lib:<span class="nv">$LD_LIBRARY_PATH</span>
+<span class="nb">export</span> <span class="nv">SRUN</span><span class="o">=</span><span class="m">1</span>  <span class="c1"># this is to avoid having to set usesrun: true in input.yaml</span>
+
+python -m pele_platform.main input.yaml
+</pre></div>
+</div>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>PelePlatform - v1.6.1</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH -J peleplat_test</span>
 <span class="c1">#SBATCH --output=report_%j.out</span>
@@ -303,6 +388,32 @@ module load impi mkl
 module load miniconda
 
 <span class="nb">source</span> activate /storage/projects/cns14/Utilities/platform/envs/peleplatform-1.6.1
+
+<span class="nb">export</span> <span class="nv">SCHRODINGER</span><span class="o">=</span><span class="s2">&quot;/storage/projects/cns14/Utilities/schrodinger2021-4/&quot;</span>
+<span class="nb">export</span> <span class="nv">SCHRODINGER_PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;/storage/projects/cns14/Utilities/schrodinger2021-4/internal/lib/python3.8/site-packages&quot;</span>
+<span class="nb">export</span> <span class="nv">PELE</span><span class="o">=</span><span class="s2">&quot;/storage/projects/cns14/Utilities/PELE/PELE1.7.1/&quot;</span>
+
+<span class="nb">export</span> <span class="nv">LC_ALL</span><span class="o">=</span>C<span class="p">;</span> <span class="nb">unset</span> LANGUAGE
+<span class="nb">export</span> <span class="nv">I_MPI_PMI_LIBRARY</span><span class="o">=</span>/usr/lib64/libpmi.so
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/storage/projects/cns14/Utilities/PELE/dependencies/boost-1.66.0/lib:<span class="nv">$LD_LIBRARY_PATH</span>
+<span class="nb">export</span> <span class="nv">SRUN</span><span class="o">=</span><span class="m">1</span>  <span class="c1"># this is to avoid having to set usesrun: true in input.yaml</span>
+
+python -m pele_platform.main input.yaml
+</pre></div>
+</div>
+<p><a href="#id3"><span class="problematic" id="id4">**</span></a>PelePlatform - v1.6.0</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -J peleplat_test</span>
+<span class="c1">#SBATCH --output=report_%j.out</span>
+<span class="c1">#SBATCH --error=report_%j.err</span>
+<span class="c1">#SBATCH --ntasks=5</span>
+<span class="c1">#SBATCH --mem-per-cpu=1000</span>
+
+module purge
+module load impi mkl
+module load miniconda
+
+<span class="nb">source</span> activate /storage/projects/cns14/Utilities/platform/envs/peleplatform-1.6.0
 
 <span class="nb">export</span> <span class="nv">SCHRODINGER</span><span class="o">=</span><span class="s2">&quot;/storage/projects/cns14/Utilities/schrodinger2021-4/&quot;</span>
 <span class="nb">export</span> <span class="nv">SCHRODINGER_PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;/storage/projects/cns14/Utilities/schrodinger2021-4/internal/lib/python3.8/site-packages&quot;</span>
