@@ -14,7 +14,8 @@ PelePlatform (cluster)
 **PelePlatform - v1.6.2, latest release**
 
 .. code-block:: bash
-
+   
+   #!/bin/bash
    #SBATCH -J peleplat_tests
    #SBATCH --output=report_%j.out
    #SBATCH --error=report_%j.err
@@ -44,6 +45,7 @@ PelePlatform (cluster)
 
 .. code-block:: bash
 
+   #!/bin/bash
    #SBATCH -J peleplat_tests
    #SBATCH --output=report_%j.out
    #SBATCH --error=report_%j.err
