@@ -488,6 +488,27 @@ Launch with: `sbatch run_pele-1.7.1_nbd.sl`
 Launch with: `sbatch run_pele-1.6_nbd.sl`
 
 
+AI Environment (cluster)
+-------------------------
+
+**Last Update:** 02-03-2022
+
+.. code-block:: bash
+   
+   #!/bin/bash
+   #SBATCH -J ai_env
+   #SBATCH --output=report_%j.out
+   #SBATCH --error=report_%j.err
+   #SBATCH --ntasks=2
+   #SBATCH --mem-per-cpu=1000
+
+   module purge
+   source /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
+   conda activate /shared/work/NBD_Utilities/conda_envs/aienv
+   
+   python ai_script.py
+   
+   
 AnalogsSearch (Office)
 ---------------------------
 
