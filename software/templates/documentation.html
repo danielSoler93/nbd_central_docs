@@ -99,6 +99,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#peleplatform-tirant">PelePlatform (tirant)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pelesimulationanalysis-cluster">PeleSimulationAnalysis (cluster)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pele-cluster">Pele++ (cluster)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ai-environment-cluster">AI Environment (cluster)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#analogssearch-office">AnalogsSearch (Office)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mdpocket-office">MDPocket (Office)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#caviar-cluster">CAVIAR (cluster)</a></li>
@@ -627,6 +628,24 @@ $ /shared/work/NBD_Utilities/PELE/PELE_Templates/PELE_mpi/run_pele-1.6_nbd.sl
 </pre></div>
 </div>
 <p>Launch with: <cite>sbatch run_pele-1.6_nbd.sl</cite></p>
+</div>
+<div class="section" id="ai-environment-cluster">
+<h2>AI Environment (cluster)<a class="headerlink" href="#ai-environment-cluster" title="Permalink to this headline">¶</a></h2>
+<p><strong>Last Update:</strong> 02-03-2022</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -J ai_env</span>
+<span class="c1">#SBATCH --output=report_%j.out</span>
+<span class="c1">#SBATCH --error=report_%j.err</span>
+<span class="c1">#SBATCH --ntasks=2</span>
+<span class="c1">#SBATCH --mem-per-cpu=1000</span>
+
+module purge
+<span class="nb">source</span> /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
+conda activate /shared/work/NBD_Utilities/conda_envs/aienv
+
+python ai_script.py
+</pre></div>
+</div>
 </div>
 <div class="section" id="analogssearch-office">
 <h2>AnalogsSearch (Office)<a class="headerlink" href="#analogssearch-office" title="Permalink to this headline">¶</a></h2>
