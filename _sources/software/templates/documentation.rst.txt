@@ -44,7 +44,7 @@ PelePlatform (cluster)
    python -m pele_platform.main input_fast.yaml
    
    
-**PelePlatform - v1.6.2
+**PelePlatform - v1.6.2**
 
 .. code-block:: bash
    
