@@ -53,10 +53,10 @@ PelePlatform (cluster)
    #SBATCH --mem-per-cpu=1000
 
    module purge
-   source /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
-   conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/envs/peleplatform-1.6.2
 
    module load intel
+   module load intel-oneapi
+   module load imkl
 
    export SCHRODINGER="/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/"
    export SCHRODINGER_PYTHONPATH="/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/internal/lib/python2.7/site-packages"
@@ -66,6 +66,9 @@ PelePlatform (cluster)
    export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
    export LD_LIBRARY_PATH=/shared/work/NBD_Utilities/PELE/PELE_Softwares/local_deps/pele_deps/boost_1_52/lib:$LD_LIBRARY_PATH
    export SRUN=1  # this is to avoid having to set usesrun: true in input.yaml
+   
+   source /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
+   conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/envs/peleplatform-1.6.2
 
    python -c "import pele_platform; print('Using PELEPlatform, version', pele_platform.__version__)"
    python -m pele_platform.main input_fast.yaml
@@ -83,10 +86,10 @@ PelePlatform (cluster)
    #SBATCH --mem-per-cpu=1000
 
    module purge
-   source /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
-   conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/envs/peleplatform-1.6.1
 
    module load intel
+   module load intel-oneapi
+   module load imkl
 
    export SCHRODINGER="/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/"
    export SCHRODINGER_PYTHONPATH="/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/internal/lib/python2.7/site-packages"
@@ -97,6 +100,9 @@ PelePlatform (cluster)
    export LD_LIBRARY_PATH=/shared/work/NBD_Utilities/PELE/PELE_Softwares/local_deps/pele_deps/boost_1_52/lib:$LD_LIBRARY_PATH
    export SRUN=1  # this is to avoid having to set usesrun: true in input.yaml
 
+   source /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
+   conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/envs/peleplatform-1.6.1
+   
    python -c "import pele_platform; print('Using PELEPlatform, version', pele_platform.__version__)"
    python -m pele_platform.main input_fast.yaml
 
