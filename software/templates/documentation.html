@@ -121,6 +121,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#alphafold">AlphaFold</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#structure-filtering">Structure Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#protein-protein-docking">Protein-protein docking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#dabble">Dabble</a></li>
 </ul>
 </li>
 </ul>
@@ -217,6 +218,9 @@ module load intel
 module load intel-oneapi
 module load imkl
 
+<span class="nb">source</span> /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
+conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/envs/peleplatform-1.6.3
+
 <span class="nb">export</span> <span class="nv">SCHRODINGER</span><span class="o">=</span><span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/&quot;</span>
 <span class="nb">export</span> <span class="nv">SCHRODINGER_PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/internal/lib/python2.7/site-packages&quot;</span>
 <span class="nb">export</span> <span class="nv">PELE</span><span class="o">=</span><span class="s2">&quot;/shared/work/NBD_Utilities/PELE/PELE_Softwares/bin/PELE1.7.1/&quot;</span>
@@ -225,9 +229,6 @@ module load imkl
 <span class="nb">export</span> <span class="nv">I_MPI_PMI_LIBRARY</span><span class="o">=</span>/usr/lib64/libpmi.so
 <span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/shared/work/NBD_Utilities/PELE/PELE_Softwares/local_deps/pele_deps/boost_1_52/lib:<span class="nv">$LD_LIBRARY_PATH</span>
 <span class="nb">export</span> <span class="nv">SRUN</span><span class="o">=</span><span class="m">1</span>  <span class="c1"># this is to avoid having to set usesrun: true in input.yaml</span>
-
-<span class="nb">source</span> /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
-conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/envs/peleplatform-1.6.3
 
 python -c <span class="s2">&quot;import pele_platform; print(&#39;Using PELEPlatform, version&#39;, pele_platform.__version__)&quot;</span>
 python -m pele_platform.main input_fast.yaml
@@ -247,6 +248,9 @@ module load intel
 module load intel-oneapi
 module load imkl
 
+<span class="nb">source</span> /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
+conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/envs/peleplatform-1.6.2
+
 <span class="nb">export</span> <span class="nv">SCHRODINGER</span><span class="o">=</span><span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/&quot;</span>
 <span class="nb">export</span> <span class="nv">SCHRODINGER_PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/internal/lib/python2.7/site-packages&quot;</span>
 <span class="nb">export</span> <span class="nv">PELE</span><span class="o">=</span><span class="s2">&quot;/shared/work/NBD_Utilities/PELE/PELE_Softwares/bin/PELE1.7.1/&quot;</span>
@@ -255,9 +259,6 @@ module load imkl
 <span class="nb">export</span> <span class="nv">I_MPI_PMI_LIBRARY</span><span class="o">=</span>/usr/lib64/libpmi.so
 <span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/shared/work/NBD_Utilities/PELE/PELE_Softwares/local_deps/pele_deps/boost_1_52/lib:<span class="nv">$LD_LIBRARY_PATH</span>
 <span class="nb">export</span> <span class="nv">SRUN</span><span class="o">=</span><span class="m">1</span>  <span class="c1"># this is to avoid having to set usesrun: true in input.yaml</span>
-
-<span class="nb">source</span> /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
-conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/envs/peleplatform-1.6.2
 
 python -c <span class="s2">&quot;import pele_platform; print(&#39;Using PELEPlatform, version&#39;, pele_platform.__version__)&quot;</span>
 python -m pele_platform.main input_fast.yaml
@@ -277,6 +278,9 @@ module load intel
 module load intel-oneapi
 module load imkl
 
+<span class="nb">source</span> /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
+conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/envs/peleplatform-1.6.1
+
 <span class="nb">export</span> <span class="nv">SCHRODINGER</span><span class="o">=</span><span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/&quot;</span>
 <span class="nb">export</span> <span class="nv">SCHRODINGER_PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;/sNow/easybuild/centos/7.4.1708/Skylake/software/schrodinger2017-4/internal/lib/python2.7/site-packages&quot;</span>
 <span class="nb">export</span> <span class="nv">PELE</span><span class="o">=</span><span class="s2">&quot;/shared/work/NBD_Utilities/PELE/PELE_Softwares/bin/PELE1.7.1/&quot;</span>
@@ -285,9 +289,6 @@ module load imkl
 <span class="nb">export</span> <span class="nv">I_MPI_PMI_LIBRARY</span><span class="o">=</span>/usr/lib64/libpmi.so
 <span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/shared/work/NBD_Utilities/PELE/PELE_Softwares/local_deps/pele_deps/boost_1_52/lib:<span class="nv">$LD_LIBRARY_PATH</span>
 <span class="nb">export</span> <span class="nv">SRUN</span><span class="o">=</span><span class="m">1</span>  <span class="c1"># this is to avoid having to set usesrun: true in input.yaml</span>
-
-<span class="nb">source</span> /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
-conda activate /shared/work/NBD_Utilities/PELE/PELE_Softwares/PelePlatform/envs/peleplatform-1.6.1
 
 python -c <span class="s2">&quot;import pele_platform; print(&#39;Using PELEPlatform, version&#39;, pele_platform.__version__)&quot;</span>
 python -m pele_platform.main input_fast.yaml

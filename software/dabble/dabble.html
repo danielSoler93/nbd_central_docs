@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>PLUMED &mdash; NBD Docs 1.0.0 documentation</title>
+  <title>&lt;no title&gt; &mdash; NBD Docs 1.0.0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="PSI4" href="../PSI4/documentation.html" />
-    <link rel="prev" title="GROMACS" href="../GROMACS/documentation.html" /> 
+    <link rel="next" title="IT infrastructure" href="../../compute_power/index.html" />
+    <link rel="prev" title="Protein-protein docking" href="../ppi/ppi.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,32 +89,8 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../databases/index.html">Compound DataBases</a></li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Software</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../index.html#summary">Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#job-launching-templates">Job Launching Templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#pele">PELE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#namd">NAMD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#schrodinger">Schrodinger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#python-packages">Python packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#gromacs">GROMACS</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html#plumed">PLUMED</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">PLUMED</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">2.7.1</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#psi4">PSI4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#nice-dcv">Nice DCV</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#tests">Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#new-comers">New Comers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#alphafold">AlphaFold</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#structure-filtering">Structure Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#protein-protein-docking">Protein-protein docking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#dabble">Dabble</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Software</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../compute_power/index.html">IT infrastructure</a></li>
@@ -169,13 +145,13 @@
         
           <li><a href="../index.html">Software</a> &raquo;</li>
         
-      <li>PLUMED</li>
+      <li>&lt;no title&gt;</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/software/PLUMED/documentation.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/software/dabble/dabble.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -188,23 +164,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="plumed">
-<h1>PLUMED<a class="headerlink" href="#plumed" title="Permalink to this headline">¶</a></h1>
-<p>PLUMED is a plugin that works with a large number of molecular dynamics codes. PLUMED can also work as a Command Line Tool to perform analysis on trajectories saved in most of the existing formats.</p>
-<div class="section" id="id1">
-<h2>2.7.1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://plumed.github.io/doc-v2.7/user-doc/html/index.html">Documentation for this version</a></p>
-<p>Installation path (NBD cluster):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">NBD_Utilities</span><span class="o">/</span><span class="n">PLUMED</span><span class="o">/</span><span class="n">plumed</span><span class="o">-</span><span class="mf">2.7.1</span><span class="n">_impi</span>
+  <p>## Dabble ##
+Dabble is a tool for building membrane protein systems.
+This documentation provides the information and templates to run <a class="reference external" href="https://http://dabble.robinbetz.com/index.html">Dabble</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name dabble</span>
+
+<span class="nb">source</span> /shared/work/NBD_Utilities/miniconda3/etc/profile.d/conda.sh
+conda activate /shared/work/NBD_Utilities/conda_envs/dabble
+dabble -h
 </pre></div>
-</div>
-<p>Dependencies:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>module load intel-oneapi
-export LD_LIBRARY_PATH=/shared/work/NBD_Utilities/PLUMED/plumed-2.7.1_impi/lib:$LD_LIBRARY_PATH
-export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
-</pre></div>
-</div>
-</div>
 </div>
 
 
@@ -215,10 +184,10 @@ export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../PSI4/documentation.html" class="btn btn-neutral float-right" title="PSI4" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../compute_power/index.html" class="btn btn-neutral float-right" title="IT infrastructure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../GROMACS/documentation.html" class="btn btn-neutral float-left" title="GROMACS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../ppi/ppi.html" class="btn btn-neutral float-left" title="Protein-protein docking" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

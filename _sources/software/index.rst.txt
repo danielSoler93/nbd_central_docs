@@ -146,3 +146,11 @@ Here you will find information about several PPI software installed in our clust
 
 .. toctree::
    ppi/ppi
+
+Dabble
+------
+Here you will find how to run Dabble
+
+.. toctree::
+   dabble/dabble
+
