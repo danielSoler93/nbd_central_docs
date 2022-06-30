@@ -1,4 +1,5 @@
-## Dabble ##
+Dabble
+-------
 Dabble is a tool for building membrane protein systems. 
 This documentation provides the information and templates to run `Dabble <https://http://dabble.robinbetz.com/index.html>`_.
 
