@@ -140,13 +140,6 @@ Here you will find how to run a structure filtering
 .. toctree::
    filtering/filtering
 
-Protein-protein docking
------------------------
-Here you will find information about several PPI software installed in our cluster
-
-.. toctree::
-   ppi/ppi
-
 Dabble
 ------
 Here you will find how to run Dabble
@@ -154,4 +147,9 @@ Here you will find how to run Dabble
 .. toctree::
    dabble/dabble
 
+Protein-protein docking
+-----------------------
+Here you will find information about several PPI software installed in our cluster
 
+.. toctree::
+   ppi/ppi
